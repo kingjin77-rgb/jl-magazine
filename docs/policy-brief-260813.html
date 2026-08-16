@@ -1,264 +1,498 @@
 <title>8·13 대책 정독</title>
 <style>
+/* ===========================================================
+   조판 기준 (typesetting spec)
+   판면    본문단 폭 688px ≒ 국문 38자 / 방주단 132px / 단 간격 32px
+   행간    본문 1.90 · 소제목 1.50 · 표제 1.30 · 방주 1.65
+   단락    행간의 0.70배(23px) — 행송 32px의 5/7
+   여백    절 사이 96px · 장 사이 128px · 문단군 48px
+   서체    표제·인용 명조 / 본문 고딕 / 면수·수치 등폭
+   =========================================================== */
 :root{
-  --navy:#0F2548; --blue:#3E6CB5; --red:#C0392B;
-  --paper:#EEF1F5; --card:#FFFFFF; --card-2:#F7F9FB;
-  --ink:#0F2548; --ink-2:#3A4A63; --ink-3:#6B7B93;
-  --rule:#D3DBE6; --rule-2:#E5EAF1;
-  --blue-wash:#EAF0F9; --red-wash:#FAEDEB; --navy-wash:#E3E8F0;
-  --shadow:0 1px 2px rgba(15,37,72,.06), 0 8px 24px -12px rgba(15,37,72,.18);
-  --serif:'Nanum Myeongjo','AppleMyungjo',Batang,'Times New Roman',serif;
+  --marg:132px; --gap:32px; --measure:900px;
+
+  --paper:#FFFFFF;
+  --paper-2:#FAFAFB;
+  --paper-3:#F5F6F8;
+  --ink:#1A1C20;
+  --ink-2:#4C525B;
+  --ink-3:#8A9199;
+  --head:#0F2548;
+  --accent:#3E6CB5;
+  --alert:#C0392B;
+  --rule:#E3E6EB;
+  --rule-2:#EFF1F4;
+  --rule-3:#12203A;
+  --hl:#FBF1C7;
+  --hl-r:#F8DFD9;
+
+  --serif:'Nanum Myeongjo','AppleMyungjo','Batang','바탕',Georgia,serif;
   --sans:'Pretendard Variable',Pretendard,'Apple SD Gothic Neo','Malgun Gothic',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   --mono:ui-monospace,'SF Mono',Menlo,Consolas,'D2Coding','Courier New',monospace;
+
+  --lh:1.9; --line:32px;
+  --p-gap:23px;
+  --s-blk:48px; --s-sec:96px; --s-chp:128px;
 }
 @media (prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
-    --navy:#0F2548; --blue:#7FA8E0; --red:#E2705E;
-    --paper:#0C1520; --card:#131E2C; --card-2:#182534;
-    --ink:#E8EDF4; --ink-2:#B4C1D3; --ink-3:#8595AC;
-    --rule:#2A3A4F; --rule-2:#213043;
-    --blue-wash:#152537; --red-wash:#2C1B18; --navy-wash:#18273A;
-    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+    --paper:#15171B; --paper-2:#1B1E23; --paper-3:#20242A;
+    --ink:#E7E9ED; --ink-2:#AFB5BF; --ink-3:#7C838D;
+    --head:#D7E1F0; --accent:#8FB2E4; --alert:#E2836F;
+    --rule:#2B3037; --rule-2:#23272D; --rule-3:#5C6B82;
+    --hl:#4A4325; --hl-r:#4C2E28;
   }
 }
 :root[data-theme="dark"]{
-  --navy:#0F2548; --blue:#7FA8E0; --red:#E2705E;
-  --paper:#0C1520; --card:#131E2C; --card-2:#182534;
-  --ink:#E8EDF4; --ink-2:#B4C1D3; --ink-3:#8595AC;
-  --rule:#2A3A4F; --rule-2:#213043;
-  --blue-wash:#152537; --red-wash:#2C1B18; --navy-wash:#18273A;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  --paper:#15171B; --paper-2:#1B1E23; --paper-3:#20242A;
+  --ink:#E7E9ED; --ink-2:#AFB5BF; --ink-3:#7C838D;
+  --head:#D7E1F0; --accent:#8FB2E4; --alert:#E2836F;
+  --rule:#2B3037; --rule-2:#23272D; --rule-3:#5C6B82;
+  --hl:#4A4325; --hl-r:#4C2E28;
 }
+
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
   margin:0; background:var(--paper); color:var(--ink);
-  font-family:var(--sans); font-size:16px; line-height:1.75;
-  -webkit-font-smoothing:antialiased; word-break:keep-all; overflow-wrap:break-word;
+  font-family:var(--sans); font-size:17px; line-height:var(--lh);
+  letter-spacing:-.003em; -webkit-font-smoothing:antialiased;
+  word-break:keep-all; overflow-wrap:break-word;
 }
-h1,h2,h3,h4{margin:0; text-wrap:balance; letter-spacing:-.035em; line-height:1.28; font-weight:800}
 p{margin:0}
-a{color:var(--blue)}
-:focus-visible{outline:2px solid var(--blue); outline-offset:3px; border-radius:2px}
+h1,h2,h3,h4{margin:0; text-wrap:balance}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
 @media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important; scroll-behavior:auto!important}}
-html{scroll-behavior:smooth}
+[id]{scroll-margin-top:70px}
 
-.wrap{max-width:1120px; margin:0 auto; padding:0 24px; min-width:0}
-/* grid/flex children must be allowed to shrink below their content's intrinsic width,
-   otherwise a wide table inside .tblwrap pushes the whole page sideways */
-.checks > *, .opinion, .opinion li, .parthead .wrap > *, .prow > *, .rowhead > *,
-.bar > *, .calrow > *, .calitem > *, .legend > *, .newsgrid > *, .docmap > *,
-.stats > *, .covermeta > *, .fin > *{min-width:0}
-.tblwrap{max-width:100%}
+/* ── 판면: 방주단 + 본문단 ───────────────────────────── */
+.wrap{
+  max-width:var(--measure); margin:0 auto; padding:0 32px;
+  display:grid; grid-template-columns:var(--marg) minmax(0,1fr); column-gap:var(--gap);
+}
+.wrap > *{grid-column:2; min-width:0}
 .mono{font-family:var(--mono); font-variant-numeric:tabular-nums}
-.lbl{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3)}
 
-/* ---------- nav ---------- */
-nav{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--paper) 92%, transparent);
-  backdrop-filter:blur(12px); border-bottom:1px solid var(--rule)}
-.navin{max-width:1120px; margin:0 auto; padding:10px 24px; display:flex; align-items:center; gap:18px;
-  overflow-x:auto; scrollbar-width:none}
+/* 방주 라벨 */
+.lbl{
+  grid-column:1; font-family:var(--sans); font-size:12px; font-weight:700;
+  letter-spacing:.16em; color:var(--ink-3); line-height:1.65; text-align:right;
+  padding-top:.55em;
+}
+.sechead{display:contents}
+
+/* ── 난외주(running head) ───────────────────────────── */
+nav{
+  position:sticky; top:0; z-index:50;
+  background:color-mix(in srgb, var(--paper) 94%, transparent);
+  backdrop-filter:blur(10px); border-bottom:1px solid var(--rule);
+}
+.navin{
+  max-width:var(--measure); margin:0 auto; padding:11px 32px;
+  display:flex; align-items:baseline; gap:20px; overflow-x:auto; scrollbar-width:none;
+}
 .navin::-webkit-scrollbar{display:none}
-.navbrand{font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.12em;
-  color:var(--ink); white-space:nowrap; padding-right:14px; border-right:1px solid var(--rule)}
-.navin a{font-size:13px; color:var(--ink-2); text-decoration:none; white-space:nowrap; font-weight:600;
-  padding:3px 0; border-bottom:2px solid transparent}
-.navin a:hover{color:var(--blue); border-bottom-color:var(--blue)}
+.navbrand{
+  font-family:var(--serif); font-size:13px; font-weight:700; letter-spacing:.08em;
+  color:var(--head); white-space:nowrap; padding-right:16px; border-right:1px solid var(--rule);
+}
+.navin a{
+  font-size:13px; color:var(--ink-2); text-decoration:none; white-space:nowrap;
+  font-weight:500; letter-spacing:-.01em; padding-bottom:2px; border-bottom:1px solid transparent;
+}
+.navin a:hover{color:var(--accent); border-bottom-color:var(--accent)}
 
-/* ---------- cover ---------- */
-.cover{padding:88px 0 64px; border-bottom:3px solid var(--navy)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cover{border-bottom-color:var(--blue)}}
-:root[data-theme="dark"] .cover{border-bottom-color:var(--blue)}
-.cover .kicker{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:26px}
-.tag{font-family:var(--mono); font-size:11px; letter-spacing:.1em; padding:4px 9px; border:1px solid var(--rule);
-  border-radius:2px; color:var(--ink-2); background:var(--card)}
-.tag.solid{background:var(--navy); color:#fff; border-color:var(--navy)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tag.solid{background:var(--blue); color:#0C1520; border-color:var(--blue)}}
-:root[data-theme="dark"] .tag.solid{background:var(--blue); color:#0C1520; border-color:var(--blue)}
-h1{font-size:clamp(44px,8.5vw,86px); letter-spacing:-.05em; line-height:1.04}
-.cover .sub{margin-top:24px; font-size:clamp(17px,2.4vw,21px); color:var(--ink-2); font-weight:500;
-  max-width:44ch; line-height:1.6; letter-spacing:-.02em}
-.covermeta{margin-top:44px; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px;
-  background:var(--rule); border:1px solid var(--rule)}
-.covermeta > div{background:var(--paper); padding:16px 18px}
-.covermeta dt{font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--ink-3); text-transform:uppercase}
-.covermeta dd{margin:6px 0 0; font-size:15px; font-weight:700; letter-spacing:-.02em}
+/* ── 속표지 ──────────────────────────────────────────── */
+.cover{padding:120px 0 104px}
+.cover .wrap{display:block; text-align:center; max-width:760px}
+.cover .kicker{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-bottom:52px}
+.tag{
+  font-family:var(--sans); font-size:11.5px; font-weight:600; letter-spacing:.08em;
+  padding:4px 11px; border:1px solid var(--rule); color:var(--ink-3); border-radius:1px;
+}
+.tag.solid{background:transparent; border-color:var(--alert); color:var(--alert)}
+h1{
+  font-family:var(--serif); font-size:clamp(46px,9vw,80px); font-weight:700;
+  line-height:1.22; letter-spacing:-.02em; color:var(--head);
+}
+.cover .sub{
+  margin:44px auto 0; max-width:34em; font-size:16.5px; line-height:1.95;
+  color:var(--ink-2); letter-spacing:-.01em; text-align:left;
+}
+.covermeta{
+  margin:64px 0 0; display:grid; grid-template-columns:repeat(auto-fit,minmax(136px,1fr));
+  gap:28px 24px; border-top:1px solid var(--rule-3); border-bottom:1px solid var(--rule);
+  padding:26px 0; text-align:left;
+}
+.covermeta > div{min-width:0}
+.covermeta dt{font-size:11.5px; font-weight:700; letter-spacing:.14em; color:var(--ink-3); line-height:1.6}
+.covermeta dd{margin:7px 0 0; font-size:15px; font-weight:600; line-height:1.65; letter-spacing:-.015em}
 
-/* ---------- generic section ---------- */
-section{padding:64px 0; border-bottom:1px solid var(--rule)}
-.sechead{display:flex; align-items:baseline; gap:14px; margin-bottom:28px; flex-wrap:wrap}
-.sechead h2{font-size:clamp(26px,4vw,38px)}
-.lead{font-size:17px; color:var(--ink-2); max-width:66ch; line-height:1.8}
+/* ── 절 ──────────────────────────────────────────────── */
+section{padding:var(--s-sec) 0; border-top:1px solid var(--rule)}
+.sechead h2, section h2{
+  font-family:var(--serif); font-size:clamp(27px,3.4vw,36px); font-weight:700;
+  line-height:1.38; letter-spacing:-.025em; color:var(--head); margin-bottom:var(--p-gap);
+}
+.lead{font-size:17px; line-height:var(--lh); color:var(--ink-2)}
+.lead + *{margin-top:var(--s-blk)}
 
-/* ---------- how to read ---------- */
-.legend{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:28px}
-.legend-item{background:var(--card); border:1px solid var(--rule); border-radius:3px; padding:18px 20px; box-shadow:var(--shadow)}
-.legend-item .h{display:flex; align-items:center; gap:9px; margin-bottom:9px; font-weight:800; font-size:15px; letter-spacing:-.02em}
-.legend-item p{font-size:14px; color:var(--ink-2); line-height:1.65}
-.sq{width:11px; height:11px; flex:none; border-radius:1px}
-.sq.red{background:var(--red)} .sq.blue{background:var(--blue)} .sq.navy{background:var(--ink-3)}
+/* ── 일러두기 ────────────────────────────────────────── */
+.legend{
+  grid-column:1/-1; margin-top:var(--s-blk);
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:0;
+  border-top:1px solid var(--rule-3);
+}
+.legend-item{padding:24px 26px 26px 0; border-bottom:1px solid var(--rule); min-width:0}
+.legend-item .h{
+  display:flex; align-items:center; gap:9px; margin-bottom:10px;
+  font-family:var(--serif); font-weight:700; font-size:16.5px; letter-spacing:-.01em; color:var(--head);
+}
+.legend-item p{font-size:14.5px; line-height:1.8; color:var(--ink-2)}
+.sq{width:9px; height:9px; flex:none}
+.sq.red{background:var(--alert)} .sq.blue{background:var(--accent)} .sq.navy{background:var(--ink-3)}
 
-/* ---------- stats ---------- */
-/* hairlines drawn per-cell, not by a container background showing through the gaps —
-   the last row is partly empty and a container fill would render as a blank slab */
-.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(196px,1fr)); gap:1px; margin-top:8px}
-.stat{background:var(--card); padding:22px 20px; box-shadow:0 0 0 1px var(--rule)}
-.stat .n{font-family:var(--mono); font-size:clamp(26px,3.6vw,35px); font-weight:700; letter-spacing:-.04em; line-height:1.1;
-  color:var(--navy); font-variant-numeric:tabular-nums; white-space:nowrap}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .stat .n{color:var(--blue)}}
-:root[data-theme="dark"] .stat .n{color:var(--blue)}
+/* ── 요점 수치 ───────────────────────────────────────── */
+.stats{
+  grid-column:1/-1; margin-top:var(--s-blk);
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(196px,1fr));
+  column-gap:32px; row-gap:0; border-top:1px solid var(--rule-3);
+}
+.stat{padding:24px 0 26px; border-bottom:1px solid var(--rule); min-width:0}
+.stat .n{
+  font-family:var(--mono); font-size:clamp(25px,3.4vw,33px); font-weight:700;
+  letter-spacing:-.045em; line-height:1.15; color:var(--head);
+  font-variant-numeric:tabular-nums; white-space:nowrap;
+}
 .stat .n small{font-size:.44em; font-weight:600; letter-spacing:0; margin-left:3px; white-space:nowrap}
-.stat .k{margin-top:11px; font-size:13px; font-weight:700; letter-spacing:-.01em}
-.stat .d{margin-top:4px; font-size:12px; color:var(--ink-3); line-height:1.5}
+.stat .k{margin-top:12px; font-size:14px; font-weight:700; letter-spacing:-.015em; line-height:1.55}
+.stat .d{margin-top:5px; font-size:12.5px; color:var(--ink-3); line-height:1.7}
 
-/* ---------- doc map ---------- */
-.docmap{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin-top:26px}
-.doc{background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--navy); border-radius:0 0 3px 3px;
-  padding:20px; box-shadow:var(--shadow)}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .doc{border-top-color:var(--blue)}}
-:root[data-theme="dark"] .doc{border-top-color:var(--blue)}
-.doc .num{font-family:var(--mono); font-size:12px; font-weight:700; color:var(--red); letter-spacing:.06em}
-.doc h4{margin:8px 0 10px; font-size:16px}
-.doc .meta{font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.04em}
-.doc p{margin-top:11px; font-size:13.5px; color:var(--ink-2); line-height:1.65}
+/* ── 원문 지도 ───────────────────────────────────────── */
+.docmap{grid-column:1/-1; margin-top:var(--s-blk); display:grid; gap:0; border-top:1px solid var(--rule-3)}
+.doc{
+  display:grid; grid-template-columns:var(--marg) minmax(0,1fr); column-gap:var(--gap);
+  padding:26px 0; border-bottom:1px solid var(--rule);
+}
+.doc .num{
+  grid-column:1; grid-row:1/span 3; text-align:right;
+  font-family:var(--serif); font-size:14px; font-weight:700; color:var(--alert); letter-spacing:.02em; padding-top:.35em;
+}
+.doc h4{grid-column:2; font-family:var(--serif); font-size:19px; font-weight:700; color:var(--head); line-height:1.45; letter-spacing:-.02em}
+.doc .meta{grid-column:2; margin-top:6px; font-family:var(--mono); font-size:11.5px; color:var(--ink-3); letter-spacing:.02em}
+.doc p{grid-column:2; margin-top:12px; font-size:15px; line-height:1.85; color:var(--ink-2)}
 
-/* ---------- part ---------- */
-.part{padding:0; border-bottom:1px solid var(--rule)}
-.parthead{background:var(--navy); color:#fff; padding:52px 0 46px; margin-bottom:0}
-.parthead .wrap{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:start}
-.partnum{font-family:var(--mono); font-size:clamp(48px,9vw,86px); font-weight:700; line-height:.8;
-  letter-spacing:-.06em; color:rgba(255,255,255,.32)}
-.parthead h2{font-size:clamp(25px,4.4vw,40px); color:#fff}
-.parthead .src{font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; color:rgba(255,255,255,.62); margin-bottom:12px}
-.parthead .verdict{margin-top:18px; font-size:16px; line-height:1.7; color:rgba(255,255,255,.9); max-width:60ch;
-  border-left:3px solid var(--red); padding-left:16px; font-weight:500}
-.partbody{padding:52px 0 60px}
+/* ── 장(章) ──────────────────────────────────────────── */
+.part{border-top:1px solid var(--rule)}
+.parthead{padding:var(--s-chp) 0 0}
+.parthead .wrap{align-items:start}
+.partnum{
+  grid-column:1; text-align:right; font-family:var(--serif); color:var(--ink-3);
+  font-size:14px; font-weight:700; letter-spacing:.16em; line-height:1.6; padding-top:.5em;
+}
+.partnum b{display:block; font-size:40px; font-weight:700; letter-spacing:-.02em; color:var(--alert); line-height:1.1; margin:6px 0 4px}
+.parthead .src{
+  grid-column:2; font-family:var(--mono); font-size:12px; letter-spacing:.04em;
+  color:var(--ink-3); padding-bottom:14px; border-bottom:1px solid var(--rule-3); margin-bottom:26px;
+}
+.parthead h2{
+  grid-column:2; font-family:var(--serif); font-size:clamp(28px,3.8vw,40px); font-weight:700;
+  line-height:1.42; letter-spacing:-.028em; color:var(--head);
+}
+.parthead .verdict{
+  grid-column:2; margin-top:26px; font-size:16px; line-height:1.92; color:var(--ink-2);
+  padding-left:20px; border-left:2px solid var(--alert);
+}
+.partbody{padding:var(--s-sec) 0 var(--s-chp)}
 
-/* ---------- page-by-page table ---------- */
-.readtable{margin-top:22px; border:1px solid var(--rule); border-radius:3px; overflow:hidden; background:var(--card)}
-.readtable .rowhead{display:grid; grid-template-columns:76px 1fr 54px; gap:16px; padding:11px 18px;
-  background:var(--navy-wash); border-bottom:1px solid var(--rule)}
-.readtable .rowhead span{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
-.readtable .rowhead span:last-child{text-align:center}
-.prow{display:grid; grid-template-columns:76px 1fr 54px; gap:16px; padding:14px 18px; border-bottom:1px solid var(--rule-2);
-  align-items:start}
-.prow:last-child{border-bottom:0}
-.prow:nth-child(even){background:var(--card-2)}
-.pno{font-family:var(--mono); font-size:12.5px; font-weight:700; color:var(--blue); letter-spacing:-.02em; padding-top:2px}
-.ptitle{font-size:14.5px; font-weight:700; letter-spacing:-.02em}
-.pdesc{margin-top:4px; font-size:13.5px; color:var(--ink-2); line-height:1.65; font-weight:400}
-.pmark{text-align:center; padding-top:3px; font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.02em}
-.m3{color:var(--red)} .m2{color:var(--blue)} .m1{color:var(--ink-3)}
+/* ── 면별 통독표 ─────────────────────────────────────── */
+.readtable{grid-column:1/-1; margin-top:var(--s-blk); border-top:1px solid var(--rule-3)}
+.readtable .rowhead{
+  display:grid; grid-template-columns:var(--marg) minmax(0,1fr) 56px; column-gap:var(--gap);
+  padding:9px 0; border-bottom:1px solid var(--rule);
+}
+.rowhead span{font-size:11px; font-weight:700; letter-spacing:.14em; color:var(--ink-3)}
+.rowhead span:first-child{text-align:right}
+.rowhead span:last-child{text-align:center}
+.prow{
+  display:grid; grid-template-columns:var(--marg) minmax(0,1fr) 56px; column-gap:var(--gap);
+  padding:20px 0; border-bottom:1px solid var(--rule-2); align-items:start;
+}
+.prow > *{min-width:0}
+.pno{
+  text-align:right; font-family:var(--mono); font-size:14px; font-weight:700;
+  color:var(--head); letter-spacing:-.03em; padding-top:.28em;
+}
+.ptitle{font-family:var(--serif); font-size:17px; font-weight:700; letter-spacing:-.02em; color:var(--head); line-height:1.55}
+.pdesc{margin-top:8px; font-size:14.5px; line-height:1.85; color:var(--ink-2)}
+.pmark{text-align:center; padding-top:.45em; font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.04em}
+.m3{color:var(--alert)} .m2{color:var(--accent)} .m1{color:var(--ink-3)}
 
-/* ---------- check block ---------- */
-.checks{margin-top:34px; display:grid; gap:16px}
-.check{background:var(--card); border:1px solid var(--rule); border-left:4px solid var(--red); border-radius:0 3px 3px 0;
-  padding:20px 22px; box-shadow:var(--shadow)}
-.check .top{display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; margin-bottom:10px}
-.check .cno{font-family:var(--mono); font-size:11px; font-weight:700; color:var(--red); letter-spacing:.08em}
-.check .cite{font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.04em;
-  border:1px solid var(--rule); padding:1px 7px; border-radius:2px}
-.check h4{font-size:16.5px; margin-bottom:10px}
-.check p{font-size:14.5px; color:var(--ink-2); line-height:1.78}
-.check p + p{margin-top:10px}
-.check .quote{margin:13px 0; padding:13px 16px; background:var(--card-2); border:1px solid var(--rule-2); border-radius:2px;
-  font-family:var(--serif); font-size:14.5px; line-height:1.75; color:var(--ink)}
-.check .quote::before{content:'원문 '; font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--ink-3)}
-strong{font-weight:800; color:var(--ink)}
-mark{background:var(--blue-wash); color:var(--ink); padding:1px 4px; border-radius:2px; font-weight:700}
-mark.r{background:var(--red-wash)}
+/* ── 중요 체크 ───────────────────────────────────────── */
+.checks{grid-column:1/-1; margin-top:28px; display:grid; gap:26px}
+.check{
+  display:grid; grid-template-columns:calc(var(--marg) - 26px) minmax(0,1fr); column-gap:var(--gap);
+  background:var(--paper-2); border:1px solid var(--rule); border-top:2px solid var(--alert);
+  padding:28px 26px 30px;
+}
+.check > *{grid-column:2; min-width:0}
+.check .top{grid-column:1; grid-row:1/span 40; text-align:right; display:block}
+.check .cno{
+  display:block; font-family:var(--serif); font-size:14px; font-weight:700;
+  color:var(--alert); letter-spacing:.02em; line-height:1.5; padding-top:.15em;
+}
+.check .cite{
+  display:block; margin-top:9px; font-family:var(--mono); font-size:11px;
+  color:var(--ink-3); letter-spacing:.02em; line-height:1.65; border:0; padding:0;
+}
+.check h4{
+  font-family:var(--serif); font-size:20px; font-weight:700; line-height:1.55;
+  letter-spacing:-.025em; color:var(--head); margin-bottom:var(--p-gap);
+}
+.check p{font-size:16px; line-height:var(--lh); color:var(--ink-2)}
+.check p + p{margin-top:var(--p-gap)}
+.check .quote{
+  margin:var(--p-gap) 0; padding:20px 22px; background:var(--paper); border:1px solid var(--rule);
+  font-family:var(--serif); font-size:16px; line-height:1.85; color:var(--ink); letter-spacing:-.01em;
+}
+.check .quote::before{
+  content:'원 문'; display:block; margin-bottom:10px; font-family:var(--sans);
+  font-size:10.5px; font-weight:700; letter-spacing:.18em; color:var(--ink-3);
+}
+strong, .check b, .opinion b, p b{font-weight:700; color:var(--ink)}
+mark{background:var(--hl); color:var(--ink); padding:1px 3px; font-weight:600; box-decoration-break:clone}
+mark.r{background:var(--hl-r)}
 
-/* ---------- opinion ---------- */
-.opinion{margin-top:34px; background:var(--blue-wash); border:1px solid var(--rule); border-radius:3px; padding:24px 26px}
-.opinion .h{display:flex; align-items:center; gap:10px; margin-bottom:14px}
-.opinion .h b{font-size:15px; letter-spacing:-.02em}
-.opinion ul{margin:0; padding-left:0; list-style:none; display:grid; gap:12px}
-.opinion li{font-size:14.5px; color:var(--ink-2); line-height:1.75; padding-left:22px; position:relative}
-.opinion li::before{content:'▸'; position:absolute; left:0; top:0; color:var(--blue); font-size:13px}
-.opinion li b{color:var(--ink)}
+/* ── 검토의견 ────────────────────────────────────────── */
+.opinion{
+  grid-column:1/-1; margin-top:var(--s-blk);
+  display:grid; grid-template-columns:calc(var(--marg) - 26px) minmax(0,1fr); column-gap:var(--gap);
+  border-top:2px solid var(--accent); border-bottom:1px solid var(--rule); padding:26px 26px 30px;
+}
+.opinion .h{grid-column:1; text-align:right; display:block; padding-top:.15em}
+.opinion .h .sq{display:none}
+.opinion .h b{font-family:var(--serif); font-size:14px; font-weight:700; color:var(--accent); letter-spacing:.02em}
+.opinion ul{grid-column:2; margin:0; padding:0; list-style:none; display:grid; gap:var(--p-gap); min-width:0}
+.opinion li{font-size:16px; line-height:var(--lh); color:var(--ink-2); padding-left:22px; position:relative}
+.opinion li::before{
+  content:''; position:absolute; left:2px; top:.85em; width:7px; height:1px; background:var(--accent);
+}
 
-/* ---------- data table ---------- */
-.tblwrap{margin-top:26px; overflow-x:auto; border:1px solid var(--rule); border-radius:3px; background:var(--card)}
-table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
-th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--rule-2); vertical-align:top; line-height:1.6}
-thead th{background:var(--navy-wash); font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--ink-3); font-weight:700; white-space:nowrap}
-tbody tr:last-child td{border-bottom:0}
+/* ── 표 ─────────────────────────────────────────────── */
+.tblwrap{grid-column:1/-1; margin-top:var(--s-blk); overflow-x:auto; max-width:100%; border-top:1px solid var(--rule-3)}
+.check .tblwrap, .opinion .tblwrap{grid-column:2}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:14px; line-height:1.7}
+th,td{padding:13px 16px 13px 0; text-align:left; border-bottom:1px solid var(--rule-2); vertical-align:top}
+th:first-child, td:first-child{padding-left:0}
+thead th{
+  border-bottom:1px solid var(--rule); font-size:11px; letter-spacing:.13em;
+  color:var(--ink-3); font-weight:700; white-space:nowrap; padding-top:10px; padding-bottom:10px;
+}
+tbody tr:last-child td{border-bottom:1px solid var(--rule)}
 td.num,th.num{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap}
-caption{caption-side:bottom; padding:10px 14px; font-size:12px; color:var(--ink-3); text-align:left; line-height:1.6}
+caption{caption-side:bottom; padding:14px 0 0; font-size:12.5px; color:var(--ink-3); text-align:left; line-height:1.75}
 
-/* ---------- bar chart ---------- */
-.bars{margin-top:26px; background:var(--card); border:1px solid var(--rule); border-radius:3px; padding:24px 26px}
-.bars h4{font-size:15px; margin-bottom:4px}
-.bars .cap{font-size:12.5px; color:var(--ink-3); margin-bottom:20px}
-.bar{display:grid; grid-template-columns:96px 1fr; gap:14px; align-items:center; margin-bottom:11px}
-.bar .bl{font-family:var(--mono); font-size:11.5px; color:var(--ink-2); text-align:right; letter-spacing:-.01em}
-.bar .bt{height:26px; background:var(--rule-2); border-radius:2px; position:relative; overflow:hidden}
-.bar .bf{height:100%; display:flex; align-items:center; justify-content:flex-end; padding-right:9px;
-  font-family:var(--mono); font-size:11.5px; font-weight:700; color:#fff; border-radius:2px}
-.bf.a{background:var(--ink-3)} .bf.b{background:var(--blue)}
+/* ── 도해 ───────────────────────────────────────────── */
+.bars{grid-column:1/-1; margin-top:var(--s-blk); border-top:1px solid var(--rule-3); padding-top:26px}
+.bars h4{font-family:var(--serif); font-size:18px; font-weight:700; color:var(--head); line-height:1.5; letter-spacing:-.02em}
+.bars .cap{margin-top:8px; margin-bottom:28px; font-size:12.5px; color:var(--ink-3); line-height:1.75}
+.bar{display:grid; grid-template-columns:var(--marg) minmax(0,1fr); column-gap:var(--gap); align-items:center; margin-bottom:10px}
+.bar > *{min-width:0}
+.bar .bl{font-family:var(--mono); font-size:11.5px; color:var(--ink-3); text-align:right; letter-spacing:-.01em}
+.bar .bt{height:24px; background:var(--paper-3); position:relative}
+.bar .bf{height:100%; display:flex; align-items:center; justify-content:flex-end; padding-right:10px;
+  font-family:var(--mono); font-size:11.5px; font-weight:700; color:var(--paper)}
+.bf.a{background:var(--ink-3)} .bf.b{background:var(--accent)}
 
-/* ---------- news ---------- */
-.news{margin-top:34px}
-.news .h{display:flex; align-items:center; gap:10px; margin-bottom:16px}
-.news .h b{font-size:15px; letter-spacing:-.02em}
-.newsgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:12px}
-.na{display:block; background:var(--card); border:1px solid var(--rule); border-radius:3px; padding:16px 18px;
-  text-decoration:none; color:inherit; transition:border-color .15s, transform .15s}
-.na:hover{border-color:var(--blue); transform:translateY(-1px)}
-.na .src{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--red); text-transform:uppercase; font-weight:700}
-.na .t{margin-top:8px; font-size:14px; font-weight:700; letter-spacing:-.02em; line-height:1.5; color:var(--ink)}
-.na .n{margin-top:8px; font-size:12.5px; color:var(--ink-3); line-height:1.6}
+/* ── 관련 보도 ───────────────────────────────────────── */
+.news{grid-column:1/-1; margin-top:var(--s-blk)}
+.news .h{display:flex; align-items:center; gap:9px; margin-bottom:0; padding-bottom:10px; border-bottom:1px solid var(--rule-3)}
+.news .h .sq{display:none}
+.news .h b{font-family:var(--serif); font-size:14px; font-weight:700; color:var(--alert); letter-spacing:.02em}
+.newsgrid{display:grid; gap:0}
+.na{
+  display:grid; grid-template-columns:var(--marg) minmax(0,1fr); column-gap:var(--gap);
+  padding:18px 0; border-bottom:1px solid var(--rule-2); text-decoration:none; color:inherit;
+}
+.na > *{min-width:0}
+.na .src{grid-column:1; grid-row:1/span 2}
+.na .t, .na .n{grid-column:2}
+.na:hover .t{color:var(--accent)}
+.na .src{text-align:right; font-size:12px; font-weight:700; color:var(--ink-3); letter-spacing:.04em; padding-top:.15em}
+.na .t{font-size:15.5px; font-weight:600; letter-spacing:-.02em; line-height:1.65; color:var(--head)}
+.na .n{margin-top:6px; font-size:13.5px; color:var(--ink-3); line-height:1.75}
 
-/* ---------- footer ---------- */
-footer{padding:56px 0 72px; background:var(--card)}
-footer .fin{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:30px}
-footer h4{font-size:14px; margin-bottom:12px}
-footer p, footer li{font-size:13px; color:var(--ink-2); line-height:1.75}
-footer ul{margin:0; padding-left:16px}
-.disc{margin-top:34px; padding-top:22px; border-top:1px solid var(--rule); font-size:12.5px; color:var(--ink-3); line-height:1.7}
+/* ── 시행 시기 캘린더 ────────────────────────────────── */
+.cal{grid-column:1/-1; margin-top:var(--s-blk); border-top:1px solid var(--rule-3)}
+.calrow{display:grid; grid-template-columns:var(--marg) minmax(0,1fr); column-gap:var(--gap); padding:26px 0; border-bottom:1px solid var(--rule)}
+.calrow > *{min-width:0}
+.caldate{text-align:right; font-family:var(--mono); font-size:15px; font-weight:700; letter-spacing:-.03em; color:var(--alert); padding-top:.1em}
+.caldate small{display:block; font-family:var(--sans); font-size:11px; font-weight:600; letter-spacing:.08em; color:var(--ink-3); margin-top:7px; line-height:1.5}
+.calitems{display:grid; gap:12px}
+.calitem{display:grid; grid-template-columns:minmax(0,1fr) auto; gap:16px; align-items:baseline; font-size:15px; line-height:1.8; color:var(--ink-2)}
+.calitem > *{min-width:0}
+.calitem .cw{font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.02em; white-space:nowrap}
 
-@media (max-width:640px){
-  .parthead .wrap{grid-template-columns:1fr; gap:12px}
-  .readtable .rowhead, .prow{grid-template-columns:58px 1fr 42px; gap:10px; padding:12px 13px}
-  .wrap{padding:0 18px}
-  .navin{padding:10px 18px}
+/* ── 판권 ───────────────────────────────────────────── */
+footer{padding:var(--s-sec) 0 120px; border-top:1px solid var(--rule-3); background:var(--paper-2)}
+footer .fin{grid-column:1/-1; display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:40px}
+footer .fin > *{min-width:0}
+footer h4{font-family:var(--serif); font-size:15px; font-weight:700; color:var(--head); margin-bottom:14px; letter-spacing:-.01em}
+footer p, footer li{font-size:14px; color:var(--ink-2); line-height:1.85}
+footer ul{margin:0; padding-left:15px}
+footer li{margin-bottom:6px}
+.disc{grid-column:1/-1; margin-top:var(--s-blk); padding-top:26px; border-top:1px solid var(--rule); font-size:13px; color:var(--ink-3); line-height:1.85}
+.spec{grid-column:1/-1; margin-top:26px; font-family:var(--mono); font-size:11.5px; color:var(--ink-3); line-height:2}
+
+/* ── 좁은 화면: 방주단을 본문 위로 ───────────────────── */
+@media (max-width:820px){
+  :root{--marg:0px; --gap:0px; --s-sec:72px; --s-chp:88px}
+  .wrap{grid-template-columns:minmax(0,1fr); padding:0 24px}
+  .wrap > *{grid-column:1}
+  .lbl{text-align:left; padding-top:0; margin-bottom:12px}
+  .partnum{text-align:left; padding-top:0; margin-bottom:18px}
+  .partnum b{display:inline; font-size:34px; margin:0 6px}
+  .doc, .check, .opinion, .na, .calrow, .bar, .readtable .rowhead, .prow{grid-template-columns:minmax(0,1fr)}
+  /* 기본 판면에서 2단에 배치한 자식들을 전부 1단으로 회수 */
+  .doc > *, .check > *, .opinion > *, .na > *, .calrow > *, .bar > *, .prow > *,
+  .check .tblwrap, .check .top, .opinion .h, .opinion ul{grid-column:1}
+  .doc .num{grid-row:auto; text-align:left; margin-bottom:10px; font-size:13px}
+  .check{padding:24px 20px 26px}
+  .check .top{grid-row:auto; text-align:left; margin-bottom:16px; display:flex; gap:14px; align-items:baseline}
+  .check .cno, .check .cite{display:inline-block; margin-top:0}
+  .opinion{padding:24px 20px 26px}
+  .opinion .h{text-align:left; margin-bottom:16px}
+  .na .src, .caldate, .bar .bl{text-align:left}
+  .caldate{margin-bottom:12px}
+  .caldate small{display:inline; margin-left:10px}
+  .bar{grid-template-columns:minmax(0,1fr); gap:5px; margin-bottom:14px}
+  .readtable .rowhead{display:none}
+  .prow{padding:18px 0; gap:0}
+  .pno{text-align:left; font-size:12.5px; color:var(--accent); margin-bottom:7px}
+  .pmark{text-align:left; margin-top:9px}
+  .calitem{grid-template-columns:minmax(0,1fr); gap:3px}
+  .cover{padding:80px 0 64px}
+  .cover .sub{font-size:16px}
+}
+
+/* ── 제호(masthead) ─────────────────────────────────── */
+.masthead{margin-bottom:38px}
+.mh-rule{height:2px; background:var(--rule-3)}
+.mh-body{display:flex; align-items:baseline; justify-content:center; gap:16px; padding:16px 0 15px; flex-wrap:wrap}
+.mh-title{font-family:var(--serif); font-size:clamp(22px,3.2vw,30px); font-weight:700; letter-spacing:.12em; color:var(--head)}
+.mh-en{font-family:var(--mono); font-size:11px; letter-spacing:.3em; color:var(--ink-3); text-transform:uppercase}
+.mh-rule.thin{height:1px; background:var(--rule)}
+.issue{display:flex; align-items:center; justify-content:center; gap:14px; padding:13px 0 0; flex-wrap:wrap}
+.issue-badge{
+  font-family:var(--serif); font-size:13px; font-weight:700; letter-spacing:.3em;
+  color:var(--paper); background:var(--alert); padding:5px 8px 5px 14px;
+}
+.issue-meta{font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; color:var(--ink-3)}
+
+/* ── 목차 ───────────────────────────────────────────── */
+.toc{grid-column:1/-1; margin-top:var(--s-blk); border-top:1px solid var(--rule-3)}
+.toc-grp{padding:22px 0 6px; font-size:11.5px; font-weight:700; letter-spacing:.16em; color:var(--ink-3)}
+.toc a{
+  display:grid; grid-template-columns:var(--marg) minmax(0,1fr) auto; column-gap:var(--gap);
+  align-items:baseline; padding:12px 0; border-bottom:1px solid var(--rule-2);
+  text-decoration:none; color:inherit;
+}
+.toc a > *{min-width:0}
+.toc a:hover .tt{color:var(--accent)}
+.toc .tn{text-align:right; font-family:var(--serif); font-size:13px; font-weight:700; color:var(--ink-3); letter-spacing:.1em}
+.toc .tt{font-family:var(--serif); font-size:17.5px; font-weight:700; color:var(--head); letter-spacing:-.02em; line-height:1.5;
+  display:flex; align-items:baseline; gap:10px}
+.toc .tt i{flex:1 1 auto; font-style:normal; border-bottom:1px dotted var(--rule); transform:translateY(-4px); min-width:16px}
+.toc .tp{font-family:var(--mono); font-size:12px; color:var(--ink-3); white-space:nowrap; letter-spacing:-.01em}
+
+/* ── 판권 ───────────────────────────────────────────── */
+.imprint{grid-column:1/-1; margin-bottom:var(--s-blk); border-top:2px solid var(--rule-3); border-bottom:1px solid var(--rule)}
+.imprint-row{display:grid; grid-template-columns:var(--marg) minmax(0,1fr); column-gap:var(--gap);
+  padding:13px 0; border-bottom:1px solid var(--rule-2); font-size:14px; line-height:1.75}
+.imprint-row:last-child{border-bottom:0}
+.imprint-row > *{min-width:0}
+.imprint-row dt{text-align:right; font-size:12px; font-weight:700; letter-spacing:.12em; color:var(--ink-3); padding-top:.25em}
+.imprint-row dd{margin:0; color:var(--ink-2)}
+@media (max-width:820px){
+  .toc a{grid-template-columns:minmax(0,1fr)}
+  .toc a > *{grid-column:1}
+  .toc .tn{text-align:left; margin-bottom:5px}
+  .toc .tt i{display:none}
+  .toc .tp{margin-top:5px}
+  .imprint-row{grid-template-columns:minmax(0,1fr)}
+  .imprint-row > *{grid-column:1}
+  .imprint-row dt{text-align:left; margin-bottom:4px}
+  .mh-body{gap:8px}
 }
 </style>
 
 <nav>
   <div class="navin">
     <span class="navbrand">법무법인 JL</span>
+    <a href="#toc">차례</a>
     <a href="#read">읽는 법</a>
-    <a href="#sum">한눈에</a>
-    <a href="#map">원문 지도</a>
-    <a href="#p1">1 공공택지</a>
+    <a href="#sum">요약</a>
+    <a href="#map">원문</a>
+    <a href="#p1">1 택지</a>
     <a href="#p2">2 도심</a>
-    <a href="#p3">3 민간·규제</a>
-    <a href="#p4">4 주거사다리</a>
-    <a href="#p5">5 추진체계</a>
-    <a href="#p6">6 금융대책</a>
-    <a href="#cal">시행 시기</a>
-    <a href="#law">입법 과제</a>
+    <a href="#p3">3 민간</a>
+    <a href="#p4">4 주거</a>
+    <a href="#p5">5 체계</a>
+    <a href="#p6">6 금융</a>
+    <a href="#cal">일정</a>
+    <a href="#law">입법</a>
   </div>
 </nav>
 
 <header class="cover">
   <div class="wrap">
-    <div class="kicker">
-      <span class="tag solid">해설 책자</span>
-      <span class="tag">2026. 8. 13. 발표</span>
-      <span class="tag">원문 4건 · 107면</span>
+    <div class="masthead">
+      <div class="mh-rule"></div>
+      <div class="mh-body">
+        <span class="mh-title">리걸매거진</span>
+        <span class="mh-en">JL Legal Magazine</span>
+      </div>
+      <div class="mh-rule thin"></div>
+      <div class="issue">
+        <span class="issue-badge">특별호</span>
+        <span class="issue-meta">2026. 8. &nbsp;·&nbsp; 부동산 정책 해설</span>
+      </div>
     </div>
     <h1>8·13 대책<br>정독</h1>
     <p class="sub">「전월세 및 매매시장 안정을 위한 주택 신속공급 방안」과 「부동산 시장 안정을 위한 금융 종합대책」을 원문 순서대로 한 면씩 읽고, 면마다 확인해야 할 지점을 표시한 해설서.</p>
     <dl class="covermeta">
+      <div><dt>발표일</dt><dd>2026. 8. 13.</dd></div>
       <div><dt>발표 주체</dt><dd>국토교통부 · 금융위원회 · 국무조정실</dd></div>
-      <div><dt>원문 분량</dt><dd class="mono">107면 (본문 77면)</dd></div>
-      <div><dt>수록 파트</dt><dd class="mono">6개 파트 · 부록 2</dd></div>
-      <div><dt>작성</dt><dd>법무법인 JL</dd></div>
+      <div><dt>원문</dt><dd class="mono">4건 · 107면 (본문 77면)</dd></div>
+      <div><dt>체재</dt><dd class="mono">6장 · 부록 2</dd></div>
     </dl>
   </div>
 </header>
+
+<section id="toc">
+  <div class="wrap">
+    <div class="sechead"><span class="lbl">목 차</span><h2>차례</h2></div>
+    <p class="lead">제1장부터 제5장까지는 국토교통부 「주택 신속공급 방안」을, 제6장은 금융위원회 「금융 종합대책」을 각각 원문 면 순서대로 따라간다. 오른쪽 숫자는 대응하는 원문 면수다.</p>
+    <nav class="toc">
+      <div class="toc-grp">머리</div>
+      <a href="#read"><span class="tn">일러두기</span><span class="tt">이 책자를 읽는 법<i></i></span><span class="tp">—</span></a>
+      <a href="#sum"><span class="tn">서</span><span class="tt">대책의 뼈대는 여덟 개 숫자로 요약된다<i></i></span><span class="tp">—</span></a>
+      <a href="#map"><span class="tn">서</span><span class="tt">어느 문서에 무엇이 실려 있나<i></i></span><span class="tp">—</span></a>
+      <div class="toc-grp">본문 · 주택 신속공급 방안 (국토교통부)</div>
+      <a href="#p1"><span class="tn">제1장</span><span class="tt">공공택지 공급 확대<i></i></span><span class="tp">6–17면</span></a>
+      <a href="#p2"><span class="tn">제2장</span><span class="tt">도심 공급 확대<i></i></span><span class="tp">18–30면</span></a>
+      <a href="#p3"><span class="tn">제3장</span><span class="tt">민간공급 금융·세제 지원 및 규제 완화<i></i></span><span class="tp">31–42면</span></a>
+      <a href="#p4"><span class="tn">제4장</span><span class="tt">전월세 부담 완화 등 주거 사다리 강화<i></i></span><span class="tp">43–48면</span></a>
+      <a href="#p5"><span class="tn">제5장</span><span class="tt">추진체계 강화<i></i></span><span class="tp">49–57면</span></a>
+      <div class="toc-grp">본문 · 금융 종합대책 (금융위원회)</div>
+      <a href="#p6"><span class="tn">제6장</span><span class="tt">부동산 시장 안정을 위한 금융 종합대책<i></i></span><span class="tp">1–20면</span></a>
+      <div class="toc-grp">부록</div>
+      <a href="#cal"><span class="tn">부록 A</span><span class="tt">시행 시기 캘린더<i></i></span><span class="tp">—</span></a>
+      <a href="#law"><span class="tn">부록 B</span><span class="tt">국회를 통과해야 효력이 생기는 과제<i></i></span><span class="tp">—</span></a>
+    </nav>
+  </div>
+</section>
 
 <section id="read">
   <div class="wrap">
@@ -338,7 +572,7 @@ footer ul{margin:0; padding-left:16px}
 <article class="part" id="p1">
   <div class="parthead">
     <div class="wrap">
-      <div class="partnum">01</div>
+      <div class="partnum">제<b>1</b>장</div>
       <div>
         <div class="src">문서 ② 6–17면 · 공공택지 공급 확대</div>
         <h2>공공택지에서 16만호+α를 더 뽑되, 핵심은 물량이 아니라 절차 단축이다</h2>
@@ -379,33 +613,33 @@ footer ul{margin:0; padding-left:16px}
     <div class="lbl" style="margin-top:38px; display:block">중요 체크</div>
     <div class="checks">
       <div class="check">
-        <div class="top"><span class="cno">체크 01</span><span class="cite">문서 ② 7면 각주</span></div>
+        <div class="top"><span class="cno">중요 01</span><span class="cite">문서 ② 7면 각주</span></div>
         <h4>37개월은 확정된 숫자가 아니라 법률 개정을 전제로 한 숫자다</h4>
         <div class="quote">모든 단계별 소요기간을 절반 수준으로 단축해 앞으로 발표할 지구는 37개월 내 착공(제도개선 완료 전제로 31개월 단축) … 전략환경영향평가 간소화 법 개정 전제(본회의 상정대기 중), <b>미개정 시 7개월 추가 소요</b></div>
         <p>즉 개정이 되지 않으면 <mark class="r">44개월</mark>이 된다. 이 파트에서 제시된 단축 효과의 상당수가 같은 구조다 — 공공주택특별법·토지보상법 개정안이 ’26년 8월 발의 단계이고, 협조장려금·통합조정회의 조항은 본회의 상정 대기 중이다.</p>
         <p>따라서 “37개월”을 확정 일정으로 인용하는 것은 부정확하다. <b>법 개정 완료 시 37개월, 미개정 시 44개월</b>로 병기하는 것이 정확한 표현이다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 02</span><span class="cite">문서 ② 8–9면</span></div>
+        <div class="top"><span class="cno">중요 02</span><span class="cite">문서 ② 8–9면</span></div>
         <h4>가장 크게 줄인 구간은 보상 단계이고, 단축 수단은 토지주에 대한 압박 강화다</h4>
         <p>부지확보 단계 44 → 24개월, 즉 <mark>20개월 단축</mark>으로 전체 단축분의 최대 항목이다. 그 수단은 다음과 같이 나뉜다.</p>
         <div class="quote">(협의 △1M) 기간 단축(60→30일) … (재결 △2M) 중토위 전담팀 신설 … (유인) 협조장려금, (제재) 이행강제금, <b>수용개시 2개월 경과시 인도소송</b>(LH 방침 개정 要) … 조사 거부시 객관적 자료로 갈음 추진(토지보상법 개정 要)</div>
         <p>토지소유자·영업권자 입장에서 보면 <b>협의 가능 기간이 절반으로 줄고, 조사 거부의 실익이 사라지며, 퇴거 지연에 소송이 원칙적으로 따라붙는</b> 구조다. 남양주 도심·경기광주 등 신규 지구의 편입 토지주라면 감정평가 시점 이전 단계부터 대응 준비 기간을 앞당겨 잡아야 한다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 03</span><span class="cite">문서 ② 6면 · 50면</span></div>
+        <div class="top"><span class="cno">중요 03</span><span class="cite">문서 ② 6면 · 50면</span></div>
         <h4>“8.9만호 조기 착공”에서 실제 순증은 4.1만호다</h4>
         <p>원문 6면 각주는 <b>’31년 이후 물량을 당겨온 4.1만호 + ’30년 내에서 시기만 앞당긴 4.8만호</b>로 구성을 명시한다. 50면 참고1의 추가 착공 효과란에도 최단기 착공모델 항목은 4.1만호로만 계상되어 있다.</p>
         <p>같은 구분이 대책 전체에 적용된다. 수도권 추가 공급 23만호+α 중 <mark>’26~’30년 추가 착공은 12만호+α</mark>이고, 신규 공공주택지구 10만호+α의 착공 물량은 “지구지정 시 추후 산정”으로 비워져 있다. 물량 발표와 이 정부 임기 내 착공은 별개의 숫자다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 04</span><span class="cite">문서 ② 13–14면</span></div>
+        <div class="top"><span class="cno">중요 04</span><span class="cite">문서 ② 13–14면</span></div>
         <h4>토지거래허가구역은 발표 3개 지구를 넘어 서울·인접 그린벨트 전역에 한시 지정됐다</h4>
         <p>입지가 공개된 남양주 와부읍(도곡·월문·덕소리)과 광주시(장지·양벌·역동) 일원은 <b>발표일로부터 5년</b> 토지거래허가구역이다. 여기에 더해 나머지 7.3만호+α 후보지 발표 시까지 서울 그린벨트 전역과 서울 인접 수도권 그린벨트가 한시 지정된다.</p>
         <p>원문은 “신규택지 발표 시 사업별 영향 범위를 고려하여 <b>제외지역은 토지거래허가구역 즉시 해제 예정</b>”이라고 부기한다. 연내 후보지 발표 시점이 곧 광범위한 해제 시점이기도 하다는 뜻이다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 05</span><span class="cite">문서 ② 16면</span></div>
+        <div class="top"><span class="cno">중요 05</span><span class="cite">문서 ② 16면</span></div>
         <h4>기매각 택지 조항은 인센티브와 회수 압박을 같은 면에서 함께 강화했다</h4>
         <div class="tblwrap" style="margin-top:14px">
           <table>
@@ -436,7 +670,7 @@ footer ul{margin:0; padding-left:16px}
       <div class="h"><span class="sq red"></span><b>관련 보도</b></div>
       <div class="newsgrid">
         <a class="na" href="https://www.sedaily.com/article/20078952" target="_blank" rel="noopener"><div class="src">서울경제</div><div class="t">염창공원·남양주도심 신규택지…수도권 2만7000가구 공급</div><div class="n">입지 공개 3개 지구의 위치·규모를 가장 먼저 정리한 기사.</div></a>
-        <a class="na" href="https://biz.heraldcorp.com/article/10841273" target="_blank" rel="noopener"><div class="src">헤럴드경제</div><div class="t">“보상 얼마나?” 강서·남양주 신규택지 2.7만호 관건은</div><div class="n">체크 02와 직결된다. 보상 절차 단축이 실제 쟁점이 될 것이라는 지적.</div></a>
+        <a class="na" href="https://biz.heraldcorp.com/article/10841273" target="_blank" rel="noopener"><div class="src">헤럴드경제</div><div class="t">“보상 얼마나?” 강서·남양주 신규택지 2.7만호 관건은</div><div class="n">〈중요 02〉와 직결된다. 보상 절차 단축이 실제 쟁점이 될 것이라는 지적.</div></a>
         <a class="na" href="https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04851126645546992" target="_blank" rel="noopener"><div class="src">이데일리</div><div class="t">그린벨트, 서울 해제 ‘보류’…남양주 덕소농장 풀어 2.17만호</div><div class="n">서울 GB 해제가 이번 발표에서 빠진 배경을 다룬다.</div></a>
         <a class="na" href="https://www.fnnews.com/news/202608160850137783" target="_blank" rel="noopener"><div class="src">파이낸셜뉴스</div><div class="t">7.3만가구+α 신규택지 9월 윤곽…서울 그린벨트 포함 여부 주목</div><div class="n">연내 발표 예정인 잔여 후보지의 시점과 범위 전망.</div></a>
         <a class="na" href="https://www.etoday.co.kr/news/view/2614131" target="_blank" rel="noopener"><div class="src">이투데이</div><div class="t">서울 염창·남양주·경기광주 등 신규 택지…연내 7.3만호+α 더 찾는다</div><div class="n">지구별 착공 일정과 토지거래허가구역 지정 범위를 함께 정리.</div></a>
@@ -449,7 +683,7 @@ footer ul{margin:0; padding-left:16px}
 <article class="part" id="p2">
   <div class="parthead">
     <div class="wrap">
-      <div class="partnum">02</div>
+      <div class="partnum">제<b>2</b>장</div>
       <div>
         <div class="src">문서 ② 18–30면 · 도심 공급 확대</div>
         <h2>정비사업의 병목을 동의율·이주비·분쟁 세 갈래로 나눠 풀었다</h2>
@@ -479,7 +713,7 @@ footer ul{margin:0; padding-left:16px}
     <div class="lbl" style="margin-top:38px; display:block">중요 체크</div>
     <div class="checks">
       <div class="check">
-        <div class="top"><span class="cno">체크 06</span><span class="cite">문서 ② 20면</span></div>
+        <div class="top"><span class="cno">중요 06</span><span class="cite">문서 ② 20면</span></div>
         <h4>정비사업 인센티브에는 두 개의 날짜 조건이 동시에 걸려 있다</h4>
         <p>인센티브는 “빨리 착공하면 준다”가 아니라 <b>“대책 발표일 이후에 관리처분인가를 받고, 그로부터 정해진 기한 내에 착공하면 준다”</b>는 이중 조건이다. 이미 인가를 받은 사업장은 일부 항목에서 아예 대상 밖이다.</p>
         <div class="tblwrap" style="margin-top:14px">
@@ -497,7 +731,7 @@ footer ul{margin:0; padding-left:16px}
         <p>따라서 조합 단계에서 먼저 확인할 것은 인센티브의 크기가 아니라 <mark class="r">우리 사업장의 관리처분인가 예정일이 발표일(8.13) 이후인지</mark>, 그리고 착공 시한을 물리적으로 맞출 수 있는지다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 07</span><span class="cite">문서 ② 20면 · 문서 ③ 6면</span></div>
+        <div class="top"><span class="cno">중요 07</span><span class="cite">문서 ② 20면 · 문서 ③ 6면</span></div>
         <h4>이주비 대출 LTV 기준이 종전자산에서 “종전·종후 중 큰 금액”으로 바뀐다 — 이 파트에서 가장 빠른 항목</h4>
         <div class="quote">(현 행) LTV 심사시 종전자산평가액을 기준으로 담보가치 산정 → (개 선) 종전자산평가액, 종후자산평가액 중 <b>큰 금액</b>으로 변경 … 시행시기 <b>‘26.8.31일</b></div>
         <p>종후자산은 정비사업 종료 후 신축주택의 가치 추산액이므로, 통상 종전자산보다 크다. 담보가치가 커지면 같은 LTV 40%에서도 <b>실제 이주비 한도가 올라간다.</b> 여기에 두 가지가 더해진다.</p>
@@ -505,28 +739,28 @@ footer ul{margin:0; padding-left:16px}
         <p>세 항목 모두 금융위 소관이며, 국토부 문서 20면과 금융위 문서 6면·15면에 나뉘어 실려 있다. 조합 이주 일정을 짤 때는 <b>두 문서를 함께 봐야 전체 그림이 나온다.</b></p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 08</span><span class="cite">문서 ② 21면</span></div>
+        <div class="top"><span class="cno">중요 08</span><span class="cite">문서 ② 21면</span></div>
         <h4>재개발 조합설립 동의율 완화는 반대 토지등소유자의 지위를 직접 바꾼다</h4>
         <div class="quote">(現) 토지등소유자 75% 및 토지면적 50% → (改) 토지등소유자 <b>70%</b> 및 토지면적 50% … 공공재개발·재건축도 사업시행자 지정 동의율 완화(現 67 → 改 60%)</div>
         <p>토지면적 요건 50%는 그대로 두고 인원 요건만 5%p 낮춘 것이다. 실무적으로는 <b>종전에 동의율 미달로 정체돼 있던 구역이 조합설립 요건을 충족하게 되는 효과</b>가 크다.</p>
         <p>반대 측 입장에서는 조합설립 저지선이 25%에서 30%로 올라간 셈이다. 여기에 조합설립인가 신청 전 통지기한이 60일 → 30일로 줄어(21면), 통지 수령 후 대응 검토 기간도 절반이 된다. <b>도시정비법 개정 사항이므로 ’26년 9월 발의 이후 국회 통과 시점이 실제 적용일</b>이다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 09</span><span class="cite">문서 ② 22면</span></div>
+        <div class="top"><span class="cno">중요 09</span><span class="cite">문서 ② 22면</span></div>
         <h4>재개발 조합장을 외부 전문가가 맡을 수 있게 하는 조항이 들어갔다</h4>
         <div class="quote">(전문 조합장) 이해관계가 복잡한 재개발사업은 토지등소유자 아닌 전문가의 재개발조합장 선임을 허용하여 신속한 사업 추진 지원 … 예: 정비사업 관련 업무 <b>5년 이상 종사한 변호사, 공인회계사, 법무사</b> 등</div>
         <p>조합장은 토지등소유자여야 한다는 원칙에 대한 예외를 재개발에 한해 여는 것으로, 도시정비법 개정 사항이다(’26.9 발의). 같은 면에서 <b>조합임원 성과급 지급 근거</b>(총회 의결 요), <b>조합장 총회 미소집 시 과태료 및 감사·조합원대표 소집 의무화</b>가 함께 규정된다.</p>
         <p>더불어 국토부 내 <b>확정판결 효력을 갖춘 정비사업 전문 중재기구</b> 신설이 검토된다. 공사비 분쟁, 조합-지자체 인허가 이견, 관리처분계획 분쟁이 예시로 적혀 있다. 다만 원문 표현이 “신설하는 등 신속한 분쟁 해소방안 검토”로 <b>확정이 아닌 검토 단계</b>임을 유의해야 한다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 10</span><span class="cite">문서 ② 24면</span></div>
+        <div class="top"><span class="cno">중요 10</span><span class="cite">문서 ② 24면</span></div>
         <h4>도심 공공주택 복합사업은 신규 공모를 재개하면서 주민 부담 조항을 두 개 바꿨다</h4>
         <p>’23년 이래 중단됐던 신규 공모가 재개되어 <b>하반기 중 서울 1~2만호 규모 후보지</b>가 발표된다. 함께 도입되는 주민 측 조항은 다음 둘이다.</p>
         <p><b>① 현물보상 분양권 양도세 특례.</b> 현물보상(분양권)을 1개만 보유하고 다른 주택·분양권이 없는 1세대는 조합원 입주권과 유사하게 <mark>12억원 이하분 비과세, 초과분 장기보유특별공제 최대 80%</mark>를 적용받는다. 쪽방촌 정비사업과 주거재생혁신사업도 포함된다. 조세특례제한법 개정 사항(’26.12).</p>
         <p><b>② 분담금 납부시기 선택권.</b> 기존 ‘계약금 10% + 중도금 60% + 잔금 30%’ 외에 ‘중도금 0% + 잔금 90%’ 또는 ‘중도금 30% + 잔금 60%’를 선택할 수 있게 한다. 다만 <b>신규 후보지와 쪽방촌 사업에 한정</b>되므로, 기존 지구 주민에게는 적용되지 않는다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 11</span><span class="cite">문서 ② 27면</span></div>
+        <div class="top"><span class="cno">중요 11</span><span class="cite">문서 ② 27면</span></div>
         <h4>매입임대는 취득세 감면율을 15%에서 70%로 올려 ’27년에 물량을 몰았다</h4>
         <div class="tblwrap" style="margin-top:14px">
           <table>
@@ -556,7 +790,7 @@ footer ul{margin:0; padding-left:16px}
       <div class="h"><span class="sq red"></span><b>관련 보도</b></div>
       <div class="newsgrid">
         <a class="na" href="https://www.etoday.co.kr/news/view/2614136" target="_blank" rel="noopener"><div class="src">이투데이</div><div class="t">재개발 조합설립 동의율 문턱 75→70%…병목 풀어 23.4만가구 ‘첫삽’ 당긴다</div><div class="n">동의율·인센티브 전반을 가장 상세히 정리한 기사.</div></a>
-        <a class="na" href="https://www.hankyung.com/article/2026081301081" target="_blank" rel="noopener"><div class="src">한국경제</div><div class="t">재개발 동의율 75 → 70%…정부가 직접 공사비 갈등 중재</div><div class="n">체크 09의 중재위원회 신설을 표제로 다뤘다.</div></a>
+        <a class="na" href="https://www.hankyung.com/article/2026081301081" target="_blank" rel="noopener"><div class="src">한국경제</div><div class="t">재개발 동의율 75 → 70%…정부가 직접 공사비 갈등 중재</div><div class="n">〈중요 09〉의 중재위원회 신설을 표제로 다뤘다.</div></a>
         <a class="na" href="https://www.ajunews.com/view/20260813152214605" target="_blank" rel="noopener"><div class="src">아주경제</div><div class="t">서울시 요구 얼마나 반영됐나…이주비 대출 완화, 조합원 지위양도는 빠져</div><div class="n">반영된 것과 빠진 것을 구분해 검토의견 두 번째 항목과 직결된다.</div></a>
         <a class="na" href="https://www.newspim.com/news/view/20260813000334" target="_blank" rel="noopener"><div class="src">뉴스핌</div><div class="t">“도심서 더 빨리”…정비사업·1·29 부지 착공 앞당긴다</div><div class="n">태릉·과천 등 1.29 부지의 착공 일정 조정 내용.</div></a>
         <a class="na" href="https://www.fnnews.com/news/202608131805304444" target="_blank" rel="noopener"><div class="src">파이낸셜뉴스</div><div class="t">“정비사업 1년 이상 앞당긴다” 조합 설립 동의율 75→70%로</div><div class="n">기간 단축 효과에 초점을 맞춘 해설.</div></a>
@@ -569,7 +803,7 @@ footer ul{margin:0; padding-left:16px}
 <article class="part" id="p3">
   <div class="parthead">
     <div class="wrap">
-      <div class="partnum">03</div>
+      <div class="partnum">제<b>3</b>장</div>
       <div>
         <div class="src">문서 ② 31–42면 · 민간공급 금융·세제 지원 및 규제 완화</div>
         <h2>비아파트 공급 붕괴를 건축기준·대출규제·부담금 세 방향에서 되돌리려 한다</h2>
@@ -598,7 +832,7 @@ footer ul{margin:0; padding-left:16px}
     <div class="lbl" style="margin-top:38px; display:block">중요 체크</div>
     <div class="checks">
       <div class="check">
-        <div class="top"><span class="cno">체크 12</span><span class="cite">문서 ② 20·27·33·37·38면 종합</span></div>
+        <div class="top"><span class="cno">중요 12</span><span class="cite">문서 ② 20·27·33·37·38면 종합</span></div>
         <h4>대책 전체를 관통하는 실제 설계는 “’27년까지 착공”이라는 하나의 절벽이다</h4>
         <p>개별 과제를 따로 읽으면 잘 보이지 않지만, 시한을 한자리에 모으면 <b>혜택이 ’27년에 최대치이고 ’28년에 대체로 절반으로 떨어지며 ’29년에는 사라지는</b> 동일한 형태가 반복된다.</p>
         <div class="tblwrap" style="margin-top:14px">
@@ -620,14 +854,14 @@ footer ul{margin:0; padding-left:16px}
         <p>원문 32면 각주에 그 이유가 적혀 있다. 연도별 착공예정 물량이 <b>’27년 24.9만호로 5년 중 가장 적기</b> 때문에(’26년 26.8 / ’28년 26.2 / ’29년 26.3 / ’30년 34.3만호), 그 골을 메우려 자원을 ’27년에 몰아넣은 것이다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 13</span><span class="cite">문서 ② 34면</span></div>
+        <div class="top"><span class="cno">중요 13</span><span class="cite">문서 ② 34면</span></div>
         <h4>다세대·다가구 완화 4건 중 일조 규제만 이미 국회를 통과했다</h4>
         <div class="quote">(일조) 통상 다세대·다가구 4~5층 필로티 포함시 부분도 수직건축 허용 ※ <b>7.23일 건축법 개정안 국회 본회의 통과</b> → 하위법령 마련후 연내 시행 예정</div>
         <p>10m 초과 구간에 일률 적용되던 “건축물 높이의 1/2” 이격이 <b>10~17m 구간에서 5m 고정</b>으로 바뀐다. 4~5층 부분을 사선이 아닌 수직으로 지을 수 있어 공급면적이 늘어난다. 원문은 특히 <b>용적률 상한을 채우지 않고 지어진 노후 단독주택 대지에서 증축·재건축 효과가 클 것</b>으로 본다.</p>
         <p>나머지 3건은 아직 법령 개정 전이다 — 건축면적 660→1,000㎡ 미만, 다가구 층수 3→4개층(동일 면적에 약 33% 추가 공급), 주민공동시설 용적률 완화는 모두 <b>건축법 시행령 등 개정, ’26.12</b> 예정이다. 별개로 도시형생활주택으로 다세대를 짓는 경우 건축위 심의를 거쳐 5→6개층까지 완화하는 주택법 시행령 개정이 9월까지 진행 중이다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 14</span><span class="cite">문서 ② 35면 · 문서 ③ 7면</span></div>
+        <div class="top"><span class="cno">중요 14</span><span class="cite">문서 ② 35면 · 문서 ③ 7면</span></div>
         <h4>임대사업자 대출 예외 두 건은 8월 31일 행정지도로 바로 시행된다</h4>
         <p>수도권·규제지역 주택매매·임대사업자 주담대는 원칙적으로 금지(LTV 0%)이고 예외 3가지만 허용돼 왔다. 여기에 두 가지가 추가된다.</p>
         <div class="tblwrap" style="margin-top:14px">
@@ -643,14 +877,14 @@ footer ul{margin:0; padding-left:16px}
         <p>두 예외 모두 <b>기한부 조건</b>이 붙어 있다는 점이 중요하다. ➍는 준공 후 1년, ➎는 대출일로부터 1년이며, 조건을 지키지 못했을 때의 효과(회수·제재)는 원문에 적혀 있지 않다. 대출 실행 전 개별 금융회사의 약정 조건을 확인해야 한다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 15</span><span class="cite">문서 ② 36–37면</span></div>
+        <div class="top"><span class="cno">중요 15</span><span class="cite">문서 ② 36–37면</span></div>
         <h4>소형 신축주택 주택수 제외 특례가 1년 연장됐고, 신축판매업자 판매 기한은 7년으로 늘었다</h4>
         <p><b>주택수 제외 특례.</b> ’24.1월~’27.12월이던 적용 기간이 <mark>’28.12월까지</mark>로 연장된다. 대상은 그 기간에 준공된 <b>전용 60㎡ 이하, 취득가격 수도권 6억·지방 3억 이하 신축주택</b>을 같은 기간 중 최초 구입하는 경우이며, 아파트는 제외되나 도시형 생활주택인 아파트는 포함된다. 취득세·종부세·양도세 산정 시 주택수에서 빠진다. 원문은 “’28년 이후 연장도 검토”라고 부기한다.</p>
         <p><b>주택신축판매업자.</b> 취득 시점부터 1년 내 멸실, 3년 내 신축까지는 같으나 판매 기한이 <b>5년 → 7년</b>으로 늘어 취득세 중과배제 특례를 유지하기 쉬워진다. 부가가치세법상 20호 미만 소규모 공급자가 대상이다.</p>
         <p>두 항목 모두 <b>’27년 2월(또는 2분기) 시행령·특례 개정</b> 예정이다. ’27.12 만료를 전제로 매도 일정을 잡아 둔 경우라면 연장 확정 시점까지 조건부로 관리하는 편이 안전하다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 16</span><span class="cite">문서 ② 33면</span></div>
+        <div class="top"><span class="cno">중요 16</span><span class="cite">문서 ② 33면</span></div>
         <h4>PF 이자 재정지원은 이름보다 적용 범위가 훨씬 좁다</h4>
         <div class="quote">서울·경기 내 주거시설 PF대출을 받은 <b>전용 85㎡ &amp; 분양가 9억원 이하</b>인 사업장(<b>사업장당 최대 500호</b> 지원)</div>
         <p>지역(서울·경기), 면적(전용 85㎡ 이하), 분양가(9억원 이하), 호수(사업장당 500호) 네 겹의 요건이 모두 충족되어야 한다. 인천은 빠져 있고, 주거시설에는 아파트뿐 아니라 연립·다세대·다가구와 준주택(오피스텔·고시원)이 포함된다.</p>
@@ -671,7 +905,7 @@ footer ul{margin:0; padding-left:16px}
     <div class="news">
       <div class="h"><span class="sq red"></span><b>관련 보도</b></div>
       <div class="newsgrid">
-        <a class="na" href="https://www.etoday.co.kr/news/view/2614230" target="_blank" rel="noopener"><div class="src">이투데이</div><div class="t">다가구 4층까지 짓고 부담금 면제…‘사라진 빌라’ 공급 되살린다</div><div class="n">체크 13·12를 함께 다룬 기사. 비아파트 파트 요약으로 가장 적합.</div></a>
+        <a class="na" href="https://www.etoday.co.kr/news/view/2614230" target="_blank" rel="noopener"><div class="src">이투데이</div><div class="t">다가구 4층까지 짓고 부담금 면제…‘사라진 빌라’ 공급 되살린다</div><div class="n">〈중요 13〉·12를 함께 다룬 기사. 비아파트 파트 요약으로 가장 적합.</div></a>
         <a class="na" href="https://www.fnnews.com/news/202608131107291550" target="_blank" rel="noopener"><div class="src">파이낸셜뉴스</div><div class="t">층수 높이고 바닥면적 넓히고…다세대·다가구 공급 늘린다</div><div class="n">건축기준 4건의 변경 전후를 수치로 정리.</div></a>
         <a class="na" href="https://www.etoday.co.kr/news/view/2614121" target="_blank" rel="noopener"><div class="src">이투데이</div><div class="t">부동산 PF 돈줄 26.3조→47.8조 확대…규제도 2년 늦춘다</div><div class="n">공급 측 금융지원 총량과 자기자본비율 규제 유예를 함께 다룬다.</div></a>
         <a class="na" href="https://biz.heraldcorp.com/article/10840073" target="_blank" rel="noopener"><div class="src">헤럴드경제</div><div class="t">2027년 PF보증 33조 확대…사업장, 자기자본규제 2년 유예</div><div class="n">’27년에 자원을 몰아넣은 구조를 표제로 잡았다.</div></a>
@@ -685,7 +919,7 @@ footer ul{margin:0; padding-left:16px}
 <article class="part" id="p4">
   <div class="parthead">
     <div class="wrap">
-      <div class="partnum">04</div>
+      <div class="partnum">제<b>4</b>장</div>
       <div>
         <div class="src">문서 ② 43–48면 · 전월세 부담 완화 등 주거 사다리 강화</div>
         <h2>분양은 초기 부담을 쪼개고, 임대는 소득 문턱을 없애는 쪽으로 설계됐다</h2>
@@ -709,7 +943,7 @@ footer ul{margin:0; padding-left:16px}
     <div class="lbl" style="margin-top:38px; display:block">중요 체크</div>
     <div class="checks">
       <div class="check">
-        <div class="top"><span class="cno">체크 17</span><span class="cite">문서 ② 44면</span></div>
+        <div class="top"><span class="cno">중요 17</span><span class="cite">문서 ② 44면</span></div>
         <h4>지분적립형은 초기 부담을 1/4로 줄이는 대신 20~30년간 지분을 사들이는 구조다</h4>
         <div class="quote">(개념) 초기에 일부 지분만 분양, 초기부담↓, 장기(20~30년)에 걸쳐 지분 적립 ※ (예시) 초기지분 25%, 5년마다 20%/20%/20%/15% 적립</div>
         <p>원문이 배경으로 드는 수치는 구체적이다. 규제지역 공공분양가가 55㎡ 기준 6.3억원 수준인데 LTV 40%를 받아도 <b>자산 3.6억원 미만 가구는 매수가 어렵고, 30대 평균 순자산은 2.5억원</b>이라는 것이다.</p>
@@ -717,7 +951,7 @@ footer ul{margin:0; padding-left:16px}
         <p>수익공유형은 성격이 다르다. 기금이 구입자금 일부를 지원하고 <b>일정기간 후 수익을 대출 평균잔액에 따라 기금과 나누는</b> 방식으로, LTV 70%까지 저리대출이 붙는다. 다만 공공주택 특별법 개정 이후에 적용된다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 18</span><span class="cite">문서 ② 45면</span></div>
+        <div class="top"><span class="cno">중요 18</span><span class="cite">문서 ② 45면</span></div>
         <h4>20년 민간임대의 핵심은 기금 지원이 아니라 임차인 교체 시 임대료 재설정 허용이다</h4>
         <p>기금 조건 개선(출자 11→14%, 융자 1.2→2.0억, 금리 인하)도 있지만, 사업성을 실제로 바꾸는 것은 임대료 규제 부분이다.</p>
         <div class="tblwrap" style="margin-top:14px">
@@ -733,14 +967,14 @@ footer ul{margin:0; padding-left:16px}
         <p>임차인 입장에서 보면 <b>계약을 갱신해 계속 거주하는 동안에는 5% 규제가 유지되지만, 퇴거 후 새 임차인에게는 시세 95%가 다시 적용된다.</b> 20년이라는 장기 공급을 얻는 대신 임대료의 장기 억제 효과는 10년 모델보다 약해지는 교환이다. 여기에 건설기간 3~4년과 운영 20년을 합쳐 최대 34년간 HUG 보증부 대출이 가능한 장기모기지가 붙는다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 19</span><span class="cite">문서 ② 46면</span></div>
+        <div class="top"><span class="cno">중요 19</span><span class="cite">문서 ② 46면</span></div>
         <h4>보편형 공공임대는 소득 문턱을 없앤 대신 절반 이상을 청년에게 배정한다</h4>
         <p>기존 공공임대는 중위소득 150% 이하라는 소득제한과 1·2분위 75% 이상 입주라는 쿼터가 걸려 있었다. 보편형은 그 제한 없이 <b>다양한 소득계층</b>을 받되, 전체 물량의 <mark>50% 이상을 무주택 청년</mark>에 공급하고 나머지를 무주택 일반에 공급한다.</p>
         <p>거주기간은 기본 6년이고 출산 시마다 연장되며 미성년 자녀 3명 이상이면 최대 20년이다(기존 자녀도 출산자녀에 포함). 공급 예정 단지로 남양주 왕숙 S-10(883호, ’27년 착공), 인천 계양 AC2-1(793호, ’27년 착공), 하남 교산 공공복합용지(364호, ’28년 착공)가 명시됐다.</p>
         <p>가장 논쟁적인 조항은 같은 면 말미에 있다. 수도권 규제지역에서 민간분양 잔여물량, 이른바 ‘줍줍’이 발생하면 <b>LH 등이 우선매입해 보편형 공공임대로 공급</b>한다는 것이다. 원문은 그 이유로 “과다한 시세차익 발생 등 문제”를 들고 규모를 약 1,600호(’25.6~’26.5, 전용 85㎡ 이하)로 적었다. 현재 무주택 일반국민 추첨 방식으로 공급되던 물량이 <b>일반 청약 대상에서 빠지는</b> 변화다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 20</span><span class="cite">문서 ② 48면</span></div>
+        <div class="top"><span class="cno">중요 20</span><span class="cite">문서 ② 48면</span></div>
         <h4>전월세 안심신탁은 구조도만 공개됐고 법적 성격은 아직 정해지지 않았다</h4>
         <p>집주인은 월세를 원하고 세입자는 전세를 원하는 미스매치를 <b>‘전월세안정화기구’를 중간에 세워</b> 해소한다는 구상이다. 3자 계약을 맺고 전세금을 기구에 예탁하면, 기구가 그 전세금으로 펀드를 조성해 HUG 보증 주택사업에 투자하고 수익(약 4~5%)을 집주인에게 월세로 지급한다.</p>
         <div class="quote">기구는 전세금을 투자하여 그 수익을 집주인에게 월세로 제공 * 전세금으로 펀드를 조성해 HUG가 보증하는 주택사업에 투자 → 공급 활성화 지원</div>
@@ -748,7 +982,7 @@ footer ul{margin:0; padding-left:16px}
         <p>일정은 집주인 모집공고 9월 → 심사·약정 10~12월 → 연말 입주이고, <b>참여는 의무가 아닌 공모</b>다. LH 매입임대 일부를 수도권 500호 규모로 시범 공급한다. 9월 공고문에서 위 쟁점들이 어떻게 정리되는지가 실제 판단 시점이다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 21</span><span class="cite">문서 ② 43면 · 문서 ③ 16면</span></div>
+        <div class="top"><span class="cno">중요 21</span><span class="cite">문서 ② 43면 · 문서 ③ 16면</span></div>
         <h4>결혼 페널티 해소는 상품별로 시행 시기가 다르다</h4>
         <p>같은 “부부 중 1인 소득 기준”이라도 근거 문서와 시행 시점이 갈린다. <b>보금자리론은 금융위 소관으로 ’26.10월</b>(내규·전산 개발), <b>디딤돌·버팀목은 국토부 기금 소관</b>으로 문서 ② 43면에 실려 있다.</p>
         <p>구체적 효과는 원문 예시가 명확하다 — 5천만원 소득자와 7천만원 소득자가 혼인신고 후 디딤돌대출을 신청하면, 현행은 부부합산 1.2억원으로 심사해 대출이 불가하지만 개선 후에는 <b>5천만원 소득자 기준으로 심사해 대출이 가능</b>해진다. 전세사기 피해가구도 부부 중 한 명이라도 소득 7천만원 이내면 대출이 허용된다.</p>
@@ -768,7 +1002,7 @@ footer ul{margin:0; padding-left:16px}
     <div class="news">
       <div class="h"><span class="sq red"></span><b>관련 보도</b></div>
       <div class="newsgrid">
-        <a class="na" href="https://www.newsis.com/view/NISX20260813_0003747376" target="_blank" rel="noopener"><div class="src">뉴시스</div><div class="t">공공분양 15% 지분적립형 공급…‘줍줍’ 공공임대로 돌린다</div><div class="n">체크 17·19를 함께 다룬 기사.</div></a>
+        <a class="na" href="https://www.newsis.com/view/NISX20260813_0003747376" target="_blank" rel="noopener"><div class="src">뉴시스</div><div class="t">공공분양 15% 지분적립형 공급…‘줍줍’ 공공임대로 돌린다</div><div class="n">〈중요 17〉·19를 함께 다룬 기사.</div></a>
         <a class="na" href="https://www.etoday.co.kr/news/view/2614151" target="_blank" rel="noopener"><div class="src">이투데이</div><div class="t">“결혼하면 대출 탈락” 없앤다…지분적립형 공공분양 확대</div><div class="n">결혼 페널티 개선 항목을 상품별로 정리.</div></a>
         <a class="na" href="https://biz.heraldcorp.com/article/10840081" target="_blank" rel="noopener"><div class="src">헤럴드경제</div><div class="t">비아파트 규제 풀고 ‘안심신탁’ 도입…정부, 전월세난 진화 총력</div><div class="n">안심신탁을 정면으로 다룬 몇 안 되는 기사.</div></a>
         <a class="na" href="https://biz.heraldcorp.com/article/10841494" target="_blank" rel="noopener"><div class="src">헤럴드경제</div><div class="t">文때와 똑닮은 ‘공공임대 중심’ 전월세 대책…“근본 해결 안돼”</div><div class="n">이 파트에 대한 비판적 시각. 검토의견과 대조해 읽을 만하다.</div></a>
@@ -782,7 +1016,7 @@ footer ul{margin:0; padding-left:16px}
 <article class="part" id="p5">
   <div class="parthead">
     <div class="wrap">
-      <div class="partnum">05</div>
+      <div class="partnum">제<b>5</b>장</div>
       <div>
         <div class="src">문서 ② 49–57면 · 문서 ① 16–17면 · 추진체계 강화</div>
         <h2>이번 대책의 성패는 총리실 점검체계가 실제로 작동하는지에 달려 있다</h2>
@@ -805,7 +1039,7 @@ footer ul{margin:0; padding-left:16px}
     <div class="lbl" style="margin-top:38px; display:block">중요 체크</div>
     <div class="checks">
       <div class="check">
-        <div class="top"><span class="cno">체크 22</span><span class="cite">문서 ② 50면</span></div>
+        <div class="top"><span class="cno">중요 22</span><span class="cite">문서 ② 50면</span></div>
         <h4>참고1 표는 “추가 공급효과”와 “추가 착공”을 다른 열에 적어 두었다</h4>
         <div class="tblwrap" style="margin-top:14px">
           <table>
@@ -827,7 +1061,7 @@ footer ul{margin:0; padding-left:16px}
         <p>표에서 읽어야 할 것은 두 가지다. 첫째, <b>23만호와 12만호는 다른 개념</b>이며 전자는 물량 발굴, 후자는 임기 내 착공이다. 둘째, 12만호+α 중 <mark>4.5만호가 “일반주택 공급생태계 정상화”</mark>, 즉 파트 3의 건축기준·대출·부담금 완화에 따른 민간의 자발적 착공 증가에 걸려 있다. 이 항목은 정부가 직접 발주하는 물량이 아니므로 <b>추정치의 성격이 가장 강하다.</b></p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 23</span><span class="cite">문서 ② 51–57면</span></div>
+        <div class="top"><span class="cno">중요 23</span><span class="cite">문서 ② 51–57면</span></div>
         <h4>추진계획표의 “조치사항” 열이 각 과제의 실현 난도를 그대로 보여준다</h4>
         <p>51~57면 표는 과제마다 조치사항을 적어 두었는데, 그 유형이 곧 난도의 서열이다.</p>
         <div class="tblwrap" style="margin-top:14px">
@@ -845,7 +1079,7 @@ footer ul{margin:0; padding-left:16px}
         <p>이 대책을 인용하거나 자문에 반영할 때 <b>“조치사항이 법률 개정인지”를 먼저 확인하는 것</b>이 가장 실질적인 검증 방법이다. 법률 개정 항목은 국회 통과 전까지 시행일을 특정할 수 없다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 24</span><span class="cite">문서 ① 16–17면</span></div>
+        <div class="top"><span class="cno">중요 24</span><span class="cite">문서 ① 16–17면</span></div>
         <h4>국무조정실 브리핑은 이 대책의 자체 평가 기준을 명시했다</h4>
         <div class="quote">금번 부동산 대책의 핵심은 공급입니다. 이번 대책의 성패는 얼마나 신속하게 주택을 공급하고, 이를 통해 시장의 신뢰를 회복하느냐에 달려있습니다. … <b>관건은 실행입니다.</b></div>
         <p>점검 체계는 3단으로 짜였다. <b>국무총리 주재 점검회의</b>(중대사안 조정) → <b>국조실 2차장의 실무회의</b>(사전점검) → <b>국토부 1차관의 신속공급 혁신단 및 신속 인허가 지원센터</b>(현장 밀착). 여기에 국조실 “주택 신속공급 점검팀”이 <b>주택공급 상황판을 설치해 사안별·지구별·주간 단위로 관리</b>한다.</p>
@@ -879,7 +1113,7 @@ footer ul{margin:0; padding-left:16px}
 <article class="part" id="p6">
   <div class="parthead">
     <div class="wrap">
-      <div class="partnum">06</div>
+      <div class="partnum">제<b>6</b>장</div>
       <div>
         <div class="src">문서 ③ 1–20면 · 부동산 시장 안정을 위한 금융 종합대책</div>
         <h2>공급에는 돈을 더 풀고 수요는 더 조이는, 방향이 반대인 두 축이 한 문서에 있다</h2>
@@ -909,7 +1143,7 @@ footer ul{margin:0; padding-left:16px}
     <div class="lbl" style="margin-top:38px; display:block">중요 체크</div>
     <div class="checks">
       <div class="check">
-        <div class="top"><span class="cno">체크 25</span><span class="cite">문서 ③ 9–10면</span></div>
+        <div class="top"><span class="cno">중요 25</span><span class="cite">문서 ③ 9–10면</span></div>
         <h4>전세대출보증 제한은 세 요건을 모두 충족해야 걸린다 — 하나라도 빠지면 대상이 아니다</h4>
         <p>“1주택자 전세대출 금지”로 요약되곤 하지만 원문의 요건은 훨씬 좁다. <b>⑴~⑶ 모두에 해당하는 자</b>만 대상이다.</p>
         <div class="tblwrap" style="margin-top:14px">
@@ -927,14 +1161,14 @@ footer ul{margin:0; padding-left:16px}
         <p>예외 허용 사유도 다섯 가지가 명시됐다 — 법적 의무에 따라 실거주가 예정된 경우(신규·연장 허용), 임대차계약 승계 조건부 취득으로 실거주를 못 하는 경우(승계 계약 종료일까지 연장), 임대인의 보증금 미반환(연장 허용), 퇴거 예정이나 일정 조정이 필요한 경우(6개월 내 단기 연장), 그리고 <b>비거주 사유의 불가피성이 명백하다고 금융회사 여신심사위원회가 인정하는 경우</b>다. 마지막 항목이 사실상의 일반 예외 창구다. 시행은 <mark>’27.1.1일</mark>.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 26</span><span class="cite">문서 ③ 5면</span></div>
+        <div class="top"><span class="cno">중요 26</span><span class="cite">문서 ③ 5면</span></div>
         <h4>PF 자기자본비율 규제 2년 유예는 이번 금융대책에서 이견이 가장 컸던 항목이다</h4>
         <div class="quote">제2의 레고랜드 등 PF發 위기 재발방지 차원 <b>당초 방안대로 추진하자는 의견</b>과, 주택건설 촉진 관련 건설업계·금융권 애로사항 등을 종합적으로 고려 ⇒ 주거사업장 대상 PF 자기자본비율 규제 한시유예 (’27년 시행 → ’29년 시행)</div>
         <p>정부 문서가 반대 의견의 존재를 명시하는 것은 드문 일이다. 규제안 자체는 유지된다 — ’29년 15%, ’30년 20%로 올라가는 일정에서 <b>앞의 두 단계(’27년 5%, ’28년 10%)를 건너뛰는</b> 형태다. 유예 대상은 주거사업장에 한정되며, 세부방안은 업권·협회 협의를 거쳐 연내 발표된다.</p>
         <p>시행사·시행업 관점에서는 ’27~’28년에 자기자본 요건 없이 PF를 일으킬 수 있는 창이 열린 것이지만, <b>’29년 15%가 그대로 온다</b>는 점에서 그 시점에 걸릴 사업장의 자본 계획을 지금부터 잡아 두어야 한다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 27</span><span class="cite">문서 ③ 11면</span></div>
+        <div class="top"><span class="cno">중요 27</span><span class="cite">문서 ③ 11면</span></div>
         <h4>DSR 소득산정 변경은 소득이 오른 사람에게만 불리하게 작동하는 비대칭 구조다</h4>
         <div class="tblwrap" style="margin-top:14px">
           <table>
@@ -952,7 +1186,7 @@ footer ul{margin:0; padding-left:16px}
         <p>반대 방향의 완화도 같은 문서에 있다. <b>DSR 장래소득 인정기준</b>은 금융회사 자율 적용이어서 차주가 요청하지 않으면 적용되지 않는 사례가 많았는데, 이를 <b>금융회사의 고지 의무</b>로 바꾼다(’26.8.31). 원문 예시로는 연소득 4,000만원·만 30세 차주가 30년 만기 주담대에서 한도 12.5% 상승 효과를 든다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 28</span><span class="cite">문서 ③ 13–14면</span></div>
+        <div class="top"><span class="cno">중요 28</span><span class="cite">문서 ③ 13–14면</span></div>
         <h4>청년미래보금자리론은 아파트를 대상에서 뺐다</h4>
         <div class="tblwrap" style="margin-top:14px">
           <table>
@@ -972,7 +1206,7 @@ footer ul{margin:0; padding-left:16px}
         <p>다만 오피스텔을 대상에 포함하려면 <b>주택금융공사법 개정</b>이 필요하다(’26년 하반기 추진). 현행 주택법상 주택만 보금자리론 지원이 가능하므로, 법 개정 전에는 오피스텔이 제외된다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 29</span><span class="cite">문서 ③ 15·17면</span></div>
+        <div class="top"><span class="cno">중요 29</span><span class="cite">문서 ③ 15·17면</span></div>
         <h4>가계부채 총량 목표 상향은 그 자체가 목적이 아니라 이주비·중도금 대출을 뚫기 위한 수단이다</h4>
         <p>’26년 가계부채 증가율 목표가 <b>1.5% → 3% 수준</b>으로 조정된다. 원문은 그 이유와 용처를 함께 적었다.</p>
         <div class="quote">주택공급 촉진 및 청년·실수요자 지원 필요성 등 최근 상황 변화를 감안하여 … ➡ 증가한 대출 여력은 <b>주택공급 촉진(이주비·중도금·잔금대출), 청년 주거안정, 실수요자 애로 해소 등 “정책적 목적으로 활용”</b></div>
@@ -980,7 +1214,7 @@ footer ul{margin:0; padding-left:16px}
         <p>동시에 <b>신용대출은 관리를 강화</b>한다. 원문은 “’25년 대비 빠르게 증가하고 있는 신용대출”에 대해 금융회사 자율관리 조치 등 다각적 관리를 예고했다. 총량이 늘었다고 모든 대출이 함께 늘어나는 구조가 아니라는 뜻이다.</p>
       </div>
       <div class="check">
-        <div class="top"><span class="cno">체크 30</span><span class="cite">문서 ③ 12면</span></div>
+        <div class="top"><span class="cno">중요 30</span><span class="cite">문서 ③ 12면</span></div>
         <h4>주담대 자본규제는 은행 규제이지만 결과적으로 차주의 금리·한도에 전가된다</h4>
         <p>고위험 주담대 유형에 <b>③ 고액·고DSR 주담대</b>와 <b>④ 고가주택·고LTV 주담대</b>가 추가되고 위험가중치가 2~4배로 상향된다. 여기에 <b>가계부문 시스템리스크 완충자본(SSyRB)</b>이 신설되어, 가계부채/GDP가 일정 수준(예: 80%)을 넘으면 은행별 주담대 비중에 따라 추가 자본을 적립해야 한다(상한 예시 1%).</p>
         <p>은행 입장에서 특정 유형의 주담대가 자본을 더 많이 소모하게 되므로, 해당 구간의 <b>가산금리 인상이나 취급 축소</b>로 이어질 가능성이 높다. 세부 부과기준은 은행권 협의와 자본비율 영향분석을 거쳐 ’26년 4분기에 확정되며, SSyRB는 6개월 시범운영 후 ’27년 하반기부터 적립의무가 부과된다.</p>
@@ -1001,31 +1235,17 @@ footer ul{margin:0; padding-left:16px}
     <div class="news">
       <div class="h"><span class="sq red"></span><b>관련 보도</b></div>
       <div class="newsgrid">
-        <a class="na" href="https://biz.heraldcorp.com/article/10839910" target="_blank" rel="noopener"><div class="src">헤럴드경제</div><div class="t">[일문일답] 금융위, 비거주 1주택자 전세대출 제한…“한 번이라도 살았다면 제외”</div><div class="n">체크 25의 요건 해석을 당국 문답으로 확인할 수 있다.</div></a>
+        <a class="na" href="https://biz.heraldcorp.com/article/10839910" target="_blank" rel="noopener"><div class="src">헤럴드경제</div><div class="t">[일문일답] 금융위, 비거주 1주택자 전세대출 제한…“한 번이라도 살았다면 제외”</div><div class="n">〈중요 25〉의 요건 해석을 당국 문답으로 확인할 수 있다.</div></a>
         <a class="na" href="https://www.khan.co.kr/article/202608131200001" target="_blank" rel="noopener"><div class="src">경향신문</div><div class="t">내년 1월부터 ‘비거주 1주택자’ 전세대출 제한…갭투자 차단 조치</div><div class="n">시행 시점과 정책 의도를 명확히 제시.</div></a>
         <a class="na" href="https://news.nate.com/view/20260813n15881" target="_blank" rel="noopener"><div class="src">뉴시스</div><div class="t">가계부채 목표 3%로 상향…비거주 1주택자 전세대출 보증 제한</div><div class="n">완화와 규제를 한 기사에서 함께 다룬다.</div></a>
         <a class="na" href="https://www.hankyung.com/article/202608138529i" target="_blank" rel="noopener"><div class="src">한국경제</div><div class="t">청년미래보금자리론 나온다…4억 이하 빌라·오피스텔 혜택</div><div class="n">상품 조건과 오피스텔 포함 여부를 정리.</div></a>
-        <a class="na" href="https://www.dt.co.kr/article/12078093" target="_blank" rel="noopener"><div class="src">디지털타임스</div><div class="t">대출 오픈런 해소?…이주비·중도금·잔금대출 문 넓어진다</div><div class="n">체크 29의 총량 별도 관리가 실제로 무엇을 바꾸는지.</div></a>
+        <a class="na" href="https://www.dt.co.kr/article/12078093" target="_blank" rel="noopener"><div class="src">디지털타임스</div><div class="t">대출 오픈런 해소?…이주비·중도금·잔금대출 문 넓어진다</div><div class="n">〈중요 29〉의 총량 별도 관리가 실제로 무엇을 바꾸는지.</div></a>
         <a class="na" href="https://www.asiatoday.co.kr/kn/view.php?key=20260813010004710" target="_blank" rel="noopener"><div class="src">아시아투데이</div><div class="t">총량은 풀고 규제는 유지…8·13 대책 ‘두 토끼’ 잡을까</div><div class="n">이 파트의 두 축이 충돌하는 지점을 짚은 분석.</div></a>
       </div>
     </div>
   </div></div>
 </article>
 
-<style>
-.cal{margin-top:28px; display:grid; gap:0}
-.calrow{display:grid; grid-template-columns:132px 1fr; gap:24px; padding:22px 0; border-top:1px solid var(--rule)}
-.calrow:last-child{border-bottom:1px solid var(--rule)}
-.caldate{font-family:var(--mono); font-size:15px; font-weight:700; letter-spacing:-.02em; color:var(--red); padding-top:1px}
-.caldate small{display:block; font-size:10.5px; font-weight:600; letter-spacing:.1em; color:var(--ink-3); margin-top:5px; text-transform:uppercase}
-.calitems{display:grid; gap:9px}
-.calitem{display:grid; grid-template-columns:1fr auto; gap:14px; align-items:baseline; font-size:14px; line-height:1.6}
-.calitem .cw{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); letter-spacing:.04em; white-space:nowrap}
-@media (max-width:640px){
-  .calrow{grid-template-columns:1fr; gap:12px}
-  .calitem{grid-template-columns:1fr; gap:2px}
-}
-</style>
 
 <section id="cal">
   <div class="wrap">
@@ -1163,6 +1383,12 @@ footer ul{margin:0; padding-left:16px}
 
 <footer>
   <div class="wrap">
+    <dl class="imprint">
+      <div class="imprint-row"><dt>발행</dt><dd>법무법인 JL · 리걸매거진 특별호</dd></div>
+      <div class="imprint-row"><dt>발행일</dt><dd>2026년 8월</dd></div>
+      <div class="imprint-row"><dt>다룬 자료</dt><dd>2026. 8. 13. 정부 발표 「전월세 및 매매시장 안정을 위한 주택 신속공급 방안」·「부동산 시장 안정을 위한 금융 종합대책」</dd></div>
+      <div class="imprint-row"><dt>체재</dt><dd>6장 · 부록 2 · 중요 체크 30항목 · 검토의견 22항목</dd></div>
+    </dl>
     <div class="fin">
       <div>
         <h4>수록 원문</h4>
@@ -1174,14 +1400,18 @@ footer ul{margin:0; padding-left:16px}
         </ul>
       </div>
       <div>
-        <h4>이 책자의 구성</h4>
-        <p>6개 파트 · 면별 통독표 6종 · 중요 체크 30항목 · 검토의견 22항목 · 관련 보도 36건 · 부록 2편(시행 시기 캘린더, 입법 과제).</p>
+        <h4>체재</h4>
+        <p>6장 · 면별 통독표 6종 · 중요 체크 30항목 · 검토의견 22항목 · 관련 보도 36건 · 부록 2편(시행 시기 캘린더, 입법 과제).</p>
       </div>
       <div>
         <h4>표기 원칙</h4>
         <p>인용문은 원문 표기를 그대로 옮겼다. 원문에 없는 판단은 <b>검토의견</b>으로 분리했고, 확정된 사항과 국회·협의를 거쳐야 하는 사항을 구분해 적었다. 면수는 각 문서에 인쇄된 면 번호 기준이다.</p>
       </div>
     </div>
+    <p class="spec">조판 기준 &nbsp;·&nbsp; 본문단 688px ≒ 국문 38자 &nbsp;·&nbsp; 방주단 132px &nbsp;·&nbsp; 단 간격 32px<br>
+    행간 &nbsp; 본문 1.90 &nbsp;/&nbsp; 소제목 1.50 &nbsp;/&nbsp; 표제 1.30 &nbsp;/&nbsp; 방주 1.65<br>
+    단락 간격 23px (행송 32px의 0.70배) &nbsp;·&nbsp; 문단군 48px &nbsp;·&nbsp; 절 96px &nbsp;·&nbsp; 장 128px<br>
+    서체 &nbsp; 표제·인용 명조 &nbsp;/&nbsp; 본문 고딕 17px &nbsp;/&nbsp; 면수·수치 등폭</p>
     <p class="disc">본 책자는 2026년 8월 13일 발표된 정부 대책의 원문을 정리·해설한 자료로, 발표 시점의 계획을 기준으로 작성되었다. 법률 개정·시행령 제정·내규 개정의 진행 상황에 따라 내용이 변경될 수 있으며, 개별 사안에 대한 법률의견을 대신하지 않는다. 관련 보도의 링크는 각 언론사에 저작권이 있다.</p>
   </div>
 </footer>
