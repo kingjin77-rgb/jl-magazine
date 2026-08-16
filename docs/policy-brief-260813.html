@@ -1,0 +1,1187 @@
+<title>8·13 대책 정독</title>
+<style>
+:root{
+  --navy:#0F2548; --blue:#3E6CB5; --red:#C0392B;
+  --paper:#EEF1F5; --card:#FFFFFF; --card-2:#F7F9FB;
+  --ink:#0F2548; --ink-2:#3A4A63; --ink-3:#6B7B93;
+  --rule:#D3DBE6; --rule-2:#E5EAF1;
+  --blue-wash:#EAF0F9; --red-wash:#FAEDEB; --navy-wash:#E3E8F0;
+  --shadow:0 1px 2px rgba(15,37,72,.06), 0 8px 24px -12px rgba(15,37,72,.18);
+  --serif:'Nanum Myeongjo','AppleMyungjo',Batang,'Times New Roman',serif;
+  --sans:'Pretendard Variable',Pretendard,'Apple SD Gothic Neo','Malgun Gothic',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:ui-monospace,'SF Mono',Menlo,Consolas,'D2Coding','Courier New',monospace;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --navy:#0F2548; --blue:#7FA8E0; --red:#E2705E;
+    --paper:#0C1520; --card:#131E2C; --card-2:#182534;
+    --ink:#E8EDF4; --ink-2:#B4C1D3; --ink-3:#8595AC;
+    --rule:#2A3A4F; --rule-2:#213043;
+    --blue-wash:#152537; --red-wash:#2C1B18; --navy-wash:#18273A;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  --navy:#0F2548; --blue:#7FA8E0; --red:#E2705E;
+  --paper:#0C1520; --card:#131E2C; --card-2:#182534;
+  --ink:#E8EDF4; --ink-2:#B4C1D3; --ink-3:#8595AC;
+  --rule:#2A3A4F; --rule-2:#213043;
+  --blue-wash:#152537; --red-wash:#2C1B18; --navy-wash:#18273A;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--sans); font-size:16px; line-height:1.75;
+  -webkit-font-smoothing:antialiased; word-break:keep-all; overflow-wrap:break-word;
+}
+h1,h2,h3,h4{margin:0; text-wrap:balance; letter-spacing:-.035em; line-height:1.28; font-weight:800}
+p{margin:0}
+a{color:var(--blue)}
+:focus-visible{outline:2px solid var(--blue); outline-offset:3px; border-radius:2px}
+@media (prefers-reduced-motion:reduce){*{animation:none!important; transition:none!important; scroll-behavior:auto!important}}
+html{scroll-behavior:smooth}
+
+.wrap{max-width:1120px; margin:0 auto; padding:0 24px; min-width:0}
+/* grid/flex children must be allowed to shrink below their content's intrinsic width,
+   otherwise a wide table inside .tblwrap pushes the whole page sideways */
+.checks > *, .opinion, .opinion li, .parthead .wrap > *, .prow > *, .rowhead > *,
+.bar > *, .calrow > *, .calitem > *, .legend > *, .newsgrid > *, .docmap > *,
+.stats > *, .covermeta > *, .fin > *{min-width:0}
+.tblwrap{max-width:100%}
+.mono{font-family:var(--mono); font-variant-numeric:tabular-nums}
+.lbl{font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3)}
+
+/* ---------- nav ---------- */
+nav{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--paper) 92%, transparent);
+  backdrop-filter:blur(12px); border-bottom:1px solid var(--rule)}
+.navin{max-width:1120px; margin:0 auto; padding:10px 24px; display:flex; align-items:center; gap:18px;
+  overflow-x:auto; scrollbar-width:none}
+.navin::-webkit-scrollbar{display:none}
+.navbrand{font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.12em;
+  color:var(--ink); white-space:nowrap; padding-right:14px; border-right:1px solid var(--rule)}
+.navin a{font-size:13px; color:var(--ink-2); text-decoration:none; white-space:nowrap; font-weight:600;
+  padding:3px 0; border-bottom:2px solid transparent}
+.navin a:hover{color:var(--blue); border-bottom-color:var(--blue)}
+
+/* ---------- cover ---------- */
+.cover{padding:88px 0 64px; border-bottom:3px solid var(--navy)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .cover{border-bottom-color:var(--blue)}}
+:root[data-theme="dark"] .cover{border-bottom-color:var(--blue)}
+.cover .kicker{display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:26px}
+.tag{font-family:var(--mono); font-size:11px; letter-spacing:.1em; padding:4px 9px; border:1px solid var(--rule);
+  border-radius:2px; color:var(--ink-2); background:var(--card)}
+.tag.solid{background:var(--navy); color:#fff; border-color:var(--navy)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tag.solid{background:var(--blue); color:#0C1520; border-color:var(--blue)}}
+:root[data-theme="dark"] .tag.solid{background:var(--blue); color:#0C1520; border-color:var(--blue)}
+h1{font-size:clamp(44px,8.5vw,86px); letter-spacing:-.05em; line-height:1.04}
+.cover .sub{margin-top:24px; font-size:clamp(17px,2.4vw,21px); color:var(--ink-2); font-weight:500;
+  max-width:44ch; line-height:1.6; letter-spacing:-.02em}
+.covermeta{margin-top:44px; display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px;
+  background:var(--rule); border:1px solid var(--rule)}
+.covermeta > div{background:var(--paper); padding:16px 18px}
+.covermeta dt{font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--ink-3); text-transform:uppercase}
+.covermeta dd{margin:6px 0 0; font-size:15px; font-weight:700; letter-spacing:-.02em}
+
+/* ---------- generic section ---------- */
+section{padding:64px 0; border-bottom:1px solid var(--rule)}
+.sechead{display:flex; align-items:baseline; gap:14px; margin-bottom:28px; flex-wrap:wrap}
+.sechead h2{font-size:clamp(26px,4vw,38px)}
+.lead{font-size:17px; color:var(--ink-2); max-width:66ch; line-height:1.8}
+
+/* ---------- how to read ---------- */
+.legend{display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:14px; margin-top:28px}
+.legend-item{background:var(--card); border:1px solid var(--rule); border-radius:3px; padding:18px 20px; box-shadow:var(--shadow)}
+.legend-item .h{display:flex; align-items:center; gap:9px; margin-bottom:9px; font-weight:800; font-size:15px; letter-spacing:-.02em}
+.legend-item p{font-size:14px; color:var(--ink-2); line-height:1.65}
+.sq{width:11px; height:11px; flex:none; border-radius:1px}
+.sq.red{background:var(--red)} .sq.blue{background:var(--blue)} .sq.navy{background:var(--ink-3)}
+
+/* ---------- stats ---------- */
+/* hairlines drawn per-cell, not by a container background showing through the gaps —
+   the last row is partly empty and a container fill would render as a blank slab */
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(196px,1fr)); gap:1px; margin-top:8px}
+.stat{background:var(--card); padding:22px 20px; box-shadow:0 0 0 1px var(--rule)}
+.stat .n{font-family:var(--mono); font-size:clamp(26px,3.6vw,35px); font-weight:700; letter-spacing:-.04em; line-height:1.1;
+  color:var(--navy); font-variant-numeric:tabular-nums; white-space:nowrap}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .stat .n{color:var(--blue)}}
+:root[data-theme="dark"] .stat .n{color:var(--blue)}
+.stat .n small{font-size:.44em; font-weight:600; letter-spacing:0; margin-left:3px; white-space:nowrap}
+.stat .k{margin-top:11px; font-size:13px; font-weight:700; letter-spacing:-.01em}
+.stat .d{margin-top:4px; font-size:12px; color:var(--ink-3); line-height:1.5}
+
+/* ---------- doc map ---------- */
+.docmap{display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:14px; margin-top:26px}
+.doc{background:var(--card); border:1px solid var(--rule); border-top:3px solid var(--navy); border-radius:0 0 3px 3px;
+  padding:20px; box-shadow:var(--shadow)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .doc{border-top-color:var(--blue)}}
+:root[data-theme="dark"] .doc{border-top-color:var(--blue)}
+.doc .num{font-family:var(--mono); font-size:12px; font-weight:700; color:var(--red); letter-spacing:.06em}
+.doc h4{margin:8px 0 10px; font-size:16px}
+.doc .meta{font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.04em}
+.doc p{margin-top:11px; font-size:13.5px; color:var(--ink-2); line-height:1.65}
+
+/* ---------- part ---------- */
+.part{padding:0; border-bottom:1px solid var(--rule)}
+.parthead{background:var(--navy); color:#fff; padding:52px 0 46px; margin-bottom:0}
+.parthead .wrap{display:grid; grid-template-columns:auto 1fr; gap:30px; align-items:start}
+.partnum{font-family:var(--mono); font-size:clamp(48px,9vw,86px); font-weight:700; line-height:.8;
+  letter-spacing:-.06em; color:rgba(255,255,255,.32)}
+.parthead h2{font-size:clamp(25px,4.4vw,40px); color:#fff}
+.parthead .src{font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; color:rgba(255,255,255,.62); margin-bottom:12px}
+.parthead .verdict{margin-top:18px; font-size:16px; line-height:1.7; color:rgba(255,255,255,.9); max-width:60ch;
+  border-left:3px solid var(--red); padding-left:16px; font-weight:500}
+.partbody{padding:52px 0 60px}
+
+/* ---------- page-by-page table ---------- */
+.readtable{margin-top:22px; border:1px solid var(--rule); border-radius:3px; overflow:hidden; background:var(--card)}
+.readtable .rowhead{display:grid; grid-template-columns:76px 1fr 54px; gap:16px; padding:11px 18px;
+  background:var(--navy-wash); border-bottom:1px solid var(--rule)}
+.readtable .rowhead span{font-family:var(--mono); font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+.readtable .rowhead span:last-child{text-align:center}
+.prow{display:grid; grid-template-columns:76px 1fr 54px; gap:16px; padding:14px 18px; border-bottom:1px solid var(--rule-2);
+  align-items:start}
+.prow:last-child{border-bottom:0}
+.prow:nth-child(even){background:var(--card-2)}
+.pno{font-family:var(--mono); font-size:12.5px; font-weight:700; color:var(--blue); letter-spacing:-.02em; padding-top:2px}
+.ptitle{font-size:14.5px; font-weight:700; letter-spacing:-.02em}
+.pdesc{margin-top:4px; font-size:13.5px; color:var(--ink-2); line-height:1.65; font-weight:400}
+.pmark{text-align:center; padding-top:3px; font-family:var(--mono); font-size:11px; font-weight:700; letter-spacing:.02em}
+.m3{color:var(--red)} .m2{color:var(--blue)} .m1{color:var(--ink-3)}
+
+/* ---------- check block ---------- */
+.checks{margin-top:34px; display:grid; gap:16px}
+.check{background:var(--card); border:1px solid var(--rule); border-left:4px solid var(--red); border-radius:0 3px 3px 0;
+  padding:20px 22px; box-shadow:var(--shadow)}
+.check .top{display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; margin-bottom:10px}
+.check .cno{font-family:var(--mono); font-size:11px; font-weight:700; color:var(--red); letter-spacing:.08em}
+.check .cite{font-family:var(--mono); font-size:11px; color:var(--ink-3); letter-spacing:.04em;
+  border:1px solid var(--rule); padding:1px 7px; border-radius:2px}
+.check h4{font-size:16.5px; margin-bottom:10px}
+.check p{font-size:14.5px; color:var(--ink-2); line-height:1.78}
+.check p + p{margin-top:10px}
+.check .quote{margin:13px 0; padding:13px 16px; background:var(--card-2); border:1px solid var(--rule-2); border-radius:2px;
+  font-family:var(--serif); font-size:14.5px; line-height:1.75; color:var(--ink)}
+.check .quote::before{content:'원문 '; font-family:var(--mono); font-size:10px; letter-spacing:.12em; color:var(--ink-3)}
+strong{font-weight:800; color:var(--ink)}
+mark{background:var(--blue-wash); color:var(--ink); padding:1px 4px; border-radius:2px; font-weight:700}
+mark.r{background:var(--red-wash)}
+
+/* ---------- opinion ---------- */
+.opinion{margin-top:34px; background:var(--blue-wash); border:1px solid var(--rule); border-radius:3px; padding:24px 26px}
+.opinion .h{display:flex; align-items:center; gap:10px; margin-bottom:14px}
+.opinion .h b{font-size:15px; letter-spacing:-.02em}
+.opinion ul{margin:0; padding-left:0; list-style:none; display:grid; gap:12px}
+.opinion li{font-size:14.5px; color:var(--ink-2); line-height:1.75; padding-left:22px; position:relative}
+.opinion li::before{content:'▸'; position:absolute; left:0; top:0; color:var(--blue); font-size:13px}
+.opinion li b{color:var(--ink)}
+
+/* ---------- data table ---------- */
+.tblwrap{margin-top:26px; overflow-x:auto; border:1px solid var(--rule); border-radius:3px; background:var(--card)}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:13.5px}
+th,td{padding:11px 14px; text-align:left; border-bottom:1px solid var(--rule-2); vertical-align:top; line-height:1.6}
+thead th{background:var(--navy-wash); font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--ink-3); font-weight:700; white-space:nowrap}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{font-family:var(--mono); font-variant-numeric:tabular-nums; white-space:nowrap}
+caption{caption-side:bottom; padding:10px 14px; font-size:12px; color:var(--ink-3); text-align:left; line-height:1.6}
+
+/* ---------- bar chart ---------- */
+.bars{margin-top:26px; background:var(--card); border:1px solid var(--rule); border-radius:3px; padding:24px 26px}
+.bars h4{font-size:15px; margin-bottom:4px}
+.bars .cap{font-size:12.5px; color:var(--ink-3); margin-bottom:20px}
+.bar{display:grid; grid-template-columns:96px 1fr; gap:14px; align-items:center; margin-bottom:11px}
+.bar .bl{font-family:var(--mono); font-size:11.5px; color:var(--ink-2); text-align:right; letter-spacing:-.01em}
+.bar .bt{height:26px; background:var(--rule-2); border-radius:2px; position:relative; overflow:hidden}
+.bar .bf{height:100%; display:flex; align-items:center; justify-content:flex-end; padding-right:9px;
+  font-family:var(--mono); font-size:11.5px; font-weight:700; color:#fff; border-radius:2px}
+.bf.a{background:var(--ink-3)} .bf.b{background:var(--blue)}
+
+/* ---------- news ---------- */
+.news{margin-top:34px}
+.news .h{display:flex; align-items:center; gap:10px; margin-bottom:16px}
+.news .h b{font-size:15px; letter-spacing:-.02em}
+.newsgrid{display:grid; grid-template-columns:repeat(auto-fit,minmax(268px,1fr)); gap:12px}
+.na{display:block; background:var(--card); border:1px solid var(--rule); border-radius:3px; padding:16px 18px;
+  text-decoration:none; color:inherit; transition:border-color .15s, transform .15s}
+.na:hover{border-color:var(--blue); transform:translateY(-1px)}
+.na .src{font-family:var(--mono); font-size:10.5px; letter-spacing:.1em; color:var(--red); text-transform:uppercase; font-weight:700}
+.na .t{margin-top:8px; font-size:14px; font-weight:700; letter-spacing:-.02em; line-height:1.5; color:var(--ink)}
+.na .n{margin-top:8px; font-size:12.5px; color:var(--ink-3); line-height:1.6}
+
+/* ---------- footer ---------- */
+footer{padding:56px 0 72px; background:var(--card)}
+footer .fin{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:30px}
+footer h4{font-size:14px; margin-bottom:12px}
+footer p, footer li{font-size:13px; color:var(--ink-2); line-height:1.75}
+footer ul{margin:0; padding-left:16px}
+.disc{margin-top:34px; padding-top:22px; border-top:1px solid var(--rule); font-size:12.5px; color:var(--ink-3); line-height:1.7}
+
+@media (max-width:640px){
+  .parthead .wrap{grid-template-columns:1fr; gap:12px}
+  .readtable .rowhead, .prow{grid-template-columns:58px 1fr 42px; gap:10px; padding:12px 13px}
+  .wrap{padding:0 18px}
+  .navin{padding:10px 18px}
+}
+</style>
+
+<nav>
+  <div class="navin">
+    <span class="navbrand">법무법인 JL</span>
+    <a href="#read">읽는 법</a>
+    <a href="#sum">한눈에</a>
+    <a href="#map">원문 지도</a>
+    <a href="#p1">1 공공택지</a>
+    <a href="#p2">2 도심</a>
+    <a href="#p3">3 민간·규제</a>
+    <a href="#p4">4 주거사다리</a>
+    <a href="#p5">5 추진체계</a>
+    <a href="#p6">6 금융대책</a>
+    <a href="#cal">시행 시기</a>
+    <a href="#law">입법 과제</a>
+  </div>
+</nav>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="kicker">
+      <span class="tag solid">해설 책자</span>
+      <span class="tag">2026. 8. 13. 발표</span>
+      <span class="tag">원문 4건 · 107면</span>
+    </div>
+    <h1>8·13 대책<br>정독</h1>
+    <p class="sub">「전월세 및 매매시장 안정을 위한 주택 신속공급 방안」과 「부동산 시장 안정을 위한 금융 종합대책」을 원문 순서대로 한 면씩 읽고, 면마다 확인해야 할 지점을 표시한 해설서.</p>
+    <dl class="covermeta">
+      <div><dt>발표 주체</dt><dd>국토교통부 · 금융위원회 · 국무조정실</dd></div>
+      <div><dt>원문 분량</dt><dd class="mono">107면 (본문 77면)</dd></div>
+      <div><dt>수록 파트</dt><dd class="mono">6개 파트 · 부록 2</dd></div>
+      <div><dt>작성</dt><dd>법무법인 JL</dd></div>
+    </dl>
+  </div>
+</header>
+
+<section id="read">
+  <div class="wrap">
+    <div class="sechead"><span class="lbl">사용 안내</span><h2>이 책자를 읽는 법</h2></div>
+    <p class="lead">발표 자료는 브리핑문·본문·금융대책·보도자료 4건으로 흩어져 있다. 이 책자는 그 4건을 하나의 읽는 순서로 합치고, 각 면을 <b>면별 통독표 → 중요 체크 → 검토의견 → 관련 보도</b> 순으로 다시 배열했다. 원문을 옆에 두고 면 번호를 따라가며 읽도록 만들었다.</p>
+    <div class="legend">
+      <div class="legend-item">
+        <div class="h"><span class="sq navy"></span>면별 통독표</div>
+        <p>원문 면 번호와 그 면에 실린 내용을 한 줄로 정리한 표. 왼쪽 숫자가 원문 면수이므로, 원문 PDF를 그 면으로 열고 대조하면 된다.</p>
+      </div>
+      <div class="legend-item">
+        <div class="h"><span class="sq red"></span>중요 체크</div>
+        <p>그 파트에서 실제로 권리·비용·일정이 바뀌는 지점. 빨간 세로줄이 붙은 항목만 따로 읽어도 파트의 골자는 파악된다.</p>
+      </div>
+      <div class="legend-item">
+        <div class="h"><span class="sq blue"></span>검토의견</div>
+        <p>원문에 적혀 있지 않은 판단. 확정된 사항과 국회·협의를 거쳐야 하는 사항을 구분해 적었다.</p>
+      </div>
+      <div class="legend-item">
+        <div class="h"><span class="sq navy"></span>중요도 표기</div>
+        <p>통독표 오른쪽 열의 <span class="mono m3">●●●</span> 는 즉시 확인, <span class="mono m2">●●</span> 는 해당자 확인, <span class="mono m1">●</span> 는 배경 설명이다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sum">
+  <div class="wrap">
+    <div class="sechead"><span class="lbl">숫자 요약</span><h2>대책의 뼈대는 여덟 개 숫자로 요약된다</h2></div>
+    <p class="lead">아래 숫자는 모두 원문에 명시된 값이다. 이 여덟 개를 기억하면 나머지 과제는 그 하위 수단으로 읽힌다.</p>
+    <div class="stats">
+      <div class="stat"><div class="n">23<small>만호+α</small></div><div class="k">수도권 추가 공급</div><div class="d">이 중 ’26~’30년 추가 착공은 12만호+α</div></div>
+      <div class="stat"><div class="n">68→37<small>개월</small></div><div class="k">택지 발표→착공</div><div class="d">지구별 특화 적용 시 21~34개월</div></div>
+      <div class="stat"><div class="n">10<small>만호</small></div><div class="k">신규 공공주택지구</div><div class="d">입지공개 2.7만호 + 연내 7.3만호+α</div></div>
+      <div class="stat"><div class="n">23.4<small>만호</small></div><div class="k">재개발·재건축 착공</div><div class="d">’30년까지 수도권 목표</div></div>
+      <div class="stat"><div class="n">47.8<small>조원</small></div><div class="k">공급 촉진 금융지원</div><div class="d">현행 26.3조원 → 47.8조원+α</div></div>
+      <div class="stat"><div class="n">33<small>조원</small></div><div class="k">’27년 PF보증</div><div class="d">3개년 평균 28.7조원, 직전 3년의 2.2배</div></div>
+      <div class="stat"><div class="n">3.0<small>%</small></div><div class="k">’26년 가계부채 증가율</div><div class="d">당초 1.5%에서 상향</div></div>
+      <div class="stat"><div class="n">34<small>개</small></div><div class="k">금융대책 세부과제</div><div class="d">즉시 15 · 연내 7 · ’27년 12</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="map">
+  <div class="wrap">
+    <div class="sechead"><span class="lbl">원문 구성</span><h2>어느 문서에 무엇이 실려 있나</h2></div>
+    <p class="lead">같은 제도가 국토부 문서와 금융위 문서에 나뉘어 실린 경우가 많다. 예를 들어 이주비 대출은 국토부 본문 20면과 금융위 6면에 각각 다른 층위로 등장한다. 아래 지도는 그 분담을 정리한 것이다.</p>
+    <div class="docmap">
+      <div class="doc">
+        <div class="num">문서 ①</div>
+        <h4>브리핑문</h4>
+        <div class="meta">17면 · 국토부·금융위·국조실</div>
+        <p>세 부처 장·차관의 발표문. 정책 의도와 강조점이 가장 압축적으로 드러난다. 본문을 읽기 전 <b>정책방향 5가지</b>를 잡는 용도로 먼저 읽는다.</p>
+      </div>
+      <div class="doc">
+        <div class="num">문서 ②</div>
+        <h4>주택 신속공급 방안</h4>
+        <div class="meta">57면 · 국토교통부</div>
+        <p>이 책자의 파트 1~5가 대응한다. 공급 물량·속도·규제 개편이 모두 여기에 있다. 말미의 <b>참고2 추진계획(51~57면)</b>이 실질적 체크리스트다.</p>
+      </div>
+      <div class="doc">
+        <div class="num">문서 ③</div>
+        <h4>금융 종합대책</h4>
+        <div class="meta">20면 · 금융위원회</div>
+        <p>파트 6이 대응한다. 공급 측 PF·보증과 수요 측 대출규제가 한 문서에 함께 있어, 방향이 반대인 두 축을 구분해 읽어야 한다.</p>
+      </div>
+      <div class="doc">
+        <div class="num">문서 ④</div>
+        <h4>보도자료</h4>
+        <div class="meta">국토부·금융위 공동</div>
+        <p>언론 배포용 요약. 표로 정리된 <b>조기 착공 인센티브</b>가 본문보다 보기 좋아, 인센티브 전체를 한 번에 훑을 때 유용하다.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<article class="part" id="p1">
+  <div class="parthead">
+    <div class="wrap">
+      <div class="partnum">01</div>
+      <div>
+        <div class="src">문서 ② 6–17면 · 공공택지 공급 확대</div>
+        <h2>공공택지에서 16만호+α를 더 뽑되, 핵심은 물량이 아니라 절차 단축이다</h2>
+        <p class="verdict">이 파트의 실질은 신규 지구 발표가 아니라 <b>보상·인허가 절차를 68개월에서 37개월로 줄이는 공정 재설계</b>다. 물량 숫자는 대부분 기존 지구에서 앞당겨 온 것이고, 단축의 상당 부분은 아직 국회에 계류된 법률 개정을 전제로 한다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="partbody"><div class="wrap">
+
+    <div class="lbl">면별 통독표</div>
+    <div class="readtable">
+      <div class="rowhead"><span>원문 면</span><span>내용</span><span>중요도</span></div>
+      <div class="prow"><div class="pno">6–7</div><div><div class="ptitle">공공택지 최단기 착공모델 구축</div><div class="pdesc">발표 후 착공까지 68개월 → 37개월. 3기 신도시 등 기존 지구는 1~2년 앞당겨 8.9만호 조기 착공(순증 4.1만호 + 시기 조정 4.8만호).</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">7</div><div><div class="ptitle">① 지구지정 단계 12 → 4개월</div><div class="pdesc">전략환경영향평가·재해영향성검토 단축 및 조기화, 중토위·중도위 심의 병행. GB 해제지구는 30만㎡ 미만에 한해 훼손지 복구 대신 부담금 우선 납부 허용.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">8</div><div><div class="ptitle">② 지구계획 24 → 13개월 / ③ 부지확보 44 → 24개월</div><div class="pdesc">용역을 지구지정 전에 조기 발주. 보상은 기본조사·감정평가 병행, 협의기간 60→30일, 수용재결 전담팀 신설.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">9</div><div><div class="ptitle">④ 부지조성~주택착공 12 → 9개월</div><div class="pdesc">지연 3대 요인별 처리기준 정비 — 오염토 외부반출 허용 확대, 매장유산 부분완료 인정, 송전선로 지중화 심의·협약 각 6→3개월. 각 △6개월 효과.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">10</div><div><div class="ptitle">붙임1 · 지구별 특화 착공모델</div><div class="pdesc">국공유지 50% 이상 통합지구 34개월, 30만㎡ 미만 소규모 환평 지구 30개월(단일 블록 21개월), 10만㎡ 이하 1인 소유 도심 자투리 22개월.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">11</div><div><div class="ptitle">붙임2 · 수도권 공공택지 공공분양 계획</div><div class="pdesc">’26년 하반기 1.8만호, ’27년 2.7만호. ’27년 물량은 최근 5년 평균(1.26만호)의 2배 이상. 월별 상세 분양계획은 11월 중 별도 발표.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">12</div><div><div class="ptitle">신규 공공주택지구 ① 서울 강서 · ② 남양주 도심</div><div class="pdesc">염창동 5.1만㎡ 1,000호(’29년 착공). 남양주 와부읍 228만㎡ 21,700호 — 고려대 덕소농장 일대 그린벨트, ’27년 하반기 지구지정 → ’30년 상반기 착공.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">13</div><div><div class="ptitle">③ 경기광주역세권2 + 추가 후보지 7.3만호+α</div><div class="pdesc">장지동 48만㎡ 4,500호. 나머지 7.3만호+α는 연내 발표 예정이며, 발표 시까지 서울 GB 전역·서울 인접 수도권 GB를 토지거래허가구역으로 한시 지정.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">14</div><div><div class="ptitle">붙임 · 신규 공공주택지구 투기방지 대책</div><div class="pdesc">공직자 토지소유 전수조사(업무관련자는 직계존비속까지), 최근 5년 거래 2,803건 중 이상거래 1,179건 선별, 의견청취 공고 즉시 개발행위 제한, 발표일로부터 5년 토지거래허가구역.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">15</div><div><div class="ptitle">비주택용지 주택 전환 확대</div><div class="pdesc">49만평 전환해 ’30년까지 3만호 우선 착공(9.7대책 1.54만호 + 신규 1.43만호). 입지 공개 3곳 4.4천호 — 인천검단·시흥거모·의왕월암. 상업용지 원단위를 인당 8~10㎡ → 6~8㎡로 축소.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">16</div><div><div class="ptitle">기매각 공동주택용지 신속 착공</div><div class="pdesc">’27년 상반기 착공 시 미분양 매입확약 가격비율 2%p 가산. 동시에 토지계약 해약조건을 강화 — 계약금만 납부 후 연체 1년→6개월, 중도금 납부 시 3년→2년.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">17</div><div><div class="ptitle">군사시설보호구역 완화 / 지방공사 기금지원 개선</div><div class="pdesc">7.22 해제·완화로 고양창릉 2,561호 증가(9,564→12,125호), 수색14 1,152호 정상화. 지방공사 임대주택 기금지원을 보조금 → 출자로 변경.</div></div><div class="pmark m1">●</div></div>
+    </div>
+
+    <div class="bars">
+      <h4>택지 발표부터 주택 착공까지 — 현행과 개선안</h4>
+      <p class="cap">문서 ② 6면·10면. 단계별 소요기간(12·24·44·12개월)의 단순 합은 총 기간을 넘는데, 단계 일부가 병행되기 때문이다. 총 기간 기준으로 비교해야 한다.</p>
+      <div class="bar"><div class="bl">현행 3기 신도시</div><div class="bt"><div class="bf a" style="width:100%">68개월</div></div></div>
+      <div class="bar"><div class="bl">개선 표준모델</div><div class="bt"><div class="bf b" style="width:54.4%">37개월</div></div></div>
+      <div class="bar"><div class="bl">Case 1 통합지구</div><div class="bt"><div class="bf b" style="width:50%">34개월</div></div></div>
+      <div class="bar"><div class="bl">Case 2 소규모</div><div class="bt"><div class="bf b" style="width:44.1%">30개월</div></div></div>
+      <div class="bar"><div class="bl">Case 3 자투리</div><div class="bt"><div class="bf b" style="width:32.4%">22개월</div></div></div>
+      <div class="bar"><div class="bl">단일 블록</div><div class="bt"><div class="bf b" style="width:30.9%">21개월</div></div></div>
+    </div>
+
+    <div class="lbl" style="margin-top:38px; display:block">중요 체크</div>
+    <div class="checks">
+      <div class="check">
+        <div class="top"><span class="cno">체크 01</span><span class="cite">문서 ② 7면 각주</span></div>
+        <h4>37개월은 확정된 숫자가 아니라 법률 개정을 전제로 한 숫자다</h4>
+        <div class="quote">모든 단계별 소요기간을 절반 수준으로 단축해 앞으로 발표할 지구는 37개월 내 착공(제도개선 완료 전제로 31개월 단축) … 전략환경영향평가 간소화 법 개정 전제(본회의 상정대기 중), <b>미개정 시 7개월 추가 소요</b></div>
+        <p>즉 개정이 되지 않으면 <mark class="r">44개월</mark>이 된다. 이 파트에서 제시된 단축 효과의 상당수가 같은 구조다 — 공공주택특별법·토지보상법 개정안이 ’26년 8월 발의 단계이고, 협조장려금·통합조정회의 조항은 본회의 상정 대기 중이다.</p>
+        <p>따라서 “37개월”을 확정 일정으로 인용하는 것은 부정확하다. <b>법 개정 완료 시 37개월, 미개정 시 44개월</b>로 병기하는 것이 정확한 표현이다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 02</span><span class="cite">문서 ② 8–9면</span></div>
+        <h4>가장 크게 줄인 구간은 보상 단계이고, 단축 수단은 토지주에 대한 압박 강화다</h4>
+        <p>부지확보 단계 44 → 24개월, 즉 <mark>20개월 단축</mark>으로 전체 단축분의 최대 항목이다. 그 수단은 다음과 같이 나뉜다.</p>
+        <div class="quote">(협의 △1M) 기간 단축(60→30일) … (재결 △2M) 중토위 전담팀 신설 … (유인) 협조장려금, (제재) 이행강제금, <b>수용개시 2개월 경과시 인도소송</b>(LH 방침 개정 要) … 조사 거부시 객관적 자료로 갈음 추진(토지보상법 개정 要)</div>
+        <p>토지소유자·영업권자 입장에서 보면 <b>협의 가능 기간이 절반으로 줄고, 조사 거부의 실익이 사라지며, 퇴거 지연에 소송이 원칙적으로 따라붙는</b> 구조다. 남양주 도심·경기광주 등 신규 지구의 편입 토지주라면 감정평가 시점 이전 단계부터 대응 준비 기간을 앞당겨 잡아야 한다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 03</span><span class="cite">문서 ② 6면 · 50면</span></div>
+        <h4>“8.9만호 조기 착공”에서 실제 순증은 4.1만호다</h4>
+        <p>원문 6면 각주는 <b>’31년 이후 물량을 당겨온 4.1만호 + ’30년 내에서 시기만 앞당긴 4.8만호</b>로 구성을 명시한다. 50면 참고1의 추가 착공 효과란에도 최단기 착공모델 항목은 4.1만호로만 계상되어 있다.</p>
+        <p>같은 구분이 대책 전체에 적용된다. 수도권 추가 공급 23만호+α 중 <mark>’26~’30년 추가 착공은 12만호+α</mark>이고, 신규 공공주택지구 10만호+α의 착공 물량은 “지구지정 시 추후 산정”으로 비워져 있다. 물량 발표와 이 정부 임기 내 착공은 별개의 숫자다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 04</span><span class="cite">문서 ② 13–14면</span></div>
+        <h4>토지거래허가구역은 발표 3개 지구를 넘어 서울·인접 그린벨트 전역에 한시 지정됐다</h4>
+        <p>입지가 공개된 남양주 와부읍(도곡·월문·덕소리)과 광주시(장지·양벌·역동) 일원은 <b>발표일로부터 5년</b> 토지거래허가구역이다. 여기에 더해 나머지 7.3만호+α 후보지 발표 시까지 서울 그린벨트 전역과 서울 인접 수도권 그린벨트가 한시 지정된다.</p>
+        <p>원문은 “신규택지 발표 시 사업별 영향 범위를 고려하여 <b>제외지역은 토지거래허가구역 즉시 해제 예정</b>”이라고 부기한다. 연내 후보지 발표 시점이 곧 광범위한 해제 시점이기도 하다는 뜻이다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 05</span><span class="cite">문서 ② 16면</span></div>
+        <h4>기매각 택지 조항은 인센티브와 회수 압박을 같은 면에서 함께 강화했다</h4>
+        <div class="tblwrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>토지계약 해약조건</th><th>현행</th><th>개선</th></tr></thead>
+            <tbody>
+              <tr><td>연체이자가 계약금 초과</td><td class="num">해약</td><td class="num">해약 (동일)</td></tr>
+              <tr><td>계약금만 납부 후 연체</td><td class="num">1년 이상</td><td class="num">6개월 이상</td></tr>
+              <tr><td>중도금 납부 후 연체</td><td class="num">3년 이상</td><td class="num">2년 이상</td></tr>
+            </tbody>
+            <caption>문서 ② 16면. LH가 민간에 매각한 수도권 택지 중 ’27년까지 토지사용 가능시기가 도래하는 착공 대기 물량은 약 1.8만호(’26.7 기준).</caption>
+          </table>
+        </div>
+        <p>’27년 상반기 착공 시 매입확약 가격 2%p 가산이라는 유인과, 착공을 못 하면 LH가 회수해 직접 공급한다는 제재가 한 쌍으로 설계됐다. 해당 택지를 보유한 시행·시공사는 <b>연체 기산일 기준으로 잔여 기간을 다시 계산</b>해 둘 필요가 있다.</p>
+      </div>
+    </div>
+
+    <div class="opinion">
+      <div class="h"><span class="sq blue"></span><b>검토의견</b></div>
+      <ul>
+        <li><b>확정과 미확정을 구분해 읽는다.</b> 이 파트에서 즉시 효력이 있는 것은 중토위·중도위 심의 병행(’26.6 기시행), 매장유산 부분완료 기준 완화(’26.3 기시행), 토지거래허가구역 지정 정도다. 나머지 절차 단축은 공공주택특별법·토지보상법 개정과 시행령 개정을 거쳐야 한다.</li>
+        <li><b>편입 예정 토지주는 시간표가 앞당겨졌다는 사실 자체가 변수다.</b> 협의기간 단축과 인도소송 원칙화는 보상액 산정 자체보다 협의 과정의 시간 압박을 키운다. 남양주 도심은 ’27년 하반기 지구지정 → ’29년 하반기 보상 완료 일정이 이미 명시돼 있다.</li>
+        <li><b>비주택용지 전환은 수분양자 이해관계와 충돌할 수 있다.</b> 상업용지 원단위 축소와 준공 후 지구단위계획 변경 제한(5년) 완화는, 상가 수익성이나 단지 배치를 전제로 분양받은 기존 수분양자의 기대와 어긋날 여지가 있다. 전환 대상 지구에서는 변경 절차의 의견청취 단계를 확인해야 한다.</li>
+        <li><b>고양창릉 2,561호 증가는 지구계획 변경(’27.6 예정)을 거쳐야 확정된다.</b> 군사시설보호구역 해제는 이미 이루어졌으나(7.22), 용적률 상향에 따른 세대수 증가는 별도 절차 사항이다.</li>
+      </ul>
+    </div>
+
+    <div class="news">
+      <div class="h"><span class="sq red"></span><b>관련 보도</b></div>
+      <div class="newsgrid">
+        <a class="na" href="https://www.sedaily.com/article/20078952" target="_blank" rel="noopener"><div class="src">서울경제</div><div class="t">염창공원·남양주도심 신규택지…수도권 2만7000가구 공급</div><div class="n">입지 공개 3개 지구의 위치·규모를 가장 먼저 정리한 기사.</div></a>
+        <a class="na" href="https://biz.heraldcorp.com/article/10841273" target="_blank" rel="noopener"><div class="src">헤럴드경제</div><div class="t">“보상 얼마나?” 강서·남양주 신규택지 2.7만호 관건은</div><div class="n">체크 02와 직결된다. 보상 절차 단축이 실제 쟁점이 될 것이라는 지적.</div></a>
+        <a class="na" href="https://edaily.co.kr/News/Read?mediaCodeNo=257&newsId=04851126645546992" target="_blank" rel="noopener"><div class="src">이데일리</div><div class="t">그린벨트, 서울 해제 ‘보류’…남양주 덕소농장 풀어 2.17만호</div><div class="n">서울 GB 해제가 이번 발표에서 빠진 배경을 다룬다.</div></a>
+        <a class="na" href="https://www.fnnews.com/news/202608160850137783" target="_blank" rel="noopener"><div class="src">파이낸셜뉴스</div><div class="t">7.3만가구+α 신규택지 9월 윤곽…서울 그린벨트 포함 여부 주목</div><div class="n">연내 발표 예정인 잔여 후보지의 시점과 범위 전망.</div></a>
+        <a class="na" href="https://www.etoday.co.kr/news/view/2614131" target="_blank" rel="noopener"><div class="src">이투데이</div><div class="t">서울 염창·남양주·경기광주 등 신규 택지…연내 7.3만호+α 더 찾는다</div><div class="n">지구별 착공 일정과 토지거래허가구역 지정 범위를 함께 정리.</div></a>
+        <a class="na" href="https://www.gukjenews.com/news/articleView.html?idxno=3664566" target="_blank" rel="noopener"><div class="src">국제뉴스</div><div class="t">정부, 수도권 3곳 신규 공공주택지구 지정…2만7천호 공급</div><div class="n">지구별 면적·세대수·시행자를 표로 확인하기 좋다.</div></a>
+      </div>
+    </div>
+  </div></div>
+</article>
+
+<article class="part" id="p2">
+  <div class="parthead">
+    <div class="wrap">
+      <div class="partnum">02</div>
+      <div>
+        <div class="src">문서 ② 18–30면 · 도심 공급 확대</div>
+        <h2>정비사업의 병목을 동의율·이주비·분쟁 세 갈래로 나눠 풀었다</h2>
+        <p class="verdict">서울 재개발·재건축에서 ’30년까지 23.4만호 착공을 지원한다는 목표 아래, <b>조합설립 동의율 완화·이주비 대출 기준 변경·국토부 중재기구 신설</b>이 핵심이다. 다만 대부분 도시정비법 개정(’26.9 발의 예정) 사항이고, 인센티브에는 관리처분인가 시점과 착공 시한이라는 두 개의 날짜 조건이 걸려 있다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="partbody"><div class="wrap">
+
+    <div class="lbl">면별 통독표</div>
+    <div class="readtable">
+      <div class="rowhead"><span>원문 면</span><span>내용</span><span>중요도</span></div>
+      <div class="prow"><div class="pno">18</div><div><div class="ptitle">1.29 부지 조기 착공 · 태릉CC</div><div class="pdesc">내년 3천호 착공 시작(9.7대책 유휴부지 포함 6천호). 태릉CC는 세계유산영향평가를 연내 완료 목표로 이행하며 ’29.9월 착공.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">19</div><div><div class="ptitle">과천 경마장·방첩사 / 용산 / 소규모 역세권</div><div class="pdesc">경마장 이전지 9월까지 선정, 방첩사 비핵심시설 ’27년 상반기 이전 착수 → ’29.12월 착공. 용산 국제업무지구는 ’28년 말 주택착공. 강서군부지 ’27년, 하남 테니스장 ’28년, 광명경찰서 ’29년 착공.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">20</div><div><div class="ptitle">재개발·재건축 신속 추진 인센티브</div><div class="pdesc">현금청산자 취득 부동산 취득세 감면, PF 대출보증 한도 총사업비 60% 특례 1년 연장, 공공기여 임대주택 인수가격 기본형건축비 80→100%, 이주비 대출 LTV 산정기준 변경, 소형주택 공급 시 기부채납 3→2㎡/세대.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">21</div><div><div class="ptitle">규제 개선 — 동의율·시공사 선정·현장 애로</div><div class="pdesc">재개발 조합설립 동의율 75→70%, 공공재개발·재건축 시행자 지정 67→60%. 단독 응찰 시 재입찰 간소화. 조합설립인가 신청 전 통지기한 60→30일, 신탁 책임범위 특약 대상 시공 20위→30위.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">22</div><div><div class="ptitle">사업 관리 — 중재위원회 · 일하는 조합 지원</div><div class="pdesc">확정판결 효력을 갖춘 정비사업 전문 중재기구 신설 검토, 시공사 자재 물량·단가 세부내역 제출 의무화(미제출 시 과태료), 조합임원 성과급 근거 마련, 재개발에 한해 외부 전문가 조합장 선임 허용.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">23</div><div><div class="ptitle">붙임 · 공공재개발 사업지 현황</div><div class="pdesc">후보지 10개(1.9만호), 정비구역 2개, 시행자 지정 10개, 시공자 선정 13개 등 총 38개소 6만호. 지구별 위치·세대수·시행자 일람.</div></div><div class="pmark m1">●</div></div>
+      <div class="prow"><div class="pno">24</div><div><div class="ptitle">도심 공공주택 복합사업 확대</div><div class="pdesc">’23년 이래 중단된 신규 공모 재개 — 하반기 중 서울 1~2만호 후보지 선정·발표, 이후 수도권 2차 공모. 현물보상 분양권 양도세 특례 신설, 중도금 납부시기 선택권 부여.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">25</div><div><div class="ptitle">붙임 · 도심 공공주택 복합사업 사업지 현황</div><div class="pdesc">후보지 8개, 예정지구 8개, 복합지구 21개, 사업승인 10개 등 총 47개소 8.5만호. 후보지 선정부터 착공까지 5~6년으로 민간 정비사업 대비 5년 이상 단축.</div></div><div class="pmark m1">●</div></div>
+      <div class="prow"><div class="pno">26</div><div><div class="ptitle">소규모 정비사업 지원 확대</div><div class="pdesc">착공 목표 1.8 → 2.2만호. ’27년부터 기금 지원대상에 소규모 재건축 추가, 한도 총사업비 50→60%·500→600억원. 공공참여형은 기금 10%p 추가 지원, 한도 700억원.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">27</div><div><div class="ptitle">LH 등 매입임대 공급 가속화</div><div class="pdesc">’30년까지 수도권 14만호 착공. 건설사업자 취득세 감면 15% → ’27년 70%, ’28년 50%. 토지주 양도세 감면 10→15%. 수도권 규제지역은 원가법 병행(’27년 착공 15%, ’28년 10%).</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">28–29</div><div><div class="ptitle">학교용지 복합개발</div><div class="pdesc">1차 선도사업 4곳 1,438호 — 서울 강서 舊공항고 270호, 수원 수오고 497호, 수원 권선2중 276호, 용인 흥이중 395호. 모두 ’29년 착공 예정.</div></div><div class="pmark m1">●</div></div>
+      <div class="prow"><div class="pno">30</div><div><div class="ptitle">노후청사 복합개발</div><div class="pdesc">LH 서울지역본부 250호(강남 논현동), LX 인천경기남부지역본부 200호(수원 인계동). 기본구상 ’26년, 설계 ~’28년, ’30년 착공.</div></div><div class="pmark m1">●</div></div>
+    </div>
+
+    <div class="lbl" style="margin-top:38px; display:block">중요 체크</div>
+    <div class="checks">
+      <div class="check">
+        <div class="top"><span class="cno">체크 06</span><span class="cite">문서 ② 20면</span></div>
+        <h4>정비사업 인센티브에는 두 개의 날짜 조건이 동시에 걸려 있다</h4>
+        <p>인센티브는 “빨리 착공하면 준다”가 아니라 <b>“대책 발표일 이후에 관리처분인가를 받고, 그로부터 정해진 기한 내에 착공하면 준다”</b>는 이중 조건이다. 이미 인가를 받은 사업장은 일부 항목에서 아예 대상 밖이다.</p>
+        <div class="tblwrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>인센티브</th><th>내용</th><th>조건</th></tr></thead>
+            <tbody>
+              <tr><td>현금청산 부동산 취득세</td><td class="num">’27년 취득분 면제<br>’28년 취득분 75% 감면</td><td>발표일 후 관리처분인가 + 취득일부터 <b>2년 내 착공</b></td></tr>
+              <tr><td>공공기여 임대주택 인수가격</td><td class="num">기본형건축비 80% → 100%</td><td>발표일 후 관리처분인가 + <b>’28년 내 착공</b></td></tr>
+              <tr><td>기부채납 공원·녹지</td><td class="num">3 → 2㎡/세대</td><td>세대수 2/3 이상 전용 60㎡ 이하 + 1천세대 이상 + <b>5년 내 사업시행인가 신청</b><br>(발표일 전 인가·신청한 곳 제외)</td></tr>
+              <tr><td>PF 대출보증 한도</td><td class="num">총사업비 60%</td><td>특례 <b>’27년까지 1년 연장</b></td></tr>
+            </tbody>
+            <caption>문서 ② 20면. 취득세·인수가격 항목은 지방세특례제한법·도시정비법 개정을 각각 거쳐야 하며, 원문은 개정 시기를 ’26년 하반기~9월로 적고 있다.</caption>
+          </table>
+        </div>
+        <p>따라서 조합 단계에서 먼저 확인할 것은 인센티브의 크기가 아니라 <mark class="r">우리 사업장의 관리처분인가 예정일이 발표일(8.13) 이후인지</mark>, 그리고 착공 시한을 물리적으로 맞출 수 있는지다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 07</span><span class="cite">문서 ② 20면 · 문서 ③ 6면</span></div>
+        <h4>이주비 대출 LTV 기준이 종전자산에서 “종전·종후 중 큰 금액”으로 바뀐다 — 이 파트에서 가장 빠른 항목</h4>
+        <div class="quote">(현 행) LTV 심사시 종전자산평가액을 기준으로 담보가치 산정 → (개 선) 종전자산평가액, 종후자산평가액 중 <b>큰 금액</b>으로 변경 … 시행시기 <b>‘26.8.31일</b></div>
+        <p>종후자산은 정비사업 종료 후 신축주택의 가치 추산액이므로, 통상 종전자산보다 크다. 담보가치가 커지면 같은 LTV 40%에서도 <b>실제 이주비 한도가 올라간다.</b> 여기에 두 가지가 더해진다.</p>
+        <p>첫째, 이주비만으로 부족한 경우를 위한 <b>추가 이주비대출 보증상품</b>이 신설된다(주금공, ’27.1월). 둘째, 이주비·중도금·잔금대출은 금융회사 <b>총량관리 목표에서 별도 관리</b>된다(’26년 하반기). 총량 규제 때문에 이주비 대출 창구가 막히던 문제를 겨냥한 조치다.</p>
+        <p>세 항목 모두 금융위 소관이며, 국토부 문서 20면과 금융위 문서 6면·15면에 나뉘어 실려 있다. 조합 이주 일정을 짤 때는 <b>두 문서를 함께 봐야 전체 그림이 나온다.</b></p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 08</span><span class="cite">문서 ② 21면</span></div>
+        <h4>재개발 조합설립 동의율 완화는 반대 토지등소유자의 지위를 직접 바꾼다</h4>
+        <div class="quote">(現) 토지등소유자 75% 및 토지면적 50% → (改) 토지등소유자 <b>70%</b> 및 토지면적 50% … 공공재개발·재건축도 사업시행자 지정 동의율 완화(現 67 → 改 60%)</div>
+        <p>토지면적 요건 50%는 그대로 두고 인원 요건만 5%p 낮춘 것이다. 실무적으로는 <b>종전에 동의율 미달로 정체돼 있던 구역이 조합설립 요건을 충족하게 되는 효과</b>가 크다.</p>
+        <p>반대 측 입장에서는 조합설립 저지선이 25%에서 30%로 올라간 셈이다. 여기에 조합설립인가 신청 전 통지기한이 60일 → 30일로 줄어(21면), 통지 수령 후 대응 검토 기간도 절반이 된다. <b>도시정비법 개정 사항이므로 ’26년 9월 발의 이후 국회 통과 시점이 실제 적용일</b>이다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 09</span><span class="cite">문서 ② 22면</span></div>
+        <h4>재개발 조합장을 외부 전문가가 맡을 수 있게 하는 조항이 들어갔다</h4>
+        <div class="quote">(전문 조합장) 이해관계가 복잡한 재개발사업은 토지등소유자 아닌 전문가의 재개발조합장 선임을 허용하여 신속한 사업 추진 지원 … 예: 정비사업 관련 업무 <b>5년 이상 종사한 변호사, 공인회계사, 법무사</b> 등</div>
+        <p>조합장은 토지등소유자여야 한다는 원칙에 대한 예외를 재개발에 한해 여는 것으로, 도시정비법 개정 사항이다(’26.9 발의). 같은 면에서 <b>조합임원 성과급 지급 근거</b>(총회 의결 요), <b>조합장 총회 미소집 시 과태료 및 감사·조합원대표 소집 의무화</b>가 함께 규정된다.</p>
+        <p>더불어 국토부 내 <b>확정판결 효력을 갖춘 정비사업 전문 중재기구</b> 신설이 검토된다. 공사비 분쟁, 조합-지자체 인허가 이견, 관리처분계획 분쟁이 예시로 적혀 있다. 다만 원문 표현이 “신설하는 등 신속한 분쟁 해소방안 검토”로 <b>확정이 아닌 검토 단계</b>임을 유의해야 한다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 10</span><span class="cite">문서 ② 24면</span></div>
+        <h4>도심 공공주택 복합사업은 신규 공모를 재개하면서 주민 부담 조항을 두 개 바꿨다</h4>
+        <p>’23년 이래 중단됐던 신규 공모가 재개되어 <b>하반기 중 서울 1~2만호 규모 후보지</b>가 발표된다. 함께 도입되는 주민 측 조항은 다음 둘이다.</p>
+        <p><b>① 현물보상 분양권 양도세 특례.</b> 현물보상(분양권)을 1개만 보유하고 다른 주택·분양권이 없는 1세대는 조합원 입주권과 유사하게 <mark>12억원 이하분 비과세, 초과분 장기보유특별공제 최대 80%</mark>를 적용받는다. 쪽방촌 정비사업과 주거재생혁신사업도 포함된다. 조세특례제한법 개정 사항(’26.12).</p>
+        <p><b>② 분담금 납부시기 선택권.</b> 기존 ‘계약금 10% + 중도금 60% + 잔금 30%’ 외에 ‘중도금 0% + 잔금 90%’ 또는 ‘중도금 30% + 잔금 60%’를 선택할 수 있게 한다. 다만 <b>신규 후보지와 쪽방촌 사업에 한정</b>되므로, 기존 지구 주민에게는 적용되지 않는다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 11</span><span class="cite">문서 ② 27면</span></div>
+        <h4>매입임대는 취득세 감면율을 15%에서 70%로 올려 ’27년에 물량을 몰았다</h4>
+        <div class="tblwrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>취득 시점</th><th class="num">현행</th><th class="num">~’27년</th><th class="num">’28년</th><th class="num">’29년~</th></tr></thead>
+            <tbody>
+              <tr><td>건설사업자 토지·건물 취득세 감면</td><td class="num">15%</td><td class="num"><b>70%</b></td><td class="num">50%</td><td class="num">15%</td></tr>
+            </tbody>
+            <caption>문서 ② 27면. 토지주가 건설사업자에게 토지 양도 시 양도세 감면은 10% → 15%로 확대. 감면율 상향 적용시기는 국회 논의 과정에서 추가 검토한다고 부기되어 있다.</caption>
+          </table>
+        </div>
+        <p>매입가격 산정도 바뀐다. 거래사례비교법을 원칙으로 하되 수도권 규제지역에서는 공사비 상승분을 반영할 수 있는 <b>원가법을 병행</b>하며, 인정 한도는 ’27년 착공 15% → ’28년 10% → ’29년 이후 5%로 체감한다. ’30년까지 착공한 건에만 인정된다.</p>
+        <p>감면율과 인정한도가 모두 시간이 갈수록 줄어드는 구조이므로, 매입약정을 검토하는 사업자에게는 <mark class="r">’27년 착공 여부가 사업성 자체를 가르는 변수</mark>가 된다. 다만 조세특례제한법·지방세특례제한법 개정 사항(’26년 하반기)이다.</p>
+      </div>
+    </div>
+
+    <div class="opinion">
+      <div class="h"><span class="sq blue"></span><b>검토의견</b></div>
+      <ul>
+        <li><b>이 파트에서 국회를 거치지 않고 바로 효력이 생기는 것은 사실상 이주비 대출 LTV 기준(’26.8.31, 은행업 감독업무세칙)뿐이다.</b> 동의율·전문 조합장·중재위원회·성과급은 모두 도시정비법 개정, 취득세는 지방세특례제한법 개정 사항이다. 조합 총회 자료나 사업 일정표에 반영할 때 이 구분을 명시해야 한다.</li>
+        <li><b>서울시가 요구한 조합원 지위양도 제한 완화는 이번 대책에 포함되지 않았다.</b> 언론 보도상 서울시 건의 중 이주비 대출 완화는 반영됐으나 지위양도 항목은 빠졌다. 정비구역 내 매매를 검토하는 경우 종전 규제가 그대로 유지된다는 점을 전제해야 한다.</li>
+        <li><b>공사비 분쟁 예방 조항은 시공사 선정 단계의 계약 실무를 바꾼다.</b> 시공사가 조합에 자재 물량·단가 세부내역을 제출하도록 의무화하고 일정기간(예: 3개월) 내 미제출 시 과태료를 부과한다. 향후 시공사 선정 공고·계약서에 제출 시한과 미제출 시 효과를 명시해 두는 것이 분쟁 예방에 유리하다.</li>
+        <li><b>중재위원회는 “확정판결 효력”이라는 표현 때문에 주목받지만 아직 검토 단계다.</b> 실제로 중재판정에 확정판결의 효력을 부여하려면 도시정비법에 별도 근거가 필요하고, 조합원의 재판청구권과의 관계도 정리되어야 한다. 현 단계에서 분쟁 대응 전략을 중재기구 전제로 짜는 것은 이르다.</li>
+      </ul>
+    </div>
+
+    <div class="news">
+      <div class="h"><span class="sq red"></span><b>관련 보도</b></div>
+      <div class="newsgrid">
+        <a class="na" href="https://www.etoday.co.kr/news/view/2614136" target="_blank" rel="noopener"><div class="src">이투데이</div><div class="t">재개발 조합설립 동의율 문턱 75→70%…병목 풀어 23.4만가구 ‘첫삽’ 당긴다</div><div class="n">동의율·인센티브 전반을 가장 상세히 정리한 기사.</div></a>
+        <a class="na" href="https://www.hankyung.com/article/2026081301081" target="_blank" rel="noopener"><div class="src">한국경제</div><div class="t">재개발 동의율 75 → 70%…정부가 직접 공사비 갈등 중재</div><div class="n">체크 09의 중재위원회 신설을 표제로 다뤘다.</div></a>
+        <a class="na" href="https://www.ajunews.com/view/20260813152214605" target="_blank" rel="noopener"><div class="src">아주경제</div><div class="t">서울시 요구 얼마나 반영됐나…이주비 대출 완화, 조합원 지위양도는 빠져</div><div class="n">반영된 것과 빠진 것을 구분해 검토의견 두 번째 항목과 직결된다.</div></a>
+        <a class="na" href="https://www.newspim.com/news/view/20260813000334" target="_blank" rel="noopener"><div class="src">뉴스핌</div><div class="t">“도심서 더 빨리”…정비사업·1·29 부지 착공 앞당긴다</div><div class="n">태릉·과천 등 1.29 부지의 착공 일정 조정 내용.</div></a>
+        <a class="na" href="https://www.fnnews.com/news/202608131805304444" target="_blank" rel="noopener"><div class="src">파이낸셜뉴스</div><div class="t">“정비사업 1년 이상 앞당긴다” 조합 설립 동의율 75→70%로</div><div class="n">기간 단축 효과에 초점을 맞춘 해설.</div></a>
+        <a class="na" href="https://www.dailian.co.kr/news/view/1678077/" target="_blank" rel="noopener"><div class="src">데일리안</div><div class="t">도심 유휴부지 긁어모은다…노후청사 활용·도심복합사업 속도</div><div class="n">학교용지·노후청사 등 28~30면 내용을 다룬 몇 안 되는 기사.</div></a>
+      </div>
+    </div>
+  </div></div>
+</article>
+
+<article class="part" id="p3">
+  <div class="parthead">
+    <div class="wrap">
+      <div class="partnum">03</div>
+      <div>
+        <div class="src">문서 ② 31–42면 · 민간공급 금융·세제 지원 및 규제 완화</div>
+        <h2>비아파트 공급 붕괴를 건축기준·대출규제·부담금 세 방향에서 되돌리려 한다</h2>
+        <p class="verdict">수도권 일반주택 착공은 10년 평균의 24% 수준까지 떨어져 있다. 이 파트는 <b>다세대·다가구 건축기준 완화, 임대사업자 대출규제 예외 확대, 개발부담금·기부채납 한시 감면</b>으로 대응하며, 대부분의 혜택이 <mark class="r">’27년 착공</mark>에 집중되고 ’28년에 절반으로 줄어든다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="partbody"><div class="wrap">
+
+    <div class="lbl">면별 통독표</div>
+    <div class="readtable">
+      <div class="rowhead"><span>원문 면</span><span>내용</span><span>중요도</span></div>
+      <div class="prow"><div class="pno">31</div><div><div class="ptitle">브릿지론 단계 — 앵커리츠 지원 확대</div><div class="pdesc">기존 앵커리츠(예산 2천억)는 주택사업 비중 70% 이상으로 운용하고 9월부터 투자 착수. ’27년 4천억 규모 수도권 주택 전용 앵커리츠 신설 — 5년간 약 1만호 착공 지원 기대.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">32</div><div><div class="ptitle">본 PF 대출 지원 확대</div><div class="pdesc">PF보증 공급목표 ’26년 23조 → ’27년 33조 → ’28년 30조(3년 평균 28.7조). HUG 맞춤형 4종 — 수도권 보증한도 상향 특례, 일반주택 연면적 요건 폐지, 구도심 사업성 심사 개선, 심사 전산화(1.5→1개월).</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">33</div><div><div class="ptitle">중소건설사 특별보증 / PF 이자 재정지원</div><div class="pdesc">시공순위 100위 밖 건설사 대상 HUG 특별PF보증 연 3조원 이상. 서울·경기 주거시설 PF대출에 ’27년 착공 1%p, ’28년 착공 0.5%p 이자 재정보조.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">34</div><div><div class="ptitle">다세대·다가구주택 건축기준 합리화</div><div class="pdesc">건축면적 660 → 1,000㎡ 미만, 다가구 층수 3 → 4개층, 일조 규제 완화(10~17m 구간 5m 고정), 주민공동시설 용적률 산정 완화, 건설자금 대출 7천 → 9천만원·금리 3.5 → 3.2%.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">35</div><div><div class="ptitle">신축 일반주택 대출 지원 <span class="mono" style="font-size:10.5px; color:var(--ink-3)">[금융위 소관]</span></div><div class="pdesc">주택매매·임대사업자 주담대 예외에 ➍ 신축 비아파트 매입, ➎ 비아파트 신축 목적 멸실예정 주택 매입 추가. LTV 0% → 규제지역 30%·비규제지역 60%(등록임대사업자는 지역 무관 60%).</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">36</div><div><div class="ptitle">지식산업센터 주거용도 활용 / 주택수 제외 특례 연장</div><div class="pdesc">지산 지원시설 면적 비중 한도 확대(수도권 30→50%), 대수선분 취득세 면제. 소형 신축 일반주택 주택수 제외 특례를 ’27.12 → ’28.12로 연장.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">37</div><div><div class="ptitle">신축판매업자 요건 완화 / 기반시설 기부채납 완화</div><div class="pdesc">주택신축판매업자 취득세 중과배제 판매 요건 5년 → 7년. 수도권에서 ’27년까지 사업계획승인 시 기부채납 부담률 4%p 완화(8→4%), ’28년까지는 2%p 완화.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">38</div><div><div class="ptitle">개발부담금 감면 / 주상복합 기준 완화 / 준공업</div><div class="pdesc">’27년 착공 전국 주거시설 개발부담금 100% 면제, ’28년 50% 감면. 주상복합 조례상 주거비율 상한 90 → 100% 미만, 건축허가 세대수 제한 300 → 500세대 미만(상업·준주거, ~’30.12).</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">39</div><div><div class="ptitle">준공업지역 복합개발 / 민간 미활용 부지</div><div class="pdesc">공업지역 대체지정 범위를 시·도 내 → 시·도 외로 확대. 산업혁신구역 산업시설 비율 하한 50 → 30%. LH가 9월 공모로 5천억 규모 토지 매입(3,300㎡ 이상).</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">40</div><div><div class="ptitle">모듈러공법 공급체계 혁신</div><div class="pdesc">LH 등 발주물량 1.2 → 2만호(연평균 3천 → 5천호), 초과 공사비 호당 7,000만원의 약 50% 재정지원, 20층 이상 고층 시범사업, 모듈러 특별법 제정(’26.12).</div></div><div class="pmark m1">●</div></div>
+      <div class="prow"><div class="pno">41–42</div><div><div class="ptitle">복합용도 건축물 / 주거–업무 균형 / 용도지역 체계 개편</div><div class="pdesc">복합용도 건축구역 지정 특별법 발의(’26.9). 업무시설 개발계획 수립 시 주택수요 균형 배치 방안 검토, 용도지역제 개편은 연구용역 후 ’27년 공론화.</div></div><div class="pmark m1">●</div></div>
+    </div>
+
+    <div class="lbl" style="margin-top:38px; display:block">중요 체크</div>
+    <div class="checks">
+      <div class="check">
+        <div class="top"><span class="cno">체크 12</span><span class="cite">문서 ② 20·27·33·37·38면 종합</span></div>
+        <h4>대책 전체를 관통하는 실제 설계는 “’27년까지 착공”이라는 하나의 절벽이다</h4>
+        <p>개별 과제를 따로 읽으면 잘 보이지 않지만, 시한을 한자리에 모으면 <b>혜택이 ’27년에 최대치이고 ’28년에 대체로 절반으로 떨어지며 ’29년에는 사라지는</b> 동일한 형태가 반복된다.</p>
+        <div class="tblwrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>항목</th><th class="num">~’27년 착공</th><th class="num">’28년 착공</th><th class="num">’29년~</th><th>원문</th></tr></thead>
+            <tbody>
+              <tr><td>PF 대출금리 재정지원</td><td class="num"><b>1%p</b></td><td class="num">0.5%p</td><td class="num">—</td><td class="num">② 33면</td></tr>
+              <tr><td>주거시설 개발부담금</td><td class="num"><b>100% 면제</b></td><td class="num">50% 감면</td><td class="num">—</td><td class="num">② 38면</td></tr>
+              <tr><td>기반시설 기부채납 (수도권)</td><td class="num"><b>△4%p</b></td><td class="num">△2%p</td><td class="num">—</td><td class="num">② 37면</td></tr>
+              <tr><td>매입임대 건설사업자 취득세</td><td class="num"><b>70% 감면</b></td><td class="num">50% 감면</td><td class="num">15%</td><td class="num">② 27면</td></tr>
+              <tr><td>매입임대 원가법 인정한도</td><td class="num"><b>15%</b></td><td class="num">10%</td><td class="num">5% (~’30)</td><td class="num">② 27면</td></tr>
+              <tr><td>현금청산 부동산 취득세</td><td class="num"><b>면제</b></td><td class="num">75% 감면</td><td class="num">—</td><td class="num">② 20면</td></tr>
+              <tr><td>공공기여 임대주택 인수가격</td><td class="num" colspan="2"><b>기본형건축비 100%</b> (’28년 내 착공)</td><td class="num">80%</td><td class="num">② 20면</td></tr>
+              <tr><td>PF보증 공급목표</td><td class="num"><b>33조원</b></td><td class="num">30조원</td><td class="num">—</td><td class="num">② 32면 / ③ 3면</td></tr>
+            </tbody>
+            <caption>기부채납·개발부담금은 “착공”이 아니라 <b>사업계획승인</b> 기준(단, 승인 후 1년 내 착공한 경우에만 적용)이라는 점에서 조건이 다르다. 인용 시 기준 행위를 혼동하지 않아야 한다.</caption>
+          </table>
+        </div>
+        <p>원문 32면 각주에 그 이유가 적혀 있다. 연도별 착공예정 물량이 <b>’27년 24.9만호로 5년 중 가장 적기</b> 때문에(’26년 26.8 / ’28년 26.2 / ’29년 26.3 / ’30년 34.3만호), 그 골을 메우려 자원을 ’27년에 몰아넣은 것이다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 13</span><span class="cite">문서 ② 34면</span></div>
+        <h4>다세대·다가구 완화 4건 중 일조 규제만 이미 국회를 통과했다</h4>
+        <div class="quote">(일조) 통상 다세대·다가구 4~5층 필로티 포함시 부분도 수직건축 허용 ※ <b>7.23일 건축법 개정안 국회 본회의 통과</b> → 하위법령 마련후 연내 시행 예정</div>
+        <p>10m 초과 구간에 일률 적용되던 “건축물 높이의 1/2” 이격이 <b>10~17m 구간에서 5m 고정</b>으로 바뀐다. 4~5층 부분을 사선이 아닌 수직으로 지을 수 있어 공급면적이 늘어난다. 원문은 특히 <b>용적률 상한을 채우지 않고 지어진 노후 단독주택 대지에서 증축·재건축 효과가 클 것</b>으로 본다.</p>
+        <p>나머지 3건은 아직 법령 개정 전이다 — 건축면적 660→1,000㎡ 미만, 다가구 층수 3→4개층(동일 면적에 약 33% 추가 공급), 주민공동시설 용적률 완화는 모두 <b>건축법 시행령 등 개정, ’26.12</b> 예정이다. 별개로 도시형생활주택으로 다세대를 짓는 경우 건축위 심의를 거쳐 5→6개층까지 완화하는 주택법 시행령 개정이 9월까지 진행 중이다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 14</span><span class="cite">문서 ② 35면 · 문서 ③ 7면</span></div>
+        <h4>임대사업자 대출 예외 두 건은 8월 31일 행정지도로 바로 시행된다</h4>
+        <p>수도권·규제지역 주택매매·임대사업자 주담대는 원칙적으로 금지(LTV 0%)이고 예외 3가지만 허용돼 왔다. 여기에 두 가지가 추가된다.</p>
+        <div class="tblwrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>예외 사유</th><th>LTV</th><th>한정 조건</th></tr></thead>
+            <tbody>
+              <tr><td>➍ 신축 비아파트 매입</td><td class="num">규제지역 30%<br>비규제지역 60%<br><b>등록임대사업자 60%</b></td><td>해당 비아파트 <b>준공 후 1년 내 최초</b> 매수자에 한정</td></tr>
+              <tr><td>➎ 비아파트 신축 목적 멸실예정 주택 매입</td><td class="num"><b>60%</b> (지역 무관)</td><td>대출실행일로부터 <b>1년 내 멸실</b>하는 경우에 한정</td></tr>
+            </tbody>
+            <caption>문서 ③ 7면. 조치사항은 행정지도 개정, 시행시기 ’26.8.31일. 국토부 문서 35면에도 같은 내용이 “금융위 소관사항”으로 표시되어 실려 있다.</caption>
+          </table>
+        </div>
+        <p>두 예외 모두 <b>기한부 조건</b>이 붙어 있다는 점이 중요하다. ➍는 준공 후 1년, ➎는 대출일로부터 1년이며, 조건을 지키지 못했을 때의 효과(회수·제재)는 원문에 적혀 있지 않다. 대출 실행 전 개별 금융회사의 약정 조건을 확인해야 한다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 15</span><span class="cite">문서 ② 36–37면</span></div>
+        <h4>소형 신축주택 주택수 제외 특례가 1년 연장됐고, 신축판매업자 판매 기한은 7년으로 늘었다</h4>
+        <p><b>주택수 제외 특례.</b> ’24.1월~’27.12월이던 적용 기간이 <mark>’28.12월까지</mark>로 연장된다. 대상은 그 기간에 준공된 <b>전용 60㎡ 이하, 취득가격 수도권 6억·지방 3억 이하 신축주택</b>을 같은 기간 중 최초 구입하는 경우이며, 아파트는 제외되나 도시형 생활주택인 아파트는 포함된다. 취득세·종부세·양도세 산정 시 주택수에서 빠진다. 원문은 “’28년 이후 연장도 검토”라고 부기한다.</p>
+        <p><b>주택신축판매업자.</b> 취득 시점부터 1년 내 멸실, 3년 내 신축까지는 같으나 판매 기한이 <b>5년 → 7년</b>으로 늘어 취득세 중과배제 특례를 유지하기 쉬워진다. 부가가치세법상 20호 미만 소규모 공급자가 대상이다.</p>
+        <p>두 항목 모두 <b>’27년 2월(또는 2분기) 시행령·특례 개정</b> 예정이다. ’27.12 만료를 전제로 매도 일정을 잡아 둔 경우라면 연장 확정 시점까지 조건부로 관리하는 편이 안전하다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 16</span><span class="cite">문서 ② 33면</span></div>
+        <h4>PF 이자 재정지원은 이름보다 적용 범위가 훨씬 좁다</h4>
+        <div class="quote">서울·경기 내 주거시설 PF대출을 받은 <b>전용 85㎡ &amp; 분양가 9억원 이하</b>인 사업장(<b>사업장당 최대 500호</b> 지원)</div>
+        <p>지역(서울·경기), 면적(전용 85㎡ 이하), 분양가(9억원 이하), 호수(사업장당 500호) 네 겹의 요건이 모두 충족되어야 한다. 인천은 빠져 있고, 주거시설에는 아파트뿐 아니라 연립·다세대·다가구와 준주택(오피스텔·고시원)이 포함된다.</p>
+        <p>같은 면의 중소건설사 특별보증도 <b>시공순위 100위 밖 건설사</b>로 한정된다. 두 제도 모두 “PF 지원 확대”라는 표제만 보고 적용 여부를 판단하면 어긋나기 쉬운 항목이다.</p>
+      </div>
+    </div>
+
+    <div class="opinion">
+      <div class="h"><span class="sq blue"></span><b>검토의견</b></div>
+      <ul>
+        <li><b>이 파트는 대책 전체에서 확정 효력이 가장 빠른 구간이다.</b> 임대사업자 대출 예외(’26.8.31 행정지도), HUG 내규 개정에 따른 PF보증 제도개선(’26.8), 일조 규제(법 통과 완료, 연내 시행)가 그렇다. 반면 건축면적·층수 완화는 ’26.12 시행령, 세제 항목은 ’27년 2월 이후다.</li>
+        <li><b>비아파트 사업 구조를 다시 짤 유인이 실제로 생겼다.</b> 다가구 4개층 허용(가구 33% 증가)과 개발부담금 100% 면제, 기부채납 4%p 완화가 겹치면 소규모 사업장의 사업성 계산이 달라진다. 다만 세 제도의 시행 시점이 어긋나 있어, ’27년 착공을 노린다면 착공 시점에 각 제도가 시행 중인지 개별 확인이 필요하다.</li>
+        <li><b>주상복합 주거비율 100% 미만 확대는 조례 개정이 뒤따라야 실효가 있다.</b> 원문은 “조례로 조정 가능한 주거비율 상한”을 넓히는 것이므로, 국토계획법 시행령 개정(’26.12) 후 각 지자체 조례가 실제로 상향되는지가 관건이다. 시·도별로 결과가 갈릴 수 있다.</li>
+        <li><b>혜택의 반대편에 있는 회수 조항을 함께 봐야 한다.</b> 임대사업자 대출 예외의 1년 기한, 매입임대 원가법의 ’30년 착공 한정, 신축판매업자의 멸실·신축·판매 3단 요건은 모두 사후에 요건을 못 맞추면 특례가 무너지는 구조다. 계약서와 자금 계획에 이 기한들을 명시적으로 반영해야 한다.</li>
+      </ul>
+    </div>
+
+    <div class="news">
+      <div class="h"><span class="sq red"></span><b>관련 보도</b></div>
+      <div class="newsgrid">
+        <a class="na" href="https://www.etoday.co.kr/news/view/2614230" target="_blank" rel="noopener"><div class="src">이투데이</div><div class="t">다가구 4층까지 짓고 부담금 면제…‘사라진 빌라’ 공급 되살린다</div><div class="n">체크 13·12를 함께 다룬 기사. 비아파트 파트 요약으로 가장 적합.</div></a>
+        <a class="na" href="https://www.fnnews.com/news/202608131107291550" target="_blank" rel="noopener"><div class="src">파이낸셜뉴스</div><div class="t">층수 높이고 바닥면적 넓히고…다세대·다가구 공급 늘린다</div><div class="n">건축기준 4건의 변경 전후를 수치로 정리.</div></a>
+        <a class="na" href="https://www.etoday.co.kr/news/view/2614121" target="_blank" rel="noopener"><div class="src">이투데이</div><div class="t">부동산 PF 돈줄 26.3조→47.8조 확대…규제도 2년 늦춘다</div><div class="n">공급 측 금융지원 총량과 자기자본비율 규제 유예를 함께 다룬다.</div></a>
+        <a class="na" href="https://biz.heraldcorp.com/article/10840073" target="_blank" rel="noopener"><div class="src">헤럴드경제</div><div class="t">2027년 PF보증 33조 확대…사업장, 자기자본규제 2년 유예</div><div class="n">’27년에 자원을 몰아넣은 구조를 표제로 잡았다.</div></a>
+        <a class="na" href="https://www.fnnews.com/news/202608131036334536" target="_blank" rel="noopener"><div class="src">파이낸셜뉴스</div><div class="t">4000억 규모 주택전용 앵커리츠 만든다…PF 지원도 확대</div><div class="n">31면 앵커리츠 구조와 기대효과.</div></a>
+        <a class="na" href="https://www.newspim.com/news/view/20260813000919" target="_blank" rel="noopener"><div class="src">뉴스핌</div><div class="t">전문가 “전향적 규제 완화 긍정적…금융지원 속도가 관건”</div><div class="n">규제 완화의 방향은 인정하되 집행 속도를 쟁점으로 본 평가.</div></a>
+      </div>
+    </div>
+  </div></div>
+</article>
+
+<article class="part" id="p4">
+  <div class="parthead">
+    <div class="wrap">
+      <div class="partnum">04</div>
+      <div>
+        <div class="src">문서 ② 43–48면 · 전월세 부담 완화 등 주거 사다리 강화</div>
+        <h2>분양은 초기 부담을 쪼개고, 임대는 소득 문턱을 없애는 쪽으로 설계됐다</h2>
+        <p class="verdict">공공분양의 약 15%를 <b>지분적립형·수익공유형</b>으로 돌리고, 소득제한을 두지 않는 <b>보편형 공공임대</b>를 신설한다. 20년 공공지원 민간임대는 임차인 변경 시 임대료를 시세 수준으로 다시 맞출 수 있게 해 민간 유인을 만들었다. 새로 등장한 전월세 안심신탁은 법적 구조가 아직 공개되지 않았다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="partbody"><div class="wrap">
+
+    <div class="lbl">면별 통독표</div>
+    <div class="readtable">
+      <div class="rowhead"><span>원문 면</span><span>내용</span><span>중요도</span></div>
+      <div class="prow"><div class="pno">43</div><div><div class="ptitle">결혼 페널티 개선</div><div class="pdesc">정책대출 소득요건을 부부 중 1인이 일반 기준(보금자리론 7천·디딤돌 6천·버팀목 5천만원)을 충족해도 허용. 혼인 후 소득요건 초과 시 가산금리 0.3 → 0.15%p. 신혼 소득기준을 미혼의 2배 수준으로 상향, 입주 후 혼인해 기준 초과 시에도 재계약 1회 허용.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">44</div><div><div class="ptitle">전세사기 피해자 대출 / 부담가능한 공공분양 모델</div><div class="pdesc">공공분양의 약 15%를 지분적립형 또는 수익공유형으로 공급. 지분적립형은 초기 25% 취득 후 5년마다 20·20·20·15% 적립. 4분기 분양분부터 일부 단지 적용, 세부 시행방안은 10월 별도 발표.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">45</div><div><div class="ptitle">장기 민간임대 확대 — 공공지원 민간임대 개편</div><div class="pdesc">20년 임대 모델 신설. 기금 출자 한도 11 → 14%, 융자 1.2 → 2.0억원, 금리 2.6~3.4% → 2.0~2.8%. HUG 보증부 임대주택 담보 장기모기지(최대 34년) 도입.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">46</div><div><div class="ptitle">보편형 공공임대주택 신설</div><div class="pdesc">우수입지·민간 수준 품질·다양한 소득계층·장기 거주. 전체 물량의 50% 이상을 무주택 청년에 공급, 기본 6년에 출산 시마다 연장(미성년 자녀 3명 이상 최대 20년). 수도권 규제지역 민간분양 잔여물량은 LH 등이 우선매입.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">47</div><div><div class="ptitle">청년 보편형 전세임대 / 특화주택 / 보증료 지원</div><div class="pdesc">전세임대 지원한도 1.2 → 2.4억원, 선정방식 우선순위·배점 → 추첨. 특화 임대주택 ’30년 7,500호까지 확대. 전세보증금반환보증 보증료 지원을 소득 6,566만원·보증금 수도권 7억원 이하, 최대 50만원으로 확대.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">48</div><div><div class="ptitle">전월세 안심신탁사업</div><div class="pdesc">집주인–전월세안정화기구–세입자 3자 계약. 전세금을 기구에 예탁하고 세입자는 전세로 거주, 기구는 전세금을 HUG 보증 주택사업에 투자해 수익을 집주인에게 월세로 지급(약 4~5%). 집주인 모집공고 9월, 연말 입주.</div></div><div class="pmark m3">●●●</div></div>
+    </div>
+
+    <div class="lbl" style="margin-top:38px; display:block">중요 체크</div>
+    <div class="checks">
+      <div class="check">
+        <div class="top"><span class="cno">체크 17</span><span class="cite">문서 ② 44면</span></div>
+        <h4>지분적립형은 초기 부담을 1/4로 줄이는 대신 20~30년간 지분을 사들이는 구조다</h4>
+        <div class="quote">(개념) 초기에 일부 지분만 분양, 초기부담↓, 장기(20~30년)에 걸쳐 지분 적립 ※ (예시) 초기지분 25%, 5년마다 20%/20%/20%/15% 적립</div>
+        <p>원문이 배경으로 드는 수치는 구체적이다. 규제지역 공공분양가가 55㎡ 기준 6.3억원 수준인데 LTV 40%를 받아도 <b>자산 3.6억원 미만 가구는 매수가 어렵고, 30대 평균 순자산은 2.5억원</b>이라는 것이다.</p>
+        <p>확인해야 할 점은 원문에 적혀 있지 않은 사항들이다 — <b>미적립 지분에 대한 사용료 수준, 적립 시점의 지분 가격 산정 기준(최초 분양가인지 시가인지), 적립 중 전매·상속 처리</b>가 그것이다. 원문은 “자산요건, 공급물량 등 구체적인 시행방안은 별도 발표(10월 중)”라고만 적고 있다. 4분기 분양 참여를 검토한다면 <mark class="r">10월 발표 전에는 총부담을 계산할 수 없다</mark>는 점을 전제해야 한다.</p>
+        <p>수익공유형은 성격이 다르다. 기금이 구입자금 일부를 지원하고 <b>일정기간 후 수익을 대출 평균잔액에 따라 기금과 나누는</b> 방식으로, LTV 70%까지 저리대출이 붙는다. 다만 공공주택 특별법 개정 이후에 적용된다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 18</span><span class="cite">문서 ② 45면</span></div>
+        <h4>20년 민간임대의 핵심은 기금 지원이 아니라 임차인 교체 시 임대료 재설정 허용이다</h4>
+        <p>기금 조건 개선(출자 11→14%, 융자 1.2→2.0억, 금리 인하)도 있지만, 사업성을 실제로 바꾸는 것은 임대료 규제 부분이다.</p>
+        <div class="tblwrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>구분</th><th>최초 임대료</th><th>임차인 변경 시</th><th class="num">기금 출자</th><th class="num">융자 한도</th><th class="num">융자 금리</th></tr></thead>
+            <tbody>
+              <tr><td>10년 임대</td><td>시세 95%</td><td>5% 상한 규제 적용</td><td class="num">11%</td><td class="num">1.2억</td><td class="num">2.6~3.4%</td></tr>
+              <tr><td><b>20년 임대(신설)</b></td><td>시세 95%</td><td><b>시세 95%로 재조정 가능</b></td><td class="num">14%</td><td class="num">2.0억</td><td class="num">2.0~2.8%</td></tr>
+            </tbody>
+            <caption>문서 ② 45면. 10년 모델은 운영기간 중 임대료가 시세와 벌어져 수익 확보가 곤란하다는 것이 원문의 진단이다.</caption>
+          </table>
+        </div>
+        <p>임차인 입장에서 보면 <b>계약을 갱신해 계속 거주하는 동안에는 5% 규제가 유지되지만, 퇴거 후 새 임차인에게는 시세 95%가 다시 적용된다.</b> 20년이라는 장기 공급을 얻는 대신 임대료의 장기 억제 효과는 10년 모델보다 약해지는 교환이다. 여기에 건설기간 3~4년과 운영 20년을 합쳐 최대 34년간 HUG 보증부 대출이 가능한 장기모기지가 붙는다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 19</span><span class="cite">문서 ② 46면</span></div>
+        <h4>보편형 공공임대는 소득 문턱을 없앤 대신 절반 이상을 청년에게 배정한다</h4>
+        <p>기존 공공임대는 중위소득 150% 이하라는 소득제한과 1·2분위 75% 이상 입주라는 쿼터가 걸려 있었다. 보편형은 그 제한 없이 <b>다양한 소득계층</b>을 받되, 전체 물량의 <mark>50% 이상을 무주택 청년</mark>에 공급하고 나머지를 무주택 일반에 공급한다.</p>
+        <p>거주기간은 기본 6년이고 출산 시마다 연장되며 미성년 자녀 3명 이상이면 최대 20년이다(기존 자녀도 출산자녀에 포함). 공급 예정 단지로 남양주 왕숙 S-10(883호, ’27년 착공), 인천 계양 AC2-1(793호, ’27년 착공), 하남 교산 공공복합용지(364호, ’28년 착공)가 명시됐다.</p>
+        <p>가장 논쟁적인 조항은 같은 면 말미에 있다. 수도권 규제지역에서 민간분양 잔여물량, 이른바 ‘줍줍’이 발생하면 <b>LH 등이 우선매입해 보편형 공공임대로 공급</b>한다는 것이다. 원문은 그 이유로 “과다한 시세차익 발생 등 문제”를 들고 규모를 약 1,600호(’25.6~’26.5, 전용 85㎡ 이하)로 적었다. 현재 무주택 일반국민 추첨 방식으로 공급되던 물량이 <b>일반 청약 대상에서 빠지는</b> 변화다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 20</span><span class="cite">문서 ② 48면</span></div>
+        <h4>전월세 안심신탁은 구조도만 공개됐고 법적 성격은 아직 정해지지 않았다</h4>
+        <p>집주인은 월세를 원하고 세입자는 전세를 원하는 미스매치를 <b>‘전월세안정화기구’를 중간에 세워</b> 해소한다는 구상이다. 3자 계약을 맺고 전세금을 기구에 예탁하면, 기구가 그 전세금으로 펀드를 조성해 HUG 보증 주택사업에 투자하고 수익(약 4~5%)을 집주인에게 월세로 지급한다.</p>
+        <div class="quote">기구는 전세금을 투자하여 그 수익을 집주인에게 월세로 제공 * 전세금으로 펀드를 조성해 HUG가 보증하는 주택사업에 투자 → 공급 활성화 지원</div>
+        <p>원문에 적혀 있지 않아 확인이 필요한 사항이 여럿이다. <b>기구의 법적 형태와 설립 근거, 투자 손실 발생 시 전세금 반환의 최종 책임 주체, 세입자의 대항력·우선변제권이 기구 예탁으로 어떻게 유지되는지, 집주인의 월세 수취가 임대소득인지 투자수익인지</b>가 그것이다. 원문은 임대인 소득에 대한 세제혜택도 “지원 검토” 단계로 적고 있다.</p>
+        <p>일정은 집주인 모집공고 9월 → 심사·약정 10~12월 → 연말 입주이고, <b>참여는 의무가 아닌 공모</b>다. LH 매입임대 일부를 수도권 500호 규모로 시범 공급한다. 9월 공고문에서 위 쟁점들이 어떻게 정리되는지가 실제 판단 시점이다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 21</span><span class="cite">문서 ② 43면 · 문서 ③ 16면</span></div>
+        <h4>결혼 페널티 해소는 상품별로 시행 시기가 다르다</h4>
+        <p>같은 “부부 중 1인 소득 기준”이라도 근거 문서와 시행 시점이 갈린다. <b>보금자리론은 금융위 소관으로 ’26.10월</b>(내규·전산 개발), <b>디딤돌·버팀목은 국토부 기금 소관</b>으로 문서 ② 43면에 실려 있다.</p>
+        <p>구체적 효과는 원문 예시가 명확하다 — 5천만원 소득자와 7천만원 소득자가 혼인신고 후 디딤돌대출을 신청하면, 현행은 부부합산 1.2억원으로 심사해 대출이 불가하지만 개선 후에는 <b>5천만원 소득자 기준으로 심사해 대출이 가능</b>해진다. 전세사기 피해가구도 부부 중 한 명이라도 소득 7천만원 이내면 대출이 허용된다.</p>
+      </div>
+    </div>
+
+    <div class="opinion">
+      <div class="h"><span class="sq blue"></span><b>검토의견</b></div>
+      <ul>
+        <li><b>이 파트는 “발표됐으나 아직 설계되지 않은” 항목의 비중이 가장 높다.</b> 지분적립형 세부방안은 10월, 보편형 공공임대 입주기준·임대료는 3분기, 안심신탁 구조는 9월 공고에 각각 미뤄져 있다. 현 시점에서 개별 상담에 답할 수 있는 범위가 제한된다는 점을 먼저 밝히는 것이 정확하다.</li>
+        <li><b>‘줍줍’ 물량의 공공임대 전환은 청약 실무에 즉시 영향을 준다.</b> 수도권 규제지역 잔여물량을 노려 온 무주택 실수요자에게는 기회가 줄어드는 방향이다. 반면 시세차익 목적의 접근을 차단하려는 취지이므로, 정책 목적과 개별 이해가 정면으로 갈리는 지점이다.</li>
+        <li><b>20년 임대의 임대료 재설정 조항은 임차인 설명 시 반드시 병기해야 한다.</b> “20년 장기임대”라는 표현만으로는 20년간 임대료가 억제된다는 오해가 생기기 쉽다. 억제되는 것은 동일 임차인의 갱신 구간이다.</li>
+        <li><b>전월세 안심신탁은 현 단계에서 권유 대상이 아니라 관찰 대상이다.</b> 전세금이 공적 기구에 예탁된다는 점만으로 전세사기 위험이 제거된다고 설명할 수 없다. 기구의 법적 형태, 손실 부담 구조, 세입자 권리 보전 방식이 9월 공고에서 확인된 뒤에 판단할 사항이다.</li>
+      </ul>
+    </div>
+
+    <div class="news">
+      <div class="h"><span class="sq red"></span><b>관련 보도</b></div>
+      <div class="newsgrid">
+        <a class="na" href="https://www.newsis.com/view/NISX20260813_0003747376" target="_blank" rel="noopener"><div class="src">뉴시스</div><div class="t">공공분양 15% 지분적립형 공급…‘줍줍’ 공공임대로 돌린다</div><div class="n">체크 17·19를 함께 다룬 기사.</div></a>
+        <a class="na" href="https://www.etoday.co.kr/news/view/2614151" target="_blank" rel="noopener"><div class="src">이투데이</div><div class="t">“결혼하면 대출 탈락” 없앤다…지분적립형 공공분양 확대</div><div class="n">결혼 페널티 개선 항목을 상품별로 정리.</div></a>
+        <a class="na" href="https://biz.heraldcorp.com/article/10840081" target="_blank" rel="noopener"><div class="src">헤럴드경제</div><div class="t">비아파트 규제 풀고 ‘안심신탁’ 도입…정부, 전월세난 진화 총력</div><div class="n">안심신탁을 정면으로 다룬 몇 안 되는 기사.</div></a>
+        <a class="na" href="https://biz.heraldcorp.com/article/10841494" target="_blank" rel="noopener"><div class="src">헤럴드경제</div><div class="t">文때와 똑닮은 ‘공공임대 중심’ 전월세 대책…“근본 해결 안돼”</div><div class="n">이 파트에 대한 비판적 시각. 검토의견과 대조해 읽을 만하다.</div></a>
+        <a class="na" href="https://www.fnnews.com/news/202608131827202172" target="_blank" rel="noopener"><div class="src">파이낸셜뉴스</div><div class="t">월세 수준으로 내 집 마련의 기회…청년 4억 이하 非아파트 매수 지원</div><div class="n">파트 6의 청년미래보금자리론과 연결해 읽는 기사.</div></a>
+        <a class="na" href="https://www.newsway.co.kr/news/view?ud=2026081315031787908" target="_blank" rel="noopener"><div class="src">뉴스웨이</div><div class="t">8.13대책 두고 전문가들 “내 집 마련 기회 확대” vs “집값 자극”</div><div class="n">엇갈린 평가를 나란히 실었다.</div></a>
+      </div>
+    </div>
+  </div></div>
+</article>
+
+<article class="part" id="p5">
+  <div class="parthead">
+    <div class="wrap">
+      <div class="partnum">05</div>
+      <div>
+        <div class="src">문서 ② 49–57면 · 문서 ① 16–17면 · 추진체계 강화</div>
+        <h2>이번 대책의 성패는 총리실 점검체계가 실제로 작동하는지에 달려 있다</h2>
+        <p class="verdict">국무총리 주재 점검회의를 신설하고 국토부 1차관을 단장으로 하는 혁신단을 두어, 주간 단위로 사업별 진행 상황을 관리한다. 국무조정실장 브리핑의 표현대로 <b>“관건은 실행”</b>이며, 원문 51~57면의 추진계획표가 그 실행을 검증할 유일한 근거 자료다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="partbody"><div class="wrap">
+
+    <div class="lbl">면별 통독표</div>
+    <div class="readtable">
+      <div class="rowhead"><span>원문 면</span><span>내용</span><span>중요도</span></div>
+      <div class="prow"><div class="pno">49</div><div><div class="ptitle">특별 공급점검체계 가동</div><div class="pdesc">국무총리 주재 「범정부 주택 신속공급 점검회의」 신설(필수 참여: 재경부·국토부·금융위·국방부·농식품부). 부처·지방정부 합동 「신속공급 혁신단」(단장 국토 1차관) 설치.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">49</div><div><div class="ptitle">개발사업 신속 인허가센터 확대 개편</div><div class="pdesc">법적 근거는 있으나 업무범위가 제한적이던 ‘신속 인허가센터’와 근거가 없던 ‘현장 애로지원센터’를 「신속 인허가 지원센터」로 통합(11월). 교육·환경영향평가 등 타 부처 소관법령까지 지원, 지방정부 인허가 점검 및 자료요청 권한 부여 검토.</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">50</div><div><div class="ptitle">참고1 · 공급물량 확대 효과</div><div class="pdesc">과제별 추가 공급효과와 ’26~’30년 추가 착공을 구분한 표. 합계 23만호+α / 착공 12만호+α. 신규 공공주택지구 항목의 착공란은 “지구지정 시 추후 산정”으로 비어 있다.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">51–57</div><div><div class="ptitle">참고2 · 주요 과제 추진계획</div><div class="pdesc">과제별 조치사항(법 개정·시행령·내규·행정지도)·일정·소관부서를 모두 적은 표. 이 대책에서 검증 가능한 유일한 이행 기준표.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">① 16–17</div><div><div class="ptitle">국무조정실장 브리핑 · 점검체계 운용방안</div><div class="pdesc">국조실 2차장의 「주택 신속공급 실무회의」가 사전점검, 국조실 “주택 신속공급 점검팀”이 관계부처와 현장단계부터 상시 점검. 주택공급 상황판을 설치해 사안별·지구별·주간 단위 관리.</div></div><div class="pmark m2">●●</div></div>
+    </div>
+
+    <div class="lbl" style="margin-top:38px; display:block">중요 체크</div>
+    <div class="checks">
+      <div class="check">
+        <div class="top"><span class="cno">체크 22</span><span class="cite">문서 ② 50면</span></div>
+        <h4>참고1 표는 “추가 공급효과”와 “추가 착공”을 다른 열에 적어 두었다</h4>
+        <div class="tblwrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>과제</th><th class="num">추가 공급효과</th><th class="num">’26~’30년 추가 착공</th></tr></thead>
+            <tbody>
+              <tr><td><b>수도권 합계</b></td><td class="num"><b>23만호+α</b></td><td class="num"><b>12만호+α</b></td></tr>
+              <tr><td>공공택지 공급 확대</td><td class="num">16만호+α</td><td class="num">5.7만호+α</td></tr>
+              <tr><td>└ 최단기 착공모델</td><td class="num">4.1만호</td><td class="num">4.1만호</td></tr>
+              <tr><td>└ 신규 공공주택지구</td><td class="num">10만호+α</td><td class="num">지구지정 시 추후 산정</td></tr>
+              <tr><td>└ 비주택용지 전환</td><td class="num">1.5만호</td><td class="num">1.5만호</td></tr>
+              <tr><td>└ 군사시설보호구역 완화</td><td class="num">0.4만호</td><td class="num">0.18만호</td></tr>
+              <tr><td>도심 공급 확대</td><td class="num">1.4~2.4만호+α</td><td class="num">0.5만호+α</td></tr>
+              <tr><td>민간공급 금융·세제·규제</td><td class="num">5.9만호+α</td><td class="num">5.9만호+α</td></tr>
+              <tr><td>└ 일반주택 공급생태계 정상화</td><td class="num">4.5만호</td><td class="num">4.5만호</td></tr>
+            </tbody>
+            <caption>문서 ② 50면 참고1. 9.7대책·1.29공급방안 대비 추가분 기준.</caption>
+          </table>
+        </div>
+        <p>표에서 읽어야 할 것은 두 가지다. 첫째, <b>23만호와 12만호는 다른 개념</b>이며 전자는 물량 발굴, 후자는 임기 내 착공이다. 둘째, 12만호+α 중 <mark>4.5만호가 “일반주택 공급생태계 정상화”</mark>, 즉 파트 3의 건축기준·대출·부담금 완화에 따른 민간의 자발적 착공 증가에 걸려 있다. 이 항목은 정부가 직접 발주하는 물량이 아니므로 <b>추정치의 성격이 가장 강하다.</b></p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 23</span><span class="cite">문서 ② 51–57면</span></div>
+        <h4>추진계획표의 “조치사항” 열이 각 과제의 실현 난도를 그대로 보여준다</h4>
+        <p>51~57면 표는 과제마다 조치사항을 적어 두었는데, 그 유형이 곧 난도의 서열이다.</p>
+        <div class="tblwrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>조치 유형</th><th>통제 주체</th><th>불확실성</th><th>예시</th></tr></thead>
+            <tbody>
+              <tr><td>기시행 · 내부방침 · 내규개정</td><td>정부·공공기관</td><td>낮음</td><td>중토위·중도위 심의 병행(’26.6), LH 회수 방침(’26.10), HUG 내규(’26.8)</td></tr>
+              <tr><td>행정지도 · 시행세칙</td><td>금융당국</td><td>낮음</td><td>이주비 LTV 산정기준(’26.8.31), 임대사업자 대출 예외(’26.8.31)</td></tr>
+              <tr><td>시행령 · 시행규칙 개정</td><td>정부 (입법예고·심사)</td><td>중간</td><td>건축법 시행령(’26.12), 국토계획법 시행령(’26.12)</td></tr>
+              <tr><td><b>법률 개정</b></td><td><b>국회</b></td><td><b>높음</b></td><td>도시정비법, 공공주택특별법, 토지보상법, 조세특례제한법, 지방세특례제한법, 수도권정비계획법</td></tr>
+            </tbody>
+            <caption>문서 ② 51~57면 및 문서 ③ 18~19면에서 조치사항 열을 유형별로 재분류.</caption>
+          </table>
+        </div>
+        <p>이 대책을 인용하거나 자문에 반영할 때 <b>“조치사항이 법률 개정인지”를 먼저 확인하는 것</b>이 가장 실질적인 검증 방법이다. 법률 개정 항목은 국회 통과 전까지 시행일을 특정할 수 없다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 24</span><span class="cite">문서 ① 16–17면</span></div>
+        <h4>국무조정실 브리핑은 이 대책의 자체 평가 기준을 명시했다</h4>
+        <div class="quote">금번 부동산 대책의 핵심은 공급입니다. 이번 대책의 성패는 얼마나 신속하게 주택을 공급하고, 이를 통해 시장의 신뢰를 회복하느냐에 달려있습니다. … <b>관건은 실행입니다.</b></div>
+        <p>점검 체계는 3단으로 짜였다. <b>국무총리 주재 점검회의</b>(중대사안 조정) → <b>국조실 2차장의 실무회의</b>(사전점검) → <b>국토부 1차관의 신속공급 혁신단 및 신속 인허가 지원센터</b>(현장 밀착). 여기에 국조실 “주택 신속공급 점검팀”이 <b>주택공급 상황판을 설치해 사안별·지구별·주간 단위로 관리</b>한다.</p>
+        <p>실무적으로 의미 있는 대목은 신속 인허가 지원센터에 <b>지방정부 인허가 점검 및 관계기관 자료요청 권한 부여를 검토</b>한다는 부분이다(② 49면). 조합·시행자가 지자체 인허가 지연을 겪을 때 사용할 수 있는 창구가 11월 이후 생긴다는 뜻이며, 권한의 범위가 어떻게 정해지는지가 관건이다.</p>
+      </div>
+    </div>
+
+    <div class="opinion">
+      <div class="h"><span class="sq blue"></span><b>검토의견</b></div>
+      <ul>
+        <li><b>점검체계는 이번 대책에서 가장 논쟁이 적고 실현 가능성이 높은 부분이다.</b> 회의체 신설과 조직 통합은 법률 개정 없이 가능하다. 다만 조직이 생겼다는 것과 인허가 지연이 실제로 줄어든다는 것은 별개이므로, 11월 통합센터 출범 이후의 처리 실적으로 판단해야 한다.</li>
+        <li><b>정책 이행 여부를 추적하려면 51~57면 표를 그대로 체크리스트로 쓰는 것이 가장 효율적이다.</b> 과제·조치사항·일정·소관부서가 모두 적혀 있어, 예정 시기가 지나도 조치가 없으면 그 자체로 확인 가능한 지연 신호가 된다.</li>
+        <li><b>야당은 이 대책을 “3무 맹탕 대책”으로 규정했다.</b> 국회 다수 구성에 따라 도시정비법·조세특례제한법 등 핵심 개정안의 처리 시점이 달라질 수 있으며, 이는 파트 2·3 인센티브의 ’27년 시한과 직접 충돌할 수 있는 변수다.</li>
+      </ul>
+    </div>
+
+    <div class="news">
+      <div class="h"><span class="sq red"></span><b>관련 보도</b></div>
+      <div class="newsgrid">
+        <a class="na" href="https://www.ohmynews.com/NWS_Web/View/at_pg.aspx?CNTN_CD=A0003259108" target="_blank" rel="noopener"><div class="src">오마이뉴스</div><div class="t">8·13 부동산 대책 “공급 시차” vs. “부채 뇌관”… 쪼개진 언론 시선</div><div class="n">언론별 평가 프레임을 비교한 메타 기사.</div></a>
+        <a class="na" href="https://www.fnnews.com/news/202608131828174722" target="_blank" rel="noopener"><div class="src">파이낸셜뉴스</div><div class="t">“가용방법 총망라… 공급 속도 방점” “실효성 의문… 전월세난 대책 없어”</div><div class="n">찬반 평가를 한 기사에 나란히 배치.</div></a>
+        <a class="na" href="https://nwww.newsis.com/view/NISX20260813_0003748162" target="_blank" rel="noopener"><div class="src">뉴시스</div><div class="t">국힘, ‘8·13 부동산 대책’에 “앙꼬 빠진 ‘3무 맹탕 대책’”</div><div class="n">국회 처리 전망과 직결되는 야당 입장.</div></a>
+        <a class="na" href="https://www.newstomato.com/ReadNews.aspx?no=1310279" target="_blank" rel="noopener"><div class="src">뉴스토마토</div><div class="t">서울시 “‘8·13 대책’에선 규제 완화 진전…추가 개선도 필요”</div><div class="n">집행 주체인 지자체의 평가.</div></a>
+        <a class="na" href="http://www.newsian.co.kr/news/articleView.html?idxno=93698" target="_blank" rel="noopener"><div class="src">뉴시안</div><div class="t">23만가구 공급·대출 30조 확대…수도권 집값 정조준</div><div class="n">공급·금융 두 축을 함께 묶은 총괄 기사.</div></a>
+        <a class="na" href="https://www.businesspost.co.kr/BP?command=article_view&num=444693" target="_blank" rel="noopener"><div class="src">비즈니스포스트</div><div class="t">‘기존 계획 실행력 높인다’ 8·13 부동산 대책, 공공택지 착공기간 줄이고</div><div class="n">기존 대책의 이행력 제고라는 성격 규정에 초점.</div></a>
+      </div>
+    </div>
+  </div></div>
+</article>
+
+<article class="part" id="p6">
+  <div class="parthead">
+    <div class="wrap">
+      <div class="partnum">06</div>
+      <div>
+        <div class="src">문서 ③ 1–20면 · 부동산 시장 안정을 위한 금융 종합대책</div>
+        <h2>공급에는 돈을 더 풀고 수요는 더 조이는, 방향이 반대인 두 축이 한 문서에 있다</h2>
+        <p class="verdict">앞부분(3~8면)은 PF·보증·규제유예로 <b>공급 금융을 26.3조에서 47.8조원+α로</b> 늘린다. 뒷부분(9~17면)은 전세대출보증 제한과 DSR·자본규제로 <b>투기적 대출을 더 조인다.</b> 두 축이 섞이지 않도록, 어느 면을 읽고 있는지 항상 확인하며 읽어야 한다.</p>
+      </div>
+    </div>
+  </div>
+  <div class="partbody"><div class="wrap">
+
+    <div class="lbl">면별 통독표</div>
+    <div class="readtable">
+      <div class="rowhead"><span>원문 면</span><span>내용</span><span>중요도</span></div>
+      <div class="prow"><div class="pno">1–2</div><div><div class="ptitle">추진배경 · 핵심 추진과제</div><div class="pdesc">M2 증가율 상승, 물가 목표 상회 전망, 수도권 APT 평균매매가 7.6 → 7.9억원. PF 익스포저는 231.1조(’23.12) → 169.8조원(’26.3)으로 축소. 공급 금융 26.3 → 47.8조원+α.</div></div><div class="pmark m1">●</div></div>
+      <div class="prow"><div class="pno">3–4</div><div><div class="ptitle">부동산PF 보증·자금공급 확대</div><div class="pdesc">보증규모 3년 평균 13.1 → 28.7조원(2.2배), ’27년 33조 집중. 건축공사비 플러스 PF보증 4.0 → 5.0조원. 보증수수료 30% 인하 ’27년말까지 연장 + 조기착공 10% 추가 인하. 주거사업장 보증비율 90~95% → 100%(~’27년말). 캠코 PF정상화 지원펀드 3조원+α 신규조성, 신디케이트론 1 → 5조원, 업권 자체펀드 7.3 → 10조원.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">5</div><div><div class="ptitle">주거사업장 자기자본비율 규제 한시유예</div><div class="pdesc">’27년 시행 예정이던 PF 자기자본비율 규제(5→10→15→20%)를 주거사업장에 한해 2년 유예해 ’29년 시행. 세부방안은 업권·협회 협의를 거쳐 연내 발표.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">5–6</div><div><div class="ptitle">보증제도 개선 · 정비사업 지원</div><div class="pdesc">고가주택(12억 초과) 토지비 등 보증 포함, 보증요건을 “주택 70% 이상” → “주택+준주택 70% 이상”. 중소형 건설사 정비사업 보증상품 신설, 이주비대출 LTV를 종전·종후 중 큰 금액으로, 추가 이주비대출 보증상품 신설.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">7–8</div><div><div class="ptitle">임대사업자 자금지원 · 주담대 예외 확대 · 민간금융 유도</div><div class="pdesc">준공 후 임대사업장 운영자금 보증(LTV 90% 이내, 임차보증금 차감), PF대출 유동화로 장기·고정금리 전환. 주담대 예외에 ➍➎ 추가. 10대 금융사–건설업계 정례 간담회, PF·건설사 금융애로 해소센터 설치(금감원·산은).</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">9–10</div><div><div class="ptitle">전세대출보증 제한 대상 확대 · 보증비율 축소</div><div class="pdesc">“투기적 목적의 비거주 1주택자”로 제한 확대(3요건 모두 충족 시). 1주택자 보증비율 수도권·규제지역 80 → 70%, 그 외 90 → 80%. 무주택자는 현행 유지. 모두 ’27.1.1일 시행.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">11</div><div><div class="ptitle">DSR 소득산정 기준 합리화</div><div class="pdesc">모든 소득에 대해 원칙적으로 최근 1개년, 소득상승률 20% 초과 시 최근 2개년 평균, 30% 초과 시 최근 3개년 평균. 소득 감소 시에는 1개년으로 보수적 심사. ’27.1월.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">12</div><div><div class="ptitle">주담대 자본규제 강화 · 불법행위 점검</div><div class="pdesc">고위험 주담대 유형에 ③고액·고DSR, ④고가주택·고LTV 추가(위험가중치 2~4배). 가계부문 시스템리스크 완충자본(SSyRB) 도입. ’21년 이후 고위험 사업자대출 전수점검(~’26.12).</div></div><div class="pmark m2">●●</div></div>
+      <div class="prow"><div class="pno">13–14</div><div><div class="ptitle">청년 주거 지원 3종 세트</div><div class="pdesc">① 청년미래보금자리론(年 3조, 2년 한시) ② 청년 전월세결합보증(年 4.5조) ③ 청년특례 전세대출보증 확대(만 34 → 39세, ’26.10월).</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">15–16</div><div><div class="ptitle">실거주 실수요자 지원 · 장래소득 · 결혼페널티 · 생애최초</div><div class="pdesc">이주비·중도금·잔금대출을 총량관리 목표에서 별도 관리(’26 하반기). 장래소득 인정기준 고지 의무화(’26.8.31). 보금자리론 신혼부부 1인 소득 기준(’26.10). 미성년 당시 지분상속 등은 여신심사위 심사로 생애최초 예외 인정(’26.8.31).</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">17</div><div><div class="ptitle">’26년도 가계부채 총량관리</div><div class="pdesc">총량 증가율 목표를 1.5% → 3% 수준으로 조정. 늘어난 대출 여력은 이주비·중도금·잔금대출, 청년 주거안정, 실수요자 애로 해소에 활용. 신용대출은 별도 관리 강화.</div></div><div class="pmark m3">●●●</div></div>
+      <div class="prow"><div class="pno">18–20</div><div><div class="ptitle">향후 추진계획 · 국토부 금융 관련 사항</div><div class="pdesc">총 6개 부문 34개 세부과제 — 즉시 15개, 연내 7개, ’27년 12개. 20면은 국토부 방안 중 금융 관련 5개 항목의 참조 면수를 안내.</div></div><div class="pmark m3">●●●</div></div>
+    </div>
+
+    <div class="lbl" style="margin-top:38px; display:block">중요 체크</div>
+    <div class="checks">
+      <div class="check">
+        <div class="top"><span class="cno">체크 25</span><span class="cite">문서 ③ 9–10면</span></div>
+        <h4>전세대출보증 제한은 세 요건을 모두 충족해야 걸린다 — 하나라도 빠지면 대상이 아니다</h4>
+        <p>“1주택자 전세대출 금지”로 요약되곤 하지만 원문의 요건은 훨씬 좁다. <b>⑴~⑶ 모두에 해당하는 자</b>만 대상이다.</p>
+        <div class="tblwrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th class="num">요건</th><th>내용</th></tr></thead>
+            <tbody>
+              <tr><td class="num">⑴</td><td>수도권·규제지역 내 <b>아파트</b>를 보유한 1주택자 (부부합산 기준)</td></tr>
+              <tr><td class="num">⑵</td><td>해당 주택을 <b>임대차 중</b>인 경우 — 단, 본인 또는 배우자의 직계존비속에게 임대차하는 경우는 제외</td></tr>
+              <tr><td class="num">⑶</td><td>본인도 배우자도 해당 주택에 <b>실거주한 적이 없을 것</b></td></tr>
+            </tbody>
+            <caption>문서 ③ 9면. 원문 요약: “실거주 목적 없이 수도권·규제지역 내 APT를 매입한 자로서 타인의 임차보증금을 주택매입자금으로 활용한 경우”. 참고로 수도권·규제지역 APT 보유 1주택자가 받은 전세대출 규모는 약 9.3조원(6.0만건).</caption>
+          </table>
+        </div>
+        <p>따라서 <b>비아파트 보유자, 비수도권·비규제지역 아파트 보유자, 가족에게 임대한 경우, 과거 한 번이라도 실제 거주한 경우는 제외</b>된다. 언론 문답에서도 “한 번이라도 살았고 주소이전이 됐으면 규제 대상이 아니다”라고 확인됐다.</p>
+        <p>예외 허용 사유도 다섯 가지가 명시됐다 — 법적 의무에 따라 실거주가 예정된 경우(신규·연장 허용), 임대차계약 승계 조건부 취득으로 실거주를 못 하는 경우(승계 계약 종료일까지 연장), 임대인의 보증금 미반환(연장 허용), 퇴거 예정이나 일정 조정이 필요한 경우(6개월 내 단기 연장), 그리고 <b>비거주 사유의 불가피성이 명백하다고 금융회사 여신심사위원회가 인정하는 경우</b>다. 마지막 항목이 사실상의 일반 예외 창구다. 시행은 <mark>’27.1.1일</mark>.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 26</span><span class="cite">문서 ③ 5면</span></div>
+        <h4>PF 자기자본비율 규제 2년 유예는 이번 금융대책에서 이견이 가장 컸던 항목이다</h4>
+        <div class="quote">제2의 레고랜드 등 PF發 위기 재발방지 차원 <b>당초 방안대로 추진하자는 의견</b>과, 주택건설 촉진 관련 건설업계·금융권 애로사항 등을 종합적으로 고려 ⇒ 주거사업장 대상 PF 자기자본비율 규제 한시유예 (’27년 시행 → ’29년 시행)</div>
+        <p>정부 문서가 반대 의견의 존재를 명시하는 것은 드문 일이다. 규제안 자체는 유지된다 — ’29년 15%, ’30년 20%로 올라가는 일정에서 <b>앞의 두 단계(’27년 5%, ’28년 10%)를 건너뛰는</b> 형태다. 유예 대상은 주거사업장에 한정되며, 세부방안은 업권·협회 협의를 거쳐 연내 발표된다.</p>
+        <p>시행사·시행업 관점에서는 ’27~’28년에 자기자본 요건 없이 PF를 일으킬 수 있는 창이 열린 것이지만, <b>’29년 15%가 그대로 온다</b>는 점에서 그 시점에 걸릴 사업장의 자본 계획을 지금부터 잡아 두어야 한다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 27</span><span class="cite">문서 ③ 11면</span></div>
+        <h4>DSR 소득산정 변경은 소득이 오른 사람에게만 불리하게 작동하는 비대칭 구조다</h4>
+        <div class="tblwrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>소득 변화</th><th>현행</th><th>개선</th><th>효과</th></tr></thead>
+            <tbody>
+              <tr><td>상승률 20% 이하</td><td>최근 1개년</td><td>최근 1개년</td><td>변화 없음</td></tr>
+              <tr><td>상승률 20% 초과</td><td>근로소득은 1개년</td><td><b>최근 2개년 평균</b></td><td>인정소득 감소 → 한도 축소</td></tr>
+              <tr><td>상승률 30% 초과</td><td>근로소득은 1개년</td><td><b>최근 3개년 평균</b></td><td>인정소득 더 감소</td></tr>
+              <tr><td>소득 감소</td><td>—</td><td><b>최근 1개년</b></td><td>낮아진 소득 그대로 반영</td></tr>
+            </tbody>
+            <caption>문서 ③ 11면. 시행세칙 개정·전산개발, ’27.1월.</caption>
+          </table>
+        </div>
+        <p>즉 <b>오르면 평균을 내서 깎고, 내리면 평균 없이 그대로 반영</b>한다. 원문은 그 취지를 “실제 상환능력 대비 과도한 대출이 취급되지 않도록 보수적으로 심사”라고 밝힌다. 성과급·인센티브 비중이 큰 직군, 승진·이직으로 소득이 급증한 경우가 직접 영향을 받는다.</p>
+        <p>반대 방향의 완화도 같은 문서에 있다. <b>DSR 장래소득 인정기준</b>은 금융회사 자율 적용이어서 차주가 요청하지 않으면 적용되지 않는 사례가 많았는데, 이를 <b>금융회사의 고지 의무</b>로 바꾼다(’26.8.31). 원문 예시로는 연소득 4,000만원·만 30세 차주가 30년 만기 주담대에서 한도 12.5% 상승 효과를 든다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 28</span><span class="cite">문서 ③ 13–14면</span></div>
+        <h4>청년미래보금자리론은 아파트를 대상에서 뺐다</h4>
+        <div class="tblwrap" style="margin-top:14px">
+          <table>
+            <thead><tr><th>구분</th><th>일반 보금자리론</th><th>청년미래보금자리론(안)</th></tr></thead>
+            <tbody>
+              <tr><td>공급대상</td><td>민법상 성년</td><td>생애최초 주택구입 청년 (만 39세 이하)</td></tr>
+              <tr><td>대상주택</td><td>6억원 이하 주택</td><td><b>4억원 이하, 非아파트 (85㎡ 이하)</b></td></tr>
+              <tr><td>LTV</td><td>아파트 70%, 기타주택 65%<br>(규제지역 10%p 차감)</td><td class="num">최대 <b>80%</b></td></tr>
+              <tr><td>소득요건</td><td>7천만원 이하</td><td>7천만원 이하 (신혼부부는 부부 중 1인 기준)</td></tr>
+              <tr><td>생애최초 LTV 우대</td><td>이용 시 <b>소멸</b></td><td>이용 시에도 <b>유지</b> (수도권·규제지역 70%, 그 외 80%)</td></tr>
+            </tbody>
+            <caption>문서 ③ 13면. 年 3조원, 2년 한시 공급. ’27.1월 잠정. 세부사항 추후 확정.</caption>
+          </table>
+        </div>
+        <p>설계 의도는 원문에 “징검다리” 자가 마련으로 표현된다. 상환액 예시는 <b>2억원 대출·30년 만기·금리 3.0% 가정 시 월 원리금 85만원</b>으로, 비아파트 평균 월세 80만원과 비슷한 수준이라는 것이다.</p>
+        <p>실무상 가장 중요한 항목은 마지막 행이다. 일반 보금자리론은 이용하면 생애최초 LTV 우대가 소멸하지만 청년미래보금자리론은 <b>유지</b>된다. 즉 비아파트로 먼저 진입한 뒤 나중에 아파트를 살 때 생애최초 혜택을 다시 쓸 수 있다는 뜻이며, 이것이 “징검다리”라는 표현의 실체다.</p>
+        <p>다만 오피스텔을 대상에 포함하려면 <b>주택금융공사법 개정</b>이 필요하다(’26년 하반기 추진). 현행 주택법상 주택만 보금자리론 지원이 가능하므로, 법 개정 전에는 오피스텔이 제외된다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 29</span><span class="cite">문서 ③ 15·17면</span></div>
+        <h4>가계부채 총량 목표 상향은 그 자체가 목적이 아니라 이주비·중도금 대출을 뚫기 위한 수단이다</h4>
+        <p>’26년 가계부채 증가율 목표가 <b>1.5% → 3% 수준</b>으로 조정된다. 원문은 그 이유와 용처를 함께 적었다.</p>
+        <div class="quote">주택공급 촉진 및 청년·실수요자 지원 필요성 등 최근 상황 변화를 감안하여 … ➡ 증가한 대출 여력은 <b>주택공급 촉진(이주비·중도금·잔금대출), 청년 주거안정, 실수요자 애로 해소 등 “정책적 목적으로 활용”</b></div>
+        <p>여기에 15면의 조치가 짝을 이룬다. 재건축·재개발 이주비 대출, 신축 입주단지 중도금·잔금대출을 <b>금융회사 총량관리 목표에서 별도 관리</b>하는 것이다(’26년 하반기, 금융권 협의). 총량 안에 포함돼 있어 연말이면 창구가 닫히던 문제를 겨냥한다.</p>
+        <p>동시에 <b>신용대출은 관리를 강화</b>한다. 원문은 “’25년 대비 빠르게 증가하고 있는 신용대출”에 대해 금융회사 자율관리 조치 등 다각적 관리를 예고했다. 총량이 늘었다고 모든 대출이 함께 늘어나는 구조가 아니라는 뜻이다.</p>
+      </div>
+      <div class="check">
+        <div class="top"><span class="cno">체크 30</span><span class="cite">문서 ③ 12면</span></div>
+        <h4>주담대 자본규제는 은행 규제이지만 결과적으로 차주의 금리·한도에 전가된다</h4>
+        <p>고위험 주담대 유형에 <b>③ 고액·고DSR 주담대</b>와 <b>④ 고가주택·고LTV 주담대</b>가 추가되고 위험가중치가 2~4배로 상향된다. 여기에 <b>가계부문 시스템리스크 완충자본(SSyRB)</b>이 신설되어, 가계부채/GDP가 일정 수준(예: 80%)을 넘으면 은행별 주담대 비중에 따라 추가 자본을 적립해야 한다(상한 예시 1%).</p>
+        <p>은행 입장에서 특정 유형의 주담대가 자본을 더 많이 소모하게 되므로, 해당 구간의 <b>가산금리 인상이나 취급 축소</b>로 이어질 가능성이 높다. 세부 부과기준은 은행권 협의와 자본비율 영향분석을 거쳐 ’26년 4분기에 확정되며, SSyRB는 6개월 시범운영 후 ’27년 하반기부터 적립의무가 부과된다.</p>
+        <p>원문이 “신규 및 기존”을 모두 대상으로 명시한 점도 확인이 필요하다. 이미 실행된 대출도 유형에 해당하면 위험가중치 상향의 적용을 받는다.</p>
+      </div>
+    </div>
+
+    <div class="opinion">
+      <div class="h"><span class="sq blue"></span><b>검토의견</b></div>
+      <ul>
+        <li><b>수요 규제 항목은 대부분 ’27.1.1일에 몰려 있다.</b> 전세대출보증 제한·보증비율 축소·DSR 소득산정·자본규제가 모두 그렇다. 반대로 실수요 지원(장래소득 고지, 생애최초 예외, 임대사업자 대출 예외)은 ’26.8.31일에 앞서 시행된다. <mark class="r">’26년 하반기는 완화가 먼저 오고 규제가 뒤에 오는 구간</mark>이며, 이 시차 자체가 실무상 의미를 가진다.</li>
+        <li><b>전세대출보증 제한의 3요건 구조를 정확히 전달해야 한다.</b> “1주택자면 전세대출이 막힌다”는 요약은 부정확하다. 아파트·수도권 규제지역·임대차 중·무실거주가 모두 겹쳐야 하며, 여신심사위원회 인정이라는 개별 예외 경로도 남아 있다.</li>
+        <li><b>LTV·DSR 규제비율과 주담대 한도는 그대로다.</b> 원문 9면은 LTV 규제지역 40%·비규제지역 70%, DSR 은행권 40%·2금융권 50%, 주택가격별 한도(15억 이하 6억, 15~25억 4억, 25억 초과 2억)를 “확고하게 유지”한다고 명시한다. 총량 목표 상향을 규제 완화로 읽으면 안 된다.</li>
+        <li><b>다주택자 기존 대출 회수는 계속된다.</b> ’26.4월 이후 다주택자 주담대 만기연장 제한으로 2,001건이 상환됐고, ’26년 중 만기도래 예정 물량이 약 1.2만건이다. 해당 차주는 만기 시점별 상환 계획을 미리 세워야 한다.</li>
+      </ul>
+    </div>
+
+    <div class="news">
+      <div class="h"><span class="sq red"></span><b>관련 보도</b></div>
+      <div class="newsgrid">
+        <a class="na" href="https://biz.heraldcorp.com/article/10839910" target="_blank" rel="noopener"><div class="src">헤럴드경제</div><div class="t">[일문일답] 금융위, 비거주 1주택자 전세대출 제한…“한 번이라도 살았다면 제외”</div><div class="n">체크 25의 요건 해석을 당국 문답으로 확인할 수 있다.</div></a>
+        <a class="na" href="https://www.khan.co.kr/article/202608131200001" target="_blank" rel="noopener"><div class="src">경향신문</div><div class="t">내년 1월부터 ‘비거주 1주택자’ 전세대출 제한…갭투자 차단 조치</div><div class="n">시행 시점과 정책 의도를 명확히 제시.</div></a>
+        <a class="na" href="https://news.nate.com/view/20260813n15881" target="_blank" rel="noopener"><div class="src">뉴시스</div><div class="t">가계부채 목표 3%로 상향…비거주 1주택자 전세대출 보증 제한</div><div class="n">완화와 규제를 한 기사에서 함께 다룬다.</div></a>
+        <a class="na" href="https://www.hankyung.com/article/202608138529i" target="_blank" rel="noopener"><div class="src">한국경제</div><div class="t">청년미래보금자리론 나온다…4억 이하 빌라·오피스텔 혜택</div><div class="n">상품 조건과 오피스텔 포함 여부를 정리.</div></a>
+        <a class="na" href="https://www.dt.co.kr/article/12078093" target="_blank" rel="noopener"><div class="src">디지털타임스</div><div class="t">대출 오픈런 해소?…이주비·중도금·잔금대출 문 넓어진다</div><div class="n">체크 29의 총량 별도 관리가 실제로 무엇을 바꾸는지.</div></a>
+        <a class="na" href="https://www.asiatoday.co.kr/kn/view.php?key=20260813010004710" target="_blank" rel="noopener"><div class="src">아시아투데이</div><div class="t">총량은 풀고 규제는 유지…8·13 대책 ‘두 토끼’ 잡을까</div><div class="n">이 파트의 두 축이 충돌하는 지점을 짚은 분석.</div></a>
+      </div>
+    </div>
+  </div></div>
+</article>
+
+<style>
+.cal{margin-top:28px; display:grid; gap:0}
+.calrow{display:grid; grid-template-columns:132px 1fr; gap:24px; padding:22px 0; border-top:1px solid var(--rule)}
+.calrow:last-child{border-bottom:1px solid var(--rule)}
+.caldate{font-family:var(--mono); font-size:15px; font-weight:700; letter-spacing:-.02em; color:var(--red); padding-top:1px}
+.caldate small{display:block; font-size:10.5px; font-weight:600; letter-spacing:.1em; color:var(--ink-3); margin-top:5px; text-transform:uppercase}
+.calitems{display:grid; gap:9px}
+.calitem{display:grid; grid-template-columns:1fr auto; gap:14px; align-items:baseline; font-size:14px; line-height:1.6}
+.calitem .cw{font-family:var(--mono); font-size:10.5px; color:var(--ink-3); letter-spacing:.04em; white-space:nowrap}
+@media (max-width:640px){
+  .calrow{grid-template-columns:1fr; gap:12px}
+  .calitem{grid-template-columns:1fr; gap:2px}
+}
+</style>
+
+<section id="cal">
+  <div class="wrap">
+    <div class="sechead"><span class="lbl">부록 A</span><h2>시행 시기 캘린더</h2></div>
+    <p class="lead">두 문서의 추진계획표(② 51~57면, ③ 18~19면)에 적힌 일정을 시점순으로 재배열했다. 오른쪽은 조치 유형이며, <b>법률</b>로 표시된 항목은 국회 통과 전까지 시행일이 확정되지 않는다.</p>
+    <div class="cal">
+      <div class="calrow">
+        <div class="caldate">즉시<small>발표와 동시</small></div>
+        <div class="calitems">
+          <div class="calitem"><span>PF보증 공급목표 상향 부여 / 중소건설사 특별보증 목표 부여</span><span class="cw">목표 부여</span></div>
+          <div class="calitem"><span>건축공사비 플러스 PF보증 5.0조원으로 확대, 보증수수료 30% 인하 연장</span><span class="cw">주금공 자체조치</span></div>
+          <div class="calitem"><span>고가주택 보증한도 현실화</span><span class="cw">주금공 자체조치</span></div>
+          <div class="calitem"><span>10대 금융사–건설업계 정례 간담회, PF·건설사 금융애로 해소센터 설치</span><span class="cw">조직 설치</span></div>
+        </div>
+      </div>
+      <div class="calrow">
+        <div class="caldate">’26. 8<small>8월 중</small></div>
+        <div class="calitems">
+          <div class="calitem"><span>맞춤형 PF보증 제도개선 · 조기착공 유도 (HUG 내규개정)</span><span class="cw">내규</span></div>
+          <div class="calitem"><span>도심복합 서울 1~2만호 후보지 선정 착수 / 분담금 중도금 납부유예 도입</span><span class="cw">사업 추진</span></div>
+          <div class="calitem"><span>공공주택특별법·토지보상법 개정안 발의 (보상 절차 단축 일괄)</span><span class="cw">법률 발의</span></div>
+        </div>
+      </div>
+      <div class="calrow">
+        <div class="caldate">’26. 8. 31<small>가장 빠른 실효일</small></div>
+        <div class="calitems">
+          <div class="calitem"><span><b>이주비대출 LTV 산정방식</b> — 종전·종후 자산평가액 중 큰 금액</span><span class="cw">행정지도·시행세칙</span></div>
+          <div class="calitem"><span><b>주택매매·임대사업자 주담대 예외 확대</b> (신축 비아파트 매입 등)</span><span class="cw">행정지도</span></div>
+          <div class="calitem"><span>주거사업장 PF 보증비율 100%로 확대 / ‘준주택’ 보증요건 포함</span><span class="cw">내규</span></div>
+          <div class="calitem"><span>DSR 장래소득 인정기준 — 금융회사 고지 의무화</span><span class="cw">가이드라인</span></div>
+          <div class="calitem"><span>생애최초 요건 합리화 — 여신심사위 예외 인정</span><span class="cw">행정지도·시행세칙</span></div>
+        </div>
+      </div>
+      <div class="calrow">
+        <div class="caldate">’26. 9<small>9월 중</small></div>
+        <div class="calitems">
+          <div class="calitem"><span><b>도시정비법 개정안 발의</b> — 동의율 완화, 전문 조합장, 성과급, 세부내역 제출 의무</span><span class="cw">법률 발의</span></div>
+          <div class="calitem"><span>전월세 안심신탁 집주인 모집공고 / LH 공공토지비축 공개공모(5천억)</span><span class="cw">공고</span></div>
+          <div class="calitem"><span>앵커리츠 투자 착수 / 미분양 매입확약 공고 / 과천 경마장 이전지 선정</span><span class="cw">사업 추진</span></div>
+          <div class="calitem"><span>주거시설 개발부담금 감면 개정안 발의 / 복합용도 건축물 특별법 발의</span><span class="cw">법률 발의</span></div>
+        </div>
+      </div>
+      <div class="calrow">
+        <div class="caldate">’26. 10<small>10월 중</small></div>
+        <div class="calitems">
+          <div class="calitem"><span><b>보금자리론 결혼페널티 해소</b> — 신혼부부 부부 중 1인 소득 기준</span><span class="cw">내규·전산</span></div>
+          <div class="calitem"><span><b>청년특례 전세대출보증 확대</b> — 만 34세 → 39세, 신혼 1인 소득 기준</span><span class="cw">내규·전산</span></div>
+          <div class="calitem"><span>지분적립형 공공분양 세부 시행방안 별도 발표</span><span class="cw">발표 예정</span></div>
+          <div class="calitem"><span>LH 회수 후 공급 방침 / 오염토 반출정화 기준 확대</span><span class="cw">내부방침·시행규칙</span></div>
+        </div>
+      </div>
+      <div class="calrow">
+        <div class="caldate">’26. 11–12<small>연말</small></div>
+        <div class="calitems">
+          <div class="calitem"><span><b>신속 인허가 지원센터 통합·전담조직 신설</b> (11월)</span><span class="cw">조직 개편</span></div>
+          <div class="calitem"><span>수도권 공공택지 월별 상세 분양계획 발표 (11월) / 매입임대 표준평면도 배포</span><span class="cw">발표</span></div>
+          <div class="calitem"><span><b>건축법 시행령 개정</b> — 다세대·다가구 건축면적·층수·주민공동시설 (12월)</span><span class="cw">시행령</span></div>
+          <div class="calitem"><span><b>국토계획법·주택법 시행령</b> — 주상복합 주거비율 100% 미만, 세대수 500 미만</span><span class="cw">시행령</span></div>
+          <div class="calitem"><span>정비사업 전문 중재위원회 신설 발의 / 모듈러 활성화 특별법 제정</span><span class="cw">법률</span></div>
+          <div class="calitem"><span>현물보상 분양권 양도세 부담 완화 (조특법) / 태릉CC 세계유산영향평가 완료</span><span class="cw">법률·절차</span></div>
+        </div>
+      </div>
+      <div class="calrow">
+        <div class="caldate">’27. 1. 1<small>수요 규제 시행</small></div>
+        <div class="calitems">
+          <div class="calitem"><span><b>전세대출보증 제한 대상 확대</b> — 투기적 목적의 비거주 1주택자</span><span class="cw">행정지도·내규</span></div>
+          <div class="calitem"><span><b>전세대출 보증비율 축소</b> — 1주택자 수도권·규제지역 70%, 그 외 80%</span><span class="cw">내규·전산</span></div>
+        </div>
+      </div>
+      <div class="calrow">
+        <div class="caldate">’27. 1<small>1월 중</small></div>
+        <div class="calitems">
+          <div class="calitem"><span><b>청년 주거 지원 3종 세트</b> — 청년미래보금자리론, 전월세결합보증 출시</span><span class="cw">예산·법률·내규</span></div>
+          <div class="calitem"><span><b>DSR 소득산정 기준 합리화</b> — 상승률 20%/30% 초과 시 다년 평균</span><span class="cw">시행세칙·전산</span></div>
+          <div class="calitem"><span><b>주담대 자본규제 강화</b> — 고위험 유형 확대, SSyRB 도입 (시범 6개월)</span><span class="cw">감독규정·시행세칙</span></div>
+          <div class="calitem"><span>중소형 건설사 정비사업 보증상품 / 추가 이주비대출 보증상품 / 임대사업장 운영자금 보증 신설</span><span class="cw">시행령·내규</span></div>
+        </div>
+      </div>
+      <div class="calrow">
+        <div class="caldate">’27<small>연중</small></div>
+        <div class="calitems">
+          <div class="calitem"><span>소형 신축 일반주택 주택수 제외 특례 연장 / 신축판매업자 요건 완화 (2월·2분기)</span><span class="cw">시행령·특례</span></div>
+          <div class="calitem"><span>신규 공공주택지구(2.7만호) 지구지정 (7월~) / 도심복합 지방공사 부채기준 완화</span><span class="cw">지구지정</span></div>
+          <div class="calitem"><span>학교용지·노후청사 특별법 시행령 제정 (6월) / 공업물량 시·도간 대체지정 (수도권정비계획법, 6월)</span><span class="cw">법률·시행령</span></div>
+          <div class="calitem"><span>PF대출 유동화 법 개정 / 보험권 협약보증 확대 (하반기) / 캠코펀드 신규조성 (하반기)</span><span class="cw">법률·협약</span></div>
+        </div>
+      </div>
+      <div class="calrow">
+        <div class="caldate">’28 이후<small>착공·규제 시점</small></div>
+        <div class="calitems">
+          <div class="calitem"><span>용산 국제업무지구 주택착공 (’28년 말) / 하남 테니스장 착공 (’28년 내)</span><span class="cw">착공</span></div>
+          <div class="calitem"><span><b>태릉CC 착공 (’29.9)</b> / <b>과천 경마장·방첩사 착공 (’29.12)</b> / 광명경찰서 (’29)</span><span class="cw">착공</span></div>
+          <div class="calitem"><span><b>PF 자기자본비율 규제 시행 (’29년, 15%)</b> — 2년 유예 종료</span><span class="cw">감독규정</span></div>
+          <div class="calitem"><span>남양주 도심·경기광주역세권2 주택착공 (’30년 상반기) / 서울 강서 염창 (’29)</span><span class="cw">착공</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="law">
+  <div class="wrap">
+    <div class="sechead"><span class="lbl">부록 B</span><h2>국회를 통과해야 효력이 생기는 과제</h2></div>
+    <p class="lead">이 대책에서 가장 자주 오해되는 지점이다. 발표된 내용의 상당 부분은 <b>법률 개정을 전제로 한 계획</b>이며, 개정 전에는 현행 규정이 그대로 적용된다. 아래는 두 문서의 추진계획표에서 조치사항이 “법 개정” 또는 “발의”로 적힌 항목을 법률별로 모은 것이다.</p>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>법률</th><th>개정 내용</th><th class="num">발의/추진</th><th>영향</th></tr></thead>
+        <tbody>
+          <tr><td><b>도시 및 주거환경정비법</b></td><td>재개발 조합설립 동의율 75→70%, 공공 시행자 지정 67→60%, 전문 조합장 선임 허용, 조합임원 성과급 근거, 시공사 세부내역 제출 의무, 용적률 완화 임대주택 인수가격 상향, 정비사업 전문 중재위원회 신설, LH 동의서 징구 허용</td><td class="num">’26.9<br>(중재위 ’26.12)</td><td>파트 2 전체</td></tr>
+          <tr><td><b>공공주택 특별법</b></td><td>훼손지 복구 대신 부담금 우선 납부, 통합심의 대상에 하천기본계획 추가, 기본조사 완료 전 지구지정 시 보상계획 공고, 협조장려금 지급기준, GB 해제지역 공원·녹지 인정범위 확대, 인허가 통합조정회의</td><td class="num">’26.8<br>(일부 본회의 대기)</td><td>파트 1 절차 단축</td></tr>
+          <tr><td><b>토지보상법</b></td><td>기본조사 거부 시 사진 등 객관적 자료로 토지·물건조서 작성, 대토 등 비현금 보상 활성화</td><td class="num">’26.8 / ’26.12</td><td>파트 1 보상 단계</td></tr>
+          <tr><td><b>조세특례제한법</b></td><td>도심복합 현물보상 분양권 양도세 부담 완화, 매입임대 토지주·건설사업자 양도세 감면, 비현금 보상 세제혜택</td><td class="num">’26.12 / ’26 하반기</td><td>파트 2 세제</td></tr>
+          <tr><td><b>지방세특례제한법</b></td><td>재개발 조합의 현금청산 부동산 취득세 한시 감면, 매입임대 건설사업자 취득세 감면(15→70%)</td><td class="num">’26 하반기</td><td>파트 2 세제</td></tr>
+          <tr><td><b>소규모주택정비법</b></td><td>공공참여 위탁 수수료 국비 지원 근거, 공공 단독시행 방식 감리부담 완화</td><td class="num">’26.12</td><td>파트 2 소규모 정비</td></tr>
+          <tr><td><b>수도권정비계획법</b></td><td>공업물량 시·도 간 대체지정 확대</td><td class="num">’27.6</td><td>파트 3 준공업</td></tr>
+          <tr><td><b>학교용지 복합개발 특별법 / 노후청사 특별법</b></td><td>관계기관 협의절차, 생활SOC 건립 근거 (본회의 대기) 및 하위법령 제정</td><td class="num">’27.6 (시행령)</td><td>파트 2 저이용부지</td></tr>
+          <tr><td><b>건축물 복합용도 활성화 지원 특별법</b></td><td>복합용도 건축구역 지정, 용도변경 용이 설계 시 규제완화·인센티브 (제정)</td><td class="num">’26.9</td><td>파트 3 규제 개편</td></tr>
+          <tr><td><b>모듈러 활성화 지원 특별법</b></td><td>기술·품질 제고, 진흥구역 지정, 발주제도 개선 (제정)</td><td class="num">’26.12</td><td>파트 3 모듈러</td></tr>
+          <tr><td><b>주택금융공사법</b></td><td>보금자리론 지원대상에 오피스텔(준주택) 포함</td><td class="num">’26 하반기</td><td>파트 6 청년미래보금자리론</td></tr>
+          <tr><td><b>전략환경영향평가 관련 법</b></td><td>평가서 초안 공람 등 생략 (본회의 상정 대기)</td><td class="num">계류 중</td><td><b>미개정 시 착공 7개월 추가</b></td></tr>
+        </tbody>
+        <caption>문서 ② 51~57면, 문서 ③ 18~19면의 조치사항 열을 법률별로 재구성. “본회의 대기”로 표기된 것은 이미 발의되어 국회에 계류 중인 법안이다.</caption>
+      </table>
+    </div>
+    <div class="opinion" style="margin-top:30px">
+      <div class="h"><span class="sq blue"></span><b>이 표를 쓰는 법</b></div>
+      <ul>
+        <li><b>자문·의견서에서 대책 내용을 인용할 때는 이 표를 먼저 확인한다.</b> 여기 실린 항목은 “정부 발표”이지 “현행 규정”이 아니다. 조합 총회 자료, 사업 타당성 검토, 대출 상담 어디에서든 시행 여부를 단정하면 사실과 어긋날 수 있다.</li>
+        <li><b>반대로 표에 없는 항목은 상대적으로 확실하다.</b> 행정지도·내규·시행세칙·내부방침으로 처리되는 과제(이주비 LTV, 임대사업자 대출 예외, PF 보증비율, 생애최초 예외, 장래소득 고지 등)는 국회와 무관하게 예정일에 시행될 가능성이 높다.</li>
+        <li><b>’27년 착공 시한이 걸린 세제 항목은 입법 지연에 특히 취약하다.</b> 취득세·양도세 감면은 지방세특례제한법·조세특례제한법 개정이 전제인데, 개정이 늦어지면 시한은 그대로인 채 적용 가능 기간만 짧아진다. 매입임대 감면율 항목에 대해 원문 자체가 “적용시기는 국회 논의과정에서 추가 검토”라고 부기한 이유다.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fin">
+      <div>
+        <h4>수록 원문</h4>
+        <ul>
+          <li>① 브리핑문 (국토부·금융위·국조실, 17면)</li>
+          <li>② 전월세 및 매매시장 안정을 위한 주택 신속공급 방안 (국토교통부, 57면)</li>
+          <li>③ 부동산 시장 안정을 위한 금융 종합대책 (금융위원회, 20면)</li>
+          <li>④ 보도자료 (국토부·금융위 공동)</li>
+        </ul>
+      </div>
+      <div>
+        <h4>이 책자의 구성</h4>
+        <p>6개 파트 · 면별 통독표 6종 · 중요 체크 30항목 · 검토의견 22항목 · 관련 보도 36건 · 부록 2편(시행 시기 캘린더, 입법 과제).</p>
+      </div>
+      <div>
+        <h4>표기 원칙</h4>
+        <p>인용문은 원문 표기를 그대로 옮겼다. 원문에 없는 판단은 <b>검토의견</b>으로 분리했고, 확정된 사항과 국회·협의를 거쳐야 하는 사항을 구분해 적었다. 면수는 각 문서에 인쇄된 면 번호 기준이다.</p>
+      </div>
+    </div>
+    <p class="disc">본 책자는 2026년 8월 13일 발표된 정부 대책의 원문을 정리·해설한 자료로, 발표 시점의 계획을 기준으로 작성되었다. 법률 개정·시행령 제정·내규 개정의 진행 상황에 따라 내용이 변경될 수 있으며, 개별 사안에 대한 법률의견을 대신하지 않는다. 관련 보도의 링크는 각 언론사에 저작권이 있다.</p>
+  </div>
+</footer>
