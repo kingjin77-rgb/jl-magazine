@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="'210 옴니고딕 030','OmniGothic030','Pretendard',sans-serif">
+  <defs>
+    <pattern id="slab" width="8" height="8" patternUnits="userSpaceOnUse">
+      <rect width="8" height="8" fill="#DDE2EC"/>
+      <circle cx="2" cy="2" r="1.1" fill="#B9C2D4"/><circle cx="6" cy="5" r="1.4" fill="#C4CCDD"/>
+    </pattern>
+    <marker id="ar" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#223D5B"/>
+    </marker>
+    <marker id="arR" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#C0392B"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="600" fill="#FFFFFF"/>
+
+  <!-- 제목 -->
+  <rect x="40" y="34" width="42" height="5" fill="#385783"/>
+  <text x="96" y="46" font-size="27" font-weight="700" fill="#385783">옥탑·옥상 바닥 노출우레탄 두께 부족</text>
+  <text x="96" y="72" font-size="13" fill="#8289A3" letter-spacing="2.6">EXPOSED URETHANE MEMBRANE · SECTION</text>
+
+  <!-- ================= 좌: 설계 기준 ================= -->
+  <g transform="translate(70,120)">
+    <rect x="0" y="0" width="440" height="34" rx="6" fill="#E9EDF8"/>
+    <text x="20" y="23" font-size="16" font-weight="700" fill="#223D5B">설계 기준 시공</text>
+    <text x="286" y="23" font-size="13" fill="#8289A3">표준시방서 11035.1</text>
+
+    <!-- 층 -->
+    <rect x="0" y="60"  width="440" height="86" fill="#FBFCFE" stroke="#DDE2EC" stroke-dasharray="4 4"/>
+    <text x="20" y="108" font-size="15" fill="#8289A3">외기 노출면 (상부 마감 없음)</text>
+
+    <rect x="0" y="146" width="440" height="12" fill="#EDF0F7" stroke="#DDE2EC"/>
+    <text x="20" y="156" font-size="10" fill="#5A6B85">프라이머</text>
+
+    <!-- 방수층 (기준 3mm) -->
+    <rect x="0" y="158" width="440" height="30" fill="#385783"/>
+    <text x="20" y="178" font-size="14" font-weight="700" fill="#FFFFFF">우레탄 도막</text>
+
+    <rect x="0" y="188" width="440" height="72" fill="url(#slab)" stroke="#C4CCDD"/>
+    <text x="20" y="230" font-size="15" fill="#5A6B85">콘크리트 슬래브</text>
+
+    <!-- 치수선 -->
+    <line x1="452" y1="158" x2="452" y2="188" stroke="#223D5B" stroke-width="1.6" marker-start="url(#ar)" marker-end="url(#ar)"/>
+    <line x1="440" y1="158" x2="458" y2="158" stroke="#223D5B" stroke-width="1"/>
+    <line x1="440" y1="188" x2="458" y2="188" stroke="#223D5B" stroke-width="1"/>
+    <text x="468" y="179" font-size="30" font-weight="700" fill="#223D5B">3.0</text>
+    <text x="522" y="179" font-size="16" fill="#5A6B85">mm</text>
+  </g>
+
+  <!-- 구분선 -->
+  <line x1="600" y1="130" x2="600" y2="400" stroke="#DDE2EC" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+  <!-- ================= 우: 실측 ================= -->
+  <g transform="translate(620,120)">
+    <rect x="0" y="0" width="400" height="34" rx="6" fill="#F9E9E7"/>
+    <text x="20" y="23" font-size="16" font-weight="700" fill="#C0392B">현장 실측</text>
+    <text x="262" y="23" font-size="13" fill="#B07068">감정인 공동조사</text>
+
+    <rect x="0" y="60"  width="400" height="104" fill="#FBFCFE" stroke="#DDE2EC" stroke-dasharray="4 4"/>
+    <text x="20" y="117" font-size="15" fill="#8289A3">외기 노출면 (상부 마감 없음)</text>
+
+    <rect x="0" y="164" width="400" height="12" fill="#EDF0F7" stroke="#DDE2EC"/>
+    <text x="20" y="174" font-size="10" fill="#5A6B85">프라이머</text>
+
+    <!-- 방수층 (실측 1.82mm) -->
+    <rect x="0" y="176" width="400" height="12" fill="#C0392B"/>
+    <text x="20" y="186" font-size="9" font-weight="700" fill="#FFFFFF">우레탄 도막</text>
+
+    <rect x="0" y="188" width="400" height="72" fill="url(#slab)" stroke="#C4CCDD"/>
+    <text x="20" y="230" font-size="15" fill="#5A6B85">콘크리트 슬래브</text>
+
+    <line x1="400" y1="182" x2="424" y2="182" stroke="#C0392B" stroke-width="1.4"/>
+    <line x1="424" y1="182" x2="424" y2="146" stroke="#C0392B" stroke-width="1.4"/>
+    <circle cx="400" cy="182" r="3.2" fill="#C0392B"/>
+    <text x="416" y="136" font-size="30" font-weight="700" fill="#C0392B">1.82</text>
+    <text x="492" y="136" font-size="16" fill="#B07068">mm</text>
+  </g>
+
+  <!-- ================= 결론 밴드 ================= -->
+  <g transform="translate(70,430)">
+    <rect x="0" y="0" width="1010" height="88" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="0" y="0" width="5" height="88" rx="2" fill="#C0392B"/>
+
+    <text x="30" y="34" font-size="15" fill="#5A6B85">부족 두께</text>
+    <text x="30" y="68" font-size="26" font-weight="700" fill="#C0392B">1.18mm</text>
+
+    <line x1="200" y1="20" x2="200" y2="68" stroke="#DDE2EC"/>
+    <text x="230" y="34" font-size="15" fill="#5A6B85">기준 대비</text>
+    <text x="230" y="68" font-size="26" font-weight="700" fill="#C0392B">39% 부족</text>
+
+    <line x1="400" y1="20" x2="400" y2="68" stroke="#DDE2EC"/>
+    <text x="430" y="34" font-size="15" fill="#5A6B85">산정 방식</text>
+    <text x="430" y="62" font-size="16" fill="#223D5B">부족 두께에 해당하는 차액을 하자보수비로 산정</text>
+  </g>
+
+  <text x="70" y="548" font-size="13" fill="#8289A3">모식도 · 층 두께는 설명을 위해 과장하여 표시함. 기준·실측값은 하자조사 결과 기재 수치 (치켜올림 포함)</text>
+  <text x="70" y="570" font-size="13" fill="#8289A3">계산: 3.00mm - 1.82mm = 1.18mm · 1.18 ÷ 3.00 = 39.3%</text>
+</svg>
