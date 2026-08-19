@@ -584,6 +584,32 @@ body{
 .is-active [data-step].step-in .ph.popin,.is-active .ph.popin{animation:photoPop 1.05s var(--overshoot) .1s both;}
 @keyframes photoPop{0%{transform:scale(.72);opacity:0}55%{opacity:1}100%{transform:scale(1);opacity:1}}
 
+
+/* PPT 에서 꺼낸 사진 갤러리 */
+#gal{display:none;margin-bottom:22px;}
+#gal.on{display:block;}
+#gal .gh{display:flex;align-items:center;gap:12px;margin-bottom:12px;}
+#gal .gh h4{color:#fff;font-size:17px;font-weight:800;}
+#gal .gh span{color:rgba(255,255,255,.55);font-size:13.5px;}
+#gal .gh .pick{margin-left:auto;color:var(--red-lt);font-size:13.5px;font-weight:700;}
+#galgrid{display:grid;grid-template-columns:repeat(10,1fr);gap:8px;max-height:236px;overflow-y:auto;
+  padding:10px;border:1px solid rgba(255,255,255,.13);border-radius:8px;background:rgba(255,255,255,.03);}
+.galitem{aspect-ratio:1/1;border-radius:5px;overflow:hidden;border:2px solid transparent;cursor:pointer;
+  position:relative;background:#0B1424;transition:.15s;}
+.galitem img{width:100%;height:100%;object-fit:cover;display:block;}
+.galitem:hover{border-color:rgba(255,255,255,.5);}
+.galitem.sel{border-color:var(--red-lt);transform:scale(1.06);z-index:2;}
+.galitem .dim{position:absolute;left:0;right:0;bottom:0;background:rgba(5,12,24,.8);color:#fff;
+  font-size:9.5px;text-align:center;padding:2px 0;font-variant-numeric:tabular-nums;}
+.slotcell.armed{border-color:var(--red-lt);background:rgba(228,97,79,.16);}
+#ipmsg{color:var(--blue-lt);font-size:14px;font-weight:700;margin-bottom:14px;min-height:20px;}
+#pptdrop{position:fixed;inset:0;z-index:100;display:none;place-items:center;
+  background:rgba(5,12,24,.94);backdrop-filter:blur(4px);}
+#pptdrop.on{display:grid;}
+#pptdrop .box{border:3px dashed var(--red-lt);border-radius:14px;padding:60px 80px;text-align:center;}
+#pptdrop .box b{display:block;color:#fff;font-size:28px;font-weight:900;margin-bottom:10px;}
+#pptdrop .box span{color:rgba(255,255,255,.65);font-size:16px;}
+
 /* ══════════ 마무리 ══════════ */
 .end{justify-content:center;align-items:center;text-align:center;
   background:radial-gradient(110% 130% at 50% 0%,#1E4380 0%,#0F2548 52%,#06101F 100%);}
@@ -2499,13 +2525,27 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
     원본 PPT에서 이미지 꺼내는 법 — pptx <b>복사본</b>의 확장자를 <b>.zip</b> 으로 바꿔 압축을 풀면 <b>ppt\media</b> 폴더에 전부 들어 있습니다.
   </p>
   <div id="ipbtns">
-    <button id="bulk">여러 장 한 번에 넣기</button>
+    <button id="frompptx">PPT 파일에서 사진 꺼내기</button>
+    <button id="bulk" class="ghost">이미지 파일 직접 고르기</button>
     <button id="clearall" class="ghost">전체 지우기</button>
     <button id="ipclose" class="ghost">닫기 (Esc)</button>
   </div>
+  <div id="ipmsg"></div>
+  <div id="gal">
+    <div class="gh">
+      <h4>PPT 에서 꺼낸 사진</h4>
+      <span id="galcnt"></span>
+      <span class="pick">사진을 누른 뒤, 아래에서 넣을 자리를 누르십시오</span>
+    </div>
+    <div id="galgrid"></div>
+  </div>
   <div id="slots"></div>
+  <input type="file" id="pptxfile" accept=".pptx,.zip" style="position:absolute;width:1px;height:1px;opacity:0">
   <input type="file" id="ipfile" accept="image/*" multiple style="position:absolute;width:1px;height:1px;opacity:0">
 </div>
+
+<div id="pptdrop"><div class="box"><b>PPT 파일을 여기에 놓으십시오</b>
+  <span>파일 안의 사진을 자동으로 꺼냅니다</span></div></div>
 
 <div id="pager"><b id="pg-cur">1</b> / <span id="pg-tot">36</span><span id="pg-step"></span></div>
 <div id="hint"><kbd>←</kbd><kbd>→</kbd> 이동 · <kbd>L</kbd> 레이저 · <kbd>D</kbd> 펜 · <kbd>B</kbd> 블랙 · <kbd>H</kbd> 도움말</div>
@@ -3001,15 +3041,160 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       cell.innerHTML = filled
         ? '<img src="'+src+'" alt=""><div class="cap">'+x.label+'</div><button class="del" title="지우기">×</button>'
         : '<div class="no">'+String(i+1).padStart(2,'0')+'</div><div class="lb">'+x.label+'</div>';
+      if(galSel>=0) cell.classList.add('armed');
       cell.addEventListener('click',function(e){
         if(e.target.classList.contains('del')){
           e.stopPropagation(); setSlot(x.id,null); dbDel(x.id).then(renderSlots); return;
+        }
+        if(galSel>=0 && GAL[galSel]){
+          var u=GAL[galSel].url;
+          setSlot(x.id,u); dbPut(x.id,u);
+          galSel=-1; renderGal(); renderSlots();
+          ipmsg.textContent='넣었습니다. 다음 사진을 고르십시오.';
+          return;
         }
         ipTarget=x.id; ipfile.click();
       });
       slotsEl.appendChild(cell);
     });
   }
+
+
+  /* ════════════════════════════════════════════════════════════
+     PPTX 에서 사진 직접 꺼내기
+     pptx 는 ZIP 이므로 브라우저가 직접 풀 수 있습니다.
+     ════════════════════════════════════════════════════════════ */
+  var MIME={png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',gif:'image/gif',
+            bmp:'image/bmp',tif:'image/tiff',tiff:'image/tiff',webp:'image/webp'};
+
+  async function pptxImages(file, onProgress){
+    var buf=await file.arrayBuffer();
+    var dv=new DataView(buf), len=buf.byteLength;
+    /* 중앙 디렉터리 끝(EOCD) 찾기 */
+    var eocd=-1, lim=Math.max(0,len-66000);
+    for(var i=len-22;i>=lim;i--){ if(dv.getUint32(i,true)===0x06054b50){ eocd=i; break; } }
+    if(eocd<0) throw new Error('압축 구조를 읽지 못했습니다. 올바른 PPTX 파일인지 확인해 주십시오.');
+    var cnt=dv.getUint16(eocd+10,true), off=dv.getUint32(eocd+16,true);
+    if(off===0xFFFFFFFF) throw new Error('파일이 너무 커서(ZIP64) 이 방식으로는 열 수 없습니다.');
+    var dec=new TextDecoder(), ents=[], p2=off;
+    for(var n=0;n<cnt;n++){
+      if(p2+46>len || dv.getUint32(p2,true)!==0x02014b50) break;
+      var method=dv.getUint16(p2+10,true);
+      var csize=dv.getUint32(p2+20,true);
+      var nlen=dv.getUint16(p2+28,true), elen=dv.getUint16(p2+30,true), clen=dv.getUint16(p2+32,true);
+      var lho=dv.getUint32(p2+42,true);
+      var name=dec.decode(new Uint8Array(buf,p2+46,nlen));
+      p2+=46+nlen+elen+clen;
+      if(!/^ppt\/media\/.+\.(png|jpe?g|gif|bmp|tiff?|webp)$/i.test(name)) continue;
+      ents.push({name:name,method:method,csize:csize,lho:lho});
+    }
+    var out=[];
+    for(var k=0;k<ents.length;k++){
+      var e=ents[k];
+      if(onProgress) onProgress(k+1, ents.length);
+      if(dv.getUint32(e.lho,true)!==0x04034b50) continue;
+      var ln=dv.getUint16(e.lho+26,true), le=dv.getUint16(e.lho+28,true);
+      var start=e.lho+30+ln+le;
+      if(start+e.csize>len) continue;
+      var raw=new Uint8Array(buf,start,e.csize), bytes;
+      if(e.method===0) bytes=raw;
+      else if(e.method===8){
+        try{
+          var ds=new DecompressionStream('deflate-raw');
+          var r=new Response(new Blob([raw]).stream().pipeThrough(ds));
+          bytes=new Uint8Array(await r.arrayBuffer());
+        }catch(err){ continue; }
+      } else continue;
+      var ext=(e.name.split('.').pop()||'').toLowerCase();
+      out.push({name:e.name.split('/').pop(),
+                blob:new Blob([bytes],{type:MIME[ext]||'application/octet-stream'})});
+    }
+    return out;
+  }
+
+  function blobToImage(blob){
+    return new Promise(function(res){
+      var u=URL.createObjectURL(blob), im=new Image();
+      im.onload=function(){
+        var M=1600, w=im.naturalWidth, h=im.naturalHeight;
+        var r=Math.min(1, M/Math.max(w,h));
+        var c=document.createElement('canvas');
+        c.width=Math.max(1,Math.round(w*r)); c.height=Math.max(1,Math.round(h*r));
+        c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+        var url=c.toDataURL(blob.type==='image/png'?'image/png':'image/jpeg',0.92);
+        URL.revokeObjectURL(u);
+        res({url:url,w:im.naturalWidth,h:im.naturalHeight});
+      };
+      im.onerror=function(){ URL.revokeObjectURL(u); res(null); };
+      im.src=u;
+    });
+  }
+
+  var GAL=[], galSel=-1;
+  var galEl=document.getElementById('gal'), galGrid=document.getElementById('galgrid');
+  var galCnt=document.getElementById('galcnt'), ipmsg=document.getElementById('ipmsg');
+
+  function renderGal(){
+    galGrid.innerHTML='';
+    GAL.forEach(function(g,i){
+      var d=document.createElement('div');
+      d.className='galitem'+(i===galSel?' sel':'');
+      d.innerHTML='<img src="'+g.url+'" alt=""><div class="dim">'+g.w+'×'+g.h+'</div>';
+      d.title=g.name+'  ('+g.w+'×'+g.h+')';
+      d.addEventListener('click',function(){ galSel=(galSel===i?-1:i); renderGal(); renderSlots(); });
+      galGrid.appendChild(d);
+    });
+    galCnt.textContent=GAL.length+'장 · 큰 사진부터';
+    galEl.classList.toggle('on', GAL.length>0);
+  }
+
+  async function handlePptx(file){
+    ipmsg.textContent='PPT 를 여는 중입니다…';
+    toggleImages(true);
+    try{
+      var imgs=await pptxImages(file, function(a,b){ ipmsg.textContent='사진을 꺼내는 중입니다… '+a+' / '+b; });
+      if(!imgs.length){ ipmsg.textContent='이 파일 안에서 사진을 찾지 못했습니다.'; return; }
+      ipmsg.textContent='불러온 사진을 정리하는 중입니다…';
+      var list=[];
+      for(var i=0;i<imgs.length;i++){
+        var r=await blobToImage(imgs[i].blob);
+        if(r && r.w>=180 && r.h>=180) list.push({name:imgs[i].name,url:r.url,w:r.w,h:r.h});
+      }
+      list.sort(function(a,b){ return (b.w*b.h)-(a.w*a.h); });
+      GAL=list; galSel=-1; renderGal(); renderSlots();
+      ipmsg.textContent='사진 '+GAL.length+'장을 꺼냈습니다. 넣을 사진을 누른 뒤 아래에서 자리를 누르십시오. (로고·아이콘처럼 작은 이미지는 제외했습니다)';
+    }catch(err){
+      ipmsg.textContent='실패: '+err.message;
+    }
+  }
+
+  document.getElementById('frompptx').addEventListener('click',function(){ document.getElementById('pptxfile').click(); });
+  document.getElementById('pptxfile').addEventListener('change',function(e){
+    if(e.target.files[0]) handlePptx(e.target.files[0]);
+    e.target.value='';
+  });
+
+  /* 화면 아무 곳에나 PPT 파일을 끌어다 놓기 */
+  var pptdrop=document.getElementById('pptdrop'), dragDepth=0;
+  window.addEventListener('dragenter',function(e){
+    if(!e.dataTransfer || !Array.prototype.some.call(e.dataTransfer.types||[],function(t){return t==='Files';})) return;
+    dragDepth++; pptdrop.classList.add('on');
+  });
+  window.addEventListener('dragleave',function(){ if(--dragDepth<=0){ dragDepth=0; pptdrop.classList.remove('on'); } });
+  window.addEventListener('dragover',function(e){ e.preventDefault(); });
+  window.addEventListener('drop',function(e){
+    e.preventDefault(); dragDepth=0; pptdrop.classList.remove('on');
+    var f=e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+    if(!f) return;
+    if(/\.(pptx|zip)$/i.test(f.name)) handlePptx(f);
+    else if(/^image\//.test(f.type)){
+      var files=[].slice.call(e.dataTransfer.files).filter(function(x){return /^image\//.test(x.type);});
+      toggleImages(true);
+      var empty=slots.filter(function(x){ return !(x.img.getAttribute('src')||'').startsWith('data:'); });
+      files.forEach(function(ff,i){ if(i<empty.length)
+        readImage(ff).then(function(u){ setSlot(empty[i].id,u); dbPut(empty[i].id,u); renderSlots(); }); });
+    }
+  });
 
   var imgpanel=document.getElementById('imgpanel');
   function toggleImages(f){
