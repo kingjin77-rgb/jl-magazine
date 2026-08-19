@@ -610,6 +610,29 @@ body{
 #pptdrop .box b{display:block;color:#fff;font-size:28px;font-weight:900;margin-bottom:10px;}
 #pptdrop .box span{color:rgba(255,255,255,.65);font-size:16px;}
 
+
+/* 사진이 아직 없을 때 항상 보이는 안내 단추 */
+#needpix{position:fixed;left:50%;top:14px;transform:translateX(-50%);z-index:71;
+  display:none;align-items:center;gap:11px;padding:12px 20px 12px 16px;border-radius:100px;
+  background:var(--red);color:#fff;border:0;cursor:pointer;font-family:inherit;
+  font-size:15.5px;font-weight:800;letter-spacing:-.01em;
+  box-shadow:0 10px 30px -8px rgba(192,57,43,.75);transition:.18s;}
+#needpix.on{display:flex;}
+#needpix:hover{background:#D4402F;transform:translateX(-50%) translateY(-1px);}
+#needpix i{width:22px;height:22px;border-radius:5px;border:2px solid #fff;font-style:normal;
+  display:grid;place-items:center;flex:none;position:relative;}
+#needpix i::after{content:"";width:8px;height:8px;border-radius:50%;border:2px solid #fff;}
+#needpix small{font-weight:600;opacity:.82;font-size:13px;}
+#needpix .x{margin-left:4px;width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.22);
+  display:grid;place-items:center;font-size:14px;font-weight:700;}
+#needpix .x:hover{background:rgba(0,0,0,.4);}
+
+/* 빈 사진 자리 안내 강화 */
+.ph.empty{cursor:pointer;}
+.ph.empty:hover{border-color:var(--red);background:rgba(228,97,79,.09);}
+.ph.empty::before{content:"누르면 PPT에서 사진을 꺼냅니다";}
+.prof .face.empty{cursor:pointer;}
+
 /* ══════════ 마무리 ══════════ */
 .end{justify-content:center;align-items:center;text-align:center;
   background:radial-gradient(110% 130% at 50% 0%,#1E4380 0%,#0F2548 52%,#06101F 100%);}
@@ -2544,6 +2567,9 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <input type="file" id="ipfile" accept="image/*" multiple style="position:absolute;width:1px;height:1px;opacity:0">
 </div>
 
+<button id="needpix" type="button"><i></i><span>원본 PPT에서 사진 꺼내기</span>
+  <small>PPT 파일을 고르면 안에 든 사진을 자동으로 꺼냅니다</small><span class="x">×</span></button>
+
 <div id="pptdrop"><div class="box"><b>PPT 파일을 여기에 놓으십시오</b>
   <span>파일 안의 사진을 자동으로 꺼냅니다</span></div></div>
 
@@ -3208,6 +3234,30 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
     if(!confirm('넣으신 이미지를 전부 지웁니다. 계속할까요?')) return;
     slots.forEach(function(x){ setSlot(x.id,null); dbDel(x.id); });
     setTimeout(renderSlots,120);
+  });
+
+
+  /* 사진이 비어 있으면 눈에 띄는 단추를 계속 띄웁니다 */
+  var needpix=document.getElementById('needpix');
+  function refreshNeed(){
+    if(needpix.dataset.dismissed==='1' || document.fullscreenElement){ needpix.classList.remove('on'); return; }
+    var empty=slots.some(function(x){ return !(x.img.getAttribute('src')||'').startsWith('data:'); });
+    needpix.classList.toggle('on', empty && !imgpanel.classList.contains('on')
+      && !viewer.classList.contains('on') && !nav.classList.contains('open') && !blackOn);
+  }
+  needpix.addEventListener('click',function(e){
+    if(e.target.classList.contains('x')){ needpix.dataset.dismissed='1'; refreshNeed(); return; }
+    document.getElementById('pptxfile').click();
+  });
+  document.addEventListener('fullscreenchange',refreshNeed);
+  setInterval(refreshNeed, 700);
+
+  /* 빈 자리를 누르면 곧바로 PPT 고르기 */
+  slots.forEach(function(x){
+    x.fig.addEventListener('click',function(e){
+      var src=x.img.getAttribute('src')||'';
+      if(!src.startsWith('data:')){ e.stopPropagation(); document.getElementById('pptxfile').click(); }
+    }, true);
   });
 
   /* ── 확대 뷰어 ── */
