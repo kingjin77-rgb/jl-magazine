@@ -430,7 +430,7 @@ body{
 
 /* ══════════ 사진 슬롯 (assets/photos 에 파일을 넣으면 자동 표시) ══════════ */
 .photos{display:grid;gap:12px;width:100%;flex:1;min-height:0;grid-auto-rows:1fr;}
-.ph{position:relative;border-radius:5px;overflow:hidden;background:var(--paper-2);
+.ph{position:relative;min-height:0;min-width:0;border-radius:5px;overflow:hidden;background:var(--paper-2);
   border:1px solid var(--line);display:flex;flex-direction:column;min-height:0;}
 .ph img{width:100%;height:100%;object-fit:cover;display:block;}
 .ph figcaption{position:absolute;left:0;right:0;bottom:0;padding:9px 12px;
@@ -452,7 +452,7 @@ body{
 .slide.dense .cmp-body{padding:13px 16px 14px;}
 .slide.dense .tbl{font-size:14.8px;}
 .slide.dense .tbl tbody td{padding:7px 10px;}
-.docs{display:grid;gap:16px;width:100%;flex:1;min-height:0;}
+.docs{display:grid;gap:16px;width:100%;flex:1;min-height:0;grid-auto-rows:minmax(0,1fr);}
 .ph.doc{background:#F0F3F8;border:1px solid var(--line);align-items:stretch;justify-content:flex-start;}
 .ph.doc img{width:100%;height:100%;object-fit:contain;background:#fff;}
 .ph.doc figcaption{position:absolute;left:0;right:0;bottom:0;padding:9px 12px;
@@ -460,7 +460,7 @@ body{
 .ph.doc.empty{background:var(--blue-pale);}
 
 /* ── 사진 모자이크 : 한 장을 크게, 나머지를 곁들여 ── */
-.mosaic{display:grid;grid-template-columns:1.75fr 1fr 1fr;grid-template-rows:1fr 1fr;
+.mosaic{display:grid;grid-template-columns:1.75fr 1fr 1fr;grid-template-rows:minmax(0,1fr) minmax(0,1fr);
   gap:12px;width:100%;flex:1;min-height:0;}
 .mosaic .ph.lead{grid-row:span 2;}
 .mosaic .ph.wide{grid-column:span 2;}
@@ -663,6 +663,67 @@ body{
 .minibar .tail{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;}
 .minibar .tail b{font-size:16px;font-weight:800;color:var(--navy);}
 .minibar .tail em{font-style:normal;font-size:13px;color:var(--gray);}
+
+
+/* ══════════ 파트 간지 ══════════ */
+.divider{padding:0;justify-content:center;
+  background:radial-gradient(120% 130% at 78% 10%,#1E4380 0%,#0F2548 48%,#08172C 100%);}
+.divider .dv{position:relative;z-index:3;padding:0 78px;color:#fff;display:flex;align-items:center;gap:54px;}
+.divider .dnum{font-size:190px;font-weight:900;line-height:.82;letter-spacing:-.06em;
+  color:transparent;-webkit-text-stroke:2.5px rgba(110,155,221,.6);flex:none;}
+.divider .dtxt h2{font-size:52px;font-weight:900;letter-spacing:-.035em;line-height:1.15;margin-bottom:18px;}
+.divider .dtxt .drule{width:76px;height:4px;background:var(--red);margin-bottom:20px;}
+.divider .dtxt ul{list-style:none;}
+.divider .dtxt li{font-size:19px;color:rgba(255,255,255,.72);line-height:1.6;padding-left:16px;
+  position:relative;margin-bottom:8px;}
+.divider .dtxt li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;
+  border-radius:50%;background:var(--blue-lt);}
+.divider .dside{position:absolute;right:78px;top:50%;transform:translateY(-50%);z-index:2;text-align:right;}
+.divider .dside div{font-size:14.5px;color:rgba(255,255,255,.3);letter-spacing:.16em;font-weight:700;
+  margin-bottom:11px;transition:color .3s;}
+.divider .dside div.cur{color:#fff;}
+.divider .dside div.cur::before{content:"";display:inline-block;width:22px;height:2px;
+  background:var(--red);vertical-align:middle;margin-right:10px;}
+
+
+/* ══════════ 지명원 스타일 인물 소개 ══════════ */
+.bio{display:grid;grid-template-columns:.56fr 1fr;grid-template-rows:minmax(0,1fr);
+  gap:26px;width:100%;flex:1;min-height:0;}
+.ph.bigface{min-height:0;min-width:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;
+  background:var(--paper-2);box-shadow:var(--lift-2);position:relative;display:block;}
+.ph.bigface img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block;}
+.ph.bigface figcaption{position:absolute;left:0;right:0;bottom:0;padding:14px 18px;
+  background:linear-gradient(180deg,rgba(15,37,72,0),rgba(15,37,72,.92));color:#fff;}
+.ph.bigface figcaption b{display:block;font-size:26px;font-weight:900;letter-spacing:-.02em;}
+.ph.bigface figcaption span{font-size:14.5px;opacity:.82;}
+.ph.bigface.empty{border-style:dashed;border-color:var(--blue);background:var(--blue-pale);}
+.ph.bigface.empty img{display:none;}
+.ph.bigface.empty figcaption{position:absolute;top:50%;bottom:auto;transform:translateY(-50%);
+  background:none;color:var(--blue);text-align:center;}
+.ph.bigface.empty figcaption b{color:var(--navy);}
+
+.biotext{display:flex;flex-direction:column;min-height:0;min-width:0;}
+.biohead{border-bottom:3px solid var(--navy);padding-bottom:12px;
+  display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;}
+.biohead b{font-size:34px;font-weight:900;color:var(--navy);letter-spacing:-.03em;}
+.biohead .role{font-size:17px;font-weight:800;color:var(--red);}
+.biohead .cert{margin-left:auto;font-size:15px;color:var(--gray);font-weight:700;}
+.btbl{width:100%;border-collapse:collapse;flex:1;}
+.btbl tr{border-bottom:1px solid var(--line);}
+.btbl th{width:112px;text-align:left;vertical-align:top;padding:11px 14px 11px 0;
+  font-size:15px;font-weight:800;color:var(--blue);white-space:nowrap;}
+.btbl td{padding:11px 0;font-size:16.5px;color:var(--ink);line-height:1.45;vertical-align:top;}
+.btbl td b{color:var(--navy);}
+.btbl td span{display:block;color:var(--gray);}
+
+/* 증명서류 — 문서 전체가 보이도록 */
+.certs{display:grid;gap:14px;width:100%;flex:1;min-height:0;grid-auto-rows:minmax(0,1fr);}
+.ph.cert{background:#F0F3F8;border:1px solid var(--line);}
+.ph.cert img{width:100%;height:100%;object-fit:contain;background:#fff;}
+.ph.cert figcaption{position:absolute;left:0;right:0;bottom:0;padding:9px 11px;
+  background:linear-gradient(180deg,rgba(15,37,72,0),rgba(15,37,72,.92));color:#fff;
+  font-size:14px;font-weight:700;line-height:1.35;}
+.ph.cert.empty{background:var(--blue-pale);}
 
 /* ══════════ 마무리 ══════════ */
 .end{justify-content:center;align-items:center;text-align:center;
@@ -896,36 +957,52 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 </section>
 
 <!-- ═══════════ 03 본사 · 대표변호사 ═══════════ -->
+<section class="slide divider" data-title="간지 01 · 사무소 소개">
+  <div class="dv">
+    <div class="dnum" data-anim="popup">01</div>
+    <div class="dtxt">
+      <h2 data-anim="up">사무소 소개</h2>
+      <div class="drule" data-anim="wipe"></div>
+      <ul data-anim="up"><li>서초동 본사 · 대표변호사 박종일</li><li>단체등기 전담 동탄분사무소</li><li>구성원 변호사 6인</li><li>케이탑 법무사합동사무소</li><li>사무소 조직도</li></ul>
+    </div>
+  </div>
+  <div class="dside" data-anim="left"><div class="cur">01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>01 · 사무소 소개</span></div></div>
+</section>
+
 <section class="slide" data-title="서초동 본사 · 대표변호사">
   <div class="s-kicker" data-anim="right">01 · 사무소 소개</div>
   <h2 class="s-title" data-anim="up">법무법인 제이엘은 각 분야의 특화된 변호사들로 구성되어 있습니다</h2>
   <p class="s-sub" data-anim="up">법무법인 제이엘의 남다른 법률서비스로 든든한 파트너가 되겠습니다.</p>
 
   <div class="s-body">
-    <div class="cmp" data-build="1" style="grid-template-columns:1.15fr 1fr">
-      <div class="prof lead" data-anim="right">
-        <figure class="ph face" style="margin:0"><img src="assets/photos/lawyer-park.jpg" alt="" onerror="this.closest('.face').classList.add('empty')"><figcaption style="display:none">박종일 변호사</figcaption></figure>
-        <div class="pn"><b>박종일</b> <span>대표변호사 · 서초동 본사</span></div>
-        <div class="pr">사법연수원 28기 / 사법고시 38회</div>
-        <ul>
-          <li class="hi">現 JB금융지주 사외이사</li>
-          <li>수원지검 평택지청 형사1부 부장검사</li>
-          <li>광주지검 목포지청 부장검사</li>
-          <li>부산지검 형사5부 부장검사</li>
-          <li>제21회 <b>공인회계사 합격</b>, 청운 회계법인 근무</li>
-          <li>미국 노스캐롤라이나 주립대 로스쿨 방문학자과정 수료</li>
-          <li>서울대학교 대학원 경영학과 수료</li>
-          <li>성균관대학교 경영학과 졸업</li>
-        </ul>
-      </div>
+    <div class="bio" data-build="1">
+      <figure class="ph bigface" data-anim="popup">
+        <img src="assets/photos/lawyer-park.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
+        <figcaption><b>박종일</b><span>대표변호사 · 법무법인 제이엘 서초동 본사</span></figcaption>
+      </figure>
 
-      <div class="cmp-card" data-anim="left">
-        <div class="cmp-head"><h4>서초동 본사</h4><span class="tagx">주사무소</span></div>
-        <div class="cmp-body">
-          <div class="pt"><span><b>분사무소 개설 등 정관 인가</b> — 법무법인 제이엘</span></div>
-          <div class="pt"><span>변호사 6인 · 법무사 2인 · 사무장 12인, <b>총사원 40여 명</b></span></div>
-          <div class="note">본사는 법률자문·소송을, 동탄분사무소는 단체등기 실무를 전담하는 이원 체계로 운영합니다.</div>
+      <div class="biotext" data-anim="popup">
+        <div class="biohead">
+          <b>박종일</b><span class="role">대표변호사</span>
+          <span class="cert">사법연수원 28기 / 사법고시 38회</span>
         </div>
+        <table class="btbl">
+          <tbody>
+            <tr><th>현직</th><td><b>現 JB금융지주 사외이사</b></td></tr>
+            <tr><th>검찰 경력</th><td>
+              수원지검 평택지청 형사1부 부장검사<span>광주지검 목포지청 부장검사</span>
+              <span>부산지검 형사5부 부장검사</span></td></tr>
+            <tr><th>자격</th><td><b>제21회 공인회계사 합격</b><span>청운 회계법인 근무</span></td></tr>
+            <tr><th>학력</th><td>
+              미국 노스캐롤라이나 주립대 로스쿨 방문학자과정 수료
+              <span>서울대학교 대학원 경영학과 수료</span>
+              <span>성균관대학교 경영학과 졸업</span></td></tr>
+            <tr><th>법인 구성</th><td>
+              변호사 6인 · 법무사 2인 · 사무장 12인, <b>총사원 40여 명</b>
+              <span>분사무소 개설 등 정관 인가 (법무법인 제이엘)</span></td></tr>
+          </tbody>
+        </table>
       </div>
     </div>
   </div>
@@ -1152,6 +1229,19 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 </section>
 
 <!-- ═══════════ 08 실적 요약 ═══════════ -->
+<section class="slide divider" data-title="간지 02 · 단체등기 수임 실적">
+  <div class="dv">
+    <div class="dnum" data-anim="popup">02</div>
+    <div class="dtxt">
+      <h2 data-anim="up">단체등기 수임 실적</h2>
+      <div class="drule" data-anim="wipe"></div>
+      <ul data-anim="up"><li>2021 ~ 2026년 분양전환등기 실적 49개 단지 39,080세대</li><li>연도별 · 사업유형별 집계</li><li>LH공사 업무수행 실적</li></ul>
+    </div>
+  </div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div class="cur">02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>02 · 단체등기 수임 실적</span></div></div>
+</section>
+
 <section class="slide" data-title="수임 실적 요약">
   <div class="s-kicker" data-anim="right">02 · 단체등기 수임 실적 (분양전환 수임실적)</div>
   <h2 class="s-title" data-anim="up">2021년부터 <em>49개 단지 39,080세대</em>의 분양전환 등기를 수행했습니다</h2>
@@ -1405,124 +1495,187 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 </section>
 
 <!-- ═══════════ 14 제출 및 증명 서류 ═══════════ -->
-<section class="slide" data-title="제출 및 증명 서류">
-  <div class="s-kicker" data-anim="right">03 · 제출 및 증명 서류</div>
-  <h2 class="s-title" data-anim="up">수임 자격과 배상 능력을 <em>서류 원본으로 증명</em>합니다</h2>
-  <p class="s-sub" data-anim="up">아래 서류 원본은 제안서와 함께 제출합니다.</p>
-
-  <div class="s-body">
-    <div class="cmp" data-build="1">
-      <div class="cmp-card" data-anim="right">
-        <div class="cmp-head"><h4>법무법인 제이엘</h4><span class="tagx">배상책임보험 70억 원</span></div>
-        <div class="cmp-body">
-          <table class="tbl" style="margin-bottom:13px">
-            <tbody>
-              <tr><td class="nm" style="width:74px">명칭</td><td>법무법인 제이엘</td></tr>
-              <tr><td class="nm">주사무소</td><td>서울특별시 서초구 서초대로 53길 15, 401호 (서초동)</td></tr>
-            </tbody>
-          </table>
-          <div class="pt"><span>법무법인 제이엘 구성원 <b>변호사 등록증서</b></span></div>
-          <div class="pt"><span>법무법인 제이엘 구성원 <b>변호사 무징계증명원</b></span></div>
-          <div class="pt"><span>법무법인 제이엘 <b>보험증서 (70억 원)</b></span></div>
-          <div class="pt"><span>법무법인 제이엘 / 케이탑 증명원<br><span style="color:var(--gray)">(4대 보험 사업장 가입자 명부)</span></span></div>
-          <div class="pt"><span>분사무소 개설 및 <b>정관 인가</b> 서류</span></div>
-        </div>
-      </div>
-
-      <div class="cmp-card b" data-anim="left">
-        <div class="cmp-head"><h4>케이탑 법무사합동사무소</h4><span class="tagx">손해배상 각 2억 원</span></div>
-        <div class="cmp-body">
-          <table class="tbl" style="margin-bottom:13px">
-            <tbody>
-              <tr><td class="nm" style="width:74px">소재지</td><td>화성시 동탄순환대로 127-5, 우성센트럴타워 907호</td></tr>
-              <tr><td class="nm">연락처</td><td>T. 031-283-0000 · F. 0505-466-1000<br><span style="color:var(--red);font-weight:700">[원본 확인] 마지막 장에는 031-284-1919 로 기재되어 있어 통일 필요</span></td></tr>
-            </tbody>
-          </table>
-          <div class="pt"><span><b>법무사 증명서</b></span></div>
-          <div class="pt"><span>대표법무사 <b>유태인</b> — 손해배상 <b>2억 원</b></span></div>
-          <div class="pt"><span>대표법무사 <b>여운성</b> — 손해배상 <b>2억 원</b></span></div>
-          <div class="note">법무법인 배상책임보험 70억 원과 법무사 손해배상 각 2억 원을 합해,
-          단체등기 과정에서 발생할 수 있는 사고에 대한 배상 재원을 갖추고 있습니다.</div>
-        </div>
-      </div>
+<section class="slide divider" data-title="간지 03 · 제출 및 증명 서류">
+  <div class="dv">
+    <div class="dnum" data-anim="popup">03</div>
+    <div class="dtxt">
+      <h2 data-anim="up">제출 및 증명 서류</h2>
+      <div class="drule" data-anim="wipe"></div>
+      <ul data-anim="up"><li>변호사 등록증서 · 무징계증명원</li><li>배상책임보험 70억 원</li><li>법무사 증명서 · 손해배상 각 2억 원</li></ul>
     </div>
   </div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div class="cur">03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>03 · 제출 및 증명 서류</span></div></div>
 </section>
 
-<!-- ═══════════ 15 게시판 공지자료 ═══════════ -->
-<section class="slide" data-title="게시판 공지자료">
-  <div class="s-kicker" data-anim="right">04 · 게시판 공지자료</div>
-  <h2 class="s-title" data-anim="up">설명회 개최 및 대출 개별상담 공지</h2>
-  <p class="s-sub" data-anim="up">수행 단지에서 실제 게시했던 공지문입니다. 휴아림에서도 동일한 방식으로 사전 안내하겠습니다.
-    <span class="zoomhint" style="margin-left:10px"><i></i>공지문을 누르면 전체화면으로 확대됩니다</span></p>
-
+<section class="slide" data-title="제출 및 증명 서류 ①">
+  <div class="s-kicker" data-anim="right">03 · 제출 및 증명 서류</div>
+  <h2 class="s-title" data-anim="up">자료제출 및 증명서 — <em>법무법인</em></h2>
+  <p class="s-sub" data-anim="up">명칭 법무법인 제이엘 · 주사무소 서울특별시 서초구 서초대로 53길 15, 401호(서초동)
+    <span class="zoomhint" style="margin-left:10px"><i></i>서류를 누르면 전체화면으로 확대됩니다</span></p>
   <div class="s-body">
-    <div class="docs" data-build="1" style="grid-template-columns:repeat(3,1fr)">
-      <figure class="ph doc" data-anim="up">
-        <img src="assets/photos/notice-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>LH 공공임대 아파트 게시판 공지글 — 입주민 설명회 개최 및 개별상담 공고
-          <span class="fn">notice-01.jpg</span></figcaption>
-      </figure>
-      <figure class="ph doc" data-anim="up">
-        <img src="assets/photos/notice-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>NHF리츠 및 공공임대 아파트 게시판 공지글 — 입주민 설명회 개최 및 개별상담 공고
-          <span class="fn">notice-02.jpg</span></figcaption>
-      </figure>
-      <figure class="ph doc" data-anim="up">
-        <img src="assets/photos/notice-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>NHF리츠 및 공공임대 아파트 게시판 공지글 — 입주민 설명회 개최 및 대출접수 일정
-          <span class="fn">notice-03.jpg</span></figcaption>
-      </figure>
+    <div class="certs" data-build="1" style="grid-template-columns:repeat(4,1fr)">
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무법인 제이엘 구성원 변호사 등록증서</figcaption></figure>
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무법인 제이엘 구성원 변호사 무징계증명원</figcaption></figure>
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무법인 제이엘 보험증서 (70억)</figcaption></figure>
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무법인 제이엘 / 케이탑 증명원<br>(4대 보험 사업장 가입자 명부)</figcaption></figure>
     </div>
   </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>03 · 제출 및 증명 서류 ①</span></div></div>
+</section>
+
+<section class="slide" data-title="제출 및 증명 서류 ②">
+  <div class="s-kicker" data-anim="right">03 · 제출 및 증명 서류</div>
+  <h2 class="s-title" data-anim="up">법무사 증명서 및 <em>손해배상</em> 가입 증빙</h2>
+  <p class="s-sub" data-anim="up">케이탑 법무사합동사무소 · 화성시 동탄순환대로 127-5, 우성센트럴타워 907호
+    <span class="zoomhint" style="margin-left:10px"><i></i>서류를 누르면 전체화면으로 확대됩니다</span></p>
+  <div class="s-body">
+    <div class="certs" data-build="1" style="grid-template-columns:repeat(3,1fr)">
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-05.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무사 증명서</figcaption></figure>
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-06.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>대표법무사 유태인 — 손해배상 2억</figcaption></figure>
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-07.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>대표법무사 여운성 — 손해배상 2억</figcaption></figure>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>03 · 제출 및 증명 서류 ②</span></div></div>
+</section>
+
+<!-- ═══════════ 15 게시판 공지자료 ═══════════ -->
+<section class="slide divider" data-title="간지 04 · 게시판 공지자료">
+  <div class="dv">
+    <div class="dnum" data-anim="popup">04</div>
+    <div class="dtxt">
+      <h2 data-anim="up">게시판 공지자료</h2>
+      <div class="drule" data-anim="wipe"></div>
+      <ul data-anim="up"><li>설명회 개최 및 대출 개별상담 개최공지</li></ul>
+    </div>
+  </div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div class="cur">04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>04 · 게시판 공지자료</span></div></div>
 </section>
 
-<!-- ═══════════ 16 설명회 및 개별 대출상담 사진 ═══════════ -->
-<section class="slide" data-title="입주민 설명회 사진">
-  <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
-  <h2 class="s-title" data-anim="up">분양전환 입주민 설명회 개최 사진자료</h2>
-  <p class="s-sub" data-anim="up">전체 입주민을 상대로 개최한 설명회 전경입니다.
-    <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
-
+<section class="slide" data-title="게시판 공지자료 ①">
+  <div class="s-kicker" data-anim="right">04 · 게시판 공지자료</div>
+  <h2 class="s-title" data-anim="up">LH 공공임대 아파트 게시판 공지글</h2>
+  <p class="s-sub" data-anim="up">입주민 설명회 개최 및 개별상담 공고
+    <span class="zoomhint" style="margin-left:10px"><i></i>공지문을 누르면 전체화면으로 확대됩니다</span></p>
   <div class="s-body">
-    <div class="mosaic" data-build="2">
-      <figure class="ph lead" data-anim="scale"><img src="assets/photos/seminar-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>입주민 설명회 전경<span class="fn">seminar-01.jpg</span></figcaption></figure>
-      <figure class="ph" data-anim="up"><img src="assets/photos/seminar-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>분양전환 입주민 설명회<span class="fn">seminar-02.jpg</span></figcaption></figure>
-      <figure class="ph" data-anim="up"><img src="assets/photos/seminar-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>분양전환 입주민 설명회<span class="fn">seminar-03.jpg</span></figcaption></figure>
-      <figure class="ph wide" data-anim="up"><img src="assets/photos/seminar-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-04.jpg</span></figcaption></figure>
+    <div class="docs" style="grid-template-columns:1fr">
+      <figure class="ph doc" data-anim="popup"><img src="assets/photos/notice-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>LH 공공임대 아파트 게시판 공지글<span class="fn">입주민 설명회 개최 및 개별상담 공고</span></figcaption></figure>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 설명회 사진</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>04 · 게시판 공지자료 ①</span></div></div>
 </section>
 
-<section class="slide" data-title="개별 대출상담 사진">
-  <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
-  <h2 class="s-title" data-anim="up">개별 대출상담 현장</h2>
-  <p class="s-sub" data-anim="up">설명회 직후 세대별로 진행한 개별 대출상담입니다. 은행 상담사가 함께 배석합니다.
-    <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
-
+<section class="slide" data-title="게시판 공지자료 ②">
+  <div class="s-kicker" data-anim="right">04 · 게시판 공지자료</div>
+  <h2 class="s-title" data-anim="up">NHF리츠 및 공공임대 아파트 게시판 공지글</h2>
+  <p class="s-sub" data-anim="up">입주민 설명회 개최 및 개별상담 공고
+    <span class="zoomhint" style="margin-left:10px"><i></i>공지문을 누르면 전체화면으로 확대됩니다</span></p>
   <div class="s-body">
-    <div class="mosaic" data-build="2">
-      <figure class="ph lead" data-anim="scale"><img src="assets/photos/consult-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>개별 대출상담<span class="fn">consult-01.jpg</span></figcaption></figure>
-      <figure class="ph" data-anim="up"><img src="assets/photos/consult-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>개별 대출상담<span class="fn">consult-02.jpg</span></figcaption></figure>
-      <figure class="ph" data-anim="up"><img src="assets/photos/consult-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">consult-03.jpg</span></figcaption></figure>
-      <figure class="ph wide" data-anim="up"><img src="assets/photos/consult-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">consult-04.jpg</span></figcaption></figure>
+    <div class="docs" style="grid-template-columns:1fr">
+      <figure class="ph doc" data-anim="popup"><img src="assets/photos/notice-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>NHF리츠 및 공공임대 아파트 게시판 공지글<span class="fn">입주민 설명회 개최 및 개별상담 공고</span></figcaption></figure>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 개별 대출상담</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>04 · 게시판 공지자료 ②</span></div></div>
+</section>
+
+<section class="slide" data-title="게시판 공지자료 ③">
+  <div class="s-kicker" data-anim="right">04 · 게시판 공지자료</div>
+  <h2 class="s-title" data-anim="up">NHF리츠 및 공공임대 아파트 게시판 공지글</h2>
+  <p class="s-sub" data-anim="up">입주민 설명회 개최 및 대출접수 일정
+    <span class="zoomhint" style="margin-left:10px"><i></i>공지문을 누르면 전체화면으로 확대됩니다</span></p>
+  <div class="s-body">
+    <div class="docs" style="grid-template-columns:1fr">
+      <figure class="ph doc" data-anim="popup"><img src="assets/photos/notice-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>NHF리츠 및 공공임대 아파트 게시판 공지글<span class="fn">입주민 설명회 개최 및 대출접수 일정</span></figcaption></figure>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>04 · 게시판 공지자료 ③</span></div></div>
+</section>
+
+<!-- ═══════════ 16 설명회 및 개별 대출상담 사진 ═══════════ -->
+<section class="slide divider" data-title="간지 05 · 입주민 설명회 및 개별대출상담 사진">
+  <div class="dv">
+    <div class="dnum" data-anim="popup">05</div>
+    <div class="dtxt">
+      <h2 data-anim="up">입주민 설명회 및 개별대출상담 사진</h2>
+      <div class="drule" data-anim="wipe"></div>
+      <ul data-anim="up"><li>입주민 설명회 전경</li><li>개별 대출상담 사진</li></ul>
+    </div>
+  </div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div class="cur">05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 입주민 설명회 및 개별대출상담 사진</span></div></div>
+</section>
+
+<section class="slide" data-title="입주민 설명회 사진 ①">
+  <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
+  <h2 class="s-title" data-anim="up">입주민 설명회 전경</h2>
+  <p class="s-sub" data-anim="up">전체 입주민을 상대로 개최한 분양전환 설명회입니다.
+    <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
+  <div class="s-body">
+    <div class="mosaic" style="grid-template-columns:1.35fr 1fr;grid-template-rows:1fr">
+      <figure class="ph " data-anim="popup"><img src="assets/photos/seminar-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>입주민 설명회 전경<span class="fn">seminar-01.jpg</span></figcaption></figure>
+      <figure class="ph " data-anim="popup"><img src="assets/photos/seminar-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-02.jpg</span></figcaption></figure>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 설명회 사진 ①</span></div></div>
+</section>
+
+<section class="slide" data-title="입주민 설명회 사진 ②">
+  <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
+  <h2 class="s-title" data-anim="up">분양전환 입주민 설명회 개최 사진자료</h2>
+  <p class="s-sub" data-anim="up">수행 단지에서 실제 개최한 설명회 현장입니다.
+    <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
+  <div class="s-body">
+    <div class="mosaic" style="grid-template-columns:1fr 1.35fr;grid-template-rows:1fr">
+      <figure class="ph " data-anim="popup"><img src="assets/photos/seminar-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-03.jpg</span></figcaption></figure>
+      <figure class="ph " data-anim="popup"><img src="assets/photos/seminar-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-04.jpg</span></figcaption></figure>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 설명회 사진 ②</span></div></div>
+</section>
+
+<section class="slide" data-title="개별 대출상담 사진 ①">
+  <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
+  <h2 class="s-title" data-anim="up">개별 대출상담 사진</h2>
+  <p class="s-sub" data-anim="up">설명회 직후 세대별로 진행한 개별 대출상담입니다. 은행 상담사가 함께 배석합니다.
+    <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
+  <div class="s-body">
+    <div class="mosaic" style="grid-template-columns:1.35fr 1fr;grid-template-rows:1fr">
+      <figure class="ph " data-anim="popup"><img src="assets/photos/consult-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>개별 대출상담<span class="fn">consult-01.jpg</span></figcaption></figure>
+      <figure class="ph " data-anim="popup"><img src="assets/photos/consult-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>개별 대출상담<span class="fn">consult-02.jpg</span></figcaption></figure>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 개별 대출상담 ①</span></div></div>
+</section>
+
+<section class="slide" data-title="개별 대출상담 사진 ②">
+  <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
+  <h2 class="s-title" data-anim="up">분양전환 입주민 설명회 개최 사진자료</h2>
+  <p class="s-sub" data-anim="up">게시판 공지 → 설명회 → 개별 상담 → 대출 접수를 한 묶음으로 운영합니다.
+    <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
+  <div class="s-body">
+    <div class="mosaic" style="grid-template-columns:1fr 1.35fr;grid-template-rows:1fr">
+      <figure class="ph " data-anim="popup"><img src="assets/photos/consult-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">consult-03.jpg</span></figcaption></figure>
+      <figure class="ph " data-anim="popup"><img src="assets/photos/consult-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">consult-04.jpg</span></figcaption></figure>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 개별 대출상담 ②</span></div></div>
 </section>
 
 <!-- ═══════════ 17 계약 체결방식 ═══════════ -->
+<section class="slide divider" data-title="간지 06 · 분양전환계약 진행방법 및 일정">
+  <div class="dv">
+    <div class="dnum" data-anim="popup">06</div>
+    <div class="dtxt">
+      <h2 data-anim="up">분양전환계약 진행방법 및 일정</h2>
+      <div class="drule" data-anim="wipe"></div>
+      <ul data-anim="up"><li>계약 체결방식 3가지</li><li>일시납 · 분할납부 자금 구조</li><li>저소득층 · 국가유공자 분할납부</li><li>조기분양전환 진행 Step 1 ~ 4</li><li>계약서 및 관계 서류 · 월 부담 비교</li></ul>
+    </div>
+  </div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div class="cur">06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>06 · 분양전환계약 진행방법 및 일정</span></div></div>
+</section>
+
 <section class="slide" data-title="분양전환 계약 체결방식">
   <div class="s-kicker" data-anim="right">06 · 분양전환계약 진행방법 및 일정</div>
   <h2 class="s-title" data-anim="up">계약 체결방식은 <em>세 가지</em>이고, 소유권이전등기 가능 여부가 갈립니다</h2>
@@ -1843,6 +1996,19 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 </section>
 
 <!-- ═══════════ 22 당일 소유권이전등기 ═══════════ -->
+<section class="slide divider" data-title="간지 07 · 소유권이전등기 방안">
+  <div class="dv">
+    <div class="dnum" data-anim="popup">07</div>
+    <div class="dtxt">
+      <h2 data-anim="up">소유권이전등기 방안</h2>
+      <div class="drule" data-anim="wipe"></div>
+      <ul data-anim="up"><li>당일등기 업무 진행 예상도 10단계</li><li>분할납부 세대 절차</li><li>부부 공동명의 변경</li></ul>
+    </div>
+  </div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div class="cur">07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>07 · 소유권이전등기 방안</span></div></div>
+</section>
+
 <section class="slide" data-title="당일 소유권이전등기">
   <div class="s-kicker" data-anim="right">07 · 소유권이전등기 방안</div>
   <h2 class="s-title" data-anim="up">소유권이전등기 업무 진행 예상도 — <em>당일등기</em></h2>
@@ -1941,6 +2107,19 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 </section>
 
 <!-- ═══════════ 24 대출 한도 지표 ═══════════ -->
+<section class="slide divider" data-title="간지 08 · 잔금대출 지원 방안">
+  <div class="dv">
+    <div class="dnum" data-anim="popup">08</div>
+    <div class="dtxt">
+      <h2 data-anim="up">잔금대출 지원 방안</h2>
+      <div class="drule" data-anim="wipe"></div>
+      <ul data-anim="up"><li>LTV · DTI · DSR</li><li>채무자 소득증빙</li><li>전세자금대출 · 기금대출 · 디딤돌대출</li><li>보금자리론 · 은행상품대출</li><li>설명회 및 대출상담 일정</li></ul>
+    </div>
+  </div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div class="cur">08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 잔금대출 지원 방안</span></div></div>
+</section>
+
 <section class="slide" data-title="LTV · DTI · DSR">
   <div class="s-kicker" data-anim="right">08 · 잔금대출 지원 방안</div>
   <h2 class="s-title" data-anim="up">법무법인 제이엘 금융업무 운영전략 — <em>잔금대출</em></h2>
@@ -2274,60 +2453,67 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 </section>
 
 <!-- ═══════════ 31 특별제안 ① 브릿지론 ═══════════ -->
+<section class="slide divider" data-title="간지 09 · 특별제안">
+  <div class="dv">
+    <div class="dnum" data-anim="popup">09</div>
+    <div class="dtxt">
+      <h2 data-anim="up">특별제안</h2>
+      <div class="drule" data-anim="wipe"></div>
+      <ul data-anim="up"><li>단기 브릿지론 실시</li><li>복등기가 불가할 경우 처리방안</li><li>이용 대상 및 실행 방법</li></ul>
+    </div>
+  </div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div class="cur">09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 특별제안</span></div></div>
+</section>
+
 <section class="slide" data-title="특별제안 · 단기 브릿지론">
   <div class="s-kicker" data-anim="right">09 · 특별제안</div>
-  <h2 class="s-title" data-anim="up">단기 브릿지론 실시 — <em>중도상환수수료</em>를 줄이는 유일한 합법 경로</h2>
-  <p class="s-sub" data-anim="up">분양전환 즉시 매도 세대 또는 지원책 사용 후 매도 세대의 등기에 해당합니다.</p>
+  <h2 class="s-title" data-anim="up">단기브릿지론 실시 — <em>분양전환 즉시 매도세대</em> 또는 지원책 사용 후 매도세대 등기</h2>
 
   <div class="s-body" style="flex-direction:column;gap:12px;">
     <div class="cards c3" data-build="1" style="gap:13px">
       <div class="card" data-anim="popup">
-        <div class="ch"><div class="cn" style="background:var(--gray)">①</div><h4>등기 정상 처리 시 흐름<small>가능하지만 수수료 발생</small></h4></div>
+        <div class="ch"><div class="cn" style="background:var(--gray)">①</div><h4>등기 정상 처리 시 흐름<small>중도상환수수료 발생</small></h4></div>
         <ul>
-          <li>계약자 소유권이전등기 ＋ 근저당권설정등기(대출)<br><span style="color:var(--gray-lt)">은행에 소득증빙서류 등 제출 후 대출심사</span></li>
-          <li>매수인 소유권이전등기 ＋ 근저당권설정등기(대출)</li>
-          <li>계약자 앞 잔금대출 취급 후 매수인 이전등기 시 말소등기(대출 상환)</li>
-          <li class="hi"><b>중도상환수수료 1.2 ~ 1.4% 발생</b></li>
+          <li><b>①</b> 계약자 소유권이전등기 ＋ 근저당권설정등기(대출)<br>
+            <span style="color:var(--gray-lt)">은행 소득증빙서류 등 여러 가지 서류 제출 후 대출심사 실시</span></li>
+          <li><b>②</b> 매수인 소유권이전등기 ＋ 근저당권설정등기(대출)</li>
+          <li>계약자 앞 잔금대출 취급 후 매수인 이전등기 시 말소등기(대출 상환) 진행</li>
+          <li class="hi"><b>중도상환수수료 발생 (1.2 ~ 1.4%)</b></li>
         </ul>
       </div>
 
-      <div class="card" data-anim="popup" style="border-color:rgba(192,57,43,.45);background:var(--red-pale)">
-        <div class="ch"><div class="cn" style="background:var(--red)">②</div><h4>복등기 (재이전등기)<small style="color:var(--red)">현행 법령상 불가 — 제안 대상 아님</small></h4></div>
+      <div class="card" data-anim="popup">
+        <div class="ch"><div class="cn">②</div><h4>복등기 (재이전등기)<small>가능하다면 수수료 미발생</small></h4></div>
         <ul>
           <li>소유권이전등기(계약자) ＋ 소유권이전등기(매수자) ＋ 설정등기(대출)</li>
-          <li>계약자 앞 대출이 생략되어 중도상환수수료가 발생하지 않는 구조</li>
-          <li class="hi"><b>그러나 현행 법령상 실행할 수 없습니다</b></li>
+          <li>소득이 적어 대출이 불가능한 계약자가 복등기가 가능하게 되면 <b>계약자 앞 대출이 생략</b>되어
+            <b>중도상환수수료가 발생하지 않습니다</b></li>
+          <li class="hi">법제처 방침 : <b>유권해석 유보</b></li>
         </ul>
-        <div class="minibar" style="border-top-color:rgba(192,57,43,.3)">
-          <div class="lb" style="color:var(--red)">불가 근거</div>
-          <div style="font-size:13.5px;line-height:1.5;color:var(--ink)">
-            공공주택 특별법 제50조의3 · 공인중개사법 제33조 제1항 제7호<br>
-            부동산등기 특별조치법 제2조 제2항 · 제8조 (미등기 전매 금지)<br>
-            <b style="color:var(--red)">법제처 유권해석 유보 상태</b>
+        <div class="minibar">
+          <div class="lb">관계 법령</div>
+          <div style="font-size:13.8px;line-height:1.5;color:var(--gray)">
+            공공주택특별법 제50조의 3항<br>공인중개사법 제33조 7호
           </div>
         </div>
       </div>
 
       <div class="card hot" data-anim="popup">
-        <div class="ch"><div class="cn">③</div><h4>단기 브릿지론<small>제이엘 주도 취급 · 합법 경로</small></h4></div>
+        <div class="ch"><div class="cn">③</div><h4>복등기가 불가할 경우 처리방안<small>단기 브릿지론</small></h4></div>
         <ul>
-          <li>복등기가 불가하므로 <b>이것이 실질적 대안</b>입니다</li>
-          <li>약 <b>1개월간</b> 사용하는 브릿지대출을 <b>법무법인 주도</b> 하에 취급</li>
-          <li>이자 상한율 <b>연 20% 이내</b> 적용</li>
-          <li>계약자 : 이전등기 ＋ 설정등기(브릿지)<br>매수인 : 이전등기 ＋ 설정등기(은행) 시 브릿지론 회수</li>
+          <li>공공주택특별법 제50조의 3항과 공인중개사법 제33조 7호를 <b>계속 적용하여 복등기가 불가능할 경우</b></li>
+          <li>약 <b>1개월간</b> 사용할 수 있는 브릿지대출을 <b>법무법인 주도 하에</b> 취급할 수 있도록 준비함
+            <span style="color:var(--red)">(이자상한율 연 20% 이내 적용)</span></li>
+          <li>계약자 : 이전등기 ＋ 설정등기(브릿지대출 취급)</li>
+          <li>매수인 : 이전등기 ＋ 설정등기(은행) 할 때 <b>브릿지론 회수</b></li>
         </ul>
       </div>
     </div>
 
-    <div class="callout" data-build-self data-anim="up">
-      <div class="ic">!</div>
-      <p><b>[검토의견]</b> 원본 제안서는 복등기를 선택지로 병기하고 "법제처 유권해석 유보"로만 적고 있습니다.
-      그러나 <b>조세 회피 또는 전매 제한 회피 목적의 미등기 전매는 부동산등기 특별조치법 위반</b>으로
-      3년 이하 징역 또는 1억 원 이하 벌금 대상이며, 공인중개사법상 투기 조장 행위에도 해당할 수 있습니다.
-      <b>법무법인 제안서에 실행 가능한 선택지로 병기하는 것은 권하지 않습니다.</b>
-      복등기를 "불가 사유"로만 서술하고 브릿지론을 유일한 합법 경로로 제시하는 편이
-      법률적으로 안전하고 제안 논리도 강해집니다.
-      <br><b>국토교통부 2019. 11. 19. 보도지침</b> — "분양전환 공공임대주택은 소유권이전이 완료된 후에 매매계약이 가능하다."
+    <div class="callout blue" data-build-self data-anim="up">
+      <div class="ic">i</div>
+      <p><b>국토교통부 2019. 11. 19. 보도지침</b> — "분양전환 공공임대주택은 소유권이전이 완료된 후에 매매계약이 가능하다."
       즉, 계약자의 소유권이전등기가 완료된 후 매매계약이 가능하기 때문에 계약자가 분양전환자금이 없을 경우
       어쩔 수 없이 잔금대출을 받아야 하며, 소유권이전등기 후 바로 상환할 경우 중도상환수수료가 발생합니다.</p>
     </div>
@@ -2376,6 +2562,19 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 </section>
 
 <!-- ═══════════ 33 등기비용 명세표 ═══════════ -->
+<section class="slide divider" data-title="간지 10 · 등기비용명세표">
+  <div class="dv">
+    <div class="dnum" data-anim="popup">10</div>
+    <div class="dtxt">
+      <h2 data-anim="up">등기비용명세표</h2>
+      <div class="drule" data-anim="wipe"></div>
+      <ul data-anim="up"><li>주택형별 등기비용 세부견적</li><li>취득세 감면 요건</li><li>등기보수료 및 공과금 항목</li></ul>
+    </div>
+  </div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div class="cur">10  등기비용명세표</div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>10 · 등기비용명세표</span></div></div>
+</section>
+
 <section class="slide" data-title="등기비용 명세표">
   <div class="chk" data-anim="down">분양전환 예상가는 <b>휴아림 실제 예상가로 교체 필요</b></div>
   <div class="s-kicker" data-anim="right">10 · 등기비용명세표 (등기비용명세서)</div>
@@ -2665,6 +2864,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div id="ipbtns">
     <button id="frompptx">PPT 파일에서 사진 꺼내기</button>
     <button id="bulk" class="ghost">이미지 파일 직접 고르기</button>
+    <button id="reassign" class="ghost">자동 배정 다시 실행</button>
     <button id="clearall" class="ghost">전체 지우기</button>
     <button id="ipclose" class="ghost">닫기 (Esc)</button>
   </div>
@@ -2688,7 +2888,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 <div id="pptdrop"><div class="box"><b>PPT 파일을 여기에 놓으십시오</b>
   <span>파일 안의 사진을 자동으로 꺼냅니다</span></div></div>
 
-<div id="pager"><b id="pg-cur">1</b> / <span id="pg-tot">38</span><span id="pg-step"></span></div>
+<div id="pager"><b id="pg-cur">1</b> / <span id="pg-tot">53</span><span id="pg-step"></span></div>
 <div id="hint"><kbd>←</kbd><kbd>→</kbd> 이동 · <kbd>L</kbd> 레이저 · <kbd>D</kbd> 펜 · <kbd>B</kbd> 블랙 · <kbd>H</kbd> 도움말</div>
 <div id="nav"><h3>SLIDE INDEX</h3><ol id="nav-list"></ol></div>
 
@@ -3294,10 +3494,9 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   var MIME={png:'image/png',jpg:'image/jpeg',jpeg:'image/jpeg',gif:'image/gif',
             bmp:'image/bmp',tif:'image/tiff',tiff:'image/tiff',webp:'image/webp'};
 
-  async function pptxImages(file, onProgress){
+  async function pptxParse(file, onProgress){
     var buf=await file.arrayBuffer();
     var dv=new DataView(buf), len=buf.byteLength;
-    /* 중앙 디렉터리 끝(EOCD) 찾기 */
     var eocd=-1, lim=Math.max(0,len-66000);
     for(var i=len-22;i>=lim;i--){ if(dv.getUint32(i,true)===0x06054b50){ eocd=i; break; } }
     if(eocd<0) throw new Error('압축 구조를 읽지 못했습니다. 올바른 PPTX 파일인지 확인해 주십시오.');
@@ -3306,37 +3505,58 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
     var dec=new TextDecoder(), ents=[], p2=off;
     for(var n=0;n<cnt;n++){
       if(p2+46>len || dv.getUint32(p2,true)!==0x02014b50) break;
-      var method=dv.getUint16(p2+10,true);
-      var csize=dv.getUint32(p2+20,true);
+      var method=dv.getUint16(p2+10,true), csize=dv.getUint32(p2+20,true);
       var nlen=dv.getUint16(p2+28,true), elen=dv.getUint16(p2+30,true), clen=dv.getUint16(p2+32,true);
       var lho=dv.getUint32(p2+42,true);
       var name=dec.decode(new Uint8Array(buf,p2+46,nlen));
       p2+=46+nlen+elen+clen;
-      if(!/^ppt\/media\/.+\.(png|jpe?g|gif|bmp|tiff?|webp)$/i.test(name)) continue;
-      ents.push({name:name,method:method,csize:csize,lho:lho});
+      var isImg=/^ppt\/media\/.+\.(png|jpe?g|gif|bmp|tiff?|webp)$/i.test(name);
+      var isXml=/^ppt\/slides\/(_rels\/)?slide\d+\.xml(\.rels)?$/i.test(name);
+      if(isImg||isXml) ents.push({name:name,method:method,csize:csize,lho:lho,img:isImg});
     }
-    var out=[];
+    async function bytesOf(e){
+      if(dv.getUint32(e.lho,true)!==0x04034b50) return null;
+      var ln=dv.getUint16(e.lho+26,true), le=dv.getUint16(e.lho+28,true);
+      var st=e.lho+30+ln+le;
+      if(st+e.csize>len) return null;
+      var raw=new Uint8Array(buf,st,e.csize);
+      if(e.method===0) return raw;
+      if(e.method!==8) return null;
+      try{
+        var ds=new DecompressionStream('deflate-raw');
+        var r=new Response(new Blob([raw]).stream().pipeThrough(ds));
+        return new Uint8Array(await r.arrayBuffer());
+      }catch(err){ return null; }
+    }
+    var media={}, xml={};
     for(var k=0;k<ents.length;k++){
       var e=ents[k];
       if(onProgress) onProgress(k+1, ents.length);
-      if(dv.getUint32(e.lho,true)!==0x04034b50) continue;
-      var ln=dv.getUint16(e.lho+26,true), le=dv.getUint16(e.lho+28,true);
-      var start=e.lho+30+ln+le;
-      if(start+e.csize>len) continue;
-      var raw=new Uint8Array(buf,start,e.csize), bytes;
-      if(e.method===0) bytes=raw;
-      else if(e.method===8){
-        try{
-          var ds=new DecompressionStream('deflate-raw');
-          var r=new Response(new Blob([raw]).stream().pipeThrough(ds));
-          bytes=new Uint8Array(await r.arrayBuffer());
-        }catch(err){ continue; }
-      } else continue;
-      var ext=(e.name.split('.').pop()||'').toLowerCase();
-      out.push({name:e.name.split('/').pop(),
-                blob:new Blob([bytes],{type:MIME[ext]||'application/octet-stream'})});
+      var by=await bytesOf(e); if(!by) continue;
+      if(e.img){
+        var ext=(e.name.split('.').pop()||'').toLowerCase();
+        media[e.name.split('/').pop()]=new Blob([by],{type:MIME[ext]||'application/octet-stream'});
+      } else {
+        xml[e.name]=new TextDecoder('utf-8').decode(by);
+      }
     }
-    return out;
+    /* 슬라이드별 본문 텍스트 + 사용 이미지 목록 */
+    var slidesInfo=[];
+    Object.keys(xml).forEach(function(kk){
+      var m=kk.match(/slide(\d+)\.xml$/);
+      if(!m || /_rels/.test(kk)) return;
+      var no=+m[1], body=xml[kk];
+      var rels=xml['ppt/slides/_rels/slide'+no+'.xml.rels']||'';
+      var map={}, rr;
+      var reRel=/Id="([^"]+)"[^>]*Target="[^"]*media\/([^"]+)"/g;
+      while((rr=reRel.exec(rels))) map[rr[1]]=rr[2];
+      var imgs=[], re2=/r:embed="([^"]+)"/g, t;
+      while((t=re2.exec(body))) if(map[t[1]] && imgs.indexOf(map[t[1]])<0) imgs.push(map[t[1]]);
+      var txt=(body.match(/<a:t>[^<]*<\/a:t>/g)||[]).map(function(x){ return x.slice(5,-6); }).join(' ');
+      slidesInfo.push({no:no, text:txt, images:imgs});
+    });
+    slidesInfo.sort(function(a,b){ return a.no-b.no; });
+    return {media:media, slides:slidesInfo};
   }
 
   function blobToImage(blob){
@@ -3375,21 +3595,106 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
     galEl.classList.toggle('on', GAL.length>0);
   }
 
+  /* 원본 슬라이드 본문의 낱말로 사진의 자리를 알아냅니다 */
+  var NAME_SLOT=[
+    [/박종일/,'lawyer-park'],[/이지훈/,'lawyer-lee'],[/장우진/,'lawyer-jang'],
+    [/하혜용/,'lawyer-ha'],[/임준규/,'lawyer-lim'],[/오현진/,'lawyer-oh'],
+    [/유태인/,'bomusa-yu'],[/여운성/,'bomusa-yeo']
+  ];
+  var GROUP_RULE=[
+    {re:/게시판\s*공지|공지글/,               pre:'notice'},
+    {re:/개별\s*(대출)?상담|대출상담\s*사진/, pre:'consult'},
+    {re:/설명회/,                             pre:'seminar'},
+    {re:/등록증서|무징계|보험증서|증명원|손해배상|법무사\s*증명|자료제출/, pre:'cert'},
+    {re:/계약서|확인원|확인서|승계/,          pre:'doc'}
+  ];
+
+  function autoAssign(parsed, gal){
+    var byName={};
+    gal.forEach(function(g){ byName[g.file]=g; });
+    var used={}, plan=[];
+
+    /* ① 인물 사진 — 이름이 적힌 슬라이드에서, 세로로 긴 사진을 이름 등장 순서대로 */
+    parsed.slides.forEach(function(sd){
+      var hits=[];
+      NAME_SLOT.forEach(function(r){
+        var m=sd.text.search(r[0]);
+        if(m>=0) hits.push({at:m, slot:r[1]});
+      });
+      if(!hits.length) return;
+      hits.sort(function(a,b){ return a.at-b.at; });
+      var pool=sd.images.map(function(f){ return byName[f]; }).filter(Boolean)
+                 .filter(function(g){ return !used[g.file]; })
+                 .filter(function(g){ return g.h >= g.w*0.9; });   /* 인물은 정방 이상 세로 */
+      pool.sort(function(a,b){ return (b.w*b.h)-(a.w*a.h); });
+      hits.forEach(function(h,i){
+        if(pool[i]){ plan.push({slot:h.slot, g:pool[i]}); used[pool[i].file]=1; }
+      });
+    });
+
+    /* ② 묶음 자리 — 공지 / 설명회 / 상담 / 서류 */
+    var buckets={};
+    parsed.slides.forEach(function(sd){
+      for(var i=0;i<GROUP_RULE.length;i++){
+        if(GROUP_RULE[i].re.test(sd.text)){
+          var key=GROUP_RULE[i].pre;
+          buckets[key]=buckets[key]||[];
+          sd.images.forEach(function(f){
+            var g=byName[f];
+            if(g && !used[g.file] && buckets[key].indexOf(g)<0) buckets[key].push(g);
+          });
+          break;
+        }
+      }
+    });
+    Object.keys(buckets).forEach(function(pre){
+      var list=buckets[pre].filter(function(g){ return !used[g.file]; });
+      list.sort(function(a,b){ return (b.w*b.h)-(a.w*a.h); });
+      var open=slots.filter(function(x){ return x.id.indexOf(pre)===0; });
+      open.forEach(function(x,i){
+        if(list[i]){ plan.push({slot:x.id, g:list[i]}); used[list[i].file]=1; }
+      });
+    });
+
+    /* ③ 남은 자리에는 남은 큰 사진을 순서대로 */
+    var rest=gal.filter(function(g){ return !used[g.file]; });
+    rest.sort(function(a,b){ return (b.w*b.h)-(a.w*a.h); });
+    var planned={}; plan.forEach(function(x){ planned[x.slot]=1; });
+    var vacancies=slots.filter(function(x){
+      return !planned[x.id] && !(x.img.getAttribute('src')||'').startsWith('data:')
+             && !x.fig.classList.contains('face');
+    });
+    vacancies.forEach(function(x,i){ if(rest[i]) plan.push({slot:x.id, g:rest[i]}); });
+
+    /* 반영 */
+    var uniq={};
+    plan.forEach(function(x){
+      if(uniq[x.slot]) return; uniq[x.slot]=1;
+      setSlot(x.slot, x.g.url); dbPut(x.slot, x.g.url);
+    });
+    return Object.keys(uniq).length;
+  }
+
+  var LAST_PARSED=null;
   async function handlePptx(file){
     ipmsg.textContent='PPT 를 여는 중입니다…';
     toggleImages(true);
     try{
-      var imgs=await pptxImages(file, function(a,b){ ipmsg.textContent='사진을 꺼내는 중입니다… '+a+' / '+b; });
-      if(!imgs.length){ ipmsg.textContent='이 파일 안에서 사진을 찾지 못했습니다.'; return; }
-      ipmsg.textContent='불러온 사진을 정리하는 중입니다…';
+      var parsed=await pptxParse(file, function(a,b){ ipmsg.textContent='파일을 읽는 중입니다… '+a+' / '+b; });
+      var names=Object.keys(parsed.media);
+      if(!names.length){ ipmsg.textContent='이 파일 안에서 사진을 찾지 못했습니다.'; return; }
+      ipmsg.textContent='사진 '+names.length+'장을 정리하는 중입니다…';
       var list=[];
-      for(var i=0;i<imgs.length;i++){
-        var r=await blobToImage(imgs[i].blob);
-        if(r && r.w>=180 && r.h>=180) list.push({name:imgs[i].name,url:r.url,w:r.w,h:r.h});
+      for(var i=0;i<names.length;i++){
+        var r=await blobToImage(parsed.media[names[i]]);
+        if(r && r.w>=180 && r.h>=180) list.push({file:names[i], name:names[i], url:r.url, w:r.w, h:r.h});
       }
       list.sort(function(a,b){ return (b.w*b.h)-(a.w*a.h); });
-      GAL=list; galSel=-1; renderGal(); renderSlots();
-      ipmsg.textContent='사진 '+GAL.length+'장을 꺼냈습니다. 넣을 사진을 누른 뒤 아래에서 자리를 누르십시오. (로고·아이콘처럼 작은 이미지는 제외했습니다)';
+      GAL=list; galSel=-1; LAST_PARSED=parsed;
+      var placed=autoAssign(parsed, list);
+      renderGal(); renderSlots();
+      ipmsg.textContent='사진 '+GAL.length+'장을 꺼내 '+placed+'개 자리에 자동으로 넣었습니다. '
+        + '바꾸실 자리는 위에서 사진을 누른 뒤 아래 자리를 누르십시오.';
     }catch(err){
       ipmsg.textContent='실패: '+err.message;
     }
@@ -3430,6 +3735,14 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
     imgpanel.classList.toggle('on',on); syncBtn('images',on);
   }
   document.getElementById('bulk').addEventListener('click',function(){ ipTarget=null; ipfile.click(); });
+  document.getElementById('reassign').addEventListener('click',function(){
+    if(!LAST_PARSED || !GAL.length){ ipmsg.textContent='먼저 PPT 파일에서 사진을 꺼내십시오.'; return; }
+    slots.forEach(function(x){ setSlot(x.id,null); dbDel(x.id); });
+    setTimeout(function(){
+      var n=autoAssign(LAST_PARSED, GAL); renderSlots();
+      ipmsg.textContent=n+'개 자리에 다시 배정했습니다.';
+    },200);
+  });
   document.getElementById('ipclose').addEventListener('click',function(){ toggleImages(false); });
   document.getElementById('clearall').addEventListener('click',function(){
     if(!confirm('넣으신 이미지를 전부 지웁니다. 계속할까요?')) return;
