@@ -31,6 +31,20 @@
   --line:#DFE5EF; --paper:#FFFFFF; --paper-2:#F5F8FC;
   --ease:cubic-bezier(.22,1,.36,1);
   --ease-io:cubic-bezier(.65,0,.35,1);
+  /* 스프링 이징 — 물리 기반 감쇠 곡선 */
+  --spring:cubic-bezier(.16,1,.3,1);
+  --spring:linear(0,.0064,.0248,.0543,.0938,.142,.1979,.2603,.3281,.4003,.4758,.5535,.6324,.7116,
+    .79,.8668,.9411,1.012,1.0788,1.1407,1.1971,1.2474,1.2911,1.3278,1.3572,1.3791,1.3933,1.4,
+    1.3994,1.3924,1.3797,1.3623,1.3411,1.3171,1.2912,1.2643,1.2372,1.2107,1.1854,1.1618,1.1404,
+    1.1214,1.1051,1.0915,1.0806,1.0723,1.0664,1.0627,1.0608,1.0604,1.0611,1.0625,1.0642,1.0659,
+    1.0673,1.0682,1.0685,1.0682,1.0673,1.0659,1.0642,1.0623,1.0603,1.0584,1.0566,1.055,1.0537,
+    1.0526,1.0518,1.0512,1.0508,1.0505,1.0503,1.0501,1.05,1.0499,1.0498,1.0496,1.0494,1.0491,
+    1.0487,1.0483,1.0478,1.0472,1.0466,1.046,1.0453,1.0447,1.044,1.0434,1.0428,1.0423,1.0418,
+    1.0414,1.041,1.0407,1.0404,1.0402,1.0401,1.04,1.04,1);
+  --overshoot:cubic-bezier(.34,1.42,.5,1);
+  --exp:cubic-bezier(.16,1,.3,1);
+  --lift:0 1px 2px rgba(15,37,72,.05),0 6px 18px -8px rgba(15,37,72,.18);
+  --lift-2:0 2px 4px rgba(15,37,72,.06),0 18px 44px -14px rgba(15,37,72,.26);
   --W:1332px; --H:750px;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -50,9 +64,11 @@ body{
 
 /* ---------- 슬라이드 기본 ---------- */
 .slide{position:absolute;inset:0;padding:52px 64px 60px;background:var(--paper);
-  opacity:0;visibility:hidden;transition:opacity .42s var(--ease);
-  display:flex;flex-direction:column;}
-.slide.is-active{opacity:1;visibility:visible;z-index:2;}
+  opacity:0;visibility:hidden;transform:scale(1.045) translateZ(0);
+  transition:opacity .42s var(--exp),transform .8s var(--exp),visibility 0s .5s;
+  display:flex;flex-direction:column;perspective:1400px;overflow:hidden;contain:paint;}
+.slide.is-active{opacity:1;visibility:visible;transform:none;z-index:3;transition-delay:0s;will-change:transform,opacity;}
+.slide.leaving{visibility:visible;opacity:0;transform:scale(.962);z-index:2;transition-delay:0s;}
 .slide.dark{background:var(--navy);color:#fff;}
 .slide.dark .s-title{color:#fff;}
 .slide.dark .s-kicker{color:var(--blue-lt);}
@@ -73,7 +89,7 @@ body{
 .brandbar .bb-l{display:flex;align-items:center;gap:11px;opacity:.9;}
 .brandbar .bb-r{display:flex;align-items:center;gap:13px;opacity:.62;}
 .brandbar .accent{width:5px;height:13px;background:var(--red);display:inline-block;}
-.slide.dark .brandbar{background:rgba(255,255,255,.07);}
+.slide.dark .brandbar{background:rgba(255,255,255,.07);backdrop-filter:blur(8px);}
 
 /* 확인 필요 태그 */
 .chk{position:absolute;top:20px;right:64px;z-index:4;background:var(--red-pale);
@@ -83,16 +99,18 @@ body{
 
 /* ══════════ 모션 엔진 ══════════ */
 [data-anim]{opacity:0;
-  transition:opacity .7s var(--ease),transform .7s var(--ease),filter .7s var(--ease);
-  transition-delay:calc(var(--d,0)*1ms);will-change:opacity,transform;}
-[data-anim="up"]{transform:translateY(24px);}
-[data-anim="down"]{transform:translateY(-20px);}
-[data-anim="left"]{transform:translateX(30px);}
-[data-anim="right"]{transform:translateX(-30px);}
-[data-anim="scale"]{transform:scale(.91);}
-[data-anim="pop"]{transform:scale(.55);transition-timing-function:cubic-bezier(.34,1.56,.64,1);}
-[data-anim="blur"]{filter:blur(12px);transform:translateY(12px);}
-[data-anim="fade"]{transform:none;}
+  transition:opacity .5s var(--exp),transform .92s var(--spring),filter .5s var(--exp),
+             clip-path .8s var(--exp),box-shadow .5s var(--exp);
+  transition-delay:calc(var(--d,0)*1ms);}
+[data-anim="up"]{transform:translate3d(0,32px,0);filter:blur(4px);}
+[data-anim="down"]{transform:translate3d(0,-26px,0);filter:blur(4px);}
+[data-anim="left"]{transform:translate3d(38px,0,0) rotateY(-5deg);filter:blur(3px);}
+[data-anim="right"]{transform:translate3d(-38px,0,0) rotateY(5deg);filter:blur(3px);}
+[data-anim="scale"]{transform:scale(.9) translate3d(0,10px,0);filter:blur(5px);}
+[data-anim="pop"]{transform:scale(.5) translate3d(0,14px,0);
+  transition-timing-function:var(--overshoot);transition-duration:.72s;}
+[data-anim="blur"]{filter:blur(14px);transform:translate3d(0,14px,0);}
+[data-anim="fade"]{transform:translate3d(0,10px,0);filter:blur(3px);}
 [data-anim="wipe"]{clip-path:inset(0 100% 0 0);transform:none;}
 .is-active [data-anim]{opacity:1;transform:none;filter:none;clip-path:inset(0 0 0 0);}
 
@@ -101,22 +119,62 @@ body{
    data-build-self : 그 요소 하나가 한 단계
    ───────────────────────────────────────────────────────── */
 .is-active [data-step]{opacity:0;}
-.is-active [data-step]:not(.step-in){transform:translateY(20px);}
-.is-active [data-anim="pop"][data-step]:not(.step-in){transform:scale(.62);}
-.is-active [data-anim="left"][data-step]:not(.step-in){transform:translateX(28px);}
-.is-active [data-anim="right"][data-step]:not(.step-in){transform:translateX(-28px);}
-.is-active [data-anim="scale"][data-step]:not(.step-in){transform:scale(.92);}
+.is-active [data-step]:not(.step-in){transform:translate3d(0,26px,0);filter:blur(4px);}
+.is-active [data-anim="pop"][data-step]:not(.step-in){transform:scale(.56) translate3d(0,12px,0);filter:none;}
+.is-active [data-anim="left"][data-step]:not(.step-in){transform:translate3d(34px,0,0) rotateY(-5deg);filter:blur(3px);}
+.is-active [data-anim="right"][data-step]:not(.step-in){transform:translate3d(-34px,0,0) rotateY(5deg);filter:blur(3px);}
+.is-active [data-anim="scale"][data-step]:not(.step-in){transform:scale(.9) translate3d(0,10px,0);filter:blur(4px);}
 .is-active [data-step]:not(.step-in) .grow-x{width:0!important;}
 .is-active [data-step]:not(.step-in) .grow-y{height:0!important;}
 .is-active [data-step]:not(.step-in) .draw{stroke-dashoffset:var(--len);}
 .is-active [data-step].step-in{opacity:1;transform:none;filter:none;clip-path:inset(0 0 0 0);}
 /* 지난 단계는 흐리게 — 지금 말하는 지점으로 시선을 모읍니다 (G 키로 켜고 끔) */
-.is-active [data-step].step-past{opacity:.34;filter:saturate(.35);}
+.is-active [data-step].step-past{opacity:.32;filter:saturate(.3);}
+.is-active [data-step].step-now{animation:nowpop .9s var(--exp);}
+@keyframes nowpop{0%{box-shadow:0 0 0 0 rgba(192,57,43,0)}
+  22%{box-shadow:0 0 0 3px rgba(192,57,43,.16),0 18px 44px -18px rgba(192,57,43,.5)}
+  100%{box-shadow:0 0 0 0 rgba(192,57,43,0)}}
 .slide.dark .is-active [data-step].step-past,.slide.dark [data-step].step-past{opacity:.28;}
 
+/* ── 키네틱 타이포 : 제목이 단어 단위로 세워지며 들어옵니다 ── */
+.kw{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .01em;}
+.kw > i{display:inline-block;font-style:inherit;transform:translate3d(0,108%,0) rotateX(-72deg);
+  transform-origin:0 0;opacity:0;
+  transition:transform .95s var(--spring),opacity .45s var(--exp);
+  transition-delay:calc(var(--kd,0)*1ms);}
+.is-active .kw > i{transform:none;opacity:1;}
+.s-title{transform-style:preserve-3d;}
+
+/* ── 재질 : 얕은 깊이 + 1px 하이라이트 + 호버 리프트 ── */
+.card,.cmp-card,.prof,.step,.stackbox,.gapbox,.toc-item,.kpi,.ph,.stk{
+  box-shadow:var(--lift);
+  transition:box-shadow .45s var(--exp),transform .45s var(--exp),border-color .3s;}
+.card:hover,.cmp-card:hover,.prof:hover,.stk:hover{box-shadow:var(--lift-2);transform:translateY(-2px);}
+.slide.dark .kpi{background:rgba(255,255,255,.055);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.13),0 22px 50px -24px rgba(0,0,0,.7);
+  backdrop-filter:blur(4px);}
+.slide.dark .kpi:hover{background:rgba(255,255,255,.08);transform:translateY(-2px);}
+.card,.cmp-card,.prof,.stackbox,.gapbox{background-clip:padding-box;}
+.cmp-head,.org-hd{box-shadow:inset 0 -1px 0 rgba(255,255,255,.14);}
+
+/* 숫자가 올라올 때 미세한 탄성 */
+[data-count]{display:inline-block;font-variant-numeric:tabular-nums;}
+[data-count].tick{animation:tick .5s var(--overshoot);}
+@keyframes tick{0%{transform:scale(1)}40%{transform:scale(1.055)}100%{transform:scale(1)}}
+
+/* 막대 성장에 광택 스윕 */
+.cbar,.col,.gbar,.stackbar>div{position:relative;overflow:hidden;}
+.cbar::after,.col::after,.gbar::after,.stackbar>div::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(100deg,rgba(255,255,255,0) 30%,rgba(255,255,255,.42) 50%,rgba(255,255,255,0) 70%);
+  transform:translateX(-120%);}
+.is-active .step-in .cbar::after,.is-active .step-in .col::after,
+.is-active .cbar::after,.is-active .col::after,.is-active .gbar::after,.is-active .stackbar>div::after{
+  animation:shine 1.5s var(--exp) .55s;}
+@keyframes shine{to{transform:translateX(120%)}}
+
 .mask{overflow:hidden;display:block;}
-.mask>span{display:block;transform:translateY(106%);opacity:0;
-  transition:transform .88s var(--ease),opacity .45s linear;
+.mask>span{display:block;transform:translate3d(0,108%,0) rotateX(-58deg);transform-origin:0 0;opacity:0;
+  transition:transform 1.05s var(--spring),opacity .5s var(--exp);
   transition-delay:calc(var(--d,0)*1ms);}
 .is-active .mask>span{transform:translateY(0);opacity:1;}
 
@@ -130,7 +188,9 @@ body{
 .is-active .grow-y{height:var(--h)!important;}
 
 @media (prefers-reduced-motion:reduce){
-  [data-anim],.mask>span,.draw,.grow-x,.grow-y{transition-duration:.01ms!important;transition-delay:0ms!important;}
+  [data-anim],.mask>span,.kw>i,.draw,.grow-x,.grow-y,.slide{
+    transition-duration:.01ms!important;transition-delay:0ms!important;filter:none!important;}
+  .amb i,.cbar::after,.col::after,.gbar::after{animation:none!important;}
 }
 
 /* ══════════ 표지 ══════════ */
@@ -150,7 +210,7 @@ body{
   animation:blink 2s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(228,97,79,.6)}50%{opacity:.4;box-shadow:0 0 0 9px rgba(228,97,79,0)}}
 .cover-estate{font-size:20px;font-weight:500;color:rgba(255,255,255,.7);letter-spacing:.04em;margin-bottom:14px;}
-.cover-title{font-size:62px;font-weight:900;line-height:1.15;letter-spacing:-.035em;}
+.cover-title{font-size:62px;font-weight:900;line-height:1.15;letter-spacing:-.035em;transform-style:preserve-3d;}
 .cover-title .hl{color:var(--blue-lt);}
 .cover-rule{width:82px;height:4px;background:var(--red);margin:28px 0 22px;}
 .cover-desc{font-size:16.5px;line-height:1.78;color:rgba(255,255,255,.74);max-width:590px;}
@@ -2274,6 +2334,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       var shown=s<=k;
       el.classList.toggle('step-in',shown);
       el.classList.toggle('step-past', focusDim && shown && s<k);
+      el.classList.toggle('step-now', shown && s===k && max>1);
       if(shown && !el.dataset.counted){
         el.dataset.counted='1';
         if(el.hasAttribute('data-count')) countUp(el);
@@ -2282,6 +2343,40 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
     });
     stepEl.textContent = max>1 ? ('· '+Math.min(k,max)+'/'+max+'단계') : '';
   }
+
+  /* ── 앰비언트 레이어 · 그레인 · 키네틱 제목 ── */
+  function kinetic(el){
+    if(!el || el.dataset.kin) return;
+    el.dataset.kin='1';
+    var n=0;
+    (function walk(node){
+      Array.prototype.slice.call(node.childNodes).forEach(function(c){
+        if(c.nodeType===3){
+          var parts=c.nodeValue.split(/(\s+)/), frag=document.createDocumentFragment();
+          parts.forEach(function(t){
+            if(!t) return;
+            if(/^\s+$/.test(t)){ frag.appendChild(document.createTextNode(t)); return; }
+            var w=document.createElement('span'); w.className='kw';
+            var i=document.createElement('i'); i.textContent=t;
+            i.style.setProperty('--kd', 90 + (n++)*42);
+            w.appendChild(i); frag.appendChild(w);
+          });
+          node.replaceChild(frag,c);
+        } else if(c.nodeType===1 && !c.classList.contains('kw')) walk(c);
+      });
+    })(el);
+  }
+
+  slides.forEach(function(sl){
+    var amb=document.createElement('div'); amb.className='amb';
+    amb.innerHTML='<i></i><i></i><i></i>';
+    sl.insertBefore(amb, sl.firstChild);
+    var gr=document.createElement('div'); gr.className='grain';
+    sl.insertBefore(gr, amb.nextSibling);
+    kinetic(sl.querySelector('.s-title'));
+  });
+
+  var sweep=document.createElement('div'); sweep.id='sweep'; document.body.appendChild(sweep);
 
   /* 자동 스태거 + SVG 길이 실측 */
   slides.forEach(function(sl){
@@ -2311,6 +2406,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       var e=1-Math.pow(1-p,3);
       el.textContent=fmt(Math.round(target*e));
       if(p<1) requestAnimationFrame(step);
+      else { el.classList.remove('tick'); void el.offsetWidth; el.classList.add('tick'); }
     }
     el._timer=setTimeout(function(){ requestAnimationFrame(step); }, delay);
   }
@@ -2330,11 +2426,16 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 
   function show(n,mode){
     n=Math.max(0,Math.min(slides.length-1,n));
+    var moved=false;
     slides.forEach(function(sl,i){
       if(i!==n && sl.classList.contains('is-active')){
-        sl.classList.remove('is-active'); resetCounts(sl); resetSteps(sl);
+        moved=true;
+        sl.classList.remove('is-active'); sl.classList.add('leaving');
+        resetCounts(sl); resetSteps(sl);
+        (function(x){ setTimeout(function(){ x.classList.remove('leaving'); }, 620); })(sl);
       }
     });
+    if(moved){ sweep.classList.remove('go'); void sweep.offsetWidth; sweep.classList.add('go'); }
     idx=n;
     var cur=slides[idx];
     var max=parseInt(cur.dataset.steps,10)||0;
@@ -2557,7 +2658,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       sl.classList.add('is-active');
       sl.querySelectorAll('[data-step]').forEach(function(el){
         el.classList.add('step-in'); el.classList.remove('step-past'); });
-      sl.querySelectorAll('[data-anim],.mask>span').forEach(function(el){ el.style.transitionDuration='0ms'; });
+      sl.querySelectorAll('[data-anim],.mask>span,.kw>i').forEach(function(el){ el.style.transitionDuration='0ms'; el.style.transitionDelay='0ms'; });
       sl.querySelectorAll('[data-count]').forEach(function(el){
         if(el._timer) clearTimeout(el._timer);
         el.textContent=fmt(parseFloat(el.getAttribute('data-count')));
@@ -2568,7 +2669,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       setTimeout(function(){
         slides.forEach(function(sl,i){
           if(i!==idx) sl.classList.remove('is-active');
-          sl.querySelectorAll('[data-anim],.mask>span').forEach(function(el){ el.style.transitionDuration=''; });
+          sl.querySelectorAll('[data-anim],.mask>span,.kw>i').forEach(function(el){ el.style.transitionDuration=''; el.style.transitionDelay=''; });
         });
       },400);
     },250);
