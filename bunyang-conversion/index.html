@@ -301,6 +301,15 @@ body{
 .tag.lh{background:rgba(15,37,72,.1);color:var(--navy);}
 .tag.rt{background:rgba(62,108,181,.13);color:var(--blue);}
 .tag.pv{background:rgba(201,162,39,.16);color:#8A6F0F;}
+/* 건수가 적은 실적표 — 한 줄에 한 건, 줄을 키워 뒷자리에서도 읽히게 */
+.tbl.oneup{height:100%;}
+.tbl.oneup thead th{font-size:18px;padding-top:13px;padding-bottom:13px;}
+.tbl.oneup tbody td{padding:0 14px;font-size:1em;}
+.tbl.oneup td.nm{font-size:1.06em;}
+.tbl.oneup td.r{font-size:1.12em;font-weight:700;}
+.cmp-body>.tbl{flex:1;height:100%;font-size:1em;}
+.cmp-body>.tbl thead th{font-size:.92em;}
+.cmp-body>.tbl tbody td{padding:0 12px;}
 .tbl .fix{color:var(--red);font-weight:800;}
 .tbl .old{color:var(--gray-lt);text-decoration:line-through;font-size:11px;font-weight:400;}
 
@@ -319,11 +328,12 @@ body{
 .card.hot .cn{background:var(--red);}
 .card h4{font-size:21px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
 .card h4 small{display:block;font-size:14px;font-weight:600;color:var(--gray-lt);margin-top:2px;letter-spacing:0;}
-.card ul{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:8px;}
-.card li{list-style:none;font-size:16.5px;color:var(--gray);line-height:1.42;padding-left:12px;
+.card ul{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:8px;font-size:16.5px;}
+.card li{list-style:none;font-size:1em;color:var(--gray);line-height:1.42;padding-left:12px;
   position:relative;margin-bottom:0;}
 .card li::before{content:"";position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background:var(--gray-lt);}
 .card li b{color:var(--navy);font-weight:700;}
+.card li .sub{display:block;font-size:.82em;color:var(--gray-lt);line-height:1.4;margin-top:3px;font-weight:500;}
 .card .big{font-size:38px;font-weight:900;color:var(--navy);letter-spacing:-.03em;margin:2px 0 8px;}
 .card .big.red{color:var(--red);}
 
@@ -341,7 +351,7 @@ body{
 .fnode h5{font-size:19px;font-weight:800;color:var(--navy);margin-bottom:5px;line-height:1.3;}
 .fnode .per{font-size:13.5px;font-weight:700;color:var(--blue);letter-spacing:.05em;margin-bottom:10px;}
 .fnode.last .per{color:var(--red);}
-.fnode li{list-style:none;font-size:15.8px;color:var(--gray);line-height:1.42;padding-left:11px;
+.fnode li{list-style:none;font-size:1em;color:var(--gray);line-height:1.42;padding-left:11px;
   position:relative;margin-bottom:6px;}
 .fnode li::before{content:"";position:absolute;left:0;top:7px;width:3.5px;height:3.5px;border-radius:50%;background:var(--gray-lt);}
 
@@ -366,24 +376,24 @@ body{
 .callout.blue b{color:var(--blue);}
 
 /* ══════════ 비교 2열 ══════════ */
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;flex:1;min-height:0;}
-.cmp-card{border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;}
+.cmp{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr);gap:14px;width:100%;flex:1;min-height:0;}
+.cmp-card{border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;min-height:0;}
 .cmp-head{padding:11px 16px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;}
 .cmp-card.b .cmp-head{background:var(--blue);}
 .cmp-head h4{font-size:21px;font-weight:800;}
 .cmp-head .tagx{font-size:12.5px;background:rgba(255,255,255,.2);padding:4px 9px;border-radius:3px;letter-spacing:.04em;}
-.cmp-body{padding:14px 16px 15px;flex:1;display:flex;flex-direction:column;}
+.cmp-body{padding:14px 16px 15px;flex:1;min-height:0;display:flex;flex-direction:column;font-size:16.5px;}
 .money{background:var(--paper-2);border:1px dashed var(--blue);border-radius:5px;padding:13px 15px;margin-bottom:13px;}
-.money .row{display:flex;justify-content:space-between;align-items:baseline;font-size:15.8px;color:var(--gray);margin-bottom:7px;}
-.money .row b{color:var(--navy);font-variant-numeric:tabular-nums;font-size:16.8px;font-weight:700;}
+.money .row{display:flex;justify-content:space-between;align-items:baseline;font-size:.96em;color:var(--gray);margin-bottom:7px;}
+.money .row b{color:var(--navy);font-variant-numeric:tabular-nums;font-size:1.02em;font-weight:700;}
 .money .tot{display:flex;justify-content:space-between;align-items:baseline;
   border-top:1px solid var(--line);margin-top:10px;padding-top:11px;}
-.money .tot span{font-size:16px;font-weight:800;color:var(--navy);}
-.money .tot b{font-size:31px;font-weight:900;color:var(--red);letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
-.pt{display:flex;gap:9px;font-size:16.5px;color:var(--ink);line-height:1.42;margin-bottom:8px;}
+.money .tot span{font-size:.97em;font-weight:800;color:var(--navy);}
+.money .tot b{font-size:1.88em;font-weight:900;color:var(--red);letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+.pt{display:flex;gap:9px;font-size:1em;color:var(--ink);line-height:1.42;margin-bottom:8px;}
 .pt::before{content:"";flex:none;width:4.5px;height:4.5px;border-radius:50%;background:var(--blue);margin-top:7px;}
 .pt b{color:var(--navy);}
-.note{font-size:14px;color:var(--gray);margin-top:11px;padding-top:10px;border-top:1px solid var(--line);line-height:1.42;}
+.note{font-size:.85em;color:var(--gray);margin-top:11px;padding-top:10px;border-top:1px solid var(--line);line-height:1.42;}
 
 
 /* ══════════ 인물 프로필 ══════════ */
@@ -484,7 +494,7 @@ body{
 
 /* ── 문서형 : 공고문·계약서·증명서류는 잘라내지 않고 전체를 보여줍니다 ── */
 /* 정보량이 많은 장만 미세하게 조입니다 */
-.slide.dense .pt{font-size:15.4px;line-height:1.36;margin-bottom:7px;}
+.slide.dense .pt{font-size:.94em;line-height:1.36;margin-bottom:7px;}
 .slide.dense .cmp-body{padding:13px 16px 14px;}
 .slide.dense .tbl{font-size:14.8px;}
 .slide.dense .tbl tbody td{padding:7px 10px;}
@@ -749,11 +759,11 @@ body{
 .biohead b{font-size:34px;font-weight:900;color:var(--navy);letter-spacing:-.03em;}
 .biohead .role{font-size:17px;font-weight:800;color:var(--red);}
 .biohead .cert{margin-left:auto;font-size:15px;color:var(--gray);font-weight:700;}
-.btbl{width:100%;border-collapse:collapse;flex:1;}
+.btbl{width:100%;border-collapse:collapse;flex:1;min-height:0;font-size:16.5px;}
 .btbl tr{border-bottom:1px solid var(--line);}
 .btbl th{width:112px;text-align:left;vertical-align:top;padding:11px 14px 11px 0;
-  font-size:15px;font-weight:800;color:var(--blue);white-space:nowrap;}
-.btbl td{padding:11px 0;font-size:16.5px;color:var(--ink);line-height:1.45;vertical-align:top;}
+  font-size:.91em;font-weight:800;color:var(--blue);white-space:nowrap;}
+.btbl td{padding:9px 0;font-size:1em;color:var(--ink);line-height:1.45;vertical-align:top;}
 .btbl td b{color:var(--navy);}
 .btbl td span{display:block;color:var(--gray);}
 
@@ -974,30 +984,28 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   </div>
 </section>
 
-<!-- ═══════════ 02 목차 ═══════════ -->
 <section class="slide" data-title="목차 구성">
   <div class="s-kicker" data-anim="right">CONTENTS</div>
   <h2 class="s-title" data-anim="up">목차 구성</h2>
-  <p class="s-sub" data-anim="up">원본 제안서의 10개 파트를 그대로 유지하되, 각 장의 내용은 말씀 순서에 맞춰 단계별로 나타납니다.</p>
+  <p class="s-sub" data-anim="up">원본 제안서의 10개 파트와 장 순서를 그대로 따랐습니다. <span style="color:var(--red);font-weight:700">원본 목차 장은 08 잔금대출 · 09 특별제안 · 10 등기비용으로 적혀 있으나 본문 간지는 08 등기비용 · 09 잔금대출 · 10 특별제안이어서, 본문 순서를 따랐습니다.</span></p>
 
   <div class="s-body">
     <div class="toc">
       <div class="toc-item" data-anim="right"><div class="no">01</div><div><h4>사무소 소개</h4><p>서초동 본사 · 동탄분사무소 · 구성원 변호사 6인 · 케이탑 법무사합동사무소 · 조직도</p></div></div>
       <div class="toc-item hot" data-anim="left"><div class="no">06</div><div><h4>분양전환계약 진행방법 및 일정</h4><p>계약 체결방식 3가지 · 일시납 / 분할납부 · 저소득층 · 국가유공자 · Step 1~4</p></div></div>
-      <div class="toc-item" data-anim="right"><div class="no">02</div><div><h4>단체등기 수임 실적</h4><p>2021~2026년 분양전환등기 실적 전체 · LH공사 업무수행 실적</p></div></div>
+      <div class="toc-item" data-anim="right"><div class="no">02</div><div><h4>단체등기 수임 실적</h4><p>2021~2026년 분양전환등기 실적 49개 단지 39,080세대 · 업무 협약 · LH공사 실적</p></div></div>
       <div class="toc-item hot" data-anim="left"><div class="no">07</div><div><h4>소유권이전등기 방안</h4><p>당일등기 10단계 · 분할납부세대 절차 · 부부 공동명의 변경</p></div></div>
-      <div class="toc-item" data-anim="right"><div class="no">03</div><div><h4>제출 및 증명 서류</h4><p>등록증서 · 무징계증명원 · 보험증서 70억 · 법무사 증명서</p></div></div>
-      <div class="toc-item hot" data-anim="left"><div class="no">08</div><div><h4>잔금대출 지원 방안</h4><p>LTV·DTI·DSR · 소득증빙 · 전세자금대출 · 기금 · 디딤돌 · 보금자리론 · 은행상품</p></div></div>
-      <div class="toc-item" data-anim="right"><div class="no">04</div><div><h4>게시판 공지자료</h4><p>설명회 개최 및 대출 개별상담 개최 공지 3종</p></div></div>
-      <div class="toc-item" data-anim="left"><div class="no">09</div><div><h4>특별제안</h4><p>단기 브릿지론 — 즉시 매도 세대의 중도상환수수료 절감</p></div></div>
-      <div class="toc-item" data-anim="right"><div class="no">05</div><div><h4>입주민 설명회 및 개별대출상담 사진</h4><p>설명회 전경 · 개별 대출상담 현장 자료</p></div></div>
-      <div class="toc-item hot" data-anim="left"><div class="no">10</div><div><h4>등기비용명세표</h4><p>주택형별 세부 견적 · 취득세 감면 요건 · 등기보수료 항목</p></div></div>
+      <div class="toc-item" data-anim="right"><div class="no">03</div><div><h4>제출 및 증명 서류</h4><p>등록증서 · 무징계증명원 · 보험증서 70억 · 법무사 증명서 · 손해배상</p></div></div>
+      <div class="toc-item hot" data-anim="left"><div class="no">08</div><div><h4>등기비용명세표</h4><p>주택형별 세부 견적 · 취득세 감면 요건 · 등기보수료 항목</p></div></div>
+      <div class="toc-item" data-anim="right"><div class="no">04</div><div><h4>게시판 공지자료</h4><p>설명회 개최 및 대출 개별상담 공지 3종 · 설명회 전경 · 개별 대출상담</p></div></div>
+      <div class="toc-item hot" data-anim="left"><div class="no">09</div><div><h4>잔금대출 지원 방안</h4><p>LTV·DTI·DSR · 소득증빙 · 전세자금 · 기금 · 디딤돌 · 보금자리론 · 은행상품</p></div></div>
+      <div class="toc-item" data-anim="right"><div class="no">05</div><div><h4>입주민 설명회 및 개별대출상담 사진</h4><p>분양전환 입주민 설명회 개최 사진자료 5장</p></div></div>
+      <div class="toc-item" data-anim="left"><div class="no">10</div><div><h4>특별제안</h4><p>단기 브릿지론 — 즉시 매도 세대의 중도상환수수료 절감</p></div></div>
     </div>
   </div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>목차 구성</span></div></div>
 </section>
 
-<!-- ═══════════ 03 본사 · 대표변호사 ═══════════ -->
 <section class="slide divider" data-title="간지 01 · 사무소 소개">
   <div class="dv">
     <div class="dnum" data-anim="popup">01</div>
@@ -1007,7 +1015,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       <ul data-anim="up"><li>서초동 본사 · 대표변호사 박종일</li><li>단체등기 전담 동탄분사무소</li><li>구성원 변호사 6인</li><li>케이탑 법무사합동사무소</li><li>사무소 조직도</li></ul>
     </div>
   </div>
-  <div class="dside" data-anim="left"><div class="cur">01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="dside" data-anim="left"><div class="cur">01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  등기비용명세표</div><div>09  잔금대출 지원 방안</div><div>10  특별제안</div></div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>01 · 사무소 소개</span></div></div>
 </section>
 
@@ -1016,8 +1024,8 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <h2 class="s-title" data-anim="up">법무법인 제이엘은 각 분야의 특화된 변호사들로 구성되어 있습니다</h2>
   <p class="s-sub" data-anim="up">법무법인 제이엘의 남다른 법률서비스로 든든한 파트너가 되겠습니다.</p>
 
-  <div class="s-body">
-    <div class="bio" data-build="1">
+  <div class="s-body" style="flex-direction:column;gap:14px">
+    <div class="bio" data-build="1" style="flex:1">
       <figure class="ph bigface" data-anim="popup">
         <img src="assets/photos/lawyer-park.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
         <figcaption><b>박종일</b><span>대표변호사 · 법무법인 제이엘 서초동 본사</span></figcaption>
@@ -1040,17 +1048,21 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
               <span>서울대학교 대학원 경영학과 수료</span>
               <span>성균관대학교 경영학과 졸업</span></td></tr>
             <tr><th>법인 구성</th><td>
-              변호사 6인 · 법무사 2인 · 사무장 12인, <b>총사원 40여 명</b>
-              <span>분사무소 개설 등 정관 인가 (법무법인 제이엘)</span></td></tr>
+              변호사 6인 · 법무사 2인 · 사무장 12인, <b>총사원 40여 명</b></td></tr>
           </tbody>
         </table>
       </div>
+    </div>
+
+    <div class="certs" data-build-self data-anim="up" style="grid-template-columns:repeat(3,1fr);height:158px;flex:none">
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/office-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>서초동 본사</figcaption></figure>
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/office-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분사무소 개설 등</figcaption></figure>
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/office-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>정관 인가 (법무법인 제이엘)</figcaption></figure>
     </div>
   </div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>01 · 사무소 소개</span></div></div>
 </section>
 
-<!-- ═══════════ 04 동탄분사무소 ═══════════ -->
 <section class="slide" data-title="동탄분사무소">
   <div class="s-kicker" data-anim="right">01 · 사무소 소개</div>
   <h2 class="s-title" data-anim="up">단체등기 전담 <em>동탄분사무소</em>에 등기 전담인력 30명이 상주합니다</h2>
@@ -1095,7 +1107,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>01 · 사무소 소개</span></div></div>
 </section>
 
-<!-- ═══════════ 05 구성원 변호사 ═══════════ -->
 <section class="slide" data-title="구성원 변호사">
   <div class="s-kicker" data-anim="right">01 · 사무소 소개</div>
   <h2 class="s-title" data-anim="up">법무법인 제이엘 구성원 변호사 소개</h2>
@@ -1168,7 +1179,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>01 · 사무소 소개</span></div></div>
 </section>
 
-<!-- ═══════════ 06 케이탑 법무사합동사무소 ═══════════ -->
 <section class="slide" data-title="케이탑 법무사합동사무소">
   <div class="s-kicker" data-anim="right">01 · 사무소 소개</div>
   <h2 class="s-title" data-anim="up">케이탑 법무사합동사무소는 <em>전국 90여 개 입주자협의회</em>의 지정 법무사입니다</h2>
@@ -1225,7 +1235,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>01 · 사무소 소개</span></div></div>
 </section>
 
-<!-- ═══════════ 07 조직도 ═══════════ -->
 <section class="slide" data-title="사무소 조직도">
   <div class="s-kicker" data-anim="right">01 · 사무소 소개</div>
   <h2 class="s-title" data-anim="up">사무소 조직도</h2>
@@ -1268,7 +1277,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>01 · 사무소 소개</span></div></div>
 </section>
 
-<!-- ═══════════ 08 실적 요약 ═══════════ -->
 <section class="slide divider" data-title="간지 02 · 단체등기 수임 실적">
   <div class="dv">
     <div class="dnum" data-anim="popup">02</div>
@@ -1278,7 +1286,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       <ul data-anim="up"><li>2021 ~ 2026년 분양전환등기 실적 49개 단지 39,080세대</li><li>연도별 · 사업유형별 집계</li><li>LH공사 업무수행 실적</li></ul>
     </div>
   </div>
-  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div class="cur">02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div class="cur">02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  등기비용명세표</div><div>09  잔금대출 지원 방안</div><div>10  특별제안</div></div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>02 · 단체등기 수임 실적</span></div></div>
 </section>
 
@@ -1314,7 +1322,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>02 · 수임 실적</span></div></div>
 </section>
 
-<!-- ═══════════ 09 연도별 · 유형별 ═══════════ -->
 <section class="slide" data-title="연도별·유형별 실적">
   <div class="s-kicker" data-anim="right">02 · 단체등기 수임 실적</div>
   <h2 class="s-title" data-anim="up">2023년 이후 매년 <em>5천 세대 이상</em>을 계속 수행하고 있습니다</h2>
@@ -1378,7 +1385,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>02 · 수임 실적</span></div></div>
 </section>
 
-<!-- ═══════════ 10 실적 ① 2021~2023 ═══════════ -->
 <section class="slide" data-title="분양전환등기 실적 ① 2021~2023">
   <div class="s-kicker" data-anim="right">02 · 단체등기 수임 실적</div>
   <h2 class="s-title" data-anim="up">2021 ~ 2023년도 분양전환등기 실적 <span style="font-size:20px;font-weight:600;color:var(--gray)">(제이엘 &amp; 케이탑)</span></h2>
@@ -1419,7 +1425,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>02 · 수임 실적 ①</span></div></div>
 </section>
 
-<!-- ═══════════ 11 실적 ② 2024 ═══════════ -->
 <section class="slide" data-title="분양전환등기 실적 ② 2024">
   <div class="s-kicker" data-anim="right">02 · 단체등기 수임 실적</div>
   <h2 class="s-title" data-anim="up">2024년도 분양전환등기 실적 <span style="font-size:20px;font-weight:600;color:var(--gray)">(제이엘 &amp; 케이탑) — 18개 단지 15,570세대</span></h2>
@@ -1462,32 +1467,52 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>02 · 수임 실적 ②</span></div></div>
 </section>
 
-<!-- ═══════════ 12 실적 ③ 2025~2026 ═══════════ -->
-<section class="slide" data-title="분양전환등기 실적 ③ 2025~2026">
+<section class="slide" data-title="분양전환등기 실적 ③ 2025년">
   <div class="s-kicker" data-anim="right">02 · 단체등기 수임 실적</div>
-  <h2 class="s-title" data-anim="up">2025 ~ 2026년도 분양전환등기 실적 <span style="font-size:20px;font-weight:600;color:var(--gray)">(제이엘 &amp; 케이탑) — 14개 단지 8,875세대</span></h2>
+  <h2 class="s-title" data-anim="up">2025년도 분양전환등기 실적 <span style="font-size:20px;font-weight:600;color:var(--gray)">(제이엘 &amp; 케이탑) — 8개 단지 5,262세대</span></h2>
 
-  <div class="s-body" style="flex-direction:column;gap:12px;">
-    <table class="tbl" style="font-size:12.8px">
+  <div class="s-body" style="flex-direction:column;gap:14px;">
+    <table class="tbl oneup" style="font-size:23px">
       <thead><tr>
-        <th style="width:96px">계약 시기</th><th>단지명</th><th style="width:104px">유형</th><th class="c" style="width:88px">세대수</th>
-        <th style="width:96px">계약 시기</th><th>단지명</th><th style="width:104px">유형</th><th class="c" style="width:88px">세대수</th>
+        <th style="width:150px">계약 시기</th><th>단지명</th><th style="width:150px">유형</th><th class="c" style="width:130px">세대수</th>
       </tr></thead>
-      <tbody data-build="3">
-        <tr data-anim="right"><td>2025.01</td><td class="nm">시흥배곧 센텀베이 1차</td><td><span class="tag rt">리츠 9호</span></td><td class="r">689</td>
-            <td>2025.08</td><td class="nm">시흥 네이처뷰</td><td><span class="tag rt">리츠 10호</span></td><td class="r">620</td></tr>
-        <tr data-anim="right"><td>2025.02</td><td class="nm">고양향동 DMC하우스디</td><td><span class="tag rt">리츠 10호</span></td><td class="r">403</td>
-            <td>2026.01</td><td class="nm">안성 아양 하우스디</td><td><span class="tag rt">리츠 10호</span></td><td class="r">443</td></tr>
-        <tr data-anim="right"><td>2025.03</td><td class="nm">부천옥길 센트럴힐</td><td><span class="tag lh">공임</span></td><td class="r">913</td>
-            <td>2026.03</td><td class="nm">동탄2 엘크루</td><td><span class="tag rt">리츠 10호</span></td><td class="r">526</td></tr>
-        <tr data-anim="right"><td>2025.07</td><td class="nm">양주옥정 GS건설 제이드웰</td><td><span class="tag rt">리츠 8호</span></td><td class="r">947</td>
-            <td>2026.05</td><td class="nm">전주 효천 리버클래스</td><td><span class="tag rt">리츠 11호</span></td><td class="r">818</td></tr>
-        <tr data-anim="right"><td>2025.07</td><td class="nm">제천 강저 리슈빌</td><td><span class="tag rt">리츠 9호</span></td><td class="r">565</td>
-            <td>2026.05</td><td class="nm">진주 경남 혁신 10단지</td><td><span class="tag rt">리츠 5호</span></td><td class="r">404</td></tr>
-        <tr data-anim="right"><td>2025.08</td><td class="nm">양주옥정 금호 제이드웰</td><td><span class="tag rt">리츠 8호</span></td><td class="r">526</td>
-            <td>2026.06</td><td class="nm">하남 감일 스윗시티 10단지</td><td><span class="tag lh">공임</span></td><td class="r">753</td></tr>
-        <tr data-anim="right"><td>2025.08</td><td class="nm">시흥 목감 호수품애</td><td><span class="tag rt">리츠 7호</span></td><td class="r">599</td>
-            <td>2026.06</td><td class="nm">하남 감일 스윗시티 1단지</td><td><span class="tag lh">공임</span></td><td class="r">669</td></tr>
+      <tbody data-build="2">
+        <tr data-anim="right"><td>2025.01</td><td class="nm">시흥배곧 센텀베이 1차</td><td><span class="tag rt">리츠 9호</span></td><td class="r">689</td></tr>
+        <tr data-anim="right"><td>2025.08</td><td class="nm">시흥 네이처뷰</td><td><span class="tag rt">리츠 10호</span></td><td class="r">620</td></tr>
+        <tr data-anim="right"><td>2025.02</td><td class="nm">고양향동 DMC하우스디</td><td><span class="tag rt">리츠 10호</span></td><td class="r">403</td></tr>
+        <tr data-anim="right"><td>2025.03</td><td class="nm">부천옥길 센트럴힐</td><td><span class="tag lh">공임</span></td><td class="r">913</td></tr>
+        <tr data-anim="right"><td>2025.07</td><td class="nm">양주옥정 GS건설 제이드웰</td><td><span class="tag rt">리츠 8호</span></td><td class="r">947</td></tr>
+        <tr data-anim="right"><td>2025.07</td><td class="nm">제천 강저 리슈빌</td><td><span class="tag rt">리츠 9호</span></td><td class="r">565</td></tr>
+        <tr data-anim="right"><td>2025.08</td><td class="nm">양주옥정 금호 제이드웰</td><td><span class="tag rt">리츠 8호</span></td><td class="r">526</td></tr>
+        <tr data-anim="right"><td>2025.08</td><td class="nm">시흥 목감 호수품애</td><td><span class="tag rt">리츠 7호</span></td><td class="r">599</td></tr>
+      </tbody>
+    </table>
+    <div class="callout" data-build-self data-anim="up">
+      <div class="ic">!</div>
+      <p><b>[원본 정정]</b> 원본 제안서의 실적표 제목이 네 장 모두 "2021-24년도"로 되어 있으나
+      표 내용에는 2025년 · 2026년 계약이 포함되어 있습니다. <b>실제 연도</b>로 고쳐 적었습니다.
+      또한 원본은 계약 시기가 시간순으로 정렬되어 있지 않아 연도별로 재정렬했습니다.</p>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>02 · 수임 실적 ③</span></div></div>
+</section>
+
+<section class="slide" data-title="분양전환등기 실적 ④ 2026년">
+  <div class="s-kicker" data-anim="right">02 · 단체등기 수임 실적</div>
+  <h2 class="s-title" data-anim="up">2026년도 분양전환등기 실적 <span style="font-size:20px;font-weight:600;color:var(--gray)">(제이엘 &amp; 케이탑) — 6개 단지 3,613세대</span></h2>
+
+  <div class="s-body" style="flex-direction:column;gap:14px;">
+    <table class="tbl oneup" style="font-size:23px">
+      <thead><tr>
+        <th style="width:150px">계약 시기</th><th>단지명</th><th style="width:150px">유형</th><th class="c" style="width:130px">세대수</th>
+      </tr></thead>
+      <tbody data-build="2">
+        <tr data-anim="right"><td>2026.01</td><td class="nm">안성 아양 하우스디</td><td><span class="tag rt">리츠 10호</span></td><td class="r">443</td></tr>
+        <tr data-anim="right"><td>2026.03</td><td class="nm">동탄2 엘크루</td><td><span class="tag rt">리츠 10호</span></td><td class="r">526</td></tr>
+        <tr data-anim="right"><td>2026.05</td><td class="nm">전주 효천 리버클래스</td><td><span class="tag rt">리츠 11호</span></td><td class="r">818</td></tr>
+        <tr data-anim="right"><td>2026.05</td><td class="nm">진주 경남 혁신 10단지</td><td><span class="tag rt">리츠 5호</span></td><td class="r">404</td></tr>
+        <tr data-anim="right"><td>2026.06</td><td class="nm">하남 감일 스윗시티 10단지</td><td><span class="tag lh">공임</span></td><td class="r">753</td></tr>
+        <tr data-anim="right"><td>2026.06</td><td class="nm">하남 감일 스윗시티 1단지</td><td><span class="tag lh">공임</span></td><td class="r">669</td></tr>
       </tbody>
     </table>
     <div class="cards c4 compact" data-build="2" style="gap:12px">
@@ -1508,17 +1533,42 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         <div style="font-size:40px;font-weight:900;color:var(--navy);letter-spacing:-.04em;line-height:1">15<span style="font-size:18px;margin-left:4px">개 · 12,338세대</span></div>
       </div>
     </div>
-
-    <div class="callout" data-build-self data-anim="up">
-      <div class="ic">!</div>
-      <p><b>[원본 정정]</b> 원본 제안서의 실적표 제목이 모두 "2021-24년도"로 되어 있으나 표 내용에는 2025년·2026년 계약이 포함되어 있습니다.
-      <b>"2021~2026년도"</b>로 수정했습니다. 또한 원본은 계약 시기가 시간순으로 정렬되어 있지 않아 연도별로 재정렬했습니다.</p>
-    </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>02 · 수임 실적 ③</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>02 · 수임 실적 ④</span></div></div>
 </section>
 
-<!-- ═══════════ 13 LH 업무수행 실적 ═══════════ -->
+<section class="slide" data-title="업무 협약 체결">
+  <div class="s-kicker" data-anim="right">02 · 단체등기 수임 실적</div>
+  <h2 class="s-title" data-anim="up">단체등기 수임실적 <em>업무 협약 체결</em> <span style="font-size:20px;font-weight:600;color:var(--gray)">(2023년 3월 25일)</span></h2>
+  <p class="s-sub" data-anim="up">10년 공공임대리츠 (NHF) 총연합회와 법률자문계약을 체결했습니다.
+    <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
+  <div class="s-body" style="gap:16px">
+    <div class="mosaic" style="grid-template-columns:1.25fr 1fr;grid-template-rows:minmax(0,1fr);flex:1">
+      <figure class="ph" data-anim="popup"><img src="assets/photos/mou-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>10년공공임대리츠 (NHF) 총연합회 법률자문계약 체결<span class="fn">mou-01.jpg</span></figcaption></figure>
+      <figure class="ph" data-anim="popup"><img src="assets/photos/mou-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>업무 협약 체결 현장<span class="fn">mou-02.jpg</span></figcaption></figure>
+    </div>
+    <div class="stackbox" data-build-self data-anim="left" style="width:290px;flex:none;display:flex;flex-direction:column;justify-content:center;gap:14px">
+      <div>
+        <div style="font-size:14px;font-weight:800;color:var(--blue);letter-spacing:.05em;margin-bottom:5px">체결일</div>
+        <div style="font-size:29px;font-weight:900;color:var(--navy);letter-spacing:-.03em">2023. 03. 25</div>
+      </div>
+      <div>
+        <div style="font-size:14px;font-weight:800;color:var(--blue);letter-spacing:.05em;margin-bottom:5px">상대방</div>
+        <div style="font-size:20px;font-weight:800;color:var(--navy);line-height:1.35">10년 공공임대리츠 (NHF)<br>총연합회</div>
+      </div>
+      <div>
+        <div style="font-size:14px;font-weight:800;color:var(--blue);letter-spacing:.05em;margin-bottom:5px">계약 성격</div>
+        <div style="font-size:20px;font-weight:800;color:var(--red)">법률자문계약</div>
+      </div>
+      <div style="font-size:15.5px;color:var(--gray);line-height:1.5;border-top:1px solid var(--line);padding-top:12px">
+        이 협약 이후 리츠 단지의 분양전환등기 수임이 집중되어,
+        현재 <b>공공임대리츠 34개 단지 26,742세대</b>를 수행하고 있습니다.
+      </div>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>02 · 업무 협약 체결</span></div></div>
+</section>
+
 <section class="slide" data-title="LH공사 업무수행 실적">
   <div class="s-kicker" data-anim="right">02 · 단체등기 수임 실적</div>
   <h2 class="s-title" data-anim="up">LH 본사 전자등기대행 <em>지정법무사</em>로 등록되어 있습니다</h2>
@@ -1569,7 +1619,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>02 · 수임 실적</span></div></div>
 </section>
 
-<!-- ═══════════ 14 제출 및 증명 서류 ═══════════ -->
 <section class="slide divider" data-title="간지 03 · 제출 및 증명 서류">
   <div class="dv">
     <div class="dnum" data-anim="popup">03</div>
@@ -1579,27 +1628,74 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       <ul data-anim="up"><li>변호사 등록증서 · 무징계증명원</li><li>배상책임보험 70억 원</li><li>법무사 증명서 · 손해배상 각 2억 원</li></ul>
     </div>
   </div>
-  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div class="cur">03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div class="cur">03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  등기비용명세표</div><div>09  잔금대출 지원 방안</div><div>10  특별제안</div></div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>03 · 제출 및 증명 서류</span></div></div>
 </section>
 
 <section class="slide" data-title="제출 및 증명 서류 ①">
   <div class="s-kicker" data-anim="right">03 · 제출 및 증명 서류</div>
   <h2 class="s-title" data-anim="up">자료제출 및 증명서 — <em>법무법인</em></h2>
-  <p class="s-sub" data-anim="up">명칭 법무법인 제이엘 · 주사무소 서울특별시 서초구 서초대로 53길 15, 401호(서초동)
-    <span class="zoomhint" style="margin-left:10px"><i></i>서류를 누르면 전체화면으로 확대됩니다</span></p>
-  <div class="s-body">
-    <div class="certs" data-build="1" style="grid-template-columns:repeat(4,1fr)">
-      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무법인 제이엘 구성원 변호사 등록증서</figcaption></figure>
-      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무법인 제이엘 구성원 변호사 무징계증명원</figcaption></figure>
-      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무법인 제이엘 보험증서 (70억)</figcaption></figure>
-      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무법인 제이엘 / 케이탑 증명원<br>(4대 보험 사업장 가입자 명부)</figcaption></figure>
+  <p class="s-sub" data-anim="up">입주자대표회의에 제출하는 자격·보증 증빙 일람입니다.</p>
+
+  <div class="s-body" style="flex-direction:column;gap:16px">
+    <table class="tbl" data-build-self data-anim="up" style="font-size:18px">
+      <tbody>
+        <tr><th style="width:190px">명칭</th><td class="nm">법무법인 제이엘</td></tr>
+        <tr><th>주사무소</th><td class="nm">서울특별시 서초구 서초대로 53길 15, 401호 (서초동)</td></tr>
+      </tbody>
+    </table>
+    <div class="cards c2" data-build="2" style="flex:1;min-height:0;gap:16px">
+      <div class="card tint" data-anim="popup">
+        <h4>법무법인 제이엘 제출 서류</h4>
+        <ul>
+          <li><b>①</b> 구성원 변호사 등록증서</li>
+          <li><b>②</b> 구성원 변호사 무징계증명원</li>
+          <li><b>③</b> 보험증서 <b>70억</b></li>
+          <li><b>④</b> 제이엘 / 케이탑 증명원 — 4대 보험 사업장 가입자 명부</li>
+        </ul>
+      </div>
+      <div class="card tint" data-anim="popup">
+        <h4>케이탑 법무사합동사무소 제출 서류</h4>
+        <ul>
+          <li><b>⑤</b> 법무사 증명서</li>
+          <li><b>⑥</b> 대표법무사 유태인 — 손해배상 <b>2억</b></li>
+          <li><b>⑦</b> 대표법무사 여운성 — 손해배상 <b>2억</b></li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>03 · 제출 및 증명 서류 ①</span></div></div>
 </section>
 
 <section class="slide" data-title="제출 및 증명 서류 ②">
+  <div class="s-kicker" data-anim="right">03 · 제출 및 증명 서류</div>
+  <h2 class="s-title" data-anim="up">구성원 변호사 <em>등록증서</em> 및 <em>무징계증명원</em></h2>
+  <p class="s-sub" data-anim="up">대한변호사협회 발급 — 구성원 변호사 전원의 자격과 징계 이력을 증빙합니다.
+    <span class="zoomhint" style="margin-left:10px"><i></i>서류을 누르면 전체화면으로 확대됩니다</span></p>
+  <div class="s-body">
+    <div class="certs" data-build="1" style="grid-template-columns:repeat(2,1fr)">
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무법인 제이엘 구성원 변호사 등록증서</figcaption></figure>
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무법인 제이엘 구성원 변호사 무징계증명원</figcaption></figure>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>03 · 제출 및 증명 서류 ②</span></div></div>
+</section>
+
+<section class="slide" data-title="제출 및 증명 서류 ③">
+  <div class="s-kicker" data-anim="right">03 · 제출 및 증명 서류</div>
+  <h2 class="s-title" data-anim="up">보험증서 <em>70억</em> 및 <em>사업장 가입자 명부</em></h2>
+  <p class="s-sub" data-anim="up">손해배상 담보 능력과 실제 근무 인력을 증빙합니다.
+    <span class="zoomhint" style="margin-left:10px"><i></i>서류을 누르면 전체화면으로 확대됩니다</span></p>
+  <div class="s-body">
+    <div class="certs" data-build="1" style="grid-template-columns:repeat(2,1fr)">
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무법인 제이엘 보험증서 (70억)</figcaption></figure>
+      <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>법무법인 제이엘 / 케이탑 증명원<br>(4대 보험 사업장 가입자 명부)</figcaption></figure>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>03 · 제출 및 증명 서류 ③</span></div></div>
+</section>
+
+<section class="slide" data-title="제출 및 증명 서류 ④">
   <div class="s-kicker" data-anim="right">03 · 제출 및 증명 서류</div>
   <h2 class="s-title" data-anim="up">법무사 증명서 및 <em>손해배상</em> 가입 증빙</h2>
   <p class="s-sub" data-anim="up">케이탑 법무사합동사무소 · 화성시 동탄순환대로 127-5, 우성센트럴타워 907호
@@ -1611,10 +1707,9 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       <figure class="ph cert" data-anim="popup"><img src="assets/photos/cert-07.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>대표법무사 여운성 — 손해배상 2억</figcaption></figure>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>03 · 제출 및 증명 서류 ②</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>03 · 제출 및 증명 서류 ④</span></div></div>
 </section>
 
-<!-- ═══════════ 15 게시판 공지자료 ═══════════ -->
 <section class="slide divider" data-title="간지 04 · 게시판 공지자료">
   <div class="dv">
     <div class="dnum" data-anim="popup">04</div>
@@ -1624,7 +1719,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       <ul data-anim="up"><li>설명회 개최 및 대출 개별상담 개최공지</li></ul>
     </div>
   </div>
-  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div class="cur">04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div class="cur">04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  등기비용명세표</div><div>09  잔금대출 지원 방안</div><div>10  특별제안</div></div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>04 · 게시판 공지자료</span></div></div>
 </section>
 
@@ -1667,7 +1762,20 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>04 · 게시판 공지자료 ③</span></div></div>
 </section>
 
-<!-- ═══════════ 16 설명회 및 개별 대출상담 사진 ═══════════ -->
+<section class="slide" data-title="게시판 공지자료 ④ 설명회 전경 · 개별 대출상담">
+  <div class="s-kicker" data-anim="right">04 · 게시판 공지자료</div>
+  <h2 class="s-title" data-anim="up"><em>입주민 설명회 전경</em> 및 <em>개별 대출상담</em> 사진</h2>
+  <p class="s-sub" data-anim="up">공지 이후 실제로 진행한 설명회와 개별 대출상담 현장입니다.
+    <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
+  <div class="s-body">
+    <div class="mosaic" data-build="1" style="grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr)">
+      <figure class="ph" data-anim="popup"><img src="assets/photos/seminar-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>입주민 설명회 전경<span class="fn">seminar-01.jpg</span></figcaption></figure>
+      <figure class="ph" data-anim="popup"><img src="assets/photos/consult-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>개별 대출상담 사진<span class="fn">consult-01.jpg</span></figcaption></figure>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>04 · 설명회 전경 · 개별 대출상담</span></div></div>
+</section>
+
 <section class="slide divider" data-title="간지 05 · 입주민 설명회 및 개별대출상담 사진">
   <div class="dv">
     <div class="dnum" data-anim="popup">05</div>
@@ -1677,19 +1785,19 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       <ul data-anim="up"><li>입주민 설명회 전경</li><li>개별 대출상담 사진</li></ul>
     </div>
   </div>
-  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div class="cur">05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div class="cur">05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  등기비용명세표</div><div>09  잔금대출 지원 방안</div><div>10  특별제안</div></div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 입주민 설명회 및 개별대출상담 사진</span></div></div>
 </section>
 
 <section class="slide" data-title="입주민 설명회 사진 ①">
   <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
-  <h2 class="s-title" data-anim="up">입주민 설명회 전경</h2>
+  <h2 class="s-title" data-anim="up">분양전환 입주민 설명회 개최 <em>사진자료</em> ①</h2>
   <p class="s-sub" data-anim="up">전체 입주민을 상대로 개최한 분양전환 설명회입니다.
     <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
   <div class="s-body">
-    <div class="mosaic" style="grid-template-columns:1.35fr 1fr;grid-template-rows:1fr">
-      <figure class="ph " data-anim="popup"><img src="assets/photos/seminar-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>입주민 설명회 전경<span class="fn">seminar-01.jpg</span></figcaption></figure>
-      <figure class="ph " data-anim="popup"><img src="assets/photos/seminar-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-02.jpg</span></figcaption></figure>
+    <div class="mosaic" data-build="1" style="grid-template-columns:1.35fr 1fr;grid-template-rows:minmax(0,1fr)">
+      <figure class="ph" data-anim="popup"><img src="assets/photos/seminar-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-02.jpg</span></figcaption></figure>
+      <figure class="ph" data-anim="popup"><img src="assets/photos/seminar-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-03.jpg</span></figcaption></figure>
     </div>
   </div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 설명회 사진 ①</span></div></div>
@@ -1697,47 +1805,60 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 
 <section class="slide" data-title="입주민 설명회 사진 ②">
   <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
-  <h2 class="s-title" data-anim="up">분양전환 입주민 설명회 개최 사진자료</h2>
+  <h2 class="s-title" data-anim="up">분양전환 입주민 설명회 개최 <em>사진자료</em> ②</h2>
   <p class="s-sub" data-anim="up">수행 단지에서 실제 개최한 설명회 현장입니다.
     <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
   <div class="s-body">
-    <div class="mosaic" style="grid-template-columns:1fr 1.35fr;grid-template-rows:1fr">
-      <figure class="ph " data-anim="popup"><img src="assets/photos/seminar-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-03.jpg</span></figcaption></figure>
-      <figure class="ph " data-anim="popup"><img src="assets/photos/seminar-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-04.jpg</span></figcaption></figure>
+    <div class="mosaic" data-build="1" style="grid-template-columns:1fr 1.35fr;grid-template-rows:minmax(0,1fr)">
+      <figure class="ph" data-anim="popup"><img src="assets/photos/seminar-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-04.jpg</span></figcaption></figure>
+      <figure class="ph" data-anim="popup"><img src="assets/photos/seminar-05.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-05.jpg</span></figcaption></figure>
     </div>
   </div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 설명회 사진 ②</span></div></div>
 </section>
 
-<section class="slide" data-title="개별 대출상담 사진 ①">
+<section class="slide" data-title="입주민 설명회 사진 ③">
   <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
-  <h2 class="s-title" data-anim="up">개별 대출상담 사진</h2>
-  <p class="s-sub" data-anim="up">설명회 직후 세대별로 진행한 개별 대출상담입니다. 은행 상담사가 함께 배석합니다.
+  <h2 class="s-title" data-anim="up">분양전환 입주민 설명회 개최 <em>사진자료</em> ③</h2>
+  <p class="s-sub" data-anim="up">분양전환 방법과 진행 일정을 세대별로 설명했습니다.
     <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
   <div class="s-body">
-    <div class="mosaic" style="grid-template-columns:1.35fr 1fr;grid-template-rows:1fr">
-      <figure class="ph " data-anim="popup"><img src="assets/photos/consult-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>개별 대출상담<span class="fn">consult-01.jpg</span></figcaption></figure>
-      <figure class="ph " data-anim="popup"><img src="assets/photos/consult-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>개별 대출상담<span class="fn">consult-02.jpg</span></figcaption></figure>
+    <div class="mosaic" data-build="1" style="grid-template-columns:1fr 1fr;grid-template-rows:minmax(0,1fr)">
+      <figure class="ph" data-anim="popup"><img src="assets/photos/seminar-06.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-06.jpg</span></figcaption></figure>
+      <figure class="ph" data-anim="popup"><img src="assets/photos/seminar-07.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-07.jpg</span></figcaption></figure>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 개별 대출상담 ①</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 설명회 사진 ③</span></div></div>
 </section>
 
-<section class="slide" data-title="개별 대출상담 사진 ②">
+<section class="slide" data-title="입주민 설명회 사진 ④">
   <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
-  <h2 class="s-title" data-anim="up">분양전환 입주민 설명회 개최 사진자료</h2>
-  <p class="s-sub" data-anim="up">게시판 공지 → 설명회 → 개별 상담 → 대출 접수를 한 묶음으로 운영합니다.
+  <h2 class="s-title" data-anim="up">분양전환 입주민 설명회 개최 <em>사진자료</em> ④</h2>
+  <p class="s-sub" data-anim="up">우리은행을 비롯한 참여 은행의 개별 대출상담을 함께 진행했습니다.
     <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
   <div class="s-body">
-    <div class="mosaic" style="grid-template-columns:1fr 1.35fr;grid-template-rows:1fr">
-      <figure class="ph " data-anim="popup"><img src="assets/photos/consult-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">consult-03.jpg</span></figcaption></figure>
-      <figure class="ph " data-anim="popup"><img src="assets/photos/consult-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">consult-04.jpg</span></figcaption></figure>
+    <div class="mosaic" data-build="1" style="grid-template-columns:1.2fr 1fr;grid-template-rows:minmax(0,1fr)">
+      <figure class="ph" data-anim="popup"><img src="assets/photos/seminar-08.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-08.jpg</span></figcaption></figure>
+      <figure class="ph" data-anim="popup"><img src="assets/photos/seminar-09.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-09.jpg</span></figcaption></figure>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 개별 대출상담 ②</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 설명회 사진 ④</span></div></div>
 </section>
 
-<!-- ═══════════ 17 계약 체결방식 ═══════════ -->
+<section class="slide" data-title="입주민 설명회 사진 ⑤">
+  <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
+  <h2 class="s-title" data-anim="up">분양전환 입주민 설명회 개최 <em>사진자료</em> ⑤</h2>
+  <p class="s-sub" data-anim="up">설명회 종료 후 동·호수별 개별 접수와 상담을 이어서 진행했습니다.
+    <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
+  <div class="s-body">
+    <div class="mosaic" data-build="1" style="grid-template-columns:1fr 1.2fr;grid-template-rows:minmax(0,1fr)">
+      <figure class="ph" data-anim="popup"><img src="assets/photos/seminar-10.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-10.jpg</span></figcaption></figure>
+      <figure class="ph" data-anim="popup"><img src="assets/photos/seminar-11.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')"><figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-11.jpg</span></figcaption></figure>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 설명회 사진 ⑤</span></div></div>
+</section>
+
 <section class="slide divider" data-title="간지 06 · 분양전환계약 진행방법 및 일정">
   <div class="dv">
     <div class="dnum" data-anim="popup">06</div>
@@ -1747,7 +1868,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       <ul data-anim="up"><li>계약 체결방식 3가지</li><li>일시납 · 분할납부 자금 구조</li><li>저소득층 · 국가유공자 분할납부</li><li>조기분양전환 진행 Step 1 ~ 4</li><li>계약서 및 관계 서류 · 월 부담 비교</li></ul>
     </div>
   </div>
-  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div class="cur">06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div class="cur">06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  등기비용명세표</div><div>09  잔금대출 지원 방안</div><div>10  특별제안</div></div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>06 · 분양전환계약 진행방법 및 일정</span></div></div>
 </section>
 
@@ -1798,7 +1919,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>06 · 계약 진행방법</span></div></div>
 </section>
 
-<!-- ═══════════ 18 자금 구조 ═══════════ -->
 <section class="slide" data-title="일시납 · 분할납부 자금 구조">
   <div class="s-kicker" data-anim="right">06 · 분양전환계약 진행방법 및 일정</div>
   <h2 class="s-title" data-anim="up">두 방식의 <em>자금 구조</em>가 어떻게 다른지 보시면 선택이 쉬워집니다</h2>
@@ -1856,7 +1976,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>06 · 계약 진행방법</span></div></div>
 </section>
 
-<!-- ═══════════ 19 저소득층 · 국가유공자 자격 ═══════════ -->
 <section class="slide" data-title="저소득층 · 국가유공자 분할납부">
   <div class="chk" data-anim="down">2025년 기준 · <b>2026년 고시 기준으로 갱신 필요</b></div>
   <div class="s-kicker" data-anim="right">06 · 분양전환계약 진행방법 및 일정</div>
@@ -1921,7 +2040,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>06 · 계약 진행방법</span></div></div>
 </section>
 
-<!-- ═══════════ 20 진행 Step 1~4 ═══════════ -->
 <section class="slide" data-title="조기분양전환 진행 절차">
   <div class="s-kicker" data-anim="right">06 · 분양전환계약 진행방법 및 일정</div>
   <h2 class="s-title" data-anim="up">조기분양전환 진행사항 및 일정 — <em>Step 1 ~ 4</em></h2>
@@ -1988,7 +2106,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>06 · 계약 진행방법</span></div></div>
 </section>
 
-<!-- ═══════════ 21 월 부담 비교 ═══════════ -->
 <section class="slide" data-title="분양전환 계약서 및 관계 서류">
   <div class="s-kicker" data-anim="right">06 · 분양전환계약 진행방법 및 일정</div>
   <h2 class="s-title" data-anim="up">실제 <em>계약서와 관계 서류</em>를 보며 짚어드립니다</h2>
@@ -2070,7 +2187,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>06 · 계약 진행방법</span></div></div>
 </section>
 
-<!-- ═══════════ 22 당일 소유권이전등기 ═══════════ -->
 <section class="slide divider" data-title="간지 07 · 소유권이전등기 방안">
   <div class="dv">
     <div class="dnum" data-anim="popup">07</div>
@@ -2080,7 +2196,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       <ul data-anim="up"><li>당일등기 업무 진행 예상도 10단계</li><li>분할납부 세대 절차</li><li>부부 공동명의 변경</li></ul>
     </div>
   </div>
-  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div class="cur">07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div class="cur">07  소유권이전등기 방안</div><div>08  등기비용명세표</div><div>09  잔금대출 지원 방안</div><div>10  특별제안</div></div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>07 · 소유권이전등기 방안</span></div></div>
 </section>
 
@@ -2130,7 +2246,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>07 · 소유권이전등기</span></div></div>
 </section>
 
-<!-- ═══════════ 23 분할납부 세대 · 공동명의 ═══════════ -->
 <section class="slide" data-title="분할납부 세대 · 부부 공동명의">
   <div class="s-kicker" data-anim="right">07 · 소유권이전등기 방안</div>
   <h2 class="s-title" data-anim="up">분할납부 세대와 <em>부부 공동명의</em> 세대는 절차가 다릅니다</h2>
@@ -2181,22 +2296,194 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>07 · 소유권이전등기</span></div></div>
 </section>
 
-<!-- ═══════════ 24 대출 한도 지표 ═══════════ -->
-<section class="slide divider" data-title="간지 08 · 잔금대출 지원 방안">
+<section class="slide divider" data-title="간지 08 · 등기비용명세표">
   <div class="dv">
     <div class="dnum" data-anim="popup">08</div>
+    <div class="dtxt">
+      <h2 data-anim="up">등기비용명세표</h2>
+      <div class="drule" data-anim="wipe"></div>
+      <ul data-anim="up"><li>주택형별 등기비용 세부견적</li><li>취득세 감면 요건</li><li>등기보수료 및 공과금 항목</li></ul>
+    </div>
+  </div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div class="cur">08  등기비용명세표</div><div>09  잔금대출 지원 방안</div><div>10  특별제안</div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 등기비용명세표</span></div></div>
+</section>
+
+<section class="slide" data-title="등기비용 명세표">
+  <div class="chk" data-anim="down">분양전환 예상가는 <b>휴아림 실제 예상가로 교체 필요</b></div>
+  <div class="s-kicker" data-anim="right">08 · 등기비용명세표 (등기비용명세서)</div>
+  <h2 class="s-title" data-anim="up">항목별 등기비용 세부견적 제안 — <span style="font-size:20px;font-weight:600;color:var(--gray)">아파트 분양전환 등기비용 예시 (단위 : 원)</span></h2>
+
+  <div class="s-body" style="flex-direction:column;gap:13px;">
+    <table class="tbl" style="font-size:13.4px">
+      <thead>
+        <tr><th rowspan="2" style="width:76px">주택형</th><th rowspan="2" class="c">분양전환 예상가</th>
+          <th rowspan="2" class="c">취득세<br><small style="font-weight:400;opacity:.7">분양가 × 1.1%</small></th>
+          <th colspan="2" class="c" style="text-align:center">국민주택채권</th>
+          <th rowspan="2" class="c">인지·증지</th><th rowspan="2" class="c">제비용</th>
+          <th colspan="2" class="c" style="text-align:center">등기비용 합계</th></tr>
+        <tr><th class="c" style="font-size:11.5px">매입</th><th class="c" style="font-size:11.5px">할인 (15%)</th>
+          <th class="c" style="font-size:11.5px">채권 매입 시</th><th class="c" style="font-size:11.5px">채권 할인 시</th></tr>
+      </thead>
+      <tbody data-build="1">
+        <tr data-anim="right">
+          <td class="nm">59형</td><td class="r">320,000,000</td><td class="r">3,520,000</td>
+          <td class="r">3,690,000</td><td class="r">553,500</td><td class="r">168,000</td><td class="r">25,000</td>
+          <td class="r">7,403,000</td><td class="r" style="font-weight:800;color:var(--navy)">4,266,500</td></tr>
+        <tr data-anim="right">
+          <td class="nm">74형</td><td class="r">370,000,000</td><td class="r">4,070,000</td>
+          <td class="r">4,340,000</td><td class="r">651,000</td><td class="r">168,000</td><td class="r">25,000</td>
+          <td class="r">8,603,000</td><td class="r fix">4,914,000 <span class="old">5,184,000</span></td></tr>
+        <tr data-anim="right">
+          <td class="nm">84형</td><td class="r">420,000,000</td><td class="r">4,620,000</td>
+          <td class="r">4,640,000</td><td class="r">696,000</td><td class="r">168,000</td><td class="r">25,000</td>
+          <td class="r fix">9,453,000 <span class="old">9,791,000</span></td><td class="r fix">5,509,000 <span class="old">5,529,000</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="cards c2" data-build="2" style="gap:13px">
+      <div class="card tint" data-anim="right">
+        <ul style="margin:0">
+          <li>채권 매입 가격 기준은 <b>공동주택 공시가격</b>으로 산출됩니다 (세대별 차등 적용)</li>
+          <li>대출이 있는 경우 <b>근저당권 설정 채권 할인대가</b>가 추가됩니다</li>
+          <li>채권 할인율은 <b>15%</b>로 적용되었으며 증감될 수 있습니다</li>
+        </ul>
+      </div>
+      <div class="card hot" data-anim="left">
+        <ul style="margin:0">
+          <li><b>표의 합계는 공과금 기준이며 등기보수료는 별도입니다</b></li>
+          <li>취득세 · 지방교육세 · 농어촌특별세 · 국민주택채권 · 인지대 · 증지대 · 제비용은 <b>입주민 부담</b>입니다</li>
+          <li class="hi">채권을 즉시 할인 매도하면 세대당 <b>310 ~ 394만 원</b>의 부담이 줄어듭니다</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="font-size:11.5px;color:var(--red);font-weight:700;line-height:1.6" data-build-self data-anim="fade">
+      ※ 붉은 숫자는 원안 대비 정정한 합계입니다 — 74형 채권 할인 시 −270,000원 / 84형 채권 매입 시 −338,000원 · 채권 할인 시 −20,000원.
+      (검산식 : 취득세 ＋ 채권 ＋ 인지·증지 ＋ 제비용) 확정 전 재검토 바랍니다.
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 등기비용명세표</span></div></div>
+</section>
+
+<section class="slide" data-title="취득세 감면 요건">
+  <div class="s-kicker" data-anim="right">08 · 등기비용명세표</div>
+  <h2 class="s-title" data-anim="up">요건을 갖추면 <em>취득세 전액</em>이 감면될 수 있습니다</h2>
+  <p class="s-sub" data-anim="up">감면에는 사후관리 조건이 함께 붙습니다. 조건 위반 시 감면세액이 추징됩니다.</p>
+
+  <div class="s-body">
+    <div class="cmp" data-build="1" style="grid-template-columns:1fr 1fr .8fr">
+      <div class="cmp-card" data-anim="popup">
+        <div class="cmp-head"><h4>생애최초 주택 구입 감면</h4><span class="tagx">경기도 100% 감면 조건</span></div>
+        <div class="cmp-body">
+          <div class="money">
+            <div class="row"><span>A. 일반</span><b>취득세 220만 원 감면</b></div>
+            <div class="row" style="margin-bottom:0"><span>B. 주택가격 4억 이하</span><b>전액 감면</b></div>
+          </div>
+          <div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:8px;">생애최초 취득세 감면요건<br><span style="font-weight:600;color:var(--gray);font-size:12px">경기도만 해당 — 100% 감면 조건</span></div>
+          <div class="pt"><span><b>1.</b> 부부합산소득 <b>1억 이하</b></span></div>
+          <div class="pt"><span><b>2.</b> 성년 또는 미성년 <b>자녀 1명 이상</b> 합가세대</span></div>
+        </div>
+      </div>
+
+      <div class="cmp-card b" data-anim="popup">
+        <div class="cmp-head"><h4>[24년 출생] 신생아 취득세 감면요건</h4><span class="tagx">2024.1.1 ~ 2028.12.31</span></div>
+        <div class="cmp-body">
+          <div class="money">
+            <div class="row" style="margin-bottom:0"><span>적용기한</span><b>2024.1.1 ~ 2028.12.31</b></div>
+          </div>
+          <div class="pt"><span><b>ⓐ</b> 실거주</span></div>
+          <div class="pt"><span><b>ⓑ</b> <b>3년 동안</b> 매매, 증여 등 양도행위 불가</span></div>
+          <div class="pt"><span><b>ⓒ</b> 가족관계증명서에 <b>출산 자녀 기재</b> 필수</span></div>
+          <div class="note">2024년 이후 출생한 자녀가 있는 세대가 대상입니다.
+          적용기한이 2028년 12월 31일까지이므로 현재 유효합니다.</div>
+        </div>
+      </div>
+
+      <div class="cmp-card" data-anim="popup">
+        <div class="cmp-head" style="background:var(--gold);color:#3A2E05"><h4>생애최초 사후관리</h4><span class="tagx" style="background:rgba(0,0,0,.14)">위반 시 추징</span></div>
+        <div class="cmp-body">
+          <div class="pt"><span><b>ⓐ</b> <b>세입자 전입 불가</b> (본인 실거주)</span></div>
+          <div class="pt"><span><b>ⓑ</b> <b>3년 동안</b> 매매, 증여 등 양도행위 불가</span></div>
+          <div class="callout" style="margin-top:14px;padding:12px 15px">
+            <div class="ic" style="width:20px;height:20px;font-size:12px">!</div>
+            <p style="font-size:13px">브릿지론을 이용한 <b>즉시 매도</b>를 계획하는 세대는 감면 요건의 <b>3년 양도 제한</b>과 충돌할 수 있습니다.
+            개별 상담에서 감면 신청 여부를 먼저 결정하셔야 합니다.</p>
+          </div>
+          <div class="note">국가유공자 세대는 나라사랑대출(보훈처 대출) 이용 시 <b>취득세 100% 감면</b> 대상입니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 등기비용명세표</span></div></div>
+</section>
+
+<section class="slide" data-title="등기보수료 항목">
+  <div class="s-kicker" data-anim="right">08 · 등기비용명세표</div>
+  <h2 class="s-title" data-anim="up">항목별 등기비용 세부견적 제안 — <em>등기보수료</em>를 제안드립니다</h2>
+  <p class="s-sub" data-anim="up">분양전환 기간 1년 이내 기준 · 각종 공과금은 입주민 부담</p>
+
+  <div class="s-body">
+    <div class="cmp" data-build="1">
+      <div class="cmp-card" data-anim="right">
+        <div class="cmp-head"><h4>등기보수료</h4><span class="tagx">최저 수수료 진행</span></div>
+        <div class="cmp-body">
+          <table class="tbl">
+            <thead><tr><th>세부항목</th><th class="c" style="width:160px">등기보수료</th></tr></thead>
+            <tbody>
+              <tr><td class="nm">등기수수료</td><td class="c" rowspan="7" style="vertical-align:middle;font-size:1.18em;font-weight:800;color:var(--red);background:var(--red-pale)">최저 수수료<br>진행</td></tr>
+              <tr><td class="nm">부가세</td></tr>
+              <tr><td class="nm">원인서류 작성료</td></tr>
+              <tr><td class="nm">등록대행료</td></tr>
+              <tr><td class="nm">검인대행료</td></tr>
+              <tr><td class="nm">교통비</td></tr>
+              <tr><td class="nm">송달료</td></tr>
+            </tbody>
+          </table>
+          <div class="note" style="color:var(--red);border-color:rgba(192,57,43,.3)">
+            [보완 권장] 경쟁 제안에서는 이 항목이 결정 요인이 됩니다.
+            "최저 수수료"라는 표현 대신 <b>세대당 확정 금액</b>을 기재하시길 권합니다.
+          </div>
+        </div>
+      </div>
+
+      <div class="cmp-card b" data-anim="left">
+        <div class="cmp-head"><h4>공과금</h4><span class="tagx">입주민 부담</span></div>
+        <div class="cmp-body">
+          <table class="tbl">
+            <thead><tr><th>세부항목</th><th class="c" style="width:160px">공과금</th></tr></thead>
+            <tbody>
+              <tr><td class="nm">취득세</td><td class="c" rowspan="6" style="vertical-align:middle;font-size:1.18em;font-weight:800;color:var(--navy);background:var(--paper-2)">입주민<br>부담</td></tr>
+              <tr><td class="nm">지방교육세</td></tr>
+              <tr><td class="nm">농어촌특별세</td></tr>
+              <tr><td class="nm">국민주택채권</td></tr>
+              <tr><td class="nm">인지대</td></tr>
+              <tr><td class="nm">증지대</td></tr>
+            </tbody>
+          </table>
+          <div class="note">법무법인 제이엘 &amp; 케이탑 법무사합동사무소 · T. 1899-4252, 031-283-0000</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 등기비용명세표</span></div></div>
+</section>
+
+<section class="slide divider" data-title="간지 09 · 잔금대출 지원 방안">
+  <div class="dv">
+    <div class="dnum" data-anim="popup">09</div>
     <div class="dtxt">
       <h2 data-anim="up">잔금대출 지원 방안</h2>
       <div class="drule" data-anim="wipe"></div>
       <ul data-anim="up"><li>LTV · DTI · DSR</li><li>채무자 소득증빙</li><li>전세자금대출 · 기금대출 · 디딤돌대출</li><li>보금자리론 · 은행상품대출</li><li>설명회 및 대출상담 일정</li></ul>
     </div>
   </div>
-  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div class="cur">08  잔금대출 지원 방안</div><div>09  특별제안</div><div>10  등기비용명세표</div></div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 잔금대출 지원 방안</span></div></div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  등기비용명세표</div><div class="cur">09  잔금대출 지원 방안</div><div>10  특별제안</div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 잔금대출 지원 방안</span></div></div>
 </section>
 
 <section class="slide" data-title="LTV · DTI · DSR">
-  <div class="s-kicker" data-anim="right">08 · 잔금대출 지원 방안</div>
+  <div class="s-kicker" data-anim="right">09 · 잔금대출 지원 방안</div>
   <h2 class="s-title" data-anim="up">법무법인 제이엘 금융업무 운영전략 — <em>잔금대출</em></h2>
   <p class="s-sub" data-anim="up">한도는 세 지표 중 가장 낮은 값으로 결정됩니다. LTV · DTI · DSR은 지역별, 개인의 상황에 따라 비율이 달라집니다.</p>
 
@@ -2239,12 +2526,11 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       DSR을 탄력적으로 적용하는 금융권 은행을 적극 유치하고, 최저 금리와 부수거래 조건이 없는 상품을 우선 확보하겠습니다.</p>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 잔금대출</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 잔금대출</span></div></div>
 </section>
 
-<!-- ═══════════ 25 소득증빙 ═══════════ -->
 <section class="slide" data-title="채무자 소득증빙">
-  <div class="s-kicker" data-anim="right">08 · 잔금대출 지원 방안</div>
+  <div class="s-kicker" data-anim="right">09 · 잔금대출 지원 방안</div>
   <h2 class="s-title" data-anim="up">소득 증빙이 어려워도 <em>인정소득 · 신고소득</em>으로 산정할 수 있습니다</h2>
   <p class="s-sub" data-anim="up">소득은 증빙소득으로 산출하는 것이 원칙입니다. 다만 증빙소득으로 산정하기 어려운 경우 인정소득 또는 신고소득으로 산정이 가능합니다.</p>
 
@@ -2292,12 +2578,48 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       증빙소득이 있는 세대는 증빙소득으로 산정하는 것이 한도 확보에 유리합니다.</p>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 잔금대출</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 잔금대출</span></div></div>
 </section>
 
-<!-- ═══════════ 26 전세자금대출 ═══════════ -->
+<section class="slide" data-title="대출 종류 — 지원책 이용 시 · 소유권이전등기 시">
+  <div class="s-kicker" data-anim="right">09 · 잔금대출 지원 방안</div>
+  <h2 class="s-title" data-anim="up">전세자금 및 주택담보대출 — <em>지원책 이용</em>과 <em>소유권이전등기</em> 시 대출 종류</h2>
+  <p class="s-sub" data-anim="up">계약 방식이 정해지면 이용할 수 있는 대출의 종류가 달라집니다.</p>
+
+  <div class="s-body">
+    <div class="cmp" data-build="1">
+      <div class="cmp-card" data-anim="right">
+        <div class="cmp-head"><h4>지원책 이용 시 (분납)</h4><span class="tagx">전세자금대출</span></div>
+        <div class="cmp-body">
+          <div class="money">
+            <div class="row" style="margin-bottom:0"><span>대출 성격</span><b>전세자금대출</b></div>
+          </div>
+          <div class="pt"><span><b>버팀목 전세자금대출</b></span></div>
+          <div class="pt"><span><b>은행 전세자금대출</b></span></div>
+          <div class="note">분할납부 계약(잔금유예)을 이용하는 세대는 소유권이전등기를 하지 않으므로
+          담보대출이 아니라 <b>전세자금대출</b>을 이용합니다.</div>
+        </div>
+      </div>
+      <div class="cmp-card b" data-anim="left">
+        <div class="cmp-head"><h4>소유권이전등기 시 (일시납)</h4><span class="tagx">주택담보대출</span></div>
+        <div class="cmp-body">
+          <div class="money">
+            <div class="row" style="margin-bottom:0"><span>대출 성격</span><b>주택담보대출</b></div>
+          </div>
+          <div class="pt"><span><b>기금대출</b> — 국민주택기금대출</span></div>
+          <div class="pt"><span><b>디딤돌대출</b></span></div>
+          <div class="pt"><span><b>보금자리론</b></span></div>
+          <div class="pt"><span><b>은행 잔금대출</b> — 은행상품대출</span></div>
+          <div class="note">일시납으로 잔금을 납부하고 <b>당일 소유권이전등기</b>를 실행하는 세대의 대출입니다.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 대출 종류</span></div></div>
+</section>
+
 <section class="slide" data-title="전세자금대출">
-  <div class="s-kicker" data-anim="right">08 · 잔금대출 지원 방안</div>
+  <div class="s-kicker" data-anim="right">09 · 잔금대출 지원 방안</div>
   <h2 class="s-title" data-anim="up">분할납부 계약(잔금유예) 이용 세대는 <em>전세자금대출</em>을 이용합니다</h2>
   <p class="s-sub" data-anim="up">지원책 이용 시(분납) 전세대출 종류 — 버팀목 전세자금대출, 은행 전세자금대출</p>
 
@@ -2334,13 +2656,12 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       </div>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 잔금대출</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 잔금대출</span></div></div>
 </section>
 
-<!-- ═══════════ 27 기금대출 · 디딤돌대출 ═══════════ -->
 <section class="slide dense" data-title="기금대출 · 디딤돌대출">
   <div class="chk" data-anim="down">2025년 기준 · <b>2026년 고시 기준으로 갱신 필요</b></div>
-  <div class="s-kicker" data-anim="right">08 · 잔금대출 지원 방안</div>
+  <div class="s-kicker" data-anim="right">09 · 잔금대출 지원 방안</div>
   <h2 class="s-title" data-anim="up">소유권이전등기 시(일시납) — <em>국민주택기금대출 · 디딤돌대출</em></h2>
 
   <div class="s-body">
@@ -2384,13 +2705,12 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       </div>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 잔금대출</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 잔금대출</span></div></div>
 </section>
 
-<!-- ═══════════ 28 디딤돌 우대금리 · 거치/중도상환 ═══════════ -->
 <section class="slide" data-title="디딤돌 우대금리 · 거치 · 중도상환">
   <div class="chk" data-anim="down">일부 항목은 <b>적용기한이 이미 지났습니다</b> — 최신 고시 확인 필요</div>
-  <div class="s-kicker" data-anim="right">08 · 잔금대출 지원 방안</div>
+  <div class="s-kicker" data-anim="right">09 · 잔금대출 지원 방안</div>
   <h2 class="s-title" data-anim="up">디딤돌대출 <em>우대금리</em>는 중복 여부에 따라 최대 0.7%까지 내려갑니다</h2>
   <p class="s-sub" data-anim="up">적용 상한 0.5%, 다자녀만 0.7% 적용 · 최저 연 1.5% 적용</p>
 
@@ -2433,12 +2753,11 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       </div>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 잔금대출</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 잔금대출</span></div></div>
 </section>
 
-<!-- ═══════════ 29 보금자리론 · 은행상품 · 조합 ═══════════ -->
 <section class="slide" data-title="보금자리론 · 은행상품대출">
-  <div class="s-kicker" data-anim="right">08 · 잔금대출 지원 방안</div>
+  <div class="s-kicker" data-anim="right">09 · 잔금대출 지원 방안</div>
   <h2 class="s-title" data-anim="up">법무법인 제이엘 — <em>보금자리론 · 은행상품대출</em></h2>
 
   <div class="s-body" style="flex-direction:column;gap:14px;">
@@ -2491,12 +2810,46 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       </div>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 잔금대출</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 잔금대출</span></div></div>
 </section>
 
-<!-- ═══════════ 30 설명회 및 상담 일정 ═══════════ -->
+<section class="slide" data-title="분양전환 잔금대출 제안사항">
+  <div class="s-kicker" data-anim="right">09 · 잔금대출 지원 방안</div>
+  <h2 class="s-title" data-anim="up">분양전환 잔금대출 <em>제안사항</em></h2>
+  <p class="s-sub" data-anim="up">세대의 사정에 맞는 조합을 고르실 수 있도록 이용 가능한 방법을 모두 정리했습니다.</p>
+
+  <div class="s-body" style="flex-direction:column;gap:14px">
+    <div class="cards c2" data-build="2" style="gap:16px;flex:1;min-height:0;grid-template-columns:.82fr 1fr">
+      <div class="card tint" data-anim="popup">
+        <h4>보증금(전세자금)대출을 받는 방법</h4>
+        <ul>
+          <li><b>1. 버팀목대출</b><span class="sub">연 2.50 ~ 3.50% · 수도권 1억 2,000만 원 이하<br>총 임차보증금의 70% 이내 (2자녀 이상 최대 2.5억)</span></li>
+          <li><b>2. 은행 전세자금대출</b><span class="sub">현재 연 4 ~ 5% 내외 · 최대 4억 4,000만 ~ 5억 원<br>주택금융공사 HF · 서울보증보험 SGI</span></li>
+        </ul>
+      </div>
+      <div class="card hot" data-anim="popup">
+        <h4>주택담보대출을 받는 방법</h4>
+        <ul>
+          <li><b>1. 기금대출</b><span class="sub">연 3.0% 정부 고시금리 · 전용 60㎡ 미만 5,500만 원 / 60~85㎡ 7,500만 원</span></li>
+          <li><b>2. 기금대출 + 디딤돌대출</b></li>
+          <li><b>3. 기금대출 + 보금자리론</b></li>
+          <li><b>4. 보금자리론</b><span class="sub">연 4.90 ~ 5.20% 고정 · 최대 3억 6,000만 원 (생애최초 4.2억)</span></li>
+          <li><b>5. 기금대출 + 은행상품대출</b></li>
+          <li><b>6. 은행상품대출</b><span class="sub">통상 5년 고정 · 현재 4% 후반 · 은행 감정가의 70%</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="callout" data-build-self data-anim="up">
+      <div class="ic">!</div>
+      <p>각 은행 <b>최대 감정가 산정</b>을 유도하고, <b>최저 금리와 부수거래 조건이 없는 상품</b>,
+      <b>DSR 적용을 탄력적으로 적용하는 금융권 은행</b>을 적극 유치합니다.</p>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 잔금대출 제안사항</span></div></div>
+</section>
+
 <section class="slide" data-title="설명회 및 대출상담 일정">
-  <div class="s-kicker" data-anim="right">08 · 잔금대출 지원 방안</div>
+  <div class="s-kicker" data-anim="right">09 · 잔금대출 지원 방안</div>
   <h2 class="s-title" data-anim="up">조기분양전환에 대한 <em>입주민 설명회 및 대출 상담 일정</em></h2>
   <p class="s-sub" data-anim="up">참여 은행 — 우리은행을 비롯한 시중은행, 제2금융권</p>
 
@@ -2524,25 +2877,24 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       </div>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>08 · 잔금대출</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 잔금대출</span></div></div>
 </section>
 
-<!-- ═══════════ 31 특별제안 ① 브릿지론 ═══════════ -->
-<section class="slide divider" data-title="간지 09 · 특별제안">
+<section class="slide divider" data-title="간지 10 · 특별제안">
   <div class="dv">
-    <div class="dnum" data-anim="popup">09</div>
+    <div class="dnum" data-anim="popup">10</div>
     <div class="dtxt">
       <h2 data-anim="up">특별제안</h2>
       <div class="drule" data-anim="wipe"></div>
       <ul data-anim="up"><li>단기 브릿지론 실시</li><li>복등기가 불가할 경우 처리방안</li><li>이용 대상 및 실행 방법</li></ul>
     </div>
   </div>
-  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div class="cur">09  특별제안</div><div>10  등기비용명세표</div></div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 특별제안</span></div></div>
+  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  등기비용명세표</div><div>09  잔금대출 지원 방안</div><div class="cur">10  특별제안</div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>10 · 특별제안</span></div></div>
 </section>
 
 <section class="slide" data-title="특별제안 · 단기 브릿지론">
-  <div class="s-kicker" data-anim="right">09 · 특별제안</div>
+  <div class="s-kicker" data-anim="right">10 · 특별제안</div>
   <h2 class="s-title" data-anim="up">단기브릿지론 실시 — <em>분양전환 즉시 매도세대</em> 또는 지원책 사용 후 매도세대 등기</h2>
 
   <div class="s-body" style="flex-direction:column;gap:12px;">
@@ -2593,12 +2945,11 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       어쩔 수 없이 잔금대출을 받아야 하며, 소유권이전등기 후 바로 상환할 경우 중도상환수수료가 발생합니다.</p>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 특별제안</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>10 · 특별제안</span></div></div>
 </section>
 
-<!-- ═══════════ 32 특별제안 ② 이용 대상 · 실행 ═══════════ -->
 <section class="slide" data-title="브릿지론 이용 대상 및 실행방법">
-  <div class="s-kicker" data-anim="right">09 · 특별제안</div>
+  <div class="s-kicker" data-anim="right">10 · 특별제안</div>
   <h2 class="s-title" data-anim="up">단기 브릿지론 — <em>이용 대상 및 실행 방법</em></h2>
   <p class="s-sub" data-anim="up">소득이 적어 은행 대출이 불가한 세대가 주로 이용합니다.</p>
 
@@ -2633,186 +2984,9 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       </div>
     </div>
   </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 특별제안</span></div></div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>10 · 특별제안</span></div></div>
 </section>
 
-<!-- ═══════════ 33 등기비용 명세표 ═══════════ -->
-<section class="slide divider" data-title="간지 10 · 등기비용명세표">
-  <div class="dv">
-    <div class="dnum" data-anim="popup">10</div>
-    <div class="dtxt">
-      <h2 data-anim="up">등기비용명세표</h2>
-      <div class="drule" data-anim="wipe"></div>
-      <ul data-anim="up"><li>주택형별 등기비용 세부견적</li><li>취득세 감면 요건</li><li>등기보수료 및 공과금 항목</li></ul>
-    </div>
-  </div>
-  <div class="dside" data-anim="left"><div>01  사무소 소개</div><div>02  단체등기 수임 실적</div><div>03  제출 및 증명 서류</div><div>04  게시판 공지자료</div><div>05  입주민 설명회 및 개별대출</div><div>06  분양전환계약 진행방법 및 </div><div>07  소유권이전등기 방안</div><div>08  잔금대출 지원 방안</div><div>09  특별제안</div><div class="cur">10  등기비용명세표</div></div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>10 · 등기비용명세표</span></div></div>
-</section>
-
-<section class="slide" data-title="등기비용 명세표">
-  <div class="chk" data-anim="down">분양전환 예상가는 <b>휴아림 실제 예상가로 교체 필요</b></div>
-  <div class="s-kicker" data-anim="right">10 · 등기비용명세표 (등기비용명세서)</div>
-  <h2 class="s-title" data-anim="up">항목별 등기비용 세부견적 제안 — <span style="font-size:20px;font-weight:600;color:var(--gray)">아파트 분양전환 등기비용 예시 (단위 : 원)</span></h2>
-
-  <div class="s-body" style="flex-direction:column;gap:13px;">
-    <table class="tbl" style="font-size:13.4px">
-      <thead>
-        <tr><th rowspan="2" style="width:76px">주택형</th><th rowspan="2" class="c">분양전환 예상가</th>
-          <th rowspan="2" class="c">취득세<br><small style="font-weight:400;opacity:.7">분양가 × 1.1%</small></th>
-          <th colspan="2" class="c" style="text-align:center">국민주택채권</th>
-          <th rowspan="2" class="c">인지·증지</th><th rowspan="2" class="c">제비용</th>
-          <th colspan="2" class="c" style="text-align:center">등기비용 합계</th></tr>
-        <tr><th class="c" style="font-size:11.5px">매입</th><th class="c" style="font-size:11.5px">할인 (15%)</th>
-          <th class="c" style="font-size:11.5px">채권 매입 시</th><th class="c" style="font-size:11.5px">채권 할인 시</th></tr>
-      </thead>
-      <tbody data-build="1">
-        <tr data-anim="right">
-          <td class="nm">59형</td><td class="r">320,000,000</td><td class="r">3,520,000</td>
-          <td class="r">3,690,000</td><td class="r">553,500</td><td class="r">168,000</td><td class="r">25,000</td>
-          <td class="r">7,403,000</td><td class="r" style="font-weight:800;color:var(--navy)">4,266,500</td></tr>
-        <tr data-anim="right">
-          <td class="nm">74형</td><td class="r">370,000,000</td><td class="r">4,070,000</td>
-          <td class="r">4,340,000</td><td class="r">651,000</td><td class="r">168,000</td><td class="r">25,000</td>
-          <td class="r">8,603,000</td><td class="r fix">4,914,000 <span class="old">5,184,000</span></td></tr>
-        <tr data-anim="right">
-          <td class="nm">84형</td><td class="r">420,000,000</td><td class="r">4,620,000</td>
-          <td class="r">4,640,000</td><td class="r">696,000</td><td class="r">168,000</td><td class="r">25,000</td>
-          <td class="r fix">9,453,000 <span class="old">9,791,000</span></td><td class="r fix">5,509,000 <span class="old">5,529,000</span></td></tr>
-      </tbody>
-    </table>
-
-    <div class="cards c2" data-build="2" style="gap:13px">
-      <div class="card tint" data-anim="right">
-        <ul style="margin:0">
-          <li>채권 매입 가격 기준은 <b>공동주택 공시가격</b>으로 산출됩니다 (세대별 차등 적용)</li>
-          <li>대출이 있는 경우 <b>근저당권 설정 채권 할인대가</b>가 추가됩니다</li>
-          <li>채권 할인율은 <b>15%</b>로 적용되었으며 증감될 수 있습니다</li>
-        </ul>
-      </div>
-      <div class="card hot" data-anim="left">
-        <ul style="margin:0">
-          <li><b>표의 합계는 공과금 기준이며 등기보수료는 별도입니다</b></li>
-          <li>취득세 · 지방교육세 · 농어촌특별세 · 국민주택채권 · 인지대 · 증지대 · 제비용은 <b>입주민 부담</b>입니다</li>
-          <li class="hi">채권을 즉시 할인 매도하면 세대당 <b>310 ~ 394만 원</b>의 부담이 줄어듭니다</li>
-        </ul>
-      </div>
-    </div>
-
-    <div style="font-size:11.5px;color:var(--red);font-weight:700;line-height:1.6" data-build-self data-anim="fade">
-      ※ 붉은 숫자는 원안 대비 정정한 합계입니다 — 74형 채권 할인 시 −270,000원 / 84형 채권 매입 시 −338,000원 · 채권 할인 시 −20,000원.
-      (검산식 : 취득세 ＋ 채권 ＋ 인지·증지 ＋ 제비용) 확정 전 재검토 바랍니다.
-    </div>
-  </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>10 · 등기비용명세표</span></div></div>
-</section>
-
-<!-- ═══════════ 34 취득세 감면 요건 ═══════════ -->
-<section class="slide" data-title="취득세 감면 요건">
-  <div class="s-kicker" data-anim="right">10 · 등기비용명세표</div>
-  <h2 class="s-title" data-anim="up">요건을 갖추면 <em>취득세 전액</em>이 감면될 수 있습니다</h2>
-  <p class="s-sub" data-anim="up">감면에는 사후관리 조건이 함께 붙습니다. 조건 위반 시 감면세액이 추징됩니다.</p>
-
-  <div class="s-body">
-    <div class="cmp" data-build="1" style="grid-template-columns:1fr 1fr .8fr">
-      <div class="cmp-card" data-anim="popup">
-        <div class="cmp-head"><h4>생애최초 주택 구입 감면</h4><span class="tagx">경기도 100% 감면 조건</span></div>
-        <div class="cmp-body">
-          <div class="money">
-            <div class="row"><span>A. 일반</span><b>취득세 220만 원 감면</b></div>
-            <div class="row" style="margin-bottom:0"><span>B. 주택가격 4억 이하</span><b>전액 감면</b></div>
-          </div>
-          <div style="font-size:13px;font-weight:800;color:var(--navy);margin-bottom:8px;">생애최초 취득세 감면요건<br><span style="font-weight:600;color:var(--gray);font-size:12px">경기도만 해당 — 100% 감면 조건</span></div>
-          <div class="pt"><span><b>1.</b> 부부합산소득 <b>1억 이하</b></span></div>
-          <div class="pt"><span><b>2.</b> 성년 또는 미성년 <b>자녀 1명 이상</b> 합가세대</span></div>
-        </div>
-      </div>
-
-      <div class="cmp-card b" data-anim="popup">
-        <div class="cmp-head"><h4>[24년 출생] 신생아 취득세 감면요건</h4><span class="tagx">2024.1.1 ~ 2028.12.31</span></div>
-        <div class="cmp-body">
-          <div class="money">
-            <div class="row" style="margin-bottom:0"><span>적용기한</span><b>2024.1.1 ~ 2028.12.31</b></div>
-          </div>
-          <div class="pt"><span><b>ⓐ</b> 실거주</span></div>
-          <div class="pt"><span><b>ⓑ</b> <b>3년 동안</b> 매매, 증여 등 양도행위 불가</span></div>
-          <div class="pt"><span><b>ⓒ</b> 가족관계증명서에 <b>출산 자녀 기재</b> 필수</span></div>
-          <div class="note">2024년 이후 출생한 자녀가 있는 세대가 대상입니다.
-          적용기한이 2028년 12월 31일까지이므로 현재 유효합니다.</div>
-        </div>
-      </div>
-
-      <div class="cmp-card" data-anim="popup">
-        <div class="cmp-head" style="background:var(--gold);color:#3A2E05"><h4>생애최초 사후관리</h4><span class="tagx" style="background:rgba(0,0,0,.14)">위반 시 추징</span></div>
-        <div class="cmp-body">
-          <div class="pt"><span><b>ⓐ</b> <b>세입자 전입 불가</b> (본인 실거주)</span></div>
-          <div class="pt"><span><b>ⓑ</b> <b>3년 동안</b> 매매, 증여 등 양도행위 불가</span></div>
-          <div class="callout" style="margin-top:14px;padding:12px 15px">
-            <div class="ic" style="width:20px;height:20px;font-size:12px">!</div>
-            <p style="font-size:13px">브릿지론을 이용한 <b>즉시 매도</b>를 계획하는 세대는 감면 요건의 <b>3년 양도 제한</b>과 충돌할 수 있습니다.
-            개별 상담에서 감면 신청 여부를 먼저 결정하셔야 합니다.</p>
-          </div>
-          <div class="note">국가유공자 세대는 나라사랑대출(보훈처 대출) 이용 시 <b>취득세 100% 감면</b> 대상입니다.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>10 · 등기비용명세표</span></div></div>
-</section>
-
-<!-- ═══════════ 35 등기보수료 항목 ═══════════ -->
-<section class="slide" data-title="등기보수료 항목">
-  <div class="s-kicker" data-anim="right">10 · 등기비용명세표</div>
-  <h2 class="s-title" data-anim="up">항목별 등기비용 세부견적 제안 — <em>등기보수료</em>를 제안드립니다</h2>
-  <p class="s-sub" data-anim="up">분양전환 기간 1년 이내 기준 · 각종 공과금은 입주민 부담</p>
-
-  <div class="s-body">
-    <div class="cmp" data-build="1">
-      <div class="cmp-card" data-anim="right">
-        <div class="cmp-head"><h4>등기보수료</h4><span class="tagx">최저 수수료 진행</span></div>
-        <div class="cmp-body">
-          <table class="tbl" style="font-size:13.4px">
-            <thead><tr><th>세부항목</th><th class="c" style="width:150px">등기보수료</th></tr></thead>
-            <tbody>
-              <tr><td class="nm">등기수수료</td><td class="c" rowspan="7" style="vertical-align:middle;font-size:17px;font-weight:800;color:var(--red);background:var(--red-pale)">최저 수수료<br>진행</td></tr>
-              <tr><td class="nm">부가세</td></tr>
-              <tr><td class="nm">원인서류 작성료</td></tr>
-              <tr><td class="nm">등록대행료</td></tr>
-              <tr><td class="nm">검인대행료</td></tr>
-              <tr><td class="nm">교통비</td></tr>
-              <tr><td class="nm">송달료</td></tr>
-            </tbody>
-          </table>
-          <div class="note" style="color:var(--red);border-color:rgba(192,57,43,.3)">
-            [보완 권장] 경쟁 제안에서는 이 항목이 결정 요인이 됩니다.
-            "최저 수수료"라는 표현 대신 <b>세대당 확정 금액</b>을 기재하시길 권합니다.
-          </div>
-        </div>
-      </div>
-
-      <div class="cmp-card b" data-anim="left">
-        <div class="cmp-head"><h4>공과금</h4><span class="tagx">입주민 부담</span></div>
-        <div class="cmp-body">
-          <table class="tbl" style="font-size:13.4px">
-            <thead><tr><th>세부항목</th><th class="c" style="width:150px">공과금</th></tr></thead>
-            <tbody>
-              <tr><td class="nm">취득세</td><td class="c" rowspan="6" style="vertical-align:middle;font-size:17px;font-weight:800;color:var(--navy);background:var(--paper-2)">입주민<br>부담</td></tr>
-              <tr><td class="nm">지방교육세</td></tr>
-              <tr><td class="nm">농어촌특별세</td></tr>
-              <tr><td class="nm">국민주택채권</td></tr>
-              <tr><td class="nm">인지대</td></tr>
-              <tr><td class="nm">증지대</td></tr>
-            </tbody>
-          </table>
-          <div class="note">법무법인 제이엘 &amp; 케이탑 법무사합동사무소 · T. 1899-4252, 031-283-0000</div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>10 · 등기비용명세표</span></div></div>
-</section>
-
-<!-- ═══════════ 36 마무리 ═══════════ -->
 <section class="slide end" data-title="감사합니다">
   <h2>
     <span class="mask" style="--d:100"><span>감사합니다</span></span>
@@ -2967,7 +3141,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 <div id="pptdrop"><div class="box"><b>PPT 파일을 여기에 놓으십시오</b>
   <span>파일 안의 사진을 자동으로 꺼냅니다</span></div></div>
 
-<div id="pager"><b id="pg-cur">1</b> / <span id="pg-tot">53</span><span id="pg-step"></span></div>
+<div id="pager"><b id="pg-cur">1</b> / <span id="pg-tot">61</span><span id="pg-step"></span></div>
 <div id="hint"><kbd>←</kbd><kbd>→</kbd> 이동 · <kbd>L</kbd> 레이저 · <kbd>D</kbd> 펜 · <kbd>B</kbd> 블랙 · <kbd>H</kbd> 도움말</div>
 <div id="nav"><h3>SLIDE INDEX</h3><ol id="nav-list"></ol></div>
 
@@ -2999,13 +3173,18 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
     if(!kids.length) return 0;
     var gap=parseFloat(getComputedStyle(el).rowGap)||0;
     var h=0;
-    kids.forEach(function(k){ h+=k.offsetHeight; });
+    kids.forEach(function(k){
+      var cs=getComputedStyle(k);   /* 바깥여백까지 세지 않으면 글자를 너무 키워 넘칩니다 */
+      h+=k.offsetHeight+(parseFloat(cs.marginTop)||0)+(parseFloat(cs.marginBottom)||0);
+    });
     return h + gap*(kids.length-1);
   }
   function fitFill(){
     var groups=[
-      {sel:'.card ul',        base:16.5, max:1.30},
-      {sel:'.fnode .box ul',  base:15.8, max:1.24}
+      {sel:'.card ul',        base:16.5, max:1.62, min:.86},
+      {sel:'.btbl',           base:16.5, max:1.22, min:.80},
+      {sel:'.cmp-body',       base:16.5, max:1.46, min:.86},
+      {sel:'.fnode .box ul',  base:15.8, max:1.34, min:.88}
     ];
     slides.forEach(function(sl){
       groups.forEach(function(g){
@@ -3014,6 +3193,14 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
           el.style.fontSize=g.base+'px';
           var avail=el.clientHeight, nat=natH(el);
           if(!avail || !nat) return;
+          if(nat > avail+1 && g.min){        /* 넘치면 줄인다 */
+            var q=Math.max(g.min, (avail-4)/nat), gd=0;
+            el.style.fontSize=(g.base*q).toFixed(2)+'px';
+            while(natH(el) > el.clientHeight-1 && q>g.min && gd++<10){
+              q=Math.max(g.min, q*0.97); el.style.fontSize=(g.base*q).toFixed(2)+'px';
+            }
+            return;
+          }
           if(avail > nat+8){
             var r=Math.min(g.max, (avail-6)/nat);
             if(r<=1.01) return;
@@ -3814,6 +4001,8 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
     [/유태인/,'bomusa-yu'],[/여운성/,'bomusa-yeo']
   ];
   var GROUP_RULE=[
+    {re:/업무\s*협약|법률자문계약|총연합회/,   pre:'mou'},
+    {re:/분사무소\s*개설|정관\s*인가|서초동\s*본사\s*소개/, pre:'office'},
     {re:/게시판\s*공지|공지글/,               pre:'notice'},
     {re:/개별\s*(대출)?상담|대출상담\s*사진/, pre:'consult'},
     {re:/설명회/,                             pre:'seminar'},
@@ -4311,3 +4500,4 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 </script>
 </body>
 </html>
+

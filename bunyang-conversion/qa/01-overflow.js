@@ -32,6 +32,6 @@ const { chromium } = require('playwright');
     return out;
   });
   console.log(r.length ? r.join('\n') : '넘침 없음');
-  console.log('\n넘치는 슬라이드: ' + r.length + ' / 36장');
+  console.log('\n넘치는 슬라이드: ' + r.length + '장');
   await b.close();
 })();
