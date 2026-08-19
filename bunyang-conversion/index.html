@@ -363,15 +363,27 @@ body{
 
 /* ══════════ 인물 프로필 ══════════ */
 .profs{display:grid;gap:14px;width:100%;flex:1;min-height:0;grid-auto-rows:1fr;}
-.prof{border:1px solid var(--line);border-radius:7px;background:#fff;padding:15px 16px 16px;
-  display:flex;flex-direction:column;min-height:0;}
+.prof{border:1px solid var(--line);border-radius:7px;background:#fff;padding:14px 15px 15px;
+  display:grid;grid-template-columns:66px 1fr;grid-template-rows:auto auto 1fr;
+  column-gap:11px;align-content:start;min-height:0;}
 .prof.lead{border-color:var(--navy);border-top:3px solid var(--navy);}
 .prof.k{border-top:3px solid var(--blue);}
-.prof .pn{display:flex;align-items:baseline;gap:8px;margin-bottom:4px;}
-.prof .pn b{font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+.prof .face{grid-row:1/3;grid-column:1;width:66px;aspect-ratio:1/1.2;border-radius:5px;overflow:hidden;margin:0 0 2px;
+  background:var(--paper-2);border:1px solid var(--line);position:relative;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;flex:none;}
+.prof .face img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;}
+.prof .face.empty{border-style:dashed;border-color:var(--blue);background:var(--blue-pale);}
+.prof .face.empty img{display:none;}
+.prof .face.empty::after{content:"사진";font-size:11px;font-weight:700;color:var(--blue-lt);letter-spacing:.1em;}
+.prof .face.filled::before{content:"＋";position:absolute;top:4px;right:4px;z-index:2;
+  background:rgba(10,20,38,.75);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:100px;
+  opacity:0;transition:opacity .2s;}
+.prof .face.filled:hover::before{opacity:1;}
+.prof .pn{grid-column:2;align-self:end;display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-bottom:3px;}
+.prof .pn b{font-size:20px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
 .prof .pn span{font-size:13.5px;font-weight:700;color:var(--blue);letter-spacing:.05em;}
-.prof .pr{font-size:13.8px;color:var(--gray-lt);margin-bottom:11px;padding-bottom:9px;border-bottom:1px solid var(--line);}
-.prof ul{margin:0;}
+.prof .pr{grid-column:2;font-size:13px;color:var(--gray-lt);line-height:1.35;}
+.prof ul{grid-column:1/-1;margin:11px 0 0;padding-top:10px;border-top:1px solid var(--line);}
 .prof li{list-style:none;font-size:15.4px;color:var(--gray);line-height:1.4;padding-left:11px;
   position:relative;margin-bottom:5px;}
 .prof li::before{content:"";position:absolute;left:0;top:7px;width:3.5px;height:3.5px;border-radius:50%;background:var(--gray-lt);}
@@ -725,6 +737,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="s-body">
     <div class="cmp" data-build="1" style="grid-template-columns:1.15fr 1fr">
       <div class="prof lead" data-anim="right">
+        <figure class="ph face" style="margin:0"><img src="assets/photos/lawyer-park.jpg" alt="" onerror="this.closest('.face').classList.add('empty')"><figcaption style="display:none">박종일 변호사</figcaption></figure>
         <div class="pn"><b>박종일</b> <span>대표변호사 · 서초동 본사</span></div>
         <div class="pr">사법연수원 28기 / 사법고시 38회</div>
         <ul>
@@ -813,6 +826,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="s-body">
     <div class="profs" data-build="1" style="grid-template-columns:repeat(5,1fr)">
       <div class="prof" data-anim="up">
+        <figure class="ph face" style="margin:0"><img src="assets/photos/lawyer-lee.jpg" alt="" onerror="this.closest('.face').classList.add('empty')"><figcaption style="display:none">이지훈 변호사</figcaption></figure>
         <div class="pn"><b>이지훈</b> <span>변호사</span></div>
         <div class="pr">사법고시 52회 / 연수원 42기</div>
         <ul>
@@ -825,6 +839,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         </ul>
       </div>
       <div class="prof" data-anim="up">
+        <figure class="ph face" style="margin:0"><img src="assets/photos/lawyer-jang.jpg" alt="" onerror="this.closest('.face').classList.add('empty')"><figcaption style="display:none">장우진 변호사</figcaption></figure>
         <div class="pn"><b>장우진</b> <span>변호사</span></div>
         <div class="pr">사법고시 52회 / 연수원 42기</div>
         <ul>
@@ -836,6 +851,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         </ul>
       </div>
       <div class="prof" data-anim="up">
+        <figure class="ph face" style="margin:0"><img src="assets/photos/lawyer-ha.jpg" alt="" onerror="this.closest('.face').classList.add('empty')"><figcaption style="display:none">하혜용 변호사</figcaption></figure>
         <div class="pn"><b>하혜용</b> <span>변호사</span></div>
         <div class="pr">사법고시 52회 / 연수원 42기</div>
         <ul>
@@ -847,6 +863,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         </ul>
       </div>
       <div class="prof" data-anim="up">
+        <figure class="ph face" style="margin:0"><img src="assets/photos/lawyer-lim.jpg" alt="" onerror="this.closest('.face').classList.add('empty')"><figcaption style="display:none">임준규 변호사</figcaption></figure>
         <div class="pn"><b>임준규</b> <span>변호사</span></div>
         <div class="pr">제10회 변호사시험 합격</div>
         <ul>
@@ -858,6 +875,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         </ul>
       </div>
       <div class="prof" data-anim="up">
+        <figure class="ph face" style="margin:0"><img src="assets/photos/lawyer-oh.jpg" alt="" onerror="this.closest('.face').classList.add('empty')"><figcaption style="display:none">오현진 변호사</figcaption></figure>
         <div class="pn"><b>오현진</b> <span>변호사</span></div>
         <div class="pr">제14회 변호사시험 합격 · 전문분야 건설</div>
         <ul>
@@ -895,6 +913,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       </div>
 
       <div class="prof k" data-anim="up">
+        <figure class="ph face" style="margin:0"><img src="assets/photos/bomusa-yu.jpg" alt="" onerror="this.closest('.face').classList.add('empty')"><figcaption style="display:none">유태인 변호사</figcaption></figure>
         <div class="pn"><b>유태인</b> <span>대표 법무사</span></div>
         <div class="pr">케이탑 법무사합동사무소 대표</div>
         <ul>
@@ -910,6 +929,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       </div>
 
       <div class="prof k" data-anim="left">
+        <figure class="ph face" style="margin:0"><img src="assets/photos/bomusa-yeo.jpg" alt="" onerror="this.closest('.face').classList.add('empty')"><figcaption style="display:none">여운성 변호사</figcaption></figure>
         <div class="pn"><b>여운성</b> <span>법무사</span></div>
         <div class="pr">법무사 여운성 사무소 2009 ~</div>
         <ul>
@@ -2821,6 +2841,10 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       fig.dataset.slot=id;
       var capEl=fig.querySelector('figcaption');
       var label=capEl ? capEl.textContent.replace(/assets\/photos\/\S+/g,'').replace(/폴더판에서 사진 삽입\s*:?/,'').trim() : id;
+      if(fig.classList.contains('face')){
+        var pn=fig.parentElement.querySelector('.pn b');
+        if(pn) label=pn.textContent.trim()+' 사진';
+      }
       slots.push({id:id, fig:fig, img:img, label:label.replace(/\s+/g,' ').slice(0,46), slide:si});
       img.addEventListener('error',function(){ fig.classList.add('empty'); fig.classList.remove('filled'); });
       img.addEventListener('load',function(){
