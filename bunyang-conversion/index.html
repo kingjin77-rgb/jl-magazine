@@ -63,7 +63,7 @@ body{
   box-shadow:0 40px 130px rgba(0,0,0,.65);background:var(--paper);overflow:hidden;}
 
 /* ---------- 슬라이드 기본 ---------- */
-.slide{position:absolute;inset:0;padding:40px 54px 50px;background:var(--paper);
+.slide{position:absolute;inset:0;padding:32px 46px 44px;background:var(--paper);
   opacity:0;visibility:hidden;transform:scale(1.045) translateZ(0);
   transition:opacity .42s var(--exp),transform .8s var(--exp),visibility 0s .5s;
   display:flex;flex-direction:column;perspective:1400px;overflow:hidden;contain:paint;}
@@ -74,13 +74,13 @@ body{
 .slide.dark .s-kicker{color:var(--blue-lt);}
 .slide.dark .s-sub{color:rgba(255,255,255,.62);}
 
-.s-kicker{font-size:16px;font-weight:700;letter-spacing:.16em;color:var(--blue);
-  margin-bottom:11px;display:flex;align-items:center;gap:10px;}
+.s-kicker{font-size:15.5px;font-weight:700;letter-spacing:.16em;color:var(--blue);
+  margin-bottom:7px;display:flex;align-items:center;gap:10px;}
 .s-kicker::before{content:"";width:24px;height:2px;background:currentColor;}
 .s-title{font-size:40px;font-weight:800;line-height:1.3;color:var(--navy);letter-spacing:-.022em;}
 .s-title em{font-style:normal;color:var(--red);}
-.s-sub{font-size:18px;color:var(--gray);line-height:1.5;margin-top:8px;}
-.s-body{flex:1;display:flex;min-height:0;margin-top:17px;}
+.s-sub{font-size:17.5px;color:var(--gray);line-height:1.45;margin-top:6px;}
+.s-body{flex:1;display:flex;min-height:0;margin-top:13px;}
 
 /* 브랜드바 */
 .brandbar{position:absolute;left:0;right:0;bottom:0;height:34px;background:var(--navy);color:#fff;
@@ -112,6 +112,9 @@ body{
 [data-anim="blur"]{filter:blur(14px);transform:translate3d(0,14px,0);}
 [data-anim="fade"]{transform:translate3d(0,10px,0);filter:blur(3px);}
 [data-anim="wipe"]{clip-path:inset(0 100% 0 0);transform:none;}
+/* 팝업 — 중요 설명 파트용. 제자리에서 튀어나옵니다. */
+[data-anim="popup"]{transform:scale(.9);filter:none;
+  transition:opacity .28s var(--exp),transform .54s var(--overshoot),box-shadow .5s var(--exp);}
 .is-active [data-anim]{opacity:1;transform:none;filter:none;clip-path:inset(0 0 0 0);}
 
 /* ── 단계 빌드 (말하는 순서대로 하나씩 등장) ────────────────────
@@ -124,6 +127,7 @@ body{
 .is-active [data-anim="left"][data-step]:not(.step-in){transform:translate3d(28px,0,0);filter:blur(3px);}
 .is-active [data-anim="right"][data-step]:not(.step-in){transform:translate3d(-28px,0,0);filter:blur(3px);}
 .is-active [data-anim="scale"][data-step]:not(.step-in){transform:scale(.9) translate3d(0,10px,0);filter:blur(4px);}
+.is-active [data-anim="popup"][data-step]:not(.step-in){transform:scale(.9);filter:none;}
 .is-active [data-step]:not(.step-in) .grow-x{width:0!important;}
 .is-active [data-step]:not(.step-in) .grow-y{height:0!important;}
 .is-active [data-step]:not(.step-in) .draw{stroke-dashoffset:var(--len);}
@@ -138,9 +142,10 @@ body{
 
 /* ── 키네틱 타이포 : 제목이 단어 단위로 세워지며 들어옵니다 ── */
 /* 제목은 단어를 흔들지 않습니다. 한 덩어리로 좌→우 마스크만 걷어냅니다. */
-.s-title{clip-path:inset(0 100% 0 0);opacity:0;
-  transition:clip-path .82s var(--exp),opacity .3s linear;transition-delay:.1s;}
-.is-active .s-title{clip-path:inset(0 0 0 0);opacity:1;}
+/* 제목은 흔들지 않습니다. 제자리에서 살짝 팝업으로 나타납니다. */
+.s-title{opacity:0;transform:scale(.962);transform-origin:0 50%;
+  transition:opacity .3s var(--exp),transform .46s var(--overshoot);transition-delay:.06s;}
+.is-active .s-title{opacity:1;transform:none;}
 .s-kicker::before{width:0;transition:width .5s var(--exp);}
 .is-active .s-kicker::before{width:24px;}
 .s-sub{opacity:0;transform:translate3d(0,8px,0);
@@ -175,8 +180,9 @@ body{
 @keyframes shine{to{transform:translateX(120%)}}
 
 .mask{overflow:hidden;display:block;}
-.mask>span{display:block;transform:translate3d(0,105%,0);opacity:0;
-  transition:transform .9s var(--exp),opacity .4s linear;
+.mask{overflow:visible;}
+.mask>span{display:block;transform:scale(.94);opacity:0;transform-origin:0 50%;
+  transition:transform .5s var(--overshoot),opacity .34s var(--exp);
   transition-delay:calc(var(--d,0)*1ms);}
 .is-active .mask>span{transform:translateY(0);opacity:1;}
 
@@ -243,6 +249,18 @@ body{
 .kpi .d{font-size:15px;color:rgba(255,255,255,.6);line-height:1.45;margin-top:13px;
   padding-top:12px;border-top:1px solid rgba(255,255,255,.12);}
 
+
+/* KPI — 밝은 배경판. 프로젝터에서 대비가 무너지지 않게 흰 바탕을 씁니다. */
+.kpi{border:1px solid var(--line);border-radius:8px;padding:22px 20px;background:#fff;
+  box-shadow:var(--lift);display:flex;flex-direction:column;}
+.kpi .k{font-size:15px;font-weight:800;letter-spacing:.05em;color:var(--blue);margin-bottom:12px;}
+.kpi .v{font-size:60px;font-weight:900;letter-spacing:-.045em;line-height:1;color:var(--navy);}
+.kpi .v sub{font-size:21px;font-weight:700;vertical-align:baseline;margin-left:4px;color:var(--gray);}
+.kpi .d{font-size:15px;color:var(--gray);line-height:1.45;margin-top:auto;padding-top:13px;
+  border-top:1px solid var(--line);}
+.kpi .d b{color:var(--red);}
+.kpi:nth-child(2) .v{color:var(--red);}
+
 /* ══════════ 차트 ══════════ */
 .chart2{display:grid;grid-template-columns:1fr 350px;gap:34px;width:100%;flex:1;min-height:0;}
 .colchart{display:flex;align-items:flex-end;gap:20px;height:100%;padding-bottom:4px;}
@@ -281,22 +299,23 @@ body{
 .tbl .old{color:var(--gray-lt);text-decoration:line-through;font-size:11px;font-weight:400;}
 
 /* ══════════ 카드 그리드 ══════════ */
-.cards{display:grid;gap:14px;width:100%;flex:1;min-height:0;grid-auto-rows:1fr;}
+.cards{display:grid;gap:12px;width:100%;flex:1;min-height:0;grid-auto-rows:1fr;}
 .cards.compact,.cmp.compact{flex:0 0 auto;grid-auto-rows:auto;}
 .cards.c2{grid-template-columns:repeat(2,1fr);}
 .cards.c3{grid-template-columns:repeat(3,1fr);}
 .cards.c4{grid-template-columns:repeat(4,1fr);}
-.card{border:1px solid var(--line);border-radius:7px;padding:17px 18px 18px;background:#fff;display:flex;flex-direction:column;}
+.card{border:1px solid var(--line);border-radius:7px;padding:15px 16px 16px;background:#fff;display:flex;flex-direction:column;}
 .card.tint{background:var(--paper-2);}
 .card.hot{border-color:rgba(192,57,43,.35);background:var(--red-pale);}
-.card .ch{display:flex;align-items:center;gap:11px;margin-bottom:11px;}
+.card .ch{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
 .card .cn{width:34px;height:34px;border-radius:50%;background:var(--blue);color:#fff;flex:none;
   display:grid;place-items:center;font-size:17px;font-weight:800;}
 .card.hot .cn{background:var(--red);}
 .card h4{font-size:21px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
 .card h4 small{display:block;font-size:14px;font-weight:600;color:var(--gray-lt);margin-top:2px;letter-spacing:0;}
-.card li{list-style:none;font-size:16.5px;color:var(--gray);line-height:1.44;padding-left:12px;
-  position:relative;margin-bottom:7px;}
+.card ul{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;gap:8px;}
+.card li{list-style:none;font-size:16.5px;color:var(--gray);line-height:1.42;padding-left:12px;
+  position:relative;margin-bottom:0;}
 .card li::before{content:"";position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background:var(--gray-lt);}
 .card li b{color:var(--navy);font-weight:700;}
 .card .big{font-size:38px;font-weight:900;color:var(--navy);letter-spacing:-.03em;margin:2px 0 8px;}
@@ -341,13 +360,13 @@ body{
 .callout.blue b{color:var(--blue);}
 
 /* ══════════ 비교 2열 ══════════ */
-.cmp{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;flex:1;min-height:0;}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:14px;width:100%;flex:1;min-height:0;}
 .cmp-card{border:1px solid var(--line);border-radius:6px;overflow:hidden;display:flex;flex-direction:column;}
-.cmp-head{padding:12px 18px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;}
+.cmp-head{padding:11px 16px;background:var(--navy);color:#fff;display:flex;align-items:center;justify-content:space-between;}
 .cmp-card.b .cmp-head{background:var(--blue);}
 .cmp-head h4{font-size:21px;font-weight:800;}
 .cmp-head .tagx{font-size:12.5px;background:rgba(255,255,255,.2);padding:4px 9px;border-radius:3px;letter-spacing:.04em;}
-.cmp-body{padding:15px 18px 16px;flex:1;}
+.cmp-body{padding:14px 16px 15px;flex:1;display:flex;flex-direction:column;}
 .money{background:var(--paper-2);border:1px dashed var(--blue);border-radius:5px;padding:13px 15px;margin-bottom:13px;}
 .money .row{display:flex;justify-content:space-between;align-items:baseline;font-size:15.8px;color:var(--gray);margin-bottom:7px;}
 .money .row b{color:var(--navy);font-variant-numeric:tabular-nums;font-size:16.8px;font-weight:700;}
@@ -355,7 +374,7 @@ body{
   border-top:1px solid var(--line);margin-top:10px;padding-top:11px;}
 .money .tot span{font-size:16px;font-weight:800;color:var(--navy);}
 .money .tot b{font-size:31px;font-weight:900;color:var(--red);letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
-.pt{display:flex;gap:9px;font-size:16.5px;color:var(--ink);line-height:1.44;margin-bottom:9px;}
+.pt{display:flex;gap:9px;font-size:16.5px;color:var(--ink);line-height:1.42;margin-bottom:8px;}
 .pt::before{content:"";flex:none;width:4.5px;height:4.5px;border-radius:50%;background:var(--blue);margin-top:7px;}
 .pt b{color:var(--navy);}
 .note{font-size:14px;color:var(--gray);margin-top:11px;padding-top:10px;border-top:1px solid var(--line);line-height:1.42;}
@@ -363,29 +382,30 @@ body{
 
 /* ══════════ 인물 프로필 ══════════ */
 .profs{display:grid;gap:14px;width:100%;flex:1;min-height:0;grid-auto-rows:1fr;}
-.prof{border:1px solid var(--line);border-radius:7px;background:#fff;padding:14px 15px 15px;
-  display:grid;grid-template-columns:66px 1fr;grid-template-rows:auto auto 1fr;
-  column-gap:11px;align-content:start;min-height:0;}
+.prof{border:1px solid var(--line);border-radius:7px;background:#fff;padding:0;overflow:hidden;
+  display:flex;flex-direction:column;min-height:0;}
 .prof.lead{border-color:var(--navy);border-top:3px solid var(--navy);}
 .prof.k{border-top:3px solid var(--blue);}
-.prof .face{grid-row:1/3;grid-column:1;width:66px;aspect-ratio:1/1.2;border-radius:5px;overflow:hidden;margin:0 0 2px;
-  background:var(--paper-2);border:1px solid var(--line);position:relative;cursor:pointer;
-  display:flex;align-items:center;justify-content:center;flex:none;}
-.prof .face img{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block;}
-.prof .face.empty{border-style:dashed;border-color:var(--blue);background:var(--blue-pale);}
+.prof .face{flex:1 1 auto;min-height:96px;width:100%;overflow:hidden;margin:0;border-radius:0;
+  background:var(--paper-2);border:0;border-bottom:1px solid var(--line);position:relative;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;}
+.prof .face img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;}
+.prof .face.empty{background:var(--blue-pale);}
+.prof .face.empty::after{content:"사진";}
 .prof .face.empty img{display:none;}
 .prof .face.empty::after{content:"사진";font-size:11px;font-weight:700;color:var(--blue-lt);letter-spacing:.1em;}
-.prof .face.filled::before{content:"＋";position:absolute;top:4px;right:4px;z-index:2;
+.prof .face.filled::before{content:"확대";position:absolute;top:7px;right:7px;z-index:2;
   background:rgba(10,20,38,.75);color:#fff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:100px;
   opacity:0;transition:opacity .2s;}
 .prof .face.filled:hover::before{opacity:1;}
-.prof .pn{grid-column:2;align-self:end;display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-bottom:3px;}
+.prof .pn{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin:12px 14px 2px;}
 .prof .pn b{font-size:20px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
 .prof .pn span{font-size:13.5px;font-weight:700;color:var(--blue);letter-spacing:.05em;}
-.prof .pr{grid-column:2;font-size:13px;color:var(--gray-lt);line-height:1.35;}
-.prof ul{grid-column:1/-1;margin:11px 0 0;padding-top:10px;border-top:1px solid var(--line);}
-.prof li{list-style:none;font-size:15.4px;color:var(--gray);line-height:1.4;padding-left:11px;
-  position:relative;margin-bottom:5px;}
+.prof .pr{font-size:13.2px;color:var(--gray-lt);line-height:1.35;margin:0 14px 9px;}
+.prof ul{margin:0 14px 13px;padding-top:9px;border-top:1px solid var(--line);flex:none;
+  display:flex;flex-direction:column;gap:6px;}
+.prof li{list-style:none;font-size:15.4px;color:var(--gray);line-height:1.38;padding-left:11px;
+  position:relative;margin-bottom:0;}
 .prof li::before{content:"";position:absolute;left:0;top:7px;width:3.5px;height:3.5px;border-radius:50%;background:var(--gray-lt);}
 .prof li b{color:var(--navy);font-weight:700;}
 .prof li.hi{color:var(--navy);font-weight:700;}
@@ -630,8 +650,19 @@ body{
 /* 빈 사진 자리 안내 강화 */
 .ph.empty{cursor:pointer;}
 .ph.empty:hover{border-color:var(--red);background:rgba(228,97,79,.09);}
-.ph.empty::before{content:"누르면 PPT에서 사진을 꺼냅니다";}
+.ph.empty::before{content:"누르면 사진을 넣습니다";}
 .prof .face.empty{cursor:pointer;}
+
+
+/* 카드 안 미니 자금 도식 */
+.minibar{margin-top:auto;padding-top:12px;border-top:1px solid var(--line);}
+.minibar .lb{font-size:12.5px;font-weight:800;color:var(--gray-lt);letter-spacing:.06em;margin-bottom:7px;}
+.minibar .bar{display:flex;height:34px;border-radius:5px;overflow:hidden;}
+.minibar .bar span{display:grid;place-items:center;font-size:13px;font-weight:800;color:#fff;
+  white-space:nowrap;padding:0 6px;}
+.minibar .tail{display:flex;justify-content:space-between;align-items:baseline;margin-top:8px;}
+.minibar .tail b{font-size:16px;font-weight:800;color:var(--navy);}
+.minibar .tail em{font-style:normal;font-size:13px;color:var(--gray);}
 
 /* ══════════ 마무리 ══════════ */
 .end{justify-content:center;align-items:center;text-align:center;
@@ -644,6 +675,30 @@ body{
 .end .contact .cl{font-size:11px;letter-spacing:.13em;color:var(--blue-lt);margin-bottom:6px;}
 .end .contact .cv{font-size:15px;font-weight:700;}
 .end .contact .cv small{display:block;font-size:12px;font-weight:400;color:rgba(255,255,255,.55);margin-top:3px;}
+
+
+/* W 키 — 어두운 방에서 발표할 때 표지·마무리 외 본문도 어둡게 */
+body.roomdark .slide{background:#0E2242;color:#EAF0FA;}
+body.roomdark .s-title{color:#fff;}
+body.roomdark .s-sub{color:rgba(234,240,250,.7);}
+body.roomdark .card,body.roomdark .cmp-card,body.roomdark .prof,body.roomdark .step,
+body.roomdark .stackbox,body.roomdark .gapbox,body.roomdark .kpi,body.roomdark .pbox,
+body.roomdark .stk,body.roomdark .toc-item,body.roomdark .ph.doc{
+  background:rgba(255,255,255,.055);border-color:rgba(255,255,255,.15);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 18px 40px -22px rgba(0,0,0,.8);}
+body.roomdark .card.tint,body.roomdark .card.hot{background:rgba(228,97,79,.14);border-color:rgba(228,97,79,.35);}
+body.roomdark .card h4,body.roomdark .pbox h5,body.roomdark .prof .pn b,body.roomdark .toc-item h4,
+body.roomdark .fnode h5,body.roomdark .step h5,body.roomdark .money .row b,body.roomdark .tbl td.nm,
+body.roomdark .org-cell,body.roomdark .kpi .v{color:#fff;}
+body.roomdark .card li,body.roomdark .pt,body.roomdark .prof li,body.roomdark .toc-item p,
+body.roomdark .fnode li,body.roomdark .step p,body.roomdark .note,body.roomdark .callout p,
+body.roomdark .tbl tbody td,body.roomdark .kpi .d{color:rgba(234,240,250,.78);}
+body.roomdark .tbl tbody tr:nth-child(even){background:rgba(255,255,255,.04);}
+body.roomdark .tbl tbody tr{border-color:rgba(255,255,255,.12);}
+body.roomdark .money,body.roomdark .formula{background:rgba(255,255,255,.05);}
+body.roomdark .callout{background:rgba(192,57,43,.16);border-color:rgba(228,97,79,.4);}
+body.roomdark .callout.blue{background:rgba(62,108,181,.18);border-color:rgba(110,155,221,.4);}
+body.roomdark .grain{mix-blend-mode:overlay;opacity:.05;}
 
 /* ══════════ UI ══════════ */
 #progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--red));
@@ -824,7 +879,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <p class="s-sub" data-anim="up">원본 제안서의 10개 파트를 그대로 유지하되, 각 장의 내용은 말씀 순서에 맞춰 단계별로 나타납니다.</p>
 
   <div class="s-body">
-    <div class="toc" data-build="5">
+    <div class="toc">
       <div class="toc-item" data-anim="right"><div class="no">01</div><div><h4>사무소 소개</h4><p>서초동 본사 · 동탄분사무소 · 구성원 변호사 6인 · 케이탑 법무사합동사무소 · 조직도</p></div></div>
       <div class="toc-item hot" data-anim="left"><div class="no">06</div><div><h4>분양전환계약 진행방법 및 일정</h4><p>계약 체결방식 3가지 · 일시납 / 분할납부 · 저소득층 · 국가유공자 · Step 1~4</p></div></div>
       <div class="toc-item" data-anim="right"><div class="no">02</div><div><h4>단체등기 수임 실적</h4><p>2021~2026년 분양전환등기 실적 전체 · LH공사 업무수행 실적</p></div></div>
@@ -867,13 +922,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       <div class="cmp-card" data-anim="left">
         <div class="cmp-head"><h4>서초동 본사</h4><span class="tagx">주사무소</span></div>
         <div class="cmp-body">
-          <table class="tbl" style="margin-bottom:14px">
-            <tbody>
-              <tr><td class="nm" style="width:74px">주소</td><td>서울 서초구 서초대로53길 15 정원빌딩 4층<br><span style="color:var(--gray-lt)">(등기부상 : 서초대로 53길 15, 401호)</span></td></tr>
-              <tr><td class="nm">전화</td><td><b>02-537-0123</b> 법률상담<br><b>1899-4252</b> 등기상담</td></tr>
-              <tr><td class="nm">팩스</td><td>02-537-1331</td></tr>
-            </tbody>
-          </table>
           <div class="pt"><span><b>분사무소 개설 등 정관 인가</b> — 법무법인 제이엘</span></div>
           <div class="pt"><span>변호사 6인 · 법무사 2인 · 사무장 12인, <b>총사원 40여 명</b></span></div>
           <div class="note">본사는 법률자문·소송을, 동탄분사무소는 단체등기 실무를 전담하는 이원 체계로 운영합니다.</div>
@@ -888,10 +936,10 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 <section class="slide" data-title="동탄분사무소">
   <div class="s-kicker" data-anim="right">01 · 사무소 소개</div>
   <h2 class="s-title" data-anim="up">단체등기 전담 <em>동탄분사무소</em>에 등기 전담인력 30명이 상주합니다</h2>
-  <p class="s-sub" data-anim="up">화성시 동탄순환대로 127-5, 우성센트럴타워 914호 · T. 1899-4252(등기상담) · F. 0505-300-6300</p>
+  <p class="s-sub" data-anim="up">2021년 3월 개설 · 입주민을 위한 법률 · 등기 · 세무 · 대출상담을 한 창구에서 처리합니다</p>
 
   <div class="s-body">
-    <div class="cards c4" data-build="2">
+    <div class="cards c4" data-build="1">
       <div class="card" data-anim="up">
         <div class="ch"><div class="cn">01</div><h4>2021년 3월 개설<small>단체등기 전담</small></h4></div>
         <ul><li>법무법인 제이엘 동탄분사무소</li><li>단체등기 실무를 본사와 분리해 전담 운영합니다</li></ul>
@@ -1006,7 +1054,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 <section class="slide" data-title="케이탑 법무사합동사무소">
   <div class="s-kicker" data-anim="right">01 · 사무소 소개</div>
   <h2 class="s-title" data-anim="up">케이탑 법무사합동사무소는 <em>전국 90여 개 입주자협의회</em>의 지정 법무사입니다</h2>
-  <p class="s-sub" data-anim="up">화성시 동탄순환대로 127-5, 우성센트럴타워 907호 · T. 031-283-0000 · F. 0505-466-1000</p>
+  <p class="s-sub" data-anim="up">단체등기 전문 법무사무소 · 최근 5년간 90여 개 입주아파트 단체등기 수임</p>
 
   <div class="s-body">
     <div class="cmp" data-build="1" style="grid-template-columns:1fr 1fr 1fr">
@@ -1104,7 +1152,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 </section>
 
 <!-- ═══════════ 08 실적 요약 ═══════════ -->
-<section class="slide dark" data-title="수임 실적 요약">
+<section class="slide" data-title="수임 실적 요약">
   <div class="s-kicker" data-anim="right">02 · 단체등기 수임 실적 (분양전환 수임실적)</div>
   <h2 class="s-title" data-anim="up">2021년부터 <em>49개 단지 39,080세대</em>의 분양전환 등기를 수행했습니다</h2>
   <p class="s-sub" data-anim="up">법무법인 제이엘 &amp; 케이탑 법무사합동사무소 합산 · 2026년 6월 계약 기준</p>
@@ -1482,7 +1530,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 
   <div class="s-body">
     <div class="cards c3" data-build="1">
-      <div class="card hot" data-anim="up">
+      <div class="card hot" data-anim="popup">
         <div class="ch"><div class="cn">1</div><h4>일시납<small>분양잔금 전액 납부</small></h4></div>
         <div class="big red">소유권이전등기 가능</div>
         <ul>
@@ -1491,8 +1539,9 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
           <li>잔금 지급 <b>당일</b> 분양전환(본)계약서 작성, 소유권이전등기 실행</li>
           <li>기존에 대출받은 전세자금대출이 있을 시 <b>전액 상환</b><br>(채권양도 해지 통지 필수)</li>
         </ul>
+        <div class="minibar"><div class="lb">자금 구조</div><div class="bar"><span style="flex:1;background:var(--navy)">기존 보증금</span><span style="flex:1.6;background:var(--red)">잔금 (자기자금 · 주택담보대출)</span></div><div class="tail"><b>잔금 지급 당일 등기</b><em>분양가 － 기존보증금 ＝ 잔금</em></div></div>
       </div>
-      <div class="card" data-anim="up">
+      <div class="card" data-anim="popup">
         <div class="ch"><div class="cn">2</div><h4>저소득층 분할납부<small>LH 지원책 이용</small></h4></div>
         <div class="big">소유권이전등기 불가능</div>
         <ul>
@@ -1503,8 +1552,9 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
           <li>계약체결 전 → 월세 / 계약체결 후 → <b>월세 납부 없음</b></li>
           <li>분할납부 계약일로부터 <b>2년마다 갱신</b>, 전세보증금 변동 없음</li>
         </ul>
+        <div class="minibar"><div class="lb">자금 구조</div><div class="bar"><span style="flex:1;background:var(--blue)">전세보증금</span><span style="flex:1.5;background:#7E93B5">LH 잔금유예</span></div><div class="tail"><b>연 2.7% 이자만</b><em>12월 연납 · 최소 5,500 / 7,500만 원</em></div></div>
       </div>
-      <div class="card" data-anim="up">
+      <div class="card" data-anim="popup">
         <div class="ch"><div class="cn">3</div><h4>국가유공자 분할납부<small>보훈처 추천 특별공급</small></h4></div>
         <div class="big">소유권이전등기 불가능</div>
         <ul>
@@ -1513,6 +1563,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
           <li><b>나라사랑대출</b>(보훈처 대출) 이용</li>
           <li class="hi"><b>취득세 100% 감면</b></li>
         </ul>
+        <div class="minibar"><div class="lb">자금 구조</div><div class="bar"><span style="flex:1;background:var(--blue)">기존 보증금</span><span style="flex:1.5;background:var(--gold)">잔금유예 (저소득층과 동일)</span></div><div class="tail"><b>취득세 100% 감면</b><em>나라사랑대출 이용</em></div></div>
       </div>
     </div>
   </div>
@@ -1526,7 +1577,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 
   <div class="s-body">
     <div class="cmp" data-build="1">
-      <div class="cmp-card" data-anim="right">
+      <div class="cmp-card" data-anim="popup">
         <div class="cmp-head"><h4>1. 일 시 납</h4><span class="tagx">소유권이전등기 실행</span></div>
         <div class="cmp-body">
           <div class="struct" style="grid-template-columns:1fr;margin-bottom:14px">
@@ -1545,7 +1596,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         </div>
       </div>
 
-      <div class="cmp-card b" data-anim="left">
+      <div class="cmp-card b" data-anim="popup">
         <div class="cmp-head"><h4>2. 분 할 납 부</h4><span class="tagx">전세보증금 ＋ 잔금유예</span></div>
         <div class="cmp-body">
           <div class="struct" style="margin-bottom:13px">
@@ -1585,7 +1636,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 
   <div class="s-body">
     <div class="cmp" data-build="1" style="grid-template-columns:1.1fr 1fr .82fr">
-      <div class="cmp-card b" data-anim="right">
+      <div class="cmp-card b" data-anim="popup">
         <div class="cmp-head"><h4>저소득층 분할납부 자격</h4><span class="tagx">2025년 기준</span></div>
         <div class="cmp-body">
           <div class="money">
@@ -1604,7 +1655,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         </div>
       </div>
 
-      <div class="cmp-card" data-anim="up">
+      <div class="cmp-card" data-anim="popup">
         <div class="cmp-head" style="background:var(--red)"><h4>기납부 임대보증금 산정 기준일</h4><span class="tagx">가장 중요</span></div>
         <div class="cmp-body">
           <div class="money" style="border-color:var(--red)">
@@ -1619,7 +1670,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         </div>
       </div>
 
-      <div class="cmp-card" data-anim="left">
+      <div class="cmp-card" data-anim="popup">
         <div class="cmp-head"><h4>국가유공자 분할납부</h4><span class="tagx">취득세 100% 감면</span></div>
         <div class="cmp-body">
           <div class="struct" style="grid-template-columns:1fr;margin-bottom:13px">
@@ -1710,6 +1761,39 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 </section>
 
 <!-- ═══════════ 21 월 부담 비교 ═══════════ -->
+<section class="slide" data-title="분양전환 계약서 및 관계 서류">
+  <div class="s-kicker" data-anim="right">06 · 분양전환계약 진행방법 및 일정</div>
+  <h2 class="s-title" data-anim="up">실제 <em>계약서와 관계 서류</em>를 보며 짚어드립니다</h2>
+  <p class="s-sub" data-anim="up">서류를 누르면 전체화면으로 확대됩니다. 휠로 더 확대, 끌어서 이동하며 조항별로 설명하십시오.
+    <span class="zoomhint" style="margin-left:10px"><i></i>확대해서 설명하는 자료</span></p>
+
+  <div class="s-body">
+    <div class="docs" data-build="1" style="grid-template-columns:repeat(5,1fr)">
+      <figure class="ph doc" data-anim="popup">
+        <img src="assets/photos/doc-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
+        <figcaption>분양전환 (가)계약서<span class="fn">Step 2 · 주거복지지사에서 수령</span></figcaption>
+      </figure>
+      <figure class="ph doc" data-anim="popup">
+        <img src="assets/photos/doc-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
+        <figcaption>권리침해 유무 확인서<span class="fn">Step 2 · 잔금대출 신청 필수</span></figcaption>
+      </figure>
+      <figure class="ph doc" data-anim="popup">
+        <img src="assets/photos/doc-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
+        <figcaption>계약사실 확인원<span class="fn">Step 2 · 잔금대출 신청 필수</span></figcaption>
+      </figure>
+      <figure class="ph doc" data-anim="popup">
+        <img src="assets/photos/doc-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
+        <figcaption>분양전환 (본)계약서<span class="fn">Step 4 · 잔금 납부 당일 작성</span></figcaption>
+      </figure>
+      <figure class="ph doc" data-anim="popup">
+        <img src="assets/photos/doc-05.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
+        <figcaption>권리의무 승계계약서<span class="fn">부부 공동명의 변경 시 교부</span></figcaption>
+      </figure>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>06 · 계약 진행방법</span></div></div>
+</section>
+
 <section class="slide" data-title="월 부담 비교">
   <div class="chk" data-anim="down">예시 · 분양가 4억 원, 기존보증금 1억 원, 보증금대출 없음</div>
   <div class="s-kicker" data-anim="right">06 · 분양전환계약 진행방법 및 일정</div>
@@ -1718,7 +1802,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 
   <div class="s-body" style="flex-direction:column;gap:13px;">
     <div class="cmp" data-build="1">
-      <div class="cmp-card b" data-anim="right">
+      <div class="cmp-card b" data-anim="popup">
         <div class="cmp-head"><h4>1. 분할납부</h4><span class="tagx">매월 이자만 납부</span></div>
         <div class="cmp-body">
           <div class="money">
@@ -1732,7 +1816,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         </div>
       </div>
 
-      <div class="cmp-card" data-anim="left">
+      <div class="cmp-card" data-anim="popup">
         <div class="cmp-head"><h4>2. 일시불 (소유권이전등기)</h4><span class="tagx">거치기간 1년 · 원금＋이자</span></div>
         <div class="cmp-body">
           <div class="money">
@@ -1747,7 +1831,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       </div>
     </div>
 
-    <div class="callout" data-build-self data-anim="up">
+    <div class="callout" data-build-self data-anim="popup">
       <div class="ic">!</div>
       <p><b>산정 기준</b> — 일시불 금액은 <b>원금균등상환 1회차</b> 기준입니다(이자 833,000원 ＋ 원금 833,000원).
       원리금균등상환으로 계산하면 월 약 <b>1,321,000원</b>이며 회차가 지나도 금액이 일정합니다.
@@ -2192,46 +2276,60 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 <!-- ═══════════ 31 특별제안 ① 브릿지론 ═══════════ -->
 <section class="slide" data-title="특별제안 · 단기 브릿지론">
   <div class="s-kicker" data-anim="right">09 · 특별제안</div>
-  <h2 class="s-title" data-anim="up">단기 브릿지론 실시 — <em>중도상환수수료</em>를 줄이는 방안입니다</h2>
+  <h2 class="s-title" data-anim="up">단기 브릿지론 실시 — <em>중도상환수수료</em>를 줄이는 유일한 합법 경로</h2>
   <p class="s-sub" data-anim="up">분양전환 즉시 매도 세대 또는 지원책 사용 후 매도 세대의 등기에 해당합니다.</p>
 
-  <div class="s-body" style="flex-direction:column;gap:14px;">
-    <div class="cards c3" data-build="1" style="gap:14px">
-      <div class="card" data-anim="up">
-        <div class="ch"><div class="cn" style="background:var(--gray)">A</div><h4>등기 정상 처리 시<small>수수료 발생</small></h4></div>
+  <div class="s-body" style="flex-direction:column;gap:12px;">
+    <div class="cards c3" data-build="1" style="gap:13px">
+      <div class="card" data-anim="popup">
+        <div class="ch"><div class="cn" style="background:var(--gray)">①</div><h4>등기 정상 처리 시 흐름<small>가능하지만 수수료 발생</small></h4></div>
         <ul>
-          <li><b>①</b> 계약자 소유권이전등기 ＋ 근저당권설정등기(대출)<br><span style="color:var(--gray-lt)">은행에 소득증빙서류 등 여러 서류 제출 후 대출심사 실시</span></li>
-          <li><b>②</b> 매수인 소유권이전등기 ＋ 근저당권설정등기(대출)</li>
-          <li>계약자 앞 잔금대출 취급 후 매수인 이전등기 시 말소등기(대출 상환) 진행</li>
+          <li>계약자 소유권이전등기 ＋ 근저당권설정등기(대출)<br><span style="color:var(--gray-lt)">은행에 소득증빙서류 등 제출 후 대출심사</span></li>
+          <li>매수인 소유권이전등기 ＋ 근저당권설정등기(대출)</li>
+          <li>계약자 앞 잔금대출 취급 후 매수인 이전등기 시 말소등기(대출 상환)</li>
           <li class="hi"><b>중도상환수수료 1.2 ~ 1.4% 발생</b></li>
         </ul>
       </div>
-      <div class="card" data-anim="up">
-        <div class="ch"><div class="cn">B</div><h4>복등기<small>재이전등기</small></h4></div>
+
+      <div class="card" data-anim="popup" style="border-color:rgba(192,57,43,.45);background:var(--red-pale)">
+        <div class="ch"><div class="cn" style="background:var(--red)">②</div><h4>복등기 (재이전등기)<small style="color:var(--red)">현행 법령상 불가 — 제안 대상 아님</small></h4></div>
         <ul>
           <li>소유권이전등기(계약자) ＋ 소유권이전등기(매수자) ＋ 설정등기(대출)</li>
-          <li>소득이 적어 대출이 불가능한 계약자가 복등기가 가능하게 되면 <b>계약자 앞 대출이 생략</b>됩니다</li>
-          <li class="hi"><b>중도상환수수료 미발생</b></li>
-          <li>법제처 방침 : <b>유권해석 유보</b></li>
+          <li>계약자 앞 대출이 생략되어 중도상환수수료가 발생하지 않는 구조</li>
+          <li class="hi"><b>그러나 현행 법령상 실행할 수 없습니다</b></li>
         </ul>
+        <div class="minibar" style="border-top-color:rgba(192,57,43,.3)">
+          <div class="lb" style="color:var(--red)">불가 근거</div>
+          <div style="font-size:13.5px;line-height:1.5;color:var(--ink)">
+            공공주택 특별법 제50조의3 · 공인중개사법 제33조 제1항 제7호<br>
+            부동산등기 특별조치법 제2조 제2항 · 제8조 (미등기 전매 금지)<br>
+            <b style="color:var(--red)">법제처 유권해석 유보 상태</b>
+          </div>
+        </div>
       </div>
-      <div class="card hot" data-anim="up">
-        <div class="ch"><div class="cn">C</div><h4>단기 브릿지론<small>복등기 불가 시</small></h4></div>
+
+      <div class="card hot" data-anim="popup">
+        <div class="ch"><div class="cn">③</div><h4>단기 브릿지론<small>제이엘 주도 취급 · 합법 경로</small></h4></div>
         <ul>
-          <li>공공주택특별법 제50조의3항과 공인중개사법 제33조 7호를 계속 적용하여 <b>복등기가 불가능할 경우</b></li>
-          <li>약 <b>1개월간</b> 사용할 수 있는 브릿지대출을 <b>법무법인 주도</b> 하에 취급할 수 있도록 준비했습니다</li>
+          <li>복등기가 불가하므로 <b>이것이 실질적 대안</b>입니다</li>
+          <li>약 <b>1개월간</b> 사용하는 브릿지대출을 <b>법무법인 주도</b> 하에 취급</li>
           <li>이자 상한율 <b>연 20% 이내</b> 적용</li>
-          <li>계약자 : 이전등기 ＋ 설정등기(브릿지대출 취급)<br>매수인 : 이전등기 ＋ 설정등기(은행) 할 때 브릿지론 회수</li>
+          <li>계약자 : 이전등기 ＋ 설정등기(브릿지)<br>매수인 : 이전등기 ＋ 설정등기(은행) 시 브릿지론 회수</li>
         </ul>
       </div>
     </div>
 
-    <div class="callout blue" data-build-self data-anim="up">
-      <div class="ic">i</div>
-      <p><b>국토교통부 2019. 11. 19. 보도지침</b> — "분양전환 공공임대주택은 소유권이전이 완료된 후에 매매계약이 가능하다."
-      즉, 계약자의 소유권이전등기가 완료된 후 매매계약이 가능하기 때문에, 계약자가 분양전환자금이 없을 경우 어쩔 수 없이 잔금대출을 받아야 하며,
-      소유권이전등기 후 바로 상환할 경우 <b>중도상환수수료가 발생</b>합니다.
-      <span style="color:var(--red);font-weight:700">[확인] 2019년 자료이므로 착수 시점에 최신 유권해석을 재확인한 후 확정합니다.</span></p>
+    <div class="callout" data-build-self data-anim="up">
+      <div class="ic">!</div>
+      <p><b>[검토의견]</b> 원본 제안서는 복등기를 선택지로 병기하고 "법제처 유권해석 유보"로만 적고 있습니다.
+      그러나 <b>조세 회피 또는 전매 제한 회피 목적의 미등기 전매는 부동산등기 특별조치법 위반</b>으로
+      3년 이하 징역 또는 1억 원 이하 벌금 대상이며, 공인중개사법상 투기 조장 행위에도 해당할 수 있습니다.
+      <b>법무법인 제안서에 실행 가능한 선택지로 병기하는 것은 권하지 않습니다.</b>
+      복등기를 "불가 사유"로만 서술하고 브릿지론을 유일한 합법 경로로 제시하는 편이
+      법률적으로 안전하고 제안 논리도 강해집니다.
+      <br><b>국토교통부 2019. 11. 19. 보도지침</b> — "분양전환 공공임대주택은 소유권이전이 완료된 후에 매매계약이 가능하다."
+      즉, 계약자의 소유권이전등기가 완료된 후 매매계약이 가능하기 때문에 계약자가 분양전환자금이 없을 경우
+      어쩔 수 없이 잔금대출을 받아야 하며, 소유권이전등기 후 바로 상환할 경우 중도상환수수료가 발생합니다.</p>
     </div>
   </div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>09 · 특별제안</span></div></div>
@@ -2343,7 +2441,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 
   <div class="s-body">
     <div class="cmp" data-build="1" style="grid-template-columns:1fr 1fr .8fr">
-      <div class="cmp-card" data-anim="right">
+      <div class="cmp-card" data-anim="popup">
         <div class="cmp-head"><h4>생애최초 주택 구입 감면</h4><span class="tagx">경기도 100% 감면 조건</span></div>
         <div class="cmp-body">
           <div class="money">
@@ -2356,7 +2454,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         </div>
       </div>
 
-      <div class="cmp-card b" data-anim="up">
+      <div class="cmp-card b" data-anim="popup">
         <div class="cmp-head"><h4>[24년 출생] 신생아 취득세 감면요건</h4><span class="tagx">2024.1.1 ~ 2028.12.31</span></div>
         <div class="cmp-body">
           <div class="money">
@@ -2370,7 +2468,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         </div>
       </div>
 
-      <div class="cmp-card" data-anim="left">
+      <div class="cmp-card" data-anim="popup">
         <div class="cmp-head" style="background:var(--gold);color:#3A2E05"><h4>생애최초 사후관리</h4><span class="tagx" style="background:rgba(0,0,0,.14)">위반 시 추징</span></div>
         <div class="cmp-body">
           <div class="pt"><span><b>ⓐ</b> <b>세입자 전입 불가</b> (본인 실거주)</span></div>
@@ -2458,7 +2556,24 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
     <div data-anim="up" style="--d:880"><div class="cl">담당사무장</div><div class="cv">이건승<small>010-9227-1723</small></div></div>
     <div data-anim="up" style="--d:940"><div class="cl">담당과장</div><div class="cv">김학철<small>010-8850-5208</small></div></div>
   </div>
-  <p data-anim="up" style="--d:1010" style="margin-top:26px;font-size:13px;opacity:.55">www.jllawfirm.co.kr</p>
+  <div data-anim="up" style="--d:1010;margin-top:30px;display:flex;gap:34px;justify-content:center;
+       padding-top:22px;border-top:1px solid rgba(255,255,255,.16);text-align:left;flex-wrap:wrap;">
+    <div style="color:rgba(255,255,255,.72);font-size:13.5px;line-height:1.65">
+      <b style="color:#fff;display:block;font-size:14.5px;margin-bottom:4px">법무법인 제이엘 서초동 본사</b>
+      서울 서초구 서초대로53길 15 정원빌딩 4층<br>
+      T. 02-537-0123 (법률상담) · 1899-4252 (등기상담) · F. 02-537-1331
+    </div>
+    <div style="color:rgba(255,255,255,.72);font-size:13.5px;line-height:1.65">
+      <b style="color:#fff;display:block;font-size:14.5px;margin-bottom:4px">단체등기 전담 동탄분사무소</b>
+      화성시 동탄순환대로 127-5, 우성센트럴타워 914호<br>
+      T. 1899-4252 (등기상담) · F. 0505-300-6300
+    </div>
+    <div style="color:rgba(255,255,255,.72);font-size:13.5px;line-height:1.65">
+      <b style="color:#fff;display:block;font-size:14.5px;margin-bottom:4px">케이탑 법무사합동사무소</b>
+      화성시 동탄순환대로 127-5, 우성센트럴타워 907호<br>
+      T. 031-283-0000 · F. 0505-466-1000 · www.jllawfirm.co.kr
+    </div>
+  </div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑 법무사합동사무소</span></div><div class="bb-r"><span>www.jllawfirm.co.kr</span></div></div>
 </section>
 
@@ -2573,7 +2688,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 <div id="pptdrop"><div class="box"><b>PPT 파일을 여기에 놓으십시오</b>
   <span>파일 안의 사진을 자동으로 꺼냅니다</span></div></div>
 
-<div id="pager"><b id="pg-cur">1</b> / <span id="pg-tot">36</span><span id="pg-step"></span></div>
+<div id="pager"><b id="pg-cur">1</b> / <span id="pg-tot">38</span><span id="pg-step"></span></div>
 <div id="hint"><kbd>←</kbd><kbd>→</kbd> 이동 · <kbd>L</kbd> 레이저 · <kbd>D</kbd> 펜 · <kbd>B</kbd> 블랙 · <kbd>H</kbd> 도움말</div>
 <div id="nav"><h3>SLIDE INDEX</h3><ol id="nav-list"></ol></div>
 
@@ -2595,6 +2710,92 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
     if(typeof fitInk==='function') fitInk();
   }
   window.addEventListener('resize',fit); fit();
+
+
+  /* ── 남는 세로 공간을 글자 크기로 채웁니다 (줄 간격은 조인 채로) ──
+     scrollHeight 는 컨테이너 높이보다 작아지지 않으므로 자식 높이를 직접 더합니다.
+     offsetHeight 는 transform 에 영향받지 않아 비활성 슬라이드에서도 정확합니다. */
+  function natH(el){
+    var kids=[].slice.call(el.children);
+    if(!kids.length) return 0;
+    var gap=parseFloat(getComputedStyle(el).rowGap)||0;
+    var h=0;
+    kids.forEach(function(k){ h+=k.offsetHeight; });
+    return h + gap*(kids.length-1);
+  }
+  function fitFill(){
+    var groups=[
+      {sel:'.card ul',        base:16.5, max:1.30},
+      {sel:'.fnode .box ul',  base:15.8, max:1.24}
+    ];
+    slides.forEach(function(sl){
+      groups.forEach(function(g){
+        var set=[].slice.call(sl.querySelectorAll(g.sel));
+        set.forEach(function(el){
+          el.style.fontSize=g.base+'px';
+          var avail=el.clientHeight, nat=natH(el);
+          if(!avail || !nat) return;
+          if(avail > nat+8){
+            var r=Math.min(g.max, (avail-6)/nat);
+            if(r<=1.01) return;
+            el.style.fontSize=(g.base*r).toFixed(2)+'px';
+            var guard=0;
+            while(natH(el) > el.clientHeight-2 && guard++<8){
+              r*=0.955; el.style.fontSize=(g.base*Math.max(1,r)).toFixed(2)+'px';
+              if(r<=1){ el.style.fontSize=g.base+'px'; break; }
+            }
+          }
+        });
+        /* 0.5px 단위로 맞춰 크기가 들쭉날쭉해 보이지 않게 합니다 */
+        set.forEach(function(el){
+          var v=parseFloat(el.style.fontSize)||g.base;
+          el.style.fontSize=(Math.round(v*2)/2).toFixed(1)+'px';
+        });
+      });
+    });
+  }
+
+  /* 형제 프로필 카드의 사진 밑변을 한 줄로 맞춥니다 */
+  function alignFaces(){
+    slides.forEach(function(sl){
+      sl.querySelectorAll('.profs, .cmp, .cards').forEach(function(row){
+        var cards=[].slice.call(row.querySelectorAll('.prof'));
+        if(cards.length<2) return;
+        var maxBelow=0;
+        cards.forEach(function(c){
+          var below=0;
+          [].slice.call(c.children).forEach(function(ch){
+            if(ch.classList.contains('face')) return;
+            var cs=getComputedStyle(ch);
+            below += ch.offsetHeight + (parseFloat(cs.marginTop)||0) + (parseFloat(cs.marginBottom)||0);
+          });
+          if(below>maxBelow) maxBelow=below;
+        });
+        cards.forEach(function(c){
+          var f=c.querySelector('.face');
+          if(!f) return;
+          f.style.flex='none';
+          f.style.height=Math.max(100, c.clientHeight - maxBelow)+'px';
+        });
+      });
+    });
+  }
+
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){ setTimeout(function(){ fitFill(); alignFaces(); },80); });
+  else setTimeout(function(){ fitFill(); alignFaces(); },320);
+  window.addEventListener('resize',function(){ clearTimeout(window.__ff); window.__ff=setTimeout(function(){ fitFill(); alignFaces(); },220); });
+
+
+  function flash(msg){
+    var el=document.createElement('div');
+    el.textContent=msg;
+    el.style.cssText='position:fixed;left:50%;top:20px;transform:translateX(-50%);z-index:101;'+
+      'background:rgba(12,22,40,.95);border:1px solid rgba(255,255,255,.22);color:#fff;'+
+      'padding:10px 20px;border-radius:100px;font-size:14px;font-weight:700;'+
+      'font-family:inherit;box-shadow:0 10px 30px rgba(0,0,0,.4);';
+    document.body.appendChild(el);
+    setTimeout(function(){ el.remove(); },1600);
+  }
 
   /* ── 단계 빌드 구성 ── */
   var focusDim = true;          /* 지난 단계 흐리게 (G 키) */
@@ -3387,6 +3588,8 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         else if(k==='d') togglePen();
         else if(k==='x') clearInk();
         else if(k==='b' || e.key==='.') { e.preventDefault(); toggleBlack(); }
+        else if(k==='w'){ document.body.classList.toggle('roomdark');
+          flash(document.body.classList.contains('roomdark')?'어두운 방 모드 — 배경을 어둡게':'밝은 방 모드 — 배경을 밝게'); }
         else if(k==='g'){ focusDim=!focusDim; applyStep(slides[idx],curStep); }
         else if(k==='a'){ revealAll(); }
         else if(k==='t') toggleTimer();
