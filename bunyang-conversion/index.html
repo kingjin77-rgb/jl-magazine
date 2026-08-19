@@ -41,7 +41,7 @@
     1.0526,1.0518,1.0512,1.0508,1.0505,1.0503,1.0501,1.05,1.0499,1.0498,1.0496,1.0494,1.0491,
     1.0487,1.0483,1.0478,1.0472,1.0466,1.046,1.0453,1.0447,1.044,1.0434,1.0428,1.0423,1.0418,
     1.0414,1.041,1.0407,1.0404,1.0402,1.0401,1.04,1.04,1);
-  --overshoot:cubic-bezier(.34,1.42,.5,1);
+  --overshoot:cubic-bezier(.3,1.12,.5,1);
   --exp:cubic-bezier(.16,1,.3,1);
   --lift:0 1px 2px rgba(15,37,72,.05),0 6px 18px -8px rgba(15,37,72,.18);
   --lift-2:0 2px 4px rgba(15,37,72,.06),0 18px 44px -14px rgba(15,37,72,.26);
@@ -104,11 +104,11 @@ body{
   transition-delay:calc(var(--d,0)*1ms);}
 [data-anim="up"]{transform:translate3d(0,32px,0);filter:blur(4px);}
 [data-anim="down"]{transform:translate3d(0,-26px,0);filter:blur(4px);}
-[data-anim="left"]{transform:translate3d(38px,0,0) rotateY(-5deg);filter:blur(3px);}
-[data-anim="right"]{transform:translate3d(-38px,0,0) rotateY(5deg);filter:blur(3px);}
+[data-anim="left"]{transform:translate3d(30px,0,0);filter:blur(3px);}
+[data-anim="right"]{transform:translate3d(-30px,0,0);filter:blur(3px);}
 [data-anim="scale"]{transform:scale(.9) translate3d(0,10px,0);filter:blur(5px);}
-[data-anim="pop"]{transform:scale(.5) translate3d(0,14px,0);
-  transition-timing-function:var(--overshoot);transition-duration:.72s;}
+[data-anim="pop"]{transform:scale(.82) translate3d(0,10px,0);
+  transition-timing-function:var(--overshoot);transition-duration:.6s;}
 [data-anim="blur"]{filter:blur(14px);transform:translate3d(0,14px,0);}
 [data-anim="fade"]{transform:translate3d(0,10px,0);filter:blur(3px);}
 [data-anim="wipe"]{clip-path:inset(0 100% 0 0);transform:none;}
@@ -120,9 +120,9 @@ body{
    ───────────────────────────────────────────────────────── */
 .is-active [data-step]{opacity:0;}
 .is-active [data-step]:not(.step-in){transform:translate3d(0,26px,0);filter:blur(4px);}
-.is-active [data-anim="pop"][data-step]:not(.step-in){transform:scale(.56) translate3d(0,12px,0);filter:none;}
-.is-active [data-anim="left"][data-step]:not(.step-in){transform:translate3d(34px,0,0) rotateY(-5deg);filter:blur(3px);}
-.is-active [data-anim="right"][data-step]:not(.step-in){transform:translate3d(-34px,0,0) rotateY(5deg);filter:blur(3px);}
+.is-active [data-anim="pop"][data-step]:not(.step-in){transform:scale(.84) translate3d(0,10px,0);filter:none;}
+.is-active [data-anim="left"][data-step]:not(.step-in){transform:translate3d(28px,0,0);filter:blur(3px);}
+.is-active [data-anim="right"][data-step]:not(.step-in){transform:translate3d(-28px,0,0);filter:blur(3px);}
 .is-active [data-anim="scale"][data-step]:not(.step-in){transform:scale(.9) translate3d(0,10px,0);filter:blur(4px);}
 .is-active [data-step]:not(.step-in) .grow-x{width:0!important;}
 .is-active [data-step]:not(.step-in) .grow-y{height:0!important;}
@@ -137,13 +137,15 @@ body{
 .slide.dark .is-active [data-step].step-past,.slide.dark [data-step].step-past{opacity:.28;}
 
 /* ── 키네틱 타이포 : 제목이 단어 단위로 세워지며 들어옵니다 ── */
-.kw{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .01em;}
-.kw > i{display:inline-block;font-style:inherit;transform:translate3d(0,108%,0) rotateX(-72deg);
-  transform-origin:0 0;opacity:0;
-  transition:transform .95s var(--spring),opacity .45s var(--exp);
-  transition-delay:calc(var(--kd,0)*1ms);}
-.is-active .kw > i{transform:none;opacity:1;}
-.s-title{transform-style:preserve-3d;}
+/* 제목은 단어를 흔들지 않습니다. 한 덩어리로 좌→우 마스크만 걷어냅니다. */
+.s-title{clip-path:inset(0 100% 0 0);opacity:0;
+  transition:clip-path .82s var(--exp),opacity .3s linear;transition-delay:.1s;}
+.is-active .s-title{clip-path:inset(0 0 0 0);opacity:1;}
+.s-kicker::before{width:0;transition:width .5s var(--exp);}
+.is-active .s-kicker::before{width:24px;}
+.s-sub{opacity:0;transform:translate3d(0,8px,0);
+  transition:opacity .5s var(--exp),transform .6s var(--exp);transition-delay:.5s;}
+.is-active .s-sub{opacity:1;transform:none;}
 
 /* ── 재질 : 얕은 깊이 + 1px 하이라이트 + 호버 리프트 ── */
 .card,.cmp-card,.prof,.step,.stackbox,.gapbox,.toc-item,.kpi,.ph,.stk{
@@ -160,7 +162,7 @@ body{
 /* 숫자가 올라올 때 미세한 탄성 */
 [data-count]{display:inline-block;font-variant-numeric:tabular-nums;}
 [data-count].tick{animation:tick .5s var(--overshoot);}
-@keyframes tick{0%{transform:scale(1)}40%{transform:scale(1.055)}100%{transform:scale(1)}}
+@keyframes tick{0%{opacity:.75}100%{opacity:1}}
 
 /* 막대 성장에 광택 스윕 */
 .cbar,.col,.gbar,.stackbar>div{position:relative;overflow:hidden;}
@@ -173,8 +175,8 @@ body{
 @keyframes shine{to{transform:translateX(120%)}}
 
 .mask{overflow:hidden;display:block;}
-.mask>span{display:block;transform:translate3d(0,108%,0) rotateX(-58deg);transform-origin:0 0;opacity:0;
-  transition:transform 1.05s var(--spring),opacity .5s var(--exp);
+.mask>span{display:block;transform:translate3d(0,105%,0);opacity:0;
+  transition:transform .9s var(--exp),opacity .4s linear;
   transition-delay:calc(var(--d,0)*1ms);}
 .is-active .mask>span{transform:translateY(0);opacity:1;}
 
@@ -210,7 +212,7 @@ body{
   animation:blink 2s ease-in-out infinite;}
 @keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(228,97,79,.6)}50%{opacity:.4;box-shadow:0 0 0 9px rgba(228,97,79,0)}}
 .cover-estate{font-size:20px;font-weight:500;color:rgba(255,255,255,.7);letter-spacing:.04em;margin-bottom:14px;}
-.cover-title{font-size:62px;font-weight:900;line-height:1.15;letter-spacing:-.035em;transform-style:preserve-3d;}
+.cover-title{font-size:62px;font-weight:900;line-height:1.15;letter-spacing:-.035em;}
 .cover-title .hl{color:var(--blue-lt);}
 .cover-rule{width:82px;height:4px;background:var(--red);margin:28px 0 22px;}
 .cover-desc{font-size:16.5px;line-height:1.78;color:rgba(255,255,255,.74);max-width:590px;}
@@ -411,6 +413,32 @@ body{
   letter-spacing:.1em;color:var(--blue-lt);margin-bottom:6px;}
 .ph.empty .fn{display:block;font-size:11px;font-weight:500;color:var(--gray);margin-top:6px;}
 
+
+/* ── 문서형 : 공고문·계약서·증명서류는 잘라내지 않고 전체를 보여줍니다 ── */
+/* 정보량이 많은 장만 미세하게 조입니다 */
+.slide.dense .pt{font-size:15.4px;line-height:1.36;margin-bottom:7px;}
+.slide.dense .cmp-body{padding:13px 16px 14px;}
+.slide.dense .tbl{font-size:14.8px;}
+.slide.dense .tbl tbody td{padding:7px 10px;}
+.docs{display:grid;gap:16px;width:100%;flex:1;min-height:0;}
+.ph.doc{background:#F0F3F8;border:1px solid var(--line);align-items:stretch;justify-content:flex-start;}
+.ph.doc img{width:100%;height:100%;object-fit:contain;background:#fff;}
+.ph.doc figcaption{position:absolute;left:0;right:0;bottom:0;padding:9px 12px;
+  background:linear-gradient(180deg,rgba(15,37,72,0),rgba(15,37,72,.9));}
+.ph.doc.empty{background:var(--blue-pale);}
+
+/* ── 사진 모자이크 : 한 장을 크게, 나머지를 곁들여 ── */
+.mosaic{display:grid;grid-template-columns:1.75fr 1fr 1fr;grid-template-rows:1fr 1fr;
+  gap:12px;width:100%;flex:1;min-height:0;}
+.mosaic .ph.lead{grid-row:span 2;}
+.mosaic .ph.wide{grid-column:span 2;}
+
+/* 확대 안내 배지 */
+.zoomhint{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:700;color:var(--blue);
+  background:var(--blue-pale);border:1px solid rgba(62,108,181,.3);padding:7px 14px;border-radius:100px;}
+.zoomhint i{width:16px;height:16px;border-radius:50%;border:2px solid var(--blue);position:relative;font-style:normal;flex:none;}
+.zoomhint i::after{content:"";position:absolute;right:-4px;bottom:-4px;width:7px;height:2px;background:var(--blue);transform:rotate(45deg);}
+
 /* ══════════ 계약 구조 다이어그램 ══════════ */
 .struct{display:grid;grid-template-columns:1fr 1fr;gap:16px;width:100%;}
 .stk{border:1px solid var(--line);border-radius:6px;overflow:hidden;}
@@ -426,6 +454,60 @@ body{
 .seg.n{background:var(--navy);}
 .seg.r{background:var(--red);}
 .seg.o{background:#fff;color:var(--navy);border:1.5px dashed var(--blue);}
+
+
+/* ══════════════════════════════════════════════════════════════
+   자료 확대 뷰어 — 계약서·공고문을 화면에 크게 띄우고 확대·이동
+   ══════════════════════════════════════════════════════════════ */
+#viewer{position:fixed;inset:0;z-index:96;display:none;background:rgba(4,10,20,.97);}
+#viewer.on{display:block;}
+#vstage{position:absolute;inset:0 0 64px 0;overflow:hidden;cursor:grab;touch-action:none;}
+#vstage.drag{cursor:grabbing;}
+#vimg{position:absolute;left:50%;top:50%;transform-origin:0 0;user-select:none;-webkit-user-drag:none;
+  max-width:none;box-shadow:0 30px 90px rgba(0,0,0,.7);background:#fff;}
+#vbar{position:absolute;left:0;right:0;bottom:0;height:64px;display:flex;align-items:center;gap:14px;
+  padding:0 22px;background:rgba(10,18,32,.92);border-top:1px solid rgba(255,255,255,.12);}
+#vcap{color:#fff;font-size:15px;font-weight:700;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+#vzoom{color:var(--blue-lt);font-size:14px;font-weight:700;min-width:62px;text-align:right;
+  font-variant-numeric:tabular-nums;}
+#vbar button{background:rgba(255,255,255,.1);border:0;color:#fff;height:36px;padding:0 15px;border-radius:5px;
+  cursor:pointer;font-family:inherit;font-size:14px;font-weight:700;transition:.15s;}
+#vbar button:hover{background:var(--blue);}
+#vbar button.x{background:var(--red);}
+#vbar .hintx{color:rgba(255,255,255,.42);font-size:12.5px;}
+
+/* ── 이미지 넣기 패널 ── */
+#imgpanel{position:fixed;inset:0;z-index:97;display:none;background:rgba(5,12,24,.97);padding:40px 52px;overflow:auto;}
+#imgpanel.on{display:block;}
+#imgpanel h3{color:#fff;font-size:24px;font-weight:800;margin-bottom:8px;}
+#imgpanel .sub{color:rgba(255,255,255,.6);font-size:15px;line-height:1.7;margin-bottom:20px;}
+#imgpanel .sub b{color:var(--blue-lt);}
+#ipbtns{display:flex;gap:10px;margin-bottom:22px;}
+#ipbtns button{background:var(--red);border:0;color:#fff;padding:12px 22px;border-radius:6px;
+  font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;}
+#ipbtns button.ghost{background:rgba(255,255,255,.1);}
+#ipbtns button:hover{filter:brightness(1.12);}
+#slots{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;}
+.slotcell{border:2px dashed rgba(110,155,221,.45);border-radius:7px;background:rgba(255,255,255,.04);
+  cursor:pointer;overflow:hidden;transition:.18s;position:relative;aspect-ratio:4/3;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;padding:10px;text-align:center;}
+.slotcell:hover{border-color:var(--red-lt);background:rgba(228,97,79,.1);}
+.slotcell.filled{border-style:solid;border-color:rgba(255,255,255,.22);padding:0;}
+.slotcell img{width:100%;height:100%;object-fit:cover;}
+.slotcell .lb{color:rgba(255,255,255,.75);font-size:12.5px;font-weight:700;line-height:1.4;}
+.slotcell .no{color:var(--blue-lt);font-size:11px;font-weight:800;letter-spacing:.1em;margin-bottom:6px;}
+.slotcell .del{position:absolute;top:5px;right:5px;width:24px;height:24px;border-radius:50%;
+  background:rgba(0,0,0,.65);color:#fff;border:0;cursor:pointer;font-size:14px;display:none;line-height:1;}
+.slotcell.filled:hover .del{display:block;}
+.slotcell .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(10,20,38,.85);color:#fff;
+  font-size:11.5px;font-weight:600;padding:5px 7px;line-height:1.3;}
+
+/* 채워진 사진 슬롯은 확대 가능함을 표시 */
+.ph.filled{cursor:zoom-in;}
+.ph.filled::after{content:"확대";position:absolute;top:8px;right:8px;z-index:2;
+  background:rgba(10,20,38,.78);color:#fff;font-size:11.5px;font-weight:700;
+  padding:4px 9px;border-radius:100px;opacity:0;transition:opacity .2s;}
+.ph.filled:hover::after{opacity:1;}
 
 /* ══════════ 마무리 ══════════ */
 .end{justify-content:center;align-items:center;text-align:center;
@@ -1192,24 +1274,25 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 <section class="slide" data-title="게시판 공지자료">
   <div class="s-kicker" data-anim="right">04 · 게시판 공지자료</div>
   <h2 class="s-title" data-anim="up">설명회 개최 및 대출 개별상담 공지</h2>
-  <p class="s-sub" data-anim="up">수행 단지에서 실제 게시했던 공지문입니다. 휴아림에서도 동일한 방식으로 사전 안내하겠습니다.</p>
+  <p class="s-sub" data-anim="up">수행 단지에서 실제 게시했던 공지문입니다. 휴아림에서도 동일한 방식으로 사전 안내하겠습니다.
+    <span class="zoomhint" style="margin-left:10px"><i></i>공지문을 누르면 전체화면으로 확대됩니다</span></p>
 
   <div class="s-body">
-    <div class="photos" data-build="1" style="grid-template-columns:repeat(3,1fr)">
-      <figure class="ph" data-anim="up">
+    <div class="docs" data-build="1" style="grid-template-columns:repeat(3,1fr)">
+      <figure class="ph doc" data-anim="up">
         <img src="assets/photos/notice-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>LH 공공임대 아파트 게시판 공지글<br>입주민 설명회 개최 및 개별상담 공고
-          <span class="fn">assets/photos/notice-01.jpg</span></figcaption>
+        <figcaption>LH 공공임대 아파트 게시판 공지글 — 입주민 설명회 개최 및 개별상담 공고
+          <span class="fn">notice-01.jpg</span></figcaption>
       </figure>
-      <figure class="ph" data-anim="up">
+      <figure class="ph doc" data-anim="up">
         <img src="assets/photos/notice-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>NHF리츠 및 공공임대 아파트 게시판 공지글<br>입주민 설명회 개최 및 개별상담 공고
-          <span class="fn">assets/photos/notice-02.jpg</span></figcaption>
+        <figcaption>NHF리츠 및 공공임대 아파트 게시판 공지글 — 입주민 설명회 개최 및 개별상담 공고
+          <span class="fn">notice-02.jpg</span></figcaption>
       </figure>
-      <figure class="ph" data-anim="up">
+      <figure class="ph doc" data-anim="up">
         <img src="assets/photos/notice-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>NHF리츠 및 공공임대 아파트 게시판 공지글<br>입주민 설명회 개최 및 대출접수 일정
-          <span class="fn">assets/photos/notice-03.jpg</span></figcaption>
+        <figcaption>NHF리츠 및 공공임대 아파트 게시판 공지글 — 입주민 설명회 개최 및 대출접수 일정
+          <span class="fn">notice-03.jpg</span></figcaption>
       </figure>
     </div>
   </div>
@@ -1217,32 +1300,46 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 </section>
 
 <!-- ═══════════ 16 설명회 및 개별 대출상담 사진 ═══════════ -->
-<section class="slide" data-title="설명회 및 개별 대출상담 사진">
+<section class="slide" data-title="입주민 설명회 사진">
   <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
   <h2 class="s-title" data-anim="up">분양전환 입주민 설명회 개최 사진자료</h2>
-  <p class="s-sub" data-anim="up">입주민 설명회 전경 및 개별 대출상담 현장</p>
+  <p class="s-sub" data-anim="up">전체 입주민을 상대로 개최한 설명회 전경입니다.
+    <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
 
   <div class="s-body">
-    <div class="photos" data-build="4" style="grid-template-columns:repeat(4,1fr)">
-      <figure class="ph" data-anim="up"><img src="assets/photos/seminar-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>입주민 설명회 전경<span class="fn">assets/photos/seminar-01.jpg</span></figcaption></figure>
+    <div class="mosaic" data-build="2">
+      <figure class="ph lead" data-anim="scale"><img src="assets/photos/seminar-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
+        <figcaption>입주민 설명회 전경<span class="fn">seminar-01.jpg</span></figcaption></figure>
       <figure class="ph" data-anim="up"><img src="assets/photos/seminar-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>분양전환 입주민 설명회<span class="fn">assets/photos/seminar-02.jpg</span></figcaption></figure>
+        <figcaption>분양전환 입주민 설명회<span class="fn">seminar-02.jpg</span></figcaption></figure>
       <figure class="ph" data-anim="up"><img src="assets/photos/seminar-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>분양전환 입주민 설명회<span class="fn">assets/photos/seminar-03.jpg</span></figcaption></figure>
-      <figure class="ph" data-anim="up"><img src="assets/photos/seminar-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>분양전환 입주민 설명회<span class="fn">assets/photos/seminar-04.jpg</span></figcaption></figure>
-      <figure class="ph" data-anim="up"><img src="assets/photos/consult-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>개별 대출상담<span class="fn">assets/photos/consult-01.jpg</span></figcaption></figure>
-      <figure class="ph" data-anim="up"><img src="assets/photos/consult-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>개별 대출상담<span class="fn">assets/photos/consult-02.jpg</span></figcaption></figure>
-      <figure class="ph" data-anim="up"><img src="assets/photos/consult-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>분양전환 입주민 설명회<span class="fn">assets/photos/consult-03.jpg</span></figcaption></figure>
-      <figure class="ph" data-anim="up"><img src="assets/photos/consult-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
-        <figcaption>분양전환 입주민 설명회<span class="fn">assets/photos/consult-04.jpg</span></figcaption></figure>
+        <figcaption>분양전환 입주민 설명회<span class="fn">seminar-03.jpg</span></figcaption></figure>
+      <figure class="ph wide" data-anim="up"><img src="assets/photos/seminar-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
+        <figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">seminar-04.jpg</span></figcaption></figure>
     </div>
   </div>
   <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 설명회 사진</span></div></div>
+</section>
+
+<section class="slide" data-title="개별 대출상담 사진">
+  <div class="s-kicker" data-anim="right">05 · 입주민 설명회 및 개별 대출상담 사진</div>
+  <h2 class="s-title" data-anim="up">개별 대출상담 현장</h2>
+  <p class="s-sub" data-anim="up">설명회 직후 세대별로 진행한 개별 대출상담입니다. 은행 상담사가 함께 배석합니다.
+    <span class="zoomhint" style="margin-left:10px"><i></i>사진을 누르면 전체화면으로 확대됩니다</span></p>
+
+  <div class="s-body">
+    <div class="mosaic" data-build="2">
+      <figure class="ph lead" data-anim="scale"><img src="assets/photos/consult-01.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
+        <figcaption>개별 대출상담<span class="fn">consult-01.jpg</span></figcaption></figure>
+      <figure class="ph" data-anim="up"><img src="assets/photos/consult-02.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
+        <figcaption>개별 대출상담<span class="fn">consult-02.jpg</span></figcaption></figure>
+      <figure class="ph" data-anim="up"><img src="assets/photos/consult-03.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
+        <figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">consult-03.jpg</span></figcaption></figure>
+      <figure class="ph wide" data-anim="up"><img src="assets/photos/consult-04.jpg" alt="" onerror="this.closest('.ph').classList.add('empty')">
+        <figcaption>분양전환 입주민 설명회 개최 사진자료<span class="fn">consult-04.jpg</span></figcaption></figure>
+    </div>
+  </div>
+  <div class="brandbar"><div class="bb-l"><span class="accent"></span><span>법무법인 제이엘 &amp; 케이탑</span></div><div class="bb-r"><span>05 · 개별 대출상담</span></div></div>
 </section>
 
 <!-- ═══════════ 17 계약 체결방식 ═══════════ -->
@@ -1754,7 +1851,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
 </section>
 
 <!-- ═══════════ 27 기금대출 · 디딤돌대출 ═══════════ -->
-<section class="slide" data-title="기금대출 · 디딤돌대출">
+<section class="slide dense" data-title="기금대출 · 디딤돌대출">
   <div class="chk" data-anim="down">2025년 기준 · <b>2026년 고시 기준으로 갱신 필요</b></div>
   <div class="s-kicker" data-anim="right">08 · 잔금대출 지원 방안</div>
   <h2 class="s-title" data-anim="up">소유권이전등기 시(일시납) — <em>국민주택기금대출 · 디딤돌대출</em></h2>
@@ -2242,6 +2339,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   <div class="sep"></div>
   <button data-act="black"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8"/></svg><span class="tip">블랙아웃<b>B</b></span></button>
   <button data-act="timer"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2M9 2h6"/></svg><span class="tip">타이머<b>T</b></span></button>
+  <button data-act="images"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.6"/><path d="M21 16l-5-5-4.5 4.5L9 13l-6 6"/></svg><span class="tip">이미지 넣기<b>I</b></span></button>
   <button data-act="nav"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg><span class="tip">슬라이드 목차<b>O</b></span></button>
   <button data-act="full"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg><span class="tip">전체화면<b>F</b></span></button>
   <button data-act="help"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 115 .5c0 1.6-2.5 2-2.5 3.5M12 17h.01"/></svg><span class="tip">단축키 도움말<b>H</b></span></button>
@@ -2261,6 +2359,8 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       <dt><kbd>B</kbd></dt><dd>블랙아웃 (화면 끄기)</dd>
       <dt><kbd>T</kbd></dt><dd>경과 타이머 켜기 / 끄기</dd>
       <dt><kbd>R</kbd></dt><dd>타이머 초기화</dd>
+      <dt><kbd>I</kbd></dt><dd>이미지 넣기 (계약서·공고문·사진)</dd>
+      <dt><kbd>클릭</kbd></dt><dd>넣은 이미지를 누르면 <b>전체화면 확대</b> — 휠로 확대, 끌어서 이동</dd>
       <dt><kbd>O</kbd></dt><dd>슬라이드 목차로 이동</dd>
       <dt><kbd>F</kbd></dt><dd>전체화면</dd>
       <dt><kbd>P</kbd></dt><dd>인쇄 / PDF 저장</dd>
@@ -2273,6 +2373,38 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       <b>화상회의 화면공유</b> 시에는 제품의 물리 레이저가 상대방에게 보이지 않으므로, <kbd>L</kbd> 소프트웨어 레이저를 쓰십시오.
     </div>
   </div>
+</div>
+
+
+<!-- ─── 자료 확대 뷰어 ─── -->
+<div id="viewer">
+  <div id="vstage"><img id="vimg" alt=""></div>
+  <div id="vbar">
+    <span id="vcap"></span>
+    <span class="hintx">휠 = 확대 · 끌기 = 이동 · 더블클릭 = 그 지점 확대</span>
+    <span id="vzoom">100%</span>
+    <button data-v="out">−</button>
+    <button data-v="in">＋</button>
+    <button data-v="fit">화면 맞춤</button>
+    <button data-v="close" class="x">닫기 (Esc)</button>
+  </div>
+</div>
+
+<!-- ─── 이미지 넣기 ─── -->
+<div id="imgpanel">
+  <h3>이미지 넣기</h3>
+  <p class="sub">
+    빈 칸을 눌러 파일을 고르거나, <b>여러 장 한 번에 넣기</b>로 순서대로 채우십시오.
+    넣은 이미지는 <b>이 컴퓨터에 저장</b>되어 다음에 파일을 다시 열어도 그대로 있습니다.<br>
+    원본 PPT에서 이미지 꺼내는 법 — pptx <b>복사본</b>의 확장자를 <b>.zip</b> 으로 바꿔 압축을 풀면 <b>ppt\media</b> 폴더에 전부 들어 있습니다.
+  </p>
+  <div id="ipbtns">
+    <button id="bulk">여러 장 한 번에 넣기</button>
+    <button id="clearall" class="ghost">전체 지우기</button>
+    <button id="ipclose" class="ghost">닫기 (Esc)</button>
+  </div>
+  <div id="slots"></div>
+  <input type="file" id="ipfile" accept="image/*" multiple style="position:absolute;width:1px;height:1px;opacity:0">
 </div>
 
 <div id="pager"><b id="pg-cur">1</b> / <span id="pg-tot">36</span><span id="pg-step"></span></div>
@@ -2373,7 +2505,6 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
     sl.insertBefore(amb, sl.firstChild);
     var gr=document.createElement('div'); gr.className='grain';
     sl.insertBefore(gr, amb.nextSibling);
-    kinetic(sl.querySelector('.s-title'));
   });
 
   var sweep=document.createElement('div'); sweep.id='sweep'; document.body.appendChild(sweep);
@@ -2645,6 +2776,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       case 'erase': clearInk(); break;
       case 'black': toggleBlack(); break;
       case 'timer': toggleTimer(); break;
+      case 'images': toggleImages(); break;
       case 'nav':   nav.classList.toggle('open'); break;
       case 'full':  document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); break;
       case 'help':  help.classList.toggle('open'); break;
@@ -2652,6 +2784,194 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   });
   help.addEventListener('click',function(){ help.classList.remove('open'); });
   document.addEventListener('fullscreenchange',function(){ fitInk(); });
+
+
+  /* ════════════════════════════════════════════════════════════
+     이미지 : 브라우저에 저장(IndexedDB) · 슬롯 배정 · 확대 뷰어
+     ════════════════════════════════════════════════════════════ */
+  var DB=null;
+  function db(){
+    return new Promise(function(res,rej){
+      if(DB) return res(DB);
+      var q=indexedDB.open('jl-deck-photos',1);
+      q.onupgradeneeded=function(){ q.result.createObjectStore('img'); };
+      q.onsuccess=function(){ DB=q.result; res(DB); };
+      q.onerror=function(){ rej(q.error); };
+    });
+  }
+  function dbPut(k,v){ return db().then(function(d){ return new Promise(function(res,rej){
+    var t=d.transaction('img','readwrite'); t.objectStore('img').put(v,k);
+    t.oncomplete=res; t.onerror=function(){ rej(t.error); }; }); }); }
+  function dbDel(k){ return db().then(function(d){ return new Promise(function(res){
+    var t=d.transaction('img','readwrite'); t.objectStore('img').delete(k); t.oncomplete=res; }); }); }
+  function dbAll(){ return db().then(function(d){ return new Promise(function(res){
+    var t=d.transaction('img','readonly'), st=t.objectStore('img'), out={};
+    var c=st.openCursor();
+    c.onsuccess=function(e){ var cur=e.target.result;
+      if(cur){ out[cur.key]=cur.value; cur.continue(); } else res(out); };
+    c.onerror=function(){ res(out); }; }); }).catch(function(){ return {}; }); }
+
+  /* 슬롯 수집 — figure.ph 의 img src 파일명을 슬롯 id 로 사용 */
+  var slots=[];
+  slides.forEach(function(sl,si){
+    sl.querySelectorAll('figure.ph').forEach(function(fig){
+      var img=fig.querySelector('img');
+      if(!img) return;
+      var id=(img.getAttribute('src')||'').split('/').pop().replace(/\.\w+$/,'') || ('slot'+slots.length);
+      fig.dataset.slot=id;
+      var capEl=fig.querySelector('figcaption');
+      var label=capEl ? capEl.textContent.replace(/assets\/photos\/\S+/g,'').replace(/폴더판에서 사진 삽입\s*:?/,'').trim() : id;
+      slots.push({id:id, fig:fig, img:img, label:label.replace(/\s+/g,' ').slice(0,46), slide:si});
+      img.addEventListener('error',function(){ fig.classList.add('empty'); fig.classList.remove('filled'); });
+      img.addEventListener('load',function(){
+        if(img.getAttribute('src').indexOf('data:')===0){ fig.classList.remove('empty'); fig.classList.add('filled'); }
+      });
+    });
+  });
+
+  function setSlot(id,dataUrl){
+    var sm=slots.filter(function(x){ return x.id===id; });
+    sm.forEach(function(x){
+      if(dataUrl){ x.img.src=dataUrl; x.fig.classList.remove('empty'); x.fig.classList.add('filled'); }
+      else { x.img.removeAttribute('src'); x.fig.classList.add('empty'); x.fig.classList.remove('filled'); }
+    });
+  }
+  dbAll().then(function(all){
+    Object.keys(all).forEach(function(k){ setSlot(k, all[k]); });
+    renderSlots();
+  });
+
+  function readImage(file){
+    return new Promise(function(res){
+      var fr=new FileReader();
+      fr.onload=function(){
+        /* 긴 변 1600px 로 줄여 저장 — 화질은 유지하되 용량을 억제 */
+        var im=new Image();
+        im.onload=function(){
+          var M=1600, w=im.naturalWidth, h=im.naturalHeight;
+          if(Math.max(w,h)<=M){ res(fr.result); return; }
+          var r=M/Math.max(w,h), c=document.createElement('canvas');
+          c.width=Math.round(w*r); c.height=Math.round(h*r);
+          c.getContext('2d').drawImage(im,0,0,c.width,c.height);
+          res(c.toDataURL('image/jpeg',0.92));
+        };
+        im.onerror=function(){ res(fr.result); };
+        im.src=fr.result;
+      };
+      fr.readAsDataURL(file);
+    });
+  }
+
+  var ipfile=document.getElementById('ipfile'), ipTarget=null;
+  ipfile.addEventListener('change',function(){
+    var files=[].slice.call(ipfile.files).sort(function(a,b){ return a.name.localeCompare(b.name,'ko',{numeric:true}); });
+    if(!files.length) return;
+    if(ipTarget){
+      readImage(files[0]).then(function(u){ setSlot(ipTarget,u); dbPut(ipTarget,u); renderSlots(); });
+      ipTarget=null;
+    } else {
+      var empty=slots.filter(function(x){ return x.fig.classList.contains('empty')||!x.img.getAttribute('src'); });
+      var targets=(empty.length>=files.length? empty : slots);
+      files.forEach(function(f,i){
+        if(i>=targets.length) return;
+        readImage(f).then(function(u){ setSlot(targets[i].id,u); dbPut(targets[i].id,u); renderSlots(); });
+      });
+    }
+    ipfile.value='';
+  });
+
+  var slotsEl=document.getElementById('slots');
+  function renderSlots(){
+    if(!slotsEl) return;
+    var seen={};
+    slotsEl.innerHTML='';
+    slots.forEach(function(x,i){
+      if(seen[x.id]) return; seen[x.id]=1;
+      var src=x.img.getAttribute('src')||'';
+      var filled=src.indexOf('data:')===0;
+      var cell=document.createElement('div');
+      cell.className='slotcell'+(filled?' filled':'');
+      cell.innerHTML = filled
+        ? '<img src="'+src+'" alt=""><div class="cap">'+x.label+'</div><button class="del" title="지우기">×</button>'
+        : '<div class="no">'+String(i+1).padStart(2,'0')+'</div><div class="lb">'+x.label+'</div>';
+      cell.addEventListener('click',function(e){
+        if(e.target.classList.contains('del')){
+          e.stopPropagation(); setSlot(x.id,null); dbDel(x.id).then(renderSlots); return;
+        }
+        ipTarget=x.id; ipfile.click();
+      });
+      slotsEl.appendChild(cell);
+    });
+  }
+
+  var imgpanel=document.getElementById('imgpanel');
+  function toggleImages(f){
+    var on=(f!==undefined)?f:!imgpanel.classList.contains('on');
+    if(on) renderSlots();
+    imgpanel.classList.toggle('on',on); syncBtn('images',on);
+  }
+  document.getElementById('bulk').addEventListener('click',function(){ ipTarget=null; ipfile.click(); });
+  document.getElementById('ipclose').addEventListener('click',function(){ toggleImages(false); });
+  document.getElementById('clearall').addEventListener('click',function(){
+    if(!confirm('넣으신 이미지를 전부 지웁니다. 계속할까요?')) return;
+    slots.forEach(function(x){ setSlot(x.id,null); dbDel(x.id); });
+    setTimeout(renderSlots,120);
+  });
+
+  /* ── 확대 뷰어 ── */
+  var viewer=document.getElementById('viewer'), vstage=document.getElementById('vstage');
+  var vimg=document.getElementById('vimg'), vcap=document.getElementById('vcap'), vzoom=document.getElementById('vzoom');
+  var vz=1, vx=0, vy=0, vdrag=false, vsx=0, vsy=0, vbase=1;
+
+  function vapply(){
+    vimg.style.transform='translate(-50%,-50%) translate('+vx+'px,'+vy+'px) scale('+vz+')';
+    vzoom.textContent=Math.round(vz/vbase*100)+'%';
+  }
+  function vfit(){
+    var r=vstage.getBoundingClientRect();
+    var w=vimg.naturalWidth||1, h=vimg.naturalHeight||1;
+    vbase=Math.min(r.width*0.94/w, r.height*0.94/h);
+    vz=vbase; vx=0; vy=0; vapply();
+  }
+  function openViewer(src,caption){
+    vimg.src=src; vcap.textContent=caption||'';
+    viewer.classList.add('on');
+    if(vimg.complete) vfit(); else vimg.onload=vfit;
+  }
+  function closeViewer(){ viewer.classList.remove('on'); }
+  function vscale(f,cx,cy){
+    var r=vstage.getBoundingClientRect();
+    var ox=(cx===undefined? r.width/2 : cx)-r.width/2-vx;
+    var oy=(cy===undefined? r.height/2 : cy)-r.height/2-vy;
+    var nz=Math.min(vbase*12, Math.max(vbase*0.4, vz*f));
+    var k=nz/vz; vx-=ox*(k-1); vy-=oy*(k-1); vz=nz; vapply();
+  }
+  vstage.addEventListener('wheel',function(e){ e.preventDefault();
+    var r=vstage.getBoundingClientRect();
+    vscale(e.deltaY<0?1.16:1/1.16, e.clientX-r.left, e.clientY-r.top); },{passive:false});
+  vstage.addEventListener('mousedown',function(e){ vdrag=true; vsx=e.clientX-vx; vsy=e.clientY-vy; vstage.classList.add('drag'); });
+  window.addEventListener('mousemove',function(e){ if(!vdrag) return; vx=e.clientX-vsx; vy=e.clientY-vsy; vapply(); });
+  window.addEventListener('mouseup',function(){ vdrag=false; vstage.classList.remove('drag'); });
+  vstage.addEventListener('dblclick',function(e){
+    var r=vstage.getBoundingClientRect();
+    if(vz>vbase*1.6) vfit(); else vscale(2.4, e.clientX-r.left, e.clientY-r.top); });
+  document.getElementById('vbar').addEventListener('click',function(e){
+    var b=e.target.closest('button'); if(!b) return;
+    var a=b.dataset.v;
+    if(a==='in') vscale(1.3); else if(a==='out') vscale(1/1.3);
+    else if(a==='fit') vfit(); else if(a==='close') closeViewer();
+  });
+
+  /* 사진 슬롯 클릭 — 채워져 있으면 확대, 비어 있으면 넣기 패널 */
+  slots.forEach(function(x){
+    x.fig.addEventListener('click',function(e){
+      e.stopPropagation();
+      var src=x.img.getAttribute('src')||'';
+      if(src.indexOf('data:')===0 || (src && !x.fig.classList.contains('empty')))
+        openViewer(src, x.label);
+      else toggleImages(true);
+    });
+  });
 
   function printAll(){
     slides.forEach(function(sl){
@@ -2682,6 +3002,8 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
     if(blackOn){ e.preventDefault(); toggleBlack(false); return; }
 
     if(e.key==='Escape'){
+      if(viewer.classList.contains('on')){ closeViewer(); return; }
+      if(imgpanel.classList.contains('on')){ toggleImages(false); return; }
       if(help.classList.contains('open')) help.classList.remove('open');
       else if(nav.classList.contains('open')) nav.classList.remove('open');
       else if(penOn) togglePen(false);
@@ -2689,6 +3011,18 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
       else if(laserOn) toggleLaser(false);
       return;
     }
+    if(viewer.classList.contains('on')){
+      var k2=e.key;
+      if(k2==='+'||k2==='='){ e.preventDefault(); vscale(1.3); }
+      else if(k2==='-'||k2==='_'){ e.preventDefault(); vscale(1/1.3); }
+      else if(k2==='0'){ e.preventDefault(); vfit(); }
+      else if(k2==='ArrowLeft'){ vx+=60; vapply(); }
+      else if(k2==='ArrowRight'){ vx-=60; vapply(); }
+      else if(k2==='ArrowUp'){ vy+=60; vapply(); }
+      else if(k2==='ArrowDown'){ vy-=60; vapply(); }
+      return;
+    }
+    if(imgpanel.classList.contains('on') && e.key.toLowerCase()!=='i') return;
     if(help.classList.contains('open')){ help.classList.remove('open'); return; }
     if(nav.classList.contains('open') && e.key.toLowerCase()!=='o') return;
 
@@ -2715,6 +3049,7 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
         else if(k==='a'){ revealAll(); }
         else if(k==='t') toggleTimer();
         else if(k==='r') resetTimer();
+        else if(k==='i') toggleImages();
         else if(k==='o') nav.classList.toggle('open');
         else if(k==='h' || e.key==='?') help.classList.toggle('open');
         else if(k==='f'){ document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen(); }
@@ -2725,7 +3060,8 @@ body.laser-on #tools,body.laser-on #tools *{cursor:pointer!important;}
   blackout.addEventListener('click',function(){ toggleBlack(false); });
 
   function busy(){
-    return nav.classList.contains('open') || help.classList.contains('open') || blackOn || penOn;
+    return nav.classList.contains('open') || help.classList.contains('open') || blackOn || penOn
+        || viewer.classList.contains('on') || imgpanel.classList.contains('on');
   }
 
   var wheelLock=false;
