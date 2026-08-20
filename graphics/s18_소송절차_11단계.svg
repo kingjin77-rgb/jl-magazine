@@ -1,0 +1,141 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="'210 옴니고딕 030','OmniGothic030','Pretendard',sans-serif">
+  <defs>
+    <marker id="fa" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#8FA3C4"/>
+    </marker>
+  </defs>
+  <rect width="1200" height="600" fill="#FFFFFF"/>
+
+  <rect x="40" y="34" width="42" height="5" fill="#385783"/>
+  <text x="96" y="46" font-size="27" font-weight="700" fill="#385783">소송 절차 11단계</text>
+  <text x="96" y="72" font-size="13" fill="#8289A3" letter-spacing="2.6">LITIGATION PROCEDURE · 11 STEPS</text>
+
+  <!-- 요약 배지 -->
+  <rect x="780" y="22" width="350" height="58" rx="10" fill="#E9EDF8" stroke="#385783" stroke-width="1.6"/>
+  <text x="955" y="50" font-size="19" font-weight="700" fill="#385783" text-anchor="middle">1심 2년6개월 내 종결</text>
+  <text x="955" y="70" font-size="11" fill="#8289A3" text-anchor="middle">소장 제출부터 판결선고까지 누적 기준</text>
+
+  <!-- 섹션 헤더 -->
+  <text x="70" y="104" font-size="15" font-weight="700" fill="#223D5B">진행 단계</text>
+  <text x="142" y="104" font-size="12" fill="#8289A3" letter-spacing="1.6">STEP BY STEP</text>
+  <line x1="70" y1="114" x2="1130" y2="114" stroke="#385783" stroke-width="2"/>
+
+  <!-- Row 1 : 1~6단계 -->
+  <g transform="translate(0,128)">
+    <!-- 1 -->
+    <rect x="70" y="0" width="163.3" height="130" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="86" y="16" width="30" height="30" rx="6" fill="#E9EDF8"/>
+    <text x="96" y="37" font-size="16" font-weight="700" fill="#385783">1</text>
+    <text x="86" y="70" font-size="15" font-weight="700" fill="#223D5B">소장 제출</text>
+    <text x="86" y="92" font-size="11.5" fill="#5A6B85">소 제기·관할법원 접수</text>
+    <text x="86" y="112" font-size="12" font-weight="700" fill="#385783">접수 기준일</text>
+    <line x1="233.3" y1="65" x2="249.3" y2="65" stroke="#8FA3C4" stroke-width="1.8" marker-end="url(#fa)"/>
+
+    <!-- 2 -->
+    <rect x="249.3" y="0" width="163.3" height="130" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="265.3" y="16" width="30" height="30" rx="6" fill="#E9EDF8"/>
+    <text x="275.3" y="37" font-size="16" font-weight="700" fill="#385783">2</text>
+    <text x="265.3" y="70" font-size="15" font-weight="700" fill="#223D5B">답변서 제출</text>
+    <text x="265.3" y="92" font-size="11.5" fill="#5A6B85">피고 측 답변서 도달</text>
+    <text x="265.3" y="112" font-size="12" font-weight="700" fill="#385783">약 3개월 소요</text>
+    <line x1="412.6" y1="65" x2="428.6" y2="65" stroke="#8FA3C4" stroke-width="1.8" marker-end="url(#fa)"/>
+
+    <!-- 3 -->
+    <rect x="428.6" y="0" width="163.3" height="130" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="444.6" y="16" width="30" height="30" rx="6" fill="#E9EDF8"/>
+    <text x="454.6" y="37" font-size="16" font-weight="700" fill="#385783">3</text>
+    <text x="444.6" y="70" font-size="15" font-weight="700" fill="#223D5B">감정신청</text>
+    <text x="444.6" y="92" font-size="11.5" fill="#5A6B85">하자감정 신청서 제출</text>
+    <text x="444.6" y="112" font-size="12" font-weight="700" fill="#385783">약 2개월 소요</text>
+    <line x1="591.9" y1="65" x2="607.9" y2="65" stroke="#8FA3C4" stroke-width="1.8" marker-end="url(#fa)"/>
+
+    <!-- 4 -->
+    <rect x="607.9" y="0" width="163.3" height="130" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="623.9" y="16" width="30" height="30" rx="6" fill="#E9EDF8"/>
+    <text x="633.9" y="37" font-size="16" font-weight="700" fill="#385783">4</text>
+    <text x="623.9" y="70" font-size="15" font-weight="700" fill="#223D5B">감정인 지정절차</text>
+    <text x="623.9" y="92" font-size="11.5" fill="#5A6B85">법원 감정인 지정·예납</text>
+    <text x="623.9" y="112" font-size="12" font-weight="700" fill="#385783">약 2개월 소요</text>
+    <line x1="771.2" y1="65" x2="787.2" y2="65" stroke="#8FA3C4" stroke-width="1.8" marker-end="url(#fa)"/>
+
+    <!-- 5 -->
+    <rect x="787.2" y="0" width="163.3" height="130" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="803.2" y="16" width="30" height="30" rx="6" fill="#E9EDF8"/>
+    <text x="813.2" y="37" font-size="16" font-weight="700" fill="#385783">5</text>
+    <text x="803.2" y="70" font-size="15" font-weight="700" fill="#223D5B">현장 감정</text>
+    <text x="803.2" y="92" font-size="11.5" fill="#5A6B85">파취조사협조</text>
+    <text x="803.2" y="112" font-size="12" font-weight="700" fill="#385783">약 3개월 소요</text>
+    <line x1="950.5" y1="65" x2="966.5" y2="65" stroke="#8FA3C4" stroke-width="1.8" marker-end="url(#fa)"/>
+
+    <!-- 6 -->
+    <rect x="966.5" y="0" width="163.3" height="130" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="982.5" y="16" width="30" height="30" rx="6" fill="#E9EDF8"/>
+    <text x="992.5" y="37" font-size="16" font-weight="700" fill="#385783">6</text>
+    <text x="982.5" y="70" font-size="15" font-weight="700" fill="#223D5B">감정서 제출</text>
+    <text x="982.5" y="92" font-size="11.5" fill="#5A6B85">감정 결과 법원 제출</text>
+    <text x="982.5" y="112" font-size="12" font-weight="700" fill="#385783">약 4개월 소요</text>
+  </g>
+
+  <!-- 6 -> 7 연결선(꺾임) -->
+  <path d="M1048.15,258 L1048.15,289 L241.45,289 L241.45,320" fill="none" stroke="#8FA3C4" stroke-width="1.8" marker-end="url(#fa)"/>
+
+  <!-- Row 2 : 7~11단계 -->
+  <g transform="translate(0,320)">
+    <!-- 7 -->
+    <rect x="159.8" y="0" width="163.3" height="130" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="175.8" y="16" width="30" height="30" rx="6" fill="#E9EDF8"/>
+    <text x="185.8" y="37" font-size="16" font-weight="700" fill="#385783">7</text>
+    <text x="175.8" y="70" font-size="15" font-weight="700" fill="#223D5B">변론 절차</text>
+    <text x="175.8" y="92" font-size="11.5" fill="#5A6B85">2~3회 공방 진행</text>
+    <text x="175.8" y="112" font-size="12" font-weight="700" fill="#385783">약 6개월 소요</text>
+    <line x1="323.1" y1="65" x2="339.1" y2="65" stroke="#8FA3C4" stroke-width="1.8" marker-end="url(#fa)"/>
+
+    <!-- 8 -->
+    <rect x="339.1" y="0" width="163.3" height="130" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="355.1" y="16" width="30" height="30" rx="6" fill="#E9EDF8"/>
+    <text x="365.1" y="37" font-size="16" font-weight="700" fill="#385783">8</text>
+    <text x="355.1" y="70" font-size="15" font-weight="700" fill="#223D5B">감정 보완</text>
+    <text x="355.1" y="92" font-size="11.5" fill="#5A6B85">및 감정기일 진행</text>
+    <text x="355.1" y="112" font-size="12" font-weight="700" fill="#385783">약 4개월 소요</text>
+    <line x1="502.4" y1="65" x2="518.4" y2="65" stroke="#8FA3C4" stroke-width="1.8" marker-end="url(#fa)"/>
+
+    <!-- 9 (핵심 : 판결선고) -->
+    <rect x="518.4" y="0" width="163.3" height="130" rx="8" fill="#FFFFFF" stroke="#385783" stroke-width="1.6"/>
+    <rect x="534.4" y="16" width="30" height="30" rx="6" fill="#385783"/>
+    <text x="544.4" y="37" font-size="16" font-weight="700" fill="#FFFFFF">9</text>
+    <text x="534.4" y="70" font-size="15" font-weight="700" fill="#223D5B">판결선고</text>
+    <text x="534.4" y="92" font-size="11.5" fill="#5A6B85">1심 판결 선고</text>
+    <text x="534.4" y="112" font-size="12" font-weight="700" fill="#385783">약 6개월 소요</text>
+    <line x1="681.7" y1="65" x2="697.7" y2="65" stroke="#8FA3C4" stroke-width="1.8" marker-end="url(#fa)"/>
+
+    <!-- 10 -->
+    <rect x="697.7" y="0" width="163.3" height="130" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="713.7" y="16" width="30" height="30" rx="6" fill="#E9EDF8"/>
+    <text x="723.7" y="37" font-size="16" font-weight="700" fill="#385783">10</text>
+    <text x="713.7" y="70" font-size="15" font-weight="700" fill="#223D5B">판결원리금 수령</text>
+    <text x="713.7" y="92" font-size="11.5" fill="#5A6B85">판결 확정 후 지급</text>
+    <text x="713.7" y="112" font-size="12" font-weight="700" fill="#385783">약 2개월 소요</text>
+    <line x1="861.0" y1="65" x2="877.0" y2="65" stroke="#8FA3C4" stroke-width="1.8" marker-end="url(#fa)"/>
+
+    <!-- 11 -->
+    <rect x="877.0" y="0" width="163.3" height="130" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="893.0" y="16" width="30" height="30" rx="6" fill="#E9EDF8"/>
+    <text x="903.0" y="37" font-size="16" font-weight="700" fill="#385783">11</text>
+    <text x="893.0" y="70" font-size="15" font-weight="700" fill="#223D5B">하자보수공사</text>
+    <text x="893.0" y="92" font-size="11.5" fill="#5A6B85">보수공사 착공·시행</text>
+    <text x="893.0" y="112" font-size="12" font-weight="700" fill="#385783">약 6개월 이상</text>
+  </g>
+
+  <!-- 소요기간 요약 바 -->
+  <g transform="translate(0,470)">
+    <rect x="70" y="0" width="1060" height="64" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="70" y="0" width="5" height="64" rx="2" fill="#385783"/>
+    <text x="98" y="24" font-size="13" fill="#5A6B85">1심 소요기간</text>
+    <text x="98" y="48" font-size="15" font-weight="700" fill="#223D5B">소장 제출 · 판결선고 누적 약 2년6개월(30개월)</text>
+    <line x1="680" y1="12" x2="680" y2="52" stroke="#DDE2EC"/>
+    <text x="708" y="24" font-size="13" fill="#5A6B85">이후 절차</text>
+    <text x="708" y="48" font-size="13" fill="#223D5B">판결원리금 수령 약 2개월, 보수공사 착공 약 6개월 소요</text>
+  </g>
+
+  <text x="70" y="580" font-size="12" fill="#8289A3">절차도 · 단계별 소요기간은 평균적 추정치이며 사건 난이도·법원 진행상황에 따라 달라질 수 있음</text>
+</svg>
