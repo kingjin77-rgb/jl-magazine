@@ -1,0 +1,29 @@
+/* 기본제안서 마스터 스타일 — 11_브랜드_스타일가이드.md 기준 */
+:root{
+  --primary:#385783; --ink:#223D5B; --dark:#2A3B4F; --muted:#8289A3;
+  --card:#E9EDF8; --watermark:#C7CEE1; --line:#DDE2EC; --bg:#FFFFFF;
+  --alert:#C0392B; --warn:#E67E22;
+}
+@font-face{font-family:'210 옴니고딕';src:local('210 옴니고딕 030');}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{width:1332px;height:750px;background:var(--bg);
+  font-family:'210 옴니고딕','OmniGothic030','Pretendard',sans-serif;color:var(--ink);
+  position:relative;overflow:hidden;}
+/* 상단 러너 */
+.runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+  font-size:12px;color:var(--muted);letter-spacing:.02em;}
+.runner .mark{color:var(--primary);}
+/* 제목 마크 */
+.title-block{position:absolute;top:56px;left:56px;}
+.title-mark{width:38px;height:5px;background:var(--primary);margin-bottom:12px;}
+.title-kr{font-size:26px;font-weight:700;color:var(--primary);}
+.title-en{font-size:12px;color:var(--muted);letter-spacing:.16em;margin-top:6px;}
+/* 하단 브랜드바 */
+.footer{position:absolute;bottom:0;left:0;right:0;height:36px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 56px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);}
+.footer .firm{color:var(--primary);font-weight:700;}
+/* 카드 공통 */
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;}
+.badge-num{width:28px;height:28px;border-radius:6px;background:var(--card);
+  color:var(--primary);font-weight:700;display:flex;align-items:center;justify-content:center;}
