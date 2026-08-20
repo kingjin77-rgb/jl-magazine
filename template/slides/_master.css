@@ -1,7 +1,7 @@
 /* 기본제안서 마스터 스타일 — 11_브랜드_스타일가이드.md 기준 */
 :root{
-  --primary:#385783; --ink:#223D5B; --dark:#2A3B4F; --muted:#8289A3;
-  --card:#E9EDF8; --watermark:#C7CEE1; --line:#DDE2EC; --bg:#FFFFFF;
+  --primary:#385783; --ink:#223D5B; --dark:#2A3B4F; --muted:#5C6478;
+  --card:#E9EDF8; --watermark:#C7CEE1; --line:#C3CCDE; --bg:#FFFFFF;
   --alert:#C0392B; --warn:#E67E22;
 }
 @font-face{font-family:'210 옴니고딕';src:local('210 옴니고딕 030');}
@@ -21,7 +21,7 @@ body{width:1332px;height:750px;background:var(--bg);
 /* 하단 브랜드바 */
 .footer{position:absolute;bottom:0;left:0;right:0;height:36px;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 56px;border-top:1px solid var(--line);font-size:11px;color:var(--muted);}
+  padding:0 56px;border-top:1.5px solid var(--line);font-size:11px;color:var(--muted);}
 .footer .firm{color:var(--primary);font-weight:700;}
 /* 카드 공통 */
 .card{background:#fff;border:1px solid var(--line);border-radius:10px;}

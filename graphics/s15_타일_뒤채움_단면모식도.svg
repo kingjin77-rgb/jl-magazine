@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="'210 옴니고딕 030','OmniGothic030','Pretendard',sans-serif">
   <defs>
     <pattern id="base" width="8" height="8" patternUnits="userSpaceOnUse">
-      <rect width="8" height="8" fill="#DDE2EC"/>
+      <rect width="8" height="8" fill="#C3CCDE"/>
       <circle cx="2" cy="2" r="1.1" fill="#B9C2D4"/><circle cx="6" cy="5" r="1.4" fill="#C4CCDD"/>
     </pattern>
   </defs>
@@ -9,15 +9,15 @@
 
   <rect x="40" y="34" width="42" height="5" fill="#385783"/>
   <text x="96" y="46" font-size="27" font-weight="700" fill="#385783">욕실·발코니 타일 뒤채움 부족</text>
-  <text x="96" y="72" font-size="13" fill="#8289A3" letter-spacing="2.6">TILE BEDDING MORTAR · SECTION</text>
+  <text x="96" y="72" font-size="13" fill="#5C6478" letter-spacing="2.6">TILE BEDDING MORTAR · SECTION</text>
 
   <!-- 좌: 기준 -->
   <g transform="translate(70,120)">
     <rect x="0" y="0" width="430" height="34" rx="6" fill="#E9EDF8"/>
     <text x="20" y="23" font-size="16" font-weight="700" fill="#223D5B">설계 기준 시공</text>
-    <text x="292" y="23" font-size="13" fill="#8289A3">붙임재 밀실 충전</text>
+    <text x="292" y="23" font-size="13" fill="#5C6478">붙임재 밀실 충전</text>
 
-    <rect x="0" y="58" width="430" height="34" fill="#F3F5FA" stroke="#DDE2EC"/>
+    <rect x="0" y="58" width="430" height="34" fill="#F3F5FA" stroke="#C3CCDE"/>
     <text x="16" y="80" font-size="14" fill="#223D5B">마감 타일</text>
 
     <!-- 붙임 모르타르 밀실 -->
@@ -26,22 +26,22 @@
     <text x="330" y="121" font-size="14" font-weight="700" fill="#FFFFFF">공극 없음</text>
 
     <rect x="0" y="138" width="430" height="60" fill="url(#base)" stroke="#C4CCDD"/>
-    <text x="16" y="174" font-size="14" fill="#5A6B85">바탕 콘크리트면</text>
+    <text x="16" y="174" font-size="14" fill="#42506A">바탕 콘크리트면</text>
 
-    <rect x="0" y="212" width="430" height="34" rx="5" fill="#FFFFFF" stroke="#DDE2EC"/>
-    <text x="16" y="234" font-size="14" fill="#5A6B85">뒤채움률</text>
+    <rect x="0" y="212" width="430" height="34" rx="5" fill="#FFFFFF" stroke="#C3CCDE"/>
+    <text x="16" y="234" font-size="14" fill="#42506A">뒤채움률</text>
     <text x="330" y="234" font-size="17" font-weight="700" fill="#385783">100%</text>
   </g>
 
-  <line x1="586" y1="130" x2="586" y2="380" stroke="#DDE2EC" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <line x1="586" y1="130" x2="586" y2="380" stroke="#C3CCDE" stroke-width="1.5" stroke-dasharray="5 5"/>
 
   <!-- 우: 실측 -->
   <g transform="translate(630,120)">
     <rect x="0" y="0" width="430" height="34" rx="6" fill="#F9E9E7"/>
     <text x="20" y="23" font-size="16" font-weight="700" fill="#C0392B">현장 실측</text>
-    <text x="286" y="23" font-size="13" fill="#B07068">타일 탈락 후 조사</text>
+    <text x="286" y="23" font-size="13" fill="#8A473F">타일 탈락 후 조사</text>
 
-    <rect x="0" y="58" width="430" height="34" fill="#F3F5FA" stroke="#DDE2EC"/>
+    <rect x="0" y="58" width="430" height="34" fill="#F3F5FA" stroke="#C3CCDE"/>
     <text x="16" y="80" font-size="14" fill="#223D5B">마감 타일</text>
 
     <!-- 붙임 모르타르 + 공극 -->
@@ -54,29 +54,29 @@
     <text x="10" y="120" font-size="12" font-weight="700" fill="#FFFFFF">붙임재</text>
 
     <rect x="0" y="138" width="430" height="60" fill="url(#base)" stroke="#C4CCDD"/>
-    <text x="16" y="174" font-size="14" fill="#5A6B85">바탕 콘크리트면</text>
+    <text x="16" y="174" font-size="14" fill="#42506A">바탕 콘크리트면</text>
 
-    <rect x="0" y="212" width="430" height="34" rx="5" fill="#FFFFFF" stroke="#DDE2EC"/>
-    <text x="16" y="234" font-size="14" fill="#5A6B85">뒤채움률</text>
+    <rect x="0" y="212" width="430" height="34" rx="5" fill="#FFFFFF" stroke="#C3CCDE"/>
+    <text x="16" y="234" font-size="14" fill="#42506A">뒤채움률</text>
     <text x="286" y="234" font-size="17" font-weight="700" fill="#C0392B">30 ~ 40% 수준</text>
 
-    <text x="0" y="272" font-size="12" fill="#8289A3">흰 부분 = 붙임재가 채워지지 않은 공극</text>
+    <text x="0" y="272" font-size="12" fill="#5C6478">흰 부분 = 붙임재가 채워지지 않은 공극</text>
   </g>
 
   <!-- 결론 밴드 -->
   <g transform="translate(70,420)">
-    <rect x="0" y="0" width="990" height="92" rx="8" fill="#FFFFFF" stroke="#DDE2EC"/>
+    <rect x="0" y="0" width="990" height="92" rx="8" fill="#FFFFFF" stroke="#C3CCDE"/>
     <rect x="0" y="0" width="5" height="92" rx="2" fill="#C0392B"/>
 
-    <text x="28" y="32" font-size="14" fill="#5A6B85">판정 방법</text>
+    <text x="28" y="32" font-size="14" fill="#42506A">판정 방법</text>
     <text x="28" y="62" font-size="16" fill="#223D5B">타일 탈락면 뒤채움률 실측 · 부착강도 시험</text>
 
-    <line x1="440" y1="20" x2="440" y2="72" stroke="#DDE2EC"/>
-    <text x="468" y="32" font-size="14" fill="#5A6B85">타 단지 인정 사례 (세대당)</text>
+    <line x1="440" y1="20" x2="440" y2="72" stroke="#C3CCDE"/>
+    <text x="468" y="32" font-size="14" fill="#42506A">타 단지 인정 사례 (세대당)</text>
     <text x="468" y="62" font-size="20" font-weight="700" fill="#C0392B">21.7만 ~ 32.5만원</text>
-    <text x="700" y="62" font-size="14" fill="#5A6B85">단지 총액 2억 ~ 5억원</text>
+    <text x="700" y="62" font-size="14" fill="#42506A">단지 총액 2억 ~ 5억원</text>
   </g>
 
-  <text x="70" y="546" font-size="13" fill="#8289A3">모식도 · 층 두께와 공극은 설명을 위해 과장하여 표시함</text>
-  <text x="70" y="568" font-size="13" fill="#8289A3">인정 사례: 남원 풍산누리안(뒤채움 30~40% 부족, 세대당 21.7만원) · 아산 법곡코아루(50~60% 부족, 세대당 32.5만원)</text>
+  <text x="70" y="546" font-size="13" fill="#5C6478">모식도 · 층 두께와 공극은 설명을 위해 과장하여 표시함</text>
+  <text x="70" y="568" font-size="13" fill="#5C6478">인정 사례: 남원 풍산누리안(뒤채움 30~40% 부족, 세대당 21.7만원) · 아산 법곡코아루(50~60% 부족, 세대당 32.5만원)</text>
 </svg>
