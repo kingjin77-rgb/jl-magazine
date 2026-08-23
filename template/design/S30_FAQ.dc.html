@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#5A5F68;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:12px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:12px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:11px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:11.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:11.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:4px;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:11px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .runner{top:24px;font-size:11px;}
+  .eyebrow{top:58px;font-size:11px;letter-spacing:.18em;} .eyebrow::before{width:28px;}
+  .title{top:82px;font-size:22px;}
+  .grid{position:absolute;left:56px;top:140px;right:56px;bottom:52px;display:grid;
+    grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);gap:14px;}
+  .qa{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px 18px;}
+  .qa .q{font-size:12px;font-weight:800;color:var(--navy);}
+  .qa .a{margin-top:6px;font-size:11px;color:var(--muted);line-height:1.6;}
+  .footer{height:32px;font-size:10.5px;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>30 / 31</span></div>
+  <div class="eyebrow">예상 질의응답 [고정]</div>
+  <div class="title">입주자대표회의가 자주 묻는 질문입니다</div>
+  <div class="grid">
+    <div class="qa"><div class="q">Q. 비용은 언제, 얼마나 부담하나요?</div>
+      <div class="a">감정료·인지대·송달료는 법무법인 제이엘이 전액 대납합니다. 착수금과 성공보수는 법인 내부 확정 후 안내합니다.</div></div>
+    <div class="qa"><div class="q">Q. 소송은 얼마나 걸리나요?</div>
+      <div class="a">1심 평균 약 2년 6개월이 소요됩니다. 감정보완신청·준비서면 공방 진행에 따라 기간은 달라질 수 있습니다.</div></div>
+    <div class="qa"><div class="q">Q. 채권양도 동의서를 다 못 받으면 어떻게 되나요?</div>
+      <div class="a">미양도 세대 비율만큼 청구 규모가 줄어듭니다. 현장·문자 접수와 주민설명회로 동의서 징구를 법인이 직접 지원합니다.</div></div>
+    <div class="qa"><div class="q">Q. 패소하면 어떻게 되나요?</div>
+      <div class="a">상대방 소송비용 부담 방침과 착수금 반환 여부는 법인 내부 확정 후 위임계약서에 명시해 안내합니다.</div></div>
+    <div class="qa"><div class="q">Q. 판결금은 실적 평균만큼 받을 수 있나요?</div>
+      <div class="a">세대당 평균 329만원은 과거 18건의 실적 참고치이며, 개별 단지의 회수액은 감정 결과와 법원 판단에 따라 달라집니다.</div></div>
+    <div class="qa"><div class="q">Q. 이미 도과한 하자는 청구할 수 없나요?</div>
+      <div class="a">공종별로 존속기간이 다릅니다. 도과한 공종은 정직하게 표시하고, 남은 구간(예: 주요구조부·지반공사)에 청구를 집중합니다.</div></div>
+  </div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

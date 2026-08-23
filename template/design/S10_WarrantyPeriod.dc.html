@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#5A5F68;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:12px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:12px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:11px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:11.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:11.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:4px;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:11px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .table{position:absolute;left:56px;top:180px;right:56px;border:1px solid var(--line);
+    border-radius:6px;overflow:hidden;}
+  .thead{display:flex;background:var(--navy);color:#fff;font-size:12px;font-weight:700;}
+  .thead div{padding:12px 16px;}
+  .row{display:flex;border-top:1px solid var(--line);font-size:12.5px;}
+  .row div{padding:12px 16px;} .row:nth-child(even){background:var(--card);}
+  .c-period{width:80px;font-weight:800;color:var(--navy);}
+  .c-cat{width:230px;font-weight:700;} .c-detail{flex:1;color:var(--muted);}
+  .basis{position:absolute;left:56px;top:500px;right:56px;display:flex;gap:24px;}
+  .b{flex:1;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:16px 20px;}
+  .b .k{font-size:11px;color:var(--gold-ink);font-weight:700;}
+  .b .v{margin-top:6px;font-size:13px;font-weight:700;color:var(--ink);}
+  .src{position:absolute;left:56px;bottom:56px;right:56px;font-size:11px;color:var(--muted);line-height:1.6;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>10 / 31</span></div>
+  <div class="eyebrow">담보책임 존속기간 [고정]</div>
+  <div class="title">담보책임 존속기간은 공종에 따라 2년에서 10년까지 구분됩니다</div>
+  <div class="table">
+    <div class="thead"><div class="c-period">기간</div><div class="c-cat">구분</div><div class="c-detail">세부 공종</div></div>
+    <div class="row"><div class="c-period">10년</div><div class="c-cat">주요구조부·지반공사</div>
+      <div class="c-detail">내력벽·기둥·바닥·보·지붕틀·주계단, 지반공사</div></div>
+    <div class="row"><div class="c-period">5년</div><div class="c-cat">기산일 전 발생 하자</div>
+      <div class="c-detail">미시공·변경시공 등 사용검사 전 하자</div></div>
+    <div class="row"><div class="c-period">5년</div><div class="c-cat">구조상·안전상 하자</div>
+      <div class="c-detail">대지조성·철근콘크리트·철골·조적·지붕 및 방수공사 등</div></div>
+    <div class="row"><div class="c-period">3년</div><div class="c-cat">기능상·미관상 하자</div>
+      <div class="c-detail">건축설비공사·목공사·창호공사·조경공사 등</div></div>
+    <div class="row"><div class="c-period">2년</div><div class="c-cat">마감공사 하자</div>
+      <div class="c-detail">발견·교체·보수가 용이한 하자</div></div>
+  </div>
+  <div class="basis">
+    <div class="b"><div class="k">기산점 · 전유부분</div><div class="v">구분소유자에게 인도한 날</div></div>
+    <div class="b"><div class="k">기산점 · 공용부분</div><div class="v">사용검사일(주택법) / 사용승인일(건축법)</div></div>
+    <div class="b"><div class="k">적용 법령 분기</div><div class="v">2013.6.19. 이후 분양 · 2016.8.12. 이후 사용검사</div></div>
+  </div>
+  <div class="src">근거: 집합건물의 소유 및 관리에 관한 법률 제9조의2 + 같은 법 시행령 제5조. 도과한 공종을 숨기지 않고 그대로 표시하며, 남은 구간에 집중한다는 논리로 씁니다.</div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

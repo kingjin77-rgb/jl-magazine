@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#5A5F68;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:12px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:12px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:11px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:11.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:11.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:4px;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:11px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .stats{position:absolute;left:56px;top:210px;right:56px;display:flex;gap:24px;}
+  .stat{flex:1;background:var(--navy);border-radius:6px;padding:32px 28px;color:#fff;}
+  .stat .n{font-size:44px;font-weight:800;letter-spacing:-.01em;}
+  .stat .l{margin-top:10px;font-size:14px;color:#C7CEE1;}
+  .stat .f{margin-top:16px;font-size:11px;color:#8FA0C9;border-top:1px solid rgba(255,255,255,.2);padding-top:10px;}
+  .sub{position:absolute;left:56px;top:400px;right:56px;display:flex;gap:24px;}
+  .card{flex:1;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:24px 26px;}
+  .card .k{font-size:12px;color:var(--gold-ink);font-weight:700;letter-spacing:.05em;}
+  .card .v{margin-top:10px;font-size:22px;font-weight:800;color:var(--navy);}
+  .card .d{margin-top:8px;font-size:12.5px;color:var(--muted);line-height:1.6;}
+  .foot-note{position:absolute;left:56px;top:562px;right:56px;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>02 / 31</span></div>
+  <div class="eyebrow">PROPOSAL SUMMARY</div>
+  <div class="title">{{단지명}}의 하자소송, 법무법인 제이엘이 판결까지 수행한 실적으로 말씀드립니다</div>
+  <div class="stats">
+    <div class="stat"><div class="n">18건</div><div class="l">JL 단독 판결 수행 건수</div>
+      <div class="f">2018~2021년 접수 사건 기준</div></div>
+    <div class="stat"><div class="n">328억</div><div class="l">18건 총 판결금 합계</div>
+      <div class="f">32,836,812,673원</div></div>
+    <div class="stat"><div class="n">329만원</div><div class="l">세대당 평균 판결금</div>
+      <div class="f">328억 ÷ 9,979세대</div></div>
+  </div>
+  <div class="sub">
+    <div class="card"><div class="k">1심 평균 소요</div><div class="v">약 2년 6개월</div>
+      <div class="d">감정 절차가 전체 기간의 핵심 변수입니다.</div></div>
+    <div class="card"><div class="k">비용 부담 구조</div><div class="v">감정료·인지대·송달료 대납</div>
+      <div class="d">착수 단계 비용을 법인이 전액 선지급합니다.</div></div>
+  </div>
+  <div class="foot-note"><div class="note-gold">위 수치는 법무법인 제이엘이 단독으로 수행해 판결까지 이른 18건의 실적입니다. 실적 기준 참고치이며, 개별 사건의 회수 금액과 기간은 감정 결과·법원 판단에 따라 달라질 수 있습니다.</div></div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

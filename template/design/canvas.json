@@ -1,0 +1,256 @@
+{
+  "artboards": [
+    {
+      "file": "Main.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "S1 표지"
+    },
+    {
+      "file": "S02_Summary.dc.html",
+      "x": 1452,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "S2 제안 요약"
+    },
+    {
+      "file": "S03_Contents.dc.html",
+      "x": 2904,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "S3 목차"
+    },
+    {
+      "file": "S04_ComplexOverview.dc.html",
+      "x": 4356,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "S4 단지 현황"
+    },
+    {
+      "file": "S05_WarrantyTimeline.dc.html",
+      "x": 5808,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "S5 담보책임기간"
+    },
+    {
+      "file": "S06_DefectStats.dc.html",
+      "x": 7260,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "S6 하자 접수 집계"
+    },
+    {
+      "file": "S07_UnresolvedHistory.dc.html",
+      "x": 0,
+      "y": 870,
+      "w": 1332,
+      "h": 750,
+      "title": "S7 미이행 이력"
+    },
+    {
+      "file": "S08_AdVsActual.dc.html",
+      "x": 1452,
+      "y": 870,
+      "w": 1332,
+      "h": 750,
+      "title": "S8 광고 대비 시공"
+    },
+    {
+      "file": "S09_LegalStructure.dc.html",
+      "x": 2904,
+      "y": 870,
+      "w": 1332,
+      "h": 750,
+      "title": "S9 이원 구조"
+    },
+    {
+      "file": "S10_WarrantyPeriod.dc.html",
+      "x": 4356,
+      "y": 870,
+      "w": 1332,
+      "h": 750,
+      "title": "S10 존속기간"
+    },
+    {
+      "file": "S11_AssignmentStructure.dc.html",
+      "x": 5808,
+      "y": 870,
+      "w": 1332,
+      "h": 750,
+      "title": "S11 채권양도 구조"
+    },
+    {
+      "file": "S12_ClaimTargets.dc.html",
+      "x": 7260,
+      "y": 870,
+      "w": 1332,
+      "h": 750,
+      "title": "S12 청구 3축"
+    },
+    {
+      "file": "S13_InspectionProcess.dc.html",
+      "x": 0,
+      "y": 1740,
+      "w": 1332,
+      "h": 750,
+      "title": "S13 하자조사 절차"
+    },
+    {
+      "file": "S14_Wallpad.dc.html",
+      "x": 1452,
+      "y": 1740,
+      "w": 1332,
+      "h": 750,
+      "title": "S14 월패드"
+    },
+    {
+      "file": "S15_TileBacking.dc.html",
+      "x": 2904,
+      "y": 1740,
+      "w": 1332,
+      "h": 750,
+      "title": "S15 타일 뒤채움"
+    },
+    {
+      "file": "S16_Waterproofing.dc.html",
+      "x": 4356,
+      "y": 1740,
+      "w": 1332,
+      "h": 750,
+      "title": "S16 방수 부족시공"
+    },
+    {
+      "file": "S17_FireDoor.dc.html",
+      "x": 5808,
+      "y": 1740,
+      "w": 1332,
+      "h": 750,
+      "title": "S17 방화문"
+    },
+    {
+      "file": "S18_LitigationProcess.dc.html",
+      "x": 7260,
+      "y": 1740,
+      "w": 1332,
+      "h": 750,
+      "title": "S18 소송 절차"
+    },
+    {
+      "file": "S19_ConsentCollection.dc.html",
+      "x": 0,
+      "y": 2610,
+      "w": 1332,
+      "h": 750,
+      "title": "S19 동의서 징구"
+    },
+    {
+      "file": "S20_AppraisalResponse.dc.html",
+      "x": 1452,
+      "y": 2610,
+      "w": 1332,
+      "h": 750,
+      "title": "S20 감정 대응"
+    },
+    {
+      "file": "S21_ReportingSystem.dc.html",
+      "x": 2904,
+      "y": 2610,
+      "w": 1332,
+      "h": 750,
+      "title": "S21 보고 체계"
+    },
+    {
+      "file": "S22_Timeline.dc.html",
+      "x": 4356,
+      "y": 2610,
+      "w": 1332,
+      "h": 750,
+      "title": "S22 전체 일정표"
+    },
+    {
+      "file": "S23_FeeTerms.dc.html",
+      "x": 5808,
+      "y": 2610,
+      "w": 1332,
+      "h": 750,
+      "title": "S23 보수 조건"
+    },
+    {
+      "file": "S24_CostStructure.dc.html",
+      "x": 7260,
+      "y": 2610,
+      "w": 1332,
+      "h": 750,
+      "title": "S24 비용 부담 구조"
+    },
+    {
+      "file": "S25_Disclaimer.dc.html",
+      "x": 0,
+      "y": 3480,
+      "w": 1332,
+      "h": 750,
+      "title": "S25 유의사항"
+    },
+    {
+      "file": "S26_FirmOverview.dc.html",
+      "x": 1452,
+      "y": 3480,
+      "w": 1332,
+      "h": 750,
+      "title": "S26 법인 개요"
+    },
+    {
+      "file": "S27_Attorneys.dc.html",
+      "x": 2904,
+      "y": 3480,
+      "w": 1332,
+      "h": 750,
+      "title": "S27 담당 변호사"
+    },
+    {
+      "file": "S28_TrackRecord.dc.html",
+      "x": 4356,
+      "y": 3480,
+      "w": 1332,
+      "h": 750,
+      "title": "S28 수행 실적"
+    },
+    {
+      "file": "S29_Credentials.dc.html",
+      "x": 5808,
+      "y": 3480,
+      "w": 1332,
+      "h": 750,
+      "title": "S29 자격 보험"
+    },
+    {
+      "file": "S30_FAQ.dc.html",
+      "x": 7260,
+      "y": 3480,
+      "w": 1332,
+      "h": 750,
+      "title": "S30 예상 질의응답"
+    },
+    {
+      "file": "S31_NextSteps.dc.html",
+      "x": 0,
+      "y": 4350,
+      "w": 1332,
+      "h": 750,
+      "title": "S31 다음 단계·연락처"
+    }
+  ],
+  "launch": {
+    "view": "focused",
+    "file": "Main.dc.html"
+  }
+}

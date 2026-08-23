@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#5A5F68;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:12px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:12px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:11px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:11.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:11.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:4px;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:11px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .flow{position:absolute;left:56px;top:200px;right:56px;display:flex;}
+  .step{flex:1;position:relative;padding:0 14px;}
+  .step:first-child{padding-left:0;} .step:last-child{padding-right:0;}
+  .dayband{height:8px;border-radius:4px;background:var(--navy);}
+  .step:nth-child(3) .dayband{background:var(--gold-ink);}
+  .step .d{margin-top:10px;font-size:11px;color:var(--gold-ink);font-weight:700;}
+  .step .t{margin-top:6px;font-size:15px;font-weight:800;color:var(--navy);}
+  .step .b{margin-top:8px;font-size:11.5px;color:var(--muted);line-height:1.6;}
+  .arrow{position:absolute;right:-10px;top:-4px;color:var(--muted);font-size:14px;}
+  .total{position:absolute;left:56px;top:430px;right:56px;background:var(--card);border:1px solid var(--line);
+    border-radius:6px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;}
+  .total .n{font-size:24px;font-weight:800;color:var(--navy);}
+  .total .l{font-size:12.5px;color:var(--muted);}
+  .foot-note{position:absolute;left:56px;bottom:56px;right:56px;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>13 / 31</span></div>
+  <div class="eyebrow">하자조사 절차 [고정]</div>
+  <div class="title">하자조사는 90일 동안 5단계로 진행됩니다</div>
+  <div class="flow">
+    <div class="step"><div class="dayband"></div><div class="d">1~10일</div>
+      <div class="t">기본계획</div><div class="b">조사 범위·항목 확정</div><div class="arrow">→</div></div>
+    <div class="step"><div class="dayband"></div><div class="d">11~25일</div>
+      <div class="t">사전조사</div><div class="b">준공도면·설계도서 확보</div><div class="arrow">→</div></div>
+    <div class="step"><div class="dayband"></div><div class="d">26~45일</div>
+      <div class="t">상태조사</div><div class="b">관할 지자체 정보공개청구로 감리보고서 등 확보</div><div class="arrow">→</div></div>
+    <div class="step"><div class="dayband"></div><div class="d">46~75일</div>
+      <div class="t">정밀조사</div><div class="b">세대별 현장 실측·계측</div><div class="arrow">→</div></div>
+    <div class="step"><div class="dayband"></div><div class="d">76~90일</div>
+      <div class="t">분석</div><div class="b">하자 유형별 정리·보수비 산정</div></div>
+  </div>
+  <div class="total"><div class="l">총 소요기간</div><div class="n">약 90일</div></div>
+  <div class="foot-note"><div class="note-gold">준공도면·감리보고서는 관할 지자체 정보공개청구로 확보합니다. 조사 결과는 하자 유형별 정리와 보수비 산정으로 이어져 소장·감정신청의 기초 자료가 됩니다.</div></div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

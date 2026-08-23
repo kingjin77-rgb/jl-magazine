@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#5A5F68;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:12px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:12px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:11px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:11.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:11.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:4px;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:11px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .chart{position:absolute;left:56px;top:150px;right:56px;height:290px;border-radius:6px;
+    overflow:hidden;border:1px solid var(--line);}
+  .chart img{width:100%;height:100%;object-fit:contain;background:#fff;}
+  .rows{position:absolute;left:56px;top:456px;right:56px;}
+  .r{display:flex;align-items:center;gap:14px;padding:8px 0;border-bottom:1px solid var(--line);font-size:12.5px;}
+  .r .dot{width:9px;height:9px;border-radius:50%;flex:0 0 auto;}
+  .r .lbl{width:360px;color:var(--ink);font-weight:600;}
+  .r .f{flex:1;color:var(--muted);font-family:monospace;}
+  .r .s{width:60px;text-align:right;font-weight:700;}
+  .s-over{color:var(--alert);} .s-near{color:var(--warn);}
+  .foot-note{position:absolute;left:56px;bottom:56px;right:56px;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>05 / 31</span></div>
+  <div class="eyebrow">담보책임기간 잔여 [가변 · 자동계산]</div>
+  <div class="badge">예시 데이터</div>
+  <div class="title">{{단지명}}의 담보책임기간, 공종별로 여유와 도과가 갈립니다</div>
+  <div class="chart"><img src="s05_warranty_timeline.png"></div>
+  <div class="rows">
+    <div class="r"><div class="dot" style="background:#E67E22"></div>
+      <div class="lbl">주요구조부·지반공사 (10년)</div>
+      <div class="f">2016-11-01 + 10년 = 2026-11-01</div><div class="s s-near">임박</div></div>
+    <div class="r"><div class="dot" style="background:#C0392B"></div>
+      <div class="lbl">구조상·안전상 · 철근콘크리트·조적·지붕·방수 (5년)</div>
+      <div class="f">2016-11-01 + 5년 = 2021-11-01</div><div class="s s-over">도과</div></div>
+    <div class="r"><div class="dot" style="background:#C0392B"></div>
+      <div class="lbl">기능상·미관상 · 건축설비·목공사·창호·조경 (3년)</div>
+      <div class="f">2016-11-01 + 3년 = 2019-11-01</div><div class="s s-over">도과</div></div>
+    <div class="r"><div class="dot" style="background:#C0392B"></div>
+      <div class="lbl">마감공사 등 발견·교체·보수 용이 하자 (2년)</div>
+      <div class="f">2016-11-01 + 2년 = 2018-11-01</div><div class="s s-over">도과</div></div>
+  </div>
+  <div class="foot-note"><div class="note">기산일은 사용검사일(공용부분) 기준입니다. 이미 도과한 공종은 숨기지 않고 그대로 표시하며, 남은 구간에 청구를 집중하는 근거로 씁니다. <code>python3 tools/timeline.py template/data/&lt;단지&gt;.json</code>으로 재계산됩니다.</div></div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

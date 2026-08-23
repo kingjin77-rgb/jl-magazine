@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#5A5F68;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:12px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:12px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:11px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:11.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:11.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:4px;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:11px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .cols{position:absolute;left:56px;top:180px;right:56px;bottom:110px;display:flex;gap:24px;}
+  .col{flex:1;border-radius:6px;border:1px solid var(--line);padding:22px 24px;display:flex;flex-direction:column;}
+  .col.left{background:var(--card);}
+  .col.right{background:#FDEDEA;border-color:#F1B7AE;}
+  .col .k{font-size:12px;font-weight:800;letter-spacing:.04em;}
+  .col.left .k{color:var(--navy);} .col.right .k{color:var(--alert);}
+  .col .q{margin-top:14px;font-size:14px;line-height:1.8;color:var(--ink);flex:1;
+    background:#fff;border:1px solid var(--line);border-radius:4px;padding:16px 18px;}
+  .col .cap{margin-top:10px;font-size:11px;color:var(--muted);}
+  .foot-note{position:absolute;left:56px;bottom:56px;right:56px;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>08 / 31</span></div>
+  <div class="eyebrow">광고 사양 대비 실제 시공 [가변 · 자료 있을 때만]</div>
+  <div class="badge">레이아웃 예시</div>
+  <div class="title">{{단지명}} 분양 당시 고지된 사양과 실제 시공을 대조합니다</div>
+  <div class="cols">
+    <div class="col left"><div class="k">입주자모집공고문 · 분양 카탈로그 원문</div>
+      <div class="q">"{{공고문_인용문}}"</div>
+      <div class="cap">출처: {{공고문_출처_면수}}</div></div>
+    <div class="col right"><div class="k">현장 확인 결과</div>
+      <div class="q">{{실측_대조_내용}}</div>
+      <div class="cap">확인일: {{실측_확인일}}</div></div>
+  </div>
+  <div class="foot-note"><div class="note">입주자모집공고문·분양 카탈로그 원문과 현장 사진·감정 결과를 나란히 대조하는 것은 JL의 차별화 구간입니다. 자료가 없으면 이 슬라이드는 삭제하고 진행합니다. 인용은 원문 그대로만 씁니다.</div></div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

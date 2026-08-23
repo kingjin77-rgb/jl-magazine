@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#5A5F68;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:12px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:12px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:11px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:11.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:11.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:4px;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:11px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .lgrid{position:absolute;top:158px;left:56px;right:56px;bottom:44px;display:grid;
+    grid-template-columns:repeat(6,1fr);gap:14px;}
+  .lcard{background:#fff;border:1px solid var(--line);display:flex;flex-direction:column;overflow:hidden;}
+  .lphoto{position:relative;aspect-ratio:4/5;overflow:hidden;
+    background:radial-gradient(circle at 50% 30%,#EFF2FB,#dfe3ec);}
+  .lphoto img{width:100%;height:100%;object-fit:cover;display:block;}
+  .lbody{padding:14px 14px 16px;flex:1;display:flex;flex-direction:column;}
+  .lrole{font-size:10px;letter-spacing:.14em;color:var(--navy);font-weight:700;}
+  .lname{margin-top:6px;font-size:17px;font-weight:800;color:var(--ink);}
+  .lcareer{margin-top:10px;border-top:1px solid var(--line);padding-top:10px;flex:1;list-style:none;}
+  .lcareer li{position:relative;padding-left:11px;font-size:11px;color:var(--muted);line-height:1.55;margin-bottom:4px;}
+  .lcareer li::before{content:"";position:absolute;left:0;top:6px;width:3px;height:3px;
+    background:#B6BBC2;border-radius:50%;}
+  .lcareer li strong{color:#222;font-weight:600;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>27 / 31</span></div>
+  <div class="eyebrow">ASSOCIATE ATTORNEYS</div>
+  <div class="title">6인의 변호사가 이 사건을 직접 수행합니다</div>
+  <div class="lgrid">
+    <div class="lcard">
+      <div class="lphoto"><img src="park-jongil.jpg"></div>
+      <div class="lbody"><div class="lrole">대표변호사</div><div class="lname">박종일</div>
+        <ul class="lcareer">
+          <li><strong>사법고시 38회</strong> · 연수원 28기</li>
+          <li>수원·광주·부산지검 부장검사</li>
+          <li>제21회 공인회계사</li>
+          <li>경기도 법률자문위원</li>
+        </ul></div>
+    </div>
+    <div class="lcard">
+      <div class="lphoto"><img src="lee-jihoon.jpg"></div>
+      <div class="lbody"><div class="lrole">변호사</div><div class="lname">이지훈</div>
+        <ul class="lcareer">
+          <li><strong>사법고시 52회</strong> · 연수원 42기</li>
+          <li>세무사 자격 · 건설 전문</li>
+          <li>신한·하나은행 법률자문</li>
+          <li>경기주택도시공사 법률고문</li>
+        </ul></div>
+    </div>
+    <div class="lcard">
+      <div class="lphoto"><img src="jang-woojin.jpg"></div>
+      <div class="lbody"><div class="lrole">변호사</div><div class="lname">장우진</div>
+        <ul class="lcareer">
+          <li><strong>사법고시 52회</strong> · 연수원 42기</li>
+          <li>서울중앙지검·고검 공익법무관</li>
+          <li>서울중앙지법 민사조정위원</li>
+          <li>고려대 법과대학</li>
+        </ul></div>
+    </div>
+    <div class="lcard">
+      <div class="lphoto"><img src="lim-junkyu.jpg"></div>
+      <div class="lbody"><div class="lrole">변호사</div><div class="lname">임준규</div>
+        <ul class="lcareer">
+          <li><strong>사법고시 52회</strong> · 연수원 42기</li>
+          <li>형사법 전문 · 대한법률구조공단</li>
+          <li>법무부 국가송무·공익법무관</li>
+          <li>EY한영회계법인 세무본부</li>
+        </ul></div>
+    </div>
+    <div class="lcard">
+      <div class="lphoto"><img src="ha-hyeyong.jpg"></div>
+      <div class="lbody"><div class="lrole">변호사</div><div class="lname">하혜용</div>
+        <ul class="lcareer">
+          <li><strong>제10회 변호사시험</strong></li>
+          <li>충북대학교 법학전문대학원</li>
+          <li>인하대학교 법학과</li>
+        </ul></div>
+    </div>
+    <div class="lcard">
+      <div class="lphoto"><img src="oh-hyunjin.jpg"></div>
+      <div class="lbody"><div class="lrole">변호사</div><div class="lname">오현진</div>
+        <ul class="lcareer">
+          <li><strong>제14회 변호사시험</strong></li>
+          <li>헌법재판소 실무수습</li>
+          <li>사법연수원 재판실무심화연수</li>
+        </ul></div>
+    </div>
+  </div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>
