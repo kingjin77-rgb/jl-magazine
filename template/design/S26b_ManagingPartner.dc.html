@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:15px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:4px;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .title{font-size:24px;}
+  .wrap{position:absolute;left:56px;top:150px;right:56px;bottom:52px;display:flex;gap:38px;}
+  .photo{width:290px;flex:0 0 auto;}
+  .photo .box{width:290px;height:362px;border:1px solid var(--line);overflow:hidden;
+    background:radial-gradient(circle at 50% 30%,#EFF2FB,#dfe3ec);}
+  .photo img{width:100%;height:100%;object-fit:cover;display:block;}
+  .photo .nm{margin-top:16px;font-size:24px;font-weight:800;color:var(--navy);}
+  .photo .rl{margin-top:5px;font-size:14px;color:var(--gold-ink);font-weight:700;letter-spacing:.04em;}
+  .body{flex:1;display:flex;flex-direction:column;}
+  .greet{font-size:16px;line-height:2;color:var(--ink);}
+  .greet b{color:var(--navy);}
+  .career{margin-top:22px;padding-top:18px;border-top:1.4px solid var(--line);
+    display:grid;grid-template-columns:repeat(2,1fr);gap:9px 28px;}
+  .career li{position:relative;padding-left:13px;font-size:14px;color:var(--ink);line-height:1.65;list-style:none;}
+  .career li::before{content:"";position:absolute;left:0;top:9px;width:4px;height:4px;
+    background:var(--gold);border-radius:50%;}
+  .sign{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:flex-end;}
+  .sign .f{font-size:14px;color:var(--ink);}
+  .sign .n{font-size:19px;font-weight:800;color:var(--navy);}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>00 / 41</span></div>
+  <div class="eyebrow">MANAGING PARTNER</div>
+  <div class="title">대표변호사 인사</div>
+
+  <div class="wrap">
+    <div class="photo">
+      <div class="box"><img src="park-jongil.jpg"></div>
+      <div class="nm">박종일</div>
+      <div class="rl">대표변호사</div>
+    </div>
+    <div class="body">
+      <div class="greet">
+        공동주택 하자소송은 <b>기술과 법률이 함께 걸린 사건</b>입니다.
+        도면에 있는데 시공되지 않은 것을 찾아내는 일은 법률 지식만으로 되지 않고,
+        찾아낸 것을 법정에서 받아내는 일은 기술만으로 되지 않습니다.<br><br>
+        법무법인 제이엘은 하자조사부터 감정 대응, 소송, 회수까지
+        <b>외주 없이 직접 수행</b>해 왔습니다. 단독으로 수행해 판결에 이른 사건이
+        <b>18건, 9,979세대</b>입니다. 그 과정에서 확인한 것은,
+        입주자대표회의가 가장 힘들어하는 지점이 소송 자체가 아니라
+        <b>착수 전 준비</b>라는 사실이었습니다.<br><br>
+        그래서 감정료와 소송비용을 법인이 부담하고,
+        채권양도 동의서 징구도 법인이 직접 맡습니다.
+        결과를 약속드리지는 않겠습니다. 다만 <b>맡은 일은 끝까지 직접 하겠습니다.</b>
+      </div>
+      <ul class="career">
+        <li>사법시험 38회 · 사법연수원 28기</li>
+        <li>제21회 공인회계사</li>
+        <li>수원지방검찰청 부장검사</li>
+        <li>광주지방검찰청 부장검사</li>
+        <li>부산지방검찰청 부장검사</li>
+        <li>경기도 법률자문위원</li>
+      </ul>
+      <div class="sign">
+        <div class="f">법무법인 제이엘</div>
+        <div class="n">대표변호사 박종일</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

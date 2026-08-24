@@ -49,6 +49,17 @@ def used_chars():
     return ''.join(sorted(c for c in chars if c.strip()))
 
 
+def canvas_order():
+    """canvas.json에 적힌 아트보드 순서를 1부터 매긴 표로 돌려준다."""
+    path = os.path.join(DESIGN, 'canvas.json')
+    if not os.path.exists(path):
+        return {}
+    import json
+    m = json.load(io.open(path, encoding='utf-8'))
+    return {a['file']: i + 1 for i, a in enumerate(m.get('artboards', []))
+            if isinstance(a, dict) and 'file' in a}
+
+
 def subset(text):
     """서체별 woff2 서브셋을 만들어 base64로 돌려준다. 같은 파일은 한 번만."""
     os.makedirs(BUILD, exist_ok=True)
@@ -91,8 +102,16 @@ def build():
 
     block = face_block(faces)
     os.makedirs(BUILD, exist_ok=True)
+    order = canvas_order()
+    total = len(order)
     for p in artboards():
         s = io.open(p, encoding='utf-8').read()
+        # 페이지 번호는 canvas.json 순서로 빌드 때 부여한다.
+        # 장수가 바뀌어도 각 슬라이드를 고칠 필요가 없다.
+        name = os.path.basename(p)
+        if name in order:
+            s = re.sub(r'<span>\s*\d+\s*/\s*\d+\s*</span>',
+                       '<span>%02d / %d</span>' % (order[name], total), s, count=1)
         # 본문 폰트 스택을 옴니고딕 우선으로 교체
         s = s.replace('"Pretendard","Malgun Gothic",sans-serif',
                       "'%s','Pretendard','Malgun Gothic',sans-serif" % FAMILY)

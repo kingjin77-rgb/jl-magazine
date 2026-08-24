@@ -12,9 +12,20 @@ CHROME = (glob.glob('/opt/pw-browsers/chromium*/chrome-linux/chrome') or [None])
 
 def capture():
     os.makedirs(OUT, exist_ok=True)
-    files = sorted(glob.glob(os.path.join(BUILD, '*.dc.html')),
-                   key=lambda p: (os.path.basename(p) != 'Main.dc.html',
-                                  os.path.basename(p)))
+    # canvas.json 순서를 따라 캡처한다. 파일명 순서가 아니라 실제 덱 순서.
+    import json
+    cj = os.path.join(BUILD, 'canvas.json')
+    files = []
+    if os.path.exists(cj):
+        m = json.load(open(cj, encoding='utf-8'))
+        for a in m.get('artboards', []):
+            f = os.path.join(BUILD, a.get('file', ''))
+            if os.path.exists(f):
+                files.append(f)
+    if not files:
+        files = sorted(glob.glob(os.path.join(BUILD, '*.dc.html')),
+                       key=lambda p: (os.path.basename(p) != 'Main.dc.html',
+                                      os.path.basename(p)))
     for i, f in enumerate(files):
         name = os.path.basename(f).replace('.dc.html', '')
         png = os.path.join(OUT, '%02d_%s.png' % (i + 1, name))
