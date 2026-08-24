@@ -152,12 +152,25 @@ def band(items):
     return ''.join(o)
 
 
-def slide(eyebrow, title, body, footer_band=None, note=None, bottom=None):
+TIGHT = """
+  /* 촘촘 모드 — 내용이 하단 밴드에 닿을 때 여백만 줄인다 */
+  .tbl .tr div{padding:6.6px 15px;}
+  .tbl .th div{padding:8px 15px;}
+  .kv .r{padding:4.6px 0;}
+  .sec{margin-bottom:9px;}
+  .sec+.sec,.blk+.sec{margin-top:12px;}
+  .c{padding:12px 16px;}
+"""
+
+
+def slide(eyebrow, title, body, footer_band=None, note=None, bottom=None, tight=False):
     # 밴드와 주석이 함께 있으면 밴드를 위로 올려 주석 자리를 만든다
     bb = 78 if (footer_band and note) else 52
     nb = 44 if note else 52
     bottom = bottom if bottom is not None else ((bb + 168) if footer_band else 56)
     css = CORE % {'bottom': bottom, 'note': nb, 'band': bb}
+    if tight:
+        css += TIGHT
     parts = ['<!doctype html>', '<html>', '<head>', '<meta charset="utf-8">',
              '<script src="./support.js"></script>', '<style>' + css + '</style>',
              '</head>', '<body>',
