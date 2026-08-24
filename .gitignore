@@ -1,1 +1,4 @@
 template/design/build/
+
+# PPTX 중간 산출물 — export_pptx.py가 매번 다시 만든다 (배경 PNG + 검증 오버레이)
+template/design/preview/_bg/
