@@ -18,8 +18,9 @@ FONTS = os.path.join(ROOT, 'assets', 'fonts')
 
 # CSS 굵기 -> 옴니고딕 파일. 5종이 각각 별도 패밀리이고 전부 usWeightClass 400이라
 # 이렇게 명시하지 않으면 브라우저가 가짜 볼드를 합성한다.
-WEIGHTS = [('400', 'OmniGothic030.ttf'),
-           ('600', 'OmniGothic040.ttf'),
+# 010·020·030은 작은 크기에서 흐려진다. 본문에 040, 제목에 050을 쓴다.
+WEIGHTS = [('400', 'OmniGothic040.ttf'),
+           ('600', 'OmniGothic050.ttf'),
            ('700', 'OmniGothic050.ttf')]
 FAMILY = 'JL옴니고딕'
 

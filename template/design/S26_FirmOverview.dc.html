@@ -6,59 +6,87 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
   :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#5A5F68;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
-    font-size:12px;color:var(--muted);}
-  .eyebrow{position:absolute;left:56px;top:70px;font-size:12px;letter-spacing:.2em;color:var(--gold-ink);
+    font-size:13.5px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:13.5px;letter-spacing:.2em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
-  .badge{position:absolute;right:56px;top:70px;font-size:11px;color:#8F7033;background:#FBF7EE;
+  .badge{position:absolute;right:56px;top:70px;font-size:12.5px;color:#8F7033;background:#FBF7EE;
     border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
   .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
-  .note{font-size:11.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+  .note{font-size:12.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
     border-radius:4px;padding:12px 18px;line-height:1.6;}
-  .note-gold{font-size:11.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+  .note-gold{font-size:12.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
     border-radius:4px;padding:12px 18px;line-height:1.7;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
-    font-size:11px;color:var(--muted);}
+    font-size:12.5px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
-  .stats{position:absolute;left:56px;top:190px;right:56px;display:flex;gap:22px;}
-  .s{flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px 20px;text-align:center;}
-  .s .n{font-size:26px;font-weight:800;color:var(--navy);}
-  .s .l{margin-top:6px;font-size:12px;color:var(--muted);}
-  .addr{position:absolute;left:56px;top:330px;right:56px;background:var(--navy);color:#fff;border-radius:8px;
-    padding:24px 26px;}
-  .addr .k{font-size:11px;color:#C7CEE1;letter-spacing:.05em;}
-  .addr .v{margin-top:8px;font-size:17px;font-weight:700;}
-  .focus{position:absolute;left:56px;top:460px;right:56px;bottom:56px;display:flex;gap:22px;}
-  .f{flex:1;border-left:3px solid var(--gold);padding-left:16px;}
-  .f .t{font-size:13px;font-weight:800;color:var(--navy);}
-  .f .d{margin-top:6px;font-size:11.5px;color:var(--muted);line-height:1.7;}
+  .title{font-size:24px;}
+  .band{position:absolute;left:56px;top:150px;right:56px;background:var(--navy);color:#fff;
+    border-radius:8px;padding:20px 26px;display:flex;}
+  .band .s{flex:1;border-left:1px solid rgba(255,255,255,.18);padding-left:22px;}
+  .band .s:first-child{border-left:none;padding-left:0;}
+  .band .n{font-size:25px;font-weight:800;letter-spacing:-.01em;}
+  .band .l{margin-top:5px;font-size:12.5px;color:#E6ECF9;}
+  .grid{position:absolute;left:56px;top:272px;right:56px;display:grid;
+    grid-template-columns:repeat(4,1fr);gap:16px;}
+  .g{border:1px solid var(--line);border-radius:6px;padding:16px 18px;}
+  .g .k{font-size:12.5px;color:var(--gold-ink);font-weight:700;}
+  .g .v{margin-top:7px;font-size:15px;font-weight:800;color:var(--navy);}
+  .g .d{margin-top:7px;font-size:12.5px;color:var(--muted);line-height:1.6;}
+  .why{position:absolute;left:56px;top:430px;right:56px;display:flex;gap:20px;}
+  .w{flex:1;border-left:3px solid var(--gold);padding-left:14px;}
+  .w .t{font-size:13.5px;font-weight:800;color:var(--navy);}
+  .w .d{margin-top:5px;font-size:12.5px;color:var(--muted);line-height:1.7;}
+  .addr{position:absolute;left:56px;bottom:52px;right:56px;background:var(--card);
+    border:1px solid var(--line);border-radius:6px;padding:12px 20px;display:flex;
+    justify-content:space-between;font-size:13.5px;color:var(--muted);}
+  .addr b{color:var(--navy);}
 </style>
 </head>
 <body>
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>26 / 31</span></div>
   <div class="eyebrow">법인 개요 [고정]</div>
-  <div class="title">법무법인 제이엘은 하자소송을 직접 수행하는 법인입니다</div>
-  <div class="stats">
-    <div class="s"><div class="n">변호사 7인</div><div class="l">소속 변호사</div></div>
-    <div class="s"><div class="n">직원 36명</div><div class="l">소속 임직원</div></div>
-    <div class="s"><div class="n">18건 · 328억</div><div class="l">하자소송 판결 실적</div></div>
+  <div class="title">하자소송을 조사부터 판결까지 직접 수행해 온 법인입니다</div>
+
+  <div class="band">
+    <div class="s"><div class="n">18건</div><div class="l">단독 수행 판결</div></div>
+    <div class="s"><div class="n">9,979세대</div><div class="l">누적 수행 세대</div></div>
+    <div class="s"><div class="n">328억</div><div class="l">판결금 합계</div></div>
+    <div class="s"><div class="n">93.28%</div><div class="l">채권양도비율 평균(15건)</div></div>
+    <div class="s"><div class="n">66.4%</div><div class="l">사용검사 전 하자 발굴 비중(14건)</div></div>
   </div>
-  <div class="addr"><div class="k">주사무소</div><div class="v">서울 서초구 · 정원빌딩</div></div>
-  <div class="focus">
-    <div class="f"><div class="t">하자소송 직접 수행</div>
-      <div class="d">조사부터 소송·회수까지 외주 없이 법인이 직접 수행합니다.</div></div>
-    <div class="f"><div class="t">건설 전문 인력</div>
-      <div class="d">건축시공기술사 사무장을 포함해 건설 전문 조직을 운영합니다.</div></div>
-    <div class="f"><div class="t">비용 선지급 체계</div>
-      <div class="d">감정료·인지대·송달료를 법인이 전액 대납해 착수 부담을 낮춥니다.</div></div>
+
+  <div class="grid">
+    <div class="g"><div class="k">단지 규모</div><div class="v">94 ~ 1,066세대</div>
+      <div class="d">소규모부터 대단지까지 전 구간을 수행했습니다.</div></div>
+    <div class="g"><div class="k">사건 유형</div><div class="v">입대의 + 관리단</div>
+      <div class="d">입주자대표회의뿐 아니라 집합건물 관리단 사건도 수행합니다.</div></div>
+    <div class="g"><div class="k">심급</div><div class="v">1심 + 항소심</div>
+      <div class="d">1심에서 끝나지 않는 사건도 항소심까지 이어서 수행합니다.</div></div>
+    <div class="g"><div class="k">지역</div><div class="v">전국</div>
+      <div class="d">수도권·대구·경북·충남·전남 등 전국 단지를 수행했습니다.</div></div>
   </div>
+
+  <div class="why">
+    <div class="w"><div class="t">외주 없이 직접 수행</div>
+      <div class="d">하자조사·감정 대응·소송·회수까지 법인이 직접 맡습니다.</div></div>
+    <div class="w"><div class="t">건설 전문 인력</div>
+      <div class="d">건축시공기술사 사무장이 조사·감정 대응을 기술적으로 뒷받침합니다.</div></div>
+    <div class="w"><div class="t">비용 선지급</div>
+      <div class="d">감정료·인지대·송달료를 전액 대납해 착수 부담을 없앱니다.</div></div>
+    <div class="w"><div class="t">동의서 징구 대행</div>
+      <div class="d">입주자대표회의의 최대 실무 부담을 법인이 직접 처리합니다.</div></div>
+  </div>
+
+  <div class="addr"><span>법무법인 제이엘 · 변호사 7인 · 임직원 36명</span>
+    <span><b>서울 서초구 · 정원빌딩</b></span></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

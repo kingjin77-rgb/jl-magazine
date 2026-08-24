@@ -6,61 +6,95 @@
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
   :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#5A5F68;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
-    font-size:12px;color:var(--muted);}
-  .eyebrow{position:absolute;left:56px;top:70px;font-size:12px;letter-spacing:.2em;color:var(--gold-ink);
+    font-size:13.5px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:13.5px;letter-spacing:.2em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
-  .badge{position:absolute;right:56px;top:70px;font-size:11px;color:#8F7033;background:#FBF7EE;
+  .badge{position:absolute;right:56px;top:70px;font-size:12.5px;color:#8F7033;background:#FBF7EE;
     border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
   .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
-  .note{font-size:11.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+  .note{font-size:12.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
     border-radius:4px;padding:12px 18px;line-height:1.6;}
-  .note-gold{font-size:11.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+  .note-gold{font-size:12.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
     border-radius:4px;padding:12px 18px;line-height:1.7;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
-    font-size:11px;color:var(--muted);}
+    font-size:12.5px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
-  .flow{position:absolute;left:56px;top:200px;right:56px;display:flex;}
-  .step{flex:1;position:relative;padding:0 14px;}
+  .title{font-size:24px;}
+  .flow{position:absolute;left:56px;top:150px;right:56px;display:flex;}
+  .step{flex:1;position:relative;padding:0 12px;}
   .step:first-child{padding-left:0;} .step:last-child{padding-right:0;}
-  .dayband{height:8px;border-radius:4px;background:var(--navy);}
+  .dayband{height:7px;border-radius:4px;background:var(--navy);}
   .step:nth-child(3) .dayband{background:var(--gold-ink);}
-  .step .d{margin-top:10px;font-size:11px;color:var(--gold-ink);font-weight:700;}
-  .step .t{margin-top:6px;font-size:15px;font-weight:800;color:var(--navy);}
-  .step .b{margin-top:8px;font-size:11.5px;color:var(--muted);line-height:1.6;}
-  .arrow{position:absolute;right:-10px;top:-4px;color:var(--muted);font-size:14px;}
-  .total{position:absolute;left:56px;top:430px;right:56px;background:var(--card);border:1px solid var(--line);
-    border-radius:6px;padding:18px 24px;display:flex;align-items:center;justify-content:space-between;}
-  .total .n{font-size:24px;font-weight:800;color:var(--navy);}
-  .total .l{font-size:12.5px;color:var(--muted);}
-  .foot-note{position:absolute;left:56px;bottom:56px;right:56px;}
+  .step .d{margin-top:9px;font-size:12.5px;color:var(--gold-ink);font-weight:700;}
+  .step .t{margin-top:5px;font-size:15.5px;font-weight:800;color:var(--navy);}
+  .step .b{margin-top:6px;font-size:12.5px;color:var(--muted);line-height:1.6;}
+  .step .out{margin-top:9px;padding-top:8px;border-top:1px solid var(--line);
+    font-size:12.5px;color:var(--ink);line-height:1.5;}
+  .step .out em{font-style:normal;color:var(--gold-ink);font-weight:700;}
+  .mid{position:absolute;left:56px;top:352px;right:56px;display:flex;gap:18px;}
+  .m{flex:1;background:var(--card);border:1px solid var(--line);border-radius:6px;padding:14px 16px;}
+  .m .t{font-size:13.5px;font-weight:800;color:var(--navy);}
+  .m .d{margin-top:6px;font-size:12.5px;color:var(--muted);line-height:1.65;}
+  .result{position:absolute;left:56px;top:492px;right:56px;background:var(--navy);color:#fff;
+    border-radius:8px;padding:18px 24px;}
+  .result .h{font-size:12.5px;color:#F0F4FC;font-weight:700;letter-spacing:.04em;}
+  .result .row{margin-top:12px;display:flex;}
+  .result .r{flex:1;border-left:1px solid rgba(255,255,255,.18);padding-left:20px;}
+  .result .r:first-child{border-left:none;padding-left:0;}
+  .result .r .t{font-size:14.5px;font-weight:800;}
+  .result .r .d{margin-top:5px;font-size:12.5px;color:#E6ECF9;line-height:1.55;}
+  .foot-note{position:absolute;left:56px;bottom:52px;right:56px;}
 </style>
 </head>
 <body>
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>13 / 31</span></div>
   <div class="eyebrow">하자조사 절차 [고정]</div>
-  <div class="title">하자조사는 90일 동안 5단계로 진행됩니다</div>
+  <div class="title">하자조사는 90일 동안 5단계로 진행되며, 단계마다 산출물이 남습니다</div>
+
   <div class="flow">
     <div class="step"><div class="dayband"></div><div class="d">1~10일</div>
-      <div class="t">기본계획</div><div class="b">조사 범위·항목 확정</div><div class="arrow">→</div></div>
+      <div class="t">기본계획</div><div class="b">조사 범위·항목·표본 세대 확정</div>
+      <div class="out"><em>산출</em> 조사계획서</div></div>
     <div class="step"><div class="dayband"></div><div class="d">11~25일</div>
-      <div class="t">사전조사</div><div class="b">준공도면·설계도서 확보</div><div class="arrow">→</div></div>
+      <div class="t">사전조사</div><div class="b">준공도면·시방서·구조계산서 확보 및 대조</div>
+      <div class="out"><em>산출</em> 설계도서 대조표</div></div>
     <div class="step"><div class="dayband"></div><div class="d">26~45일</div>
-      <div class="t">상태조사</div><div class="b">관할 지자체 정보공개청구로 감리보고서 등 확보</div><div class="arrow">→</div></div>
+      <div class="t">상태조사</div><div class="b">관할 지자체 정보공개청구로 감리보고서·설계변경 내역 확보</div>
+      <div class="out"><em>산출</em> 정보공개 회신 자료</div></div>
     <div class="step"><div class="dayband"></div><div class="d">46~75일</div>
-      <div class="t">정밀조사</div><div class="b">세대별 현장 실측·계측</div><div class="arrow">→</div></div>
+      <div class="t">정밀조사</div><div class="b">세대·공용부 현장 실측, 파취조사, 계측</div>
+      <div class="out"><em>산출</em> 부위별 실측 데이터</div></div>
     <div class="step"><div class="dayband"></div><div class="d">76~90일</div>
-      <div class="t">분석</div><div class="b">하자 유형별 정리·보수비 산정</div></div>
+      <div class="t">분석</div><div class="b">하자 유형별 정리 및 보수비 산정</div>
+      <div class="out"><em>산출</em> 하자조사 보고서</div></div>
   </div>
-  <div class="total"><div class="l">총 소요기간</div><div class="n">약 90일</div></div>
-  <div class="foot-note"><div class="note-gold">준공도면·감리보고서는 관할 지자체 정보공개청구로 확보합니다. 조사 결과는 하자 유형별 정리와 보수비 산정으로 이어져 소장·감정신청의 기초 자료가 됩니다.</div></div>
+
+  <div class="mid">
+    <div class="m"><div class="t">설계도서 대조가 핵심입니다</div>
+      <div class="d">눈에 보이는 하자보다 <b>도면에 있는데 시공되지 않은 것</b>이 금액을 만듭니다. 미시공·변경시공은 도면 대조로만 드러납니다.</div></div>
+    <div class="m"><div class="t">정보공개청구를 병행합니다</div>
+      <div class="d">준공도면·감리보고서는 시공사가 주지 않습니다. 관할 지자체에 정보공개청구해 확보합니다.</div></div>
+    <div class="m"><div class="t">감정 신청의 기초가 됩니다</div>
+      <div class="d">조사 결과가 곧 감정신청 항목이 됩니다. 조사가 부실하면 감정에서 다투지 못합니다.</div></div>
+  </div>
+
+  <div class="result"><div class="h">이 조사가 만드는 것</div>
+    <div class="row">
+      <div class="r"><div class="t">청구 항목</div><div class="d">감정신청서에 올릴 하자 항목 목록</div></div>
+      <div class="r"><div class="t">청구 금액</div><div class="d">항목별 보수비 산정 근거</div></div>
+      <div class="r"><div class="t">입증 자료</div><div class="d">도면 대조표·실측 데이터·현장 사진</div></div>
+      <div class="r"><div class="t">소요 90일</div><div class="d">동의서 징구와 병행 진행</div></div>
+    </div></div>
+
+  <div class="foot-note"><div class="note">사용검사 전 하자(미시공·변경시공)는 이 단계의 도면 대조에서 발견됩니다. 법무법인 제이엘 수행 사건 14건에서 <b>보수비의 66.4%가 사용검사 전 하자</b>였습니다.</div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>
