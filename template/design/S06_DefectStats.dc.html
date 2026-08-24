@@ -27,7 +27,7 @@
     font-size:14px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
-  .cols{position:absolute;left:56px;top:180px;right:56px;bottom:110px;display:flex;gap:40px;}
+  .cols{position:absolute;left:56px;top:180px;right:56px;bottom:224px;display:flex;gap:40px;}
   .colL{flex:1.3;} .colR{flex:1;}
   .h{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:14px;}
   .bar-row{margin-bottom:16px;}
@@ -38,7 +38,7 @@
   .heat{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
   .hcell{aspect-ratio:1;border-radius:0;display:flex;align-items:center;justify-content:center;
     font-size:14px;color:#fff;font-weight:700;}
-  .foot-note{position:absolute;left:56px;bottom:56px;right:56px;}
+  .foot-note{position:absolute;left:56px;bottom:216px;right:56px;}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
@@ -67,6 +67,20 @@
   .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
 
   /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 심층 검증 3단 밴드 ── */
+  .verify{position:absolute;left:56px;right:56px;bottom:52px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent!important;}
 </style>
 </head>
 <body>
@@ -102,6 +116,11 @@
       </div></div>
   </div>
   <div class="foot-note"><div class="note">이 슬라이드는 관리사무소가 보유한 <b>세대 하자 접수대장</b>이 있을 때만 채워집니다. 위 막대 길이와 색상은 레이아웃 예시이며 실제 값이 아닙니다. 자료가 없으면 이 슬라이드는 삭제하고 진행합니다.</div></div>
+  <div class="verify">
+    <div><div class="vk">핵심 내용</div><div class="vv">접수 기록은 그 자체로 증거입니다. 같은 부위에 반복 접수된 이력은 일시적 현상이 아니라 시공에서 비롯된 하자라는 근거가 됩니다.</div></div>
+    <div><div class="vk">수치 강조</div><div class="vv">건수보다 <b>반복 접수와 최초 접수일</b>이 중요합니다. 최초 접수일이 사용검사 이후 발생 하자의 발생 시점을 특정합니다.</div></div>
+    <div><div class="vk warnk">기한 경고</div><div class="vv">관리사무소 자료는 보존 연한이 지나면 폐기됩니다. 오래된 접수대장과 공문부터 사본을 확보해야 합니다.</div></div>
+  </div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

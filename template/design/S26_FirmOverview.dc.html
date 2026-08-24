@@ -40,11 +40,11 @@
   .g .k{font-size:14px;color:var(--gold-ink);font-weight:700;}
   .g .v{margin-top:7px;font-size:16px;font-weight:800;color:var(--navy);}
   .g .d{margin-top:7px;font-size:14px;color:var(--muted);line-height:1.6;}
-  .why{position:absolute;left:56px;top:430px;right:56px;display:flex;gap:20px;}
+  .why{position:absolute;left:56px;top:424px;right:56px;display:flex;gap:20px;}
   .w{flex:1;border-left:3px solid var(--gold);padding-left:14px;}
   .w .t{font-size:15px;font-weight:800;color:var(--navy);}
   .w .d{margin-top:5px;font-size:14px;color:var(--muted);line-height:1.7;}
-  .addr{position:absolute;left:56px;bottom:50px;right:56px;background:#fff;flex-wrap:wrap;gap:6px 26px;
+  .addr{position:absolute;left:56px;bottom:216px;right:56px;background:#fff;flex-wrap:wrap;gap:6px 26px;
     border:1px solid var(--line);border-radius:0;padding:12px 20px;display:flex;
     justify-content:space-between;font-size:15px;color:var(--muted);}
   .addr b{color:var(--navy);}
@@ -76,6 +76,20 @@
   .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
 
   /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 심층 검증 3단 밴드 ── */
+  .verify{position:absolute;left:56px;right:56px;bottom:52px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent!important;}
 </style>
 </head>
 <body>
@@ -117,6 +131,11 @@
     <span><b>주사무소(서초)</b> 서울 서초구 서초대로53길 15 정원빌딩 4층 · 02-537-0123</span>
     <span><b>분사무소(동탄)</b> 경기 화성시 동탄순환대로 127-5 우성센트럴타워 914호 · 1899-4252</span>
     <span>www.jllawfirm.co.kr</span></div>
+  <div class="verify">
+    <div><div class="vk">핵심 내용</div><div class="vv">하자소송은 서면만으로 되지 않습니다. 세대 단위 서류 처리량과 현장 대응이 결과를 좌우합니다.</div></div>
+    <div><div class="vk">수치 강조</div><div class="vv">변호사 7인 · 사무직원 36명 구성이며, 사무장은 <b>건축시공기술사</b>입니다. 도면을 읽는 인력이 법인 안에 있습니다.</div></div>
+    <div><div class="vk warnk">기한 경고</div><div class="vv">설명회·서류 징구는 단지 일정에 맞춰야 합니다. 총회 일정이 정해지면 미리 알려 주십시오.</div></div>
+  </div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

@@ -74,6 +74,23 @@
   .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
 
   /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 연락 체계 도해 (하단 여백 채움) ── */
+  .chan{position:absolute;left:56px;right:56px;top:470px;height:158px;}
+  .chan .h{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:12px;}
+  .chan .row{display:flex;align-items:stretch;gap:0;}
+  .chan .n{flex:1;border:1px solid var(--line);background:#fff;padding:11px 15px 12px;}
+  .chan .n.hi{background:var(--navy);border-color:var(--navy);}
+  .chan .n .k{font-size:11.5px;font-weight:800;letter-spacing:.1em;color:var(--gold-ink);}
+  .chan .n.hi .k{color:#CBB27E;}
+  .chan .n .t{margin-top:6px;font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em;}
+  .chan .n.hi .t{color:#fff;}
+  .chan .n .d{margin-top:5px;font-size:12px;line-height:1.5;color:var(--ink);}
+  .chan .n.hi .d{color:rgba(255,255,255,.80);}
+  .chan .ar{flex:0 0 44px;display:flex;align-items:center;justify-content:center;
+    font-size:15px;color:var(--navy);font-weight:700;}
+  .chan .n.hi *{background:transparent;}
 </style>
 </head>
 <body>
@@ -101,6 +118,22 @@
     </div>
   </div>
 
+  <div class="chan">
+    <div class="h">연락은 이 경로로 오갑니다 — 여러 사람에게 나뉘어 물어보지 않으셔도 됩니다</div>
+    <div class="row">
+      <div class="n"><div class="k">단지</div><div class="t">입주자대표회의 · 관리사무소</div>
+        <div class="d">질의·자료 제출·의결 결과 전달</div></div>
+      <div class="ar">&#8644;</div>
+      <div class="n hi"><div class="k">단일 창구</div><div class="t">담당 변호사</div>
+        <div class="d">모든 질의가 여기로 모이고, 여기서 답이 나갑니다</div></div>
+      <div class="ar">&#8594;</div>
+      <div class="n"><div class="k">법인 내부</div><div class="t">담당 사무직원</div>
+        <div class="d">채권양도 서류 징구·검수, 세대 명단 관리</div></div>
+      <div class="ar">&#8594;</div>
+      <div class="n"><div class="k">협력</div><div class="t">협력 기술진</div>
+        <div class="d">현장조사 입회, 도면 대조, 감정 항목 검토</div></div>
+    </div>
+  </div>
   <div class="foot-note"><div class="note">감정 절차는 진행이 길어 입주자대표회의가 가장 답답해하는 구간입니다. 움직임이 없는 달에도 <b>현재 어느 단계이고 다음이 언제인지</b>를 보고합니다.</div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>

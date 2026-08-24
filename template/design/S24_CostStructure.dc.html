@@ -28,7 +28,7 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   .title{font-size:24px;}
-  .cols{position:absolute;left:56px;top:168px;right:56px;display:block;}
+  .cols{position:absolute;left:56px;top:168px;right:56px;bottom:224px;display:block;overflow:hidden;}
   .colL{width:1220px;height:610px;display:none;}
   .chartbox{width:760px;height:380px;border:1px solid var(--line);overflow:hidden;
     background:#fff;float:left;}
@@ -68,6 +68,20 @@
   .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
 
   /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 심층 검증 3단 밴드 ── */
+  .verify{position:absolute;left:56px;right:56px;bottom:52px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent!important;}
 </style>
 </head>
 <body>
@@ -82,6 +96,11 @@
         <div class="l">개별 단지의 실제 감정료는 감정 항목·규모에 따라 달라집니다.</div></div>
       <div class="recover" style="flex:1">판결 확정 시 소송비용 중 일부는 패소자(시공사 등)로부터 회수될 수 있습니다. 다만 회수 여부와 범위는 법원 판단에 따라 달라지며, 이를 단정적으로 예측하지 않습니다.</div>
     </div>
+  </div>
+  <div class="verify">
+    <div><div class="vk">핵심 내용</div><div class="vv">비용 구조를 먼저 밝히는 이유는, 진행 중에 예상하지 못한 지출이 생기면 그때부터 신뢰가 무너지기 때문입니다.</div></div>
+    <div><div class="vk">수치 강조</div><div class="vv">금액이 가장 큰 항목은 <b>감정료</b>이며, 단지 세대수와 조사 항목 수에 따라 법원이 정합니다.</div></div>
+    <div><div class="vk warnk">기한 경고</div><div class="vv">감정료를 기한 내 납부하지 않으면 감정 신청이 각하될 수 있습니다. 납부 시점을 미리 안내드립니다.</div></div>
   </div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
