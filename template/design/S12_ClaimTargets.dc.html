@@ -10,48 +10,85 @@
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
-    font-size:13.5px;color:var(--muted);}
-  .eyebrow{position:absolute;left:56px;top:70px;font-size:13.5px;letter-spacing:.2em;color:var(--gold-ink);
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:15px;letter-spacing:.2em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
-  .badge{position:absolute;right:56px;top:70px;font-size:12.5px;color:#8F7033;background:#FBF7EE;
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
     border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
   .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
-  .note{font-size:12.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+  .note{font-size:14px;color:var(--muted);background:var(--card);border:1px solid var(--line);
     border-radius:4px;padding:12px 18px;line-height:1.6;}
-  .note-gold{font-size:12.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
     border-radius:4px;padding:12px 18px;line-height:1.7;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
-    font-size:12.5px;color:var(--muted);}
+    font-size:14px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
-  .cards{position:absolute;left:56px;top:190px;right:56px;bottom:56px;display:flex;gap:24px;}
-  .c{flex:1;border:1.5px solid var(--line);border-radius:8px;padding:26px 24px;display:flex;flex-direction:column;}
-  .c .num{width:32px;height:32px;border-radius:50%;background:var(--navy);color:#fff;font-size:15px;
+  .title{font-size:24px;}
+  .cards{position:absolute;left:56px;top:150px;right:56px;display:flex;gap:20px;}
+  .c{flex:1;border:1.5px solid var(--line);border-radius:8px;padding:20px 20px;display:flex;flex-direction:column;}
+  .c .num{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-size:16px;
     font-weight:800;display:flex;align-items:center;justify-content:center;}
-  .c .t{margin-top:16px;font-size:18px;font-weight:800;color:var(--navy);}
-  .c .d{margin-top:10px;font-size:13.5px;color:var(--muted);line-height:1.7;flex:1;}
-  .c .tag{margin-top:12px;align-self:flex-start;font-size:12.5px;color:var(--gold-ink);background:#FBF7EE;
-    border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
+  .c .t{margin-top:12px;font-size:19.5px;font-weight:800;color:var(--navy);}
+  .c .d{margin-top:8px;font-size:14px;color:var(--ink);line-height:1.7;}
+  .c .rows{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);}
+  .c .r{display:flex;font-size:14px;padding:5px 0;line-height:1.5;}
+  .c .r .k{width:62px;color:var(--gold-ink);font-weight:700;flex:0 0 auto;}
+  .c .r .v{color:var(--ink);}
+  .warn{position:absolute;left:56px;top:520px;right:56px;background:var(--navy);color:#fff;
+    border-radius:8px;padding:18px 24px;}
+  .warn .h{font-size:14px;color:#E6ECF9;font-weight:700;letter-spacing:.04em;}
+  .warn .row{margin-top:11px;display:flex;}
+  .warn .w{flex:1;border-left:1px solid rgba(255,255,255,.2);padding-left:20px;}
+  .warn .w:first-child{border-left:none;padding-left:0;}
+  .warn .w .t{font-size:15px;font-weight:800;}
+  .warn .w .s{margin-top:5px;font-size:14px;color:#E6ECF9;line-height:1.55;}
+  .foot-note{position:absolute;left:56px;bottom:50px;right:56px;}
 </style>
 </head>
 <body>
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>12 / 31</span></div>
   <div class="eyebrow">청구 대상 3축 [고정]</div>
   <div class="title">청구 상대방은 분양자·시공자·보증기관 셋으로 나뉩니다</div>
+
   <div class="cards">
     <div class="c"><div class="num">1</div><div class="t">분양자</div>
       <div class="d">시행사·조합. 집합건물법 제9조에 따른 담보책임의 1차 주체입니다.</div>
-      <div class="tag">신탁·회생 여부 확인 필요</div></div>
+      <div class="rows">
+        <div class="r"><div class="k">근거</div><div class="v">집합건물법 제9조 제1항</div></div>
+        <div class="r"><div class="k">확인</div><div class="v">분양계약서 · 건축물대장 · 등기사항증명서 · 신탁원부</div></div>
+        <div class="r"><div class="k">주의</div><div class="v">신탁사가 분양자인 경우가 있고, 무자력인 사례가 많습니다</div></div>
+      </div></div>
     <div class="c"><div class="num">2</div><div class="t">시공자</div>
-      <div class="d">개정 집합건물법상 법정책임화되어, 분양자에게 회생·파산·무자력 등 사유가 있는 경우 시공자에게 청구할 수 있습니다.</div>
-      <div class="tag">직접 청구 가능 범위 확인</div></div>
+      <div class="d">개정 집합건물법에서 법정책임화되어, 분양자에게 회생·파산·무자력 등 사유가 있는 경우 직접 청구할 수 있습니다.</div>
+      <div class="rows">
+        <div class="r"><div class="k">근거</div><div class="v">집합건물법 제9조 제3항</div></div>
+        <div class="r"><div class="k">확인</div><div class="v">건축물대장 · 도급계약 관계</div></div>
+        <div class="r"><div class="k">주의</div><div class="v">분양자에게 이미 배상한 범위에서는 책임을 면합니다</div></div>
+      </div></div>
     <div class="c"><div class="num">3</div><div class="t">보증기관</div>
-      <div class="d">건설공제조합·서울보증보험·주택도시보증공사 등. 사용검사 후 하자에 대한 하자보수보증금을 청구합니다.</div>
-      <div class="tag">보증금은 보수 용도로만 사용</div></div>
+      <div class="d">건설공제조합·서울보증보험·주택도시보증공사 등. 하자보수보증금을 청구합니다.</div>
+      <div class="rows">
+        <div class="r"><div class="k">근거</div><div class="v">공동주택관리법 제38조 · 보증계약</div></div>
+        <div class="r"><div class="k">확인</div><div class="v">하자보수보증서(보증금액 · 보증기간 · 연차별 구분)</div></div>
+        <div class="r"><div class="k">주의</div><div class="v">사용검사 <b>후</b> 하자만 보증 대상입니다</div></div>
+      </div></div>
   </div>
+
+  <div class="warn"><div class="h">실무상 반드시 구분해야 하는 것</div>
+    <div class="row">
+      <div class="w"><div class="t">보증금은 보수 용도로만</div>
+        <div class="s">보증금은 하자보수에만 쓸 수 있어 그것만 청구하면 회수가 어렵습니다</div></div>
+      <div class="w"><div class="t">보증금 청구는 입대의 고유 권한</div>
+        <div class="s">채권양도 비율의 영향을 받지 않는 별도 청구입니다</div></div>
+      <div class="w"><div class="t">사용검사 전 하자는 보증 대상 아님</div>
+        <div class="s">보수비의 66.4%를 차지하는 이 부분은 분양자·시공자에게 청구합니다</div></div>
+    </div></div>
+
+  <div class="foot-note"><div class="note">세 축을 함께 걸어 두는 것이 원칙입니다. 소 제기 후 다툼 없는 사실로 피고를 정리하는 것이 실무 관례입니다.</div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

@@ -10,50 +10,78 @@
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
-    font-size:13.5px;color:var(--muted);}
-  .eyebrow{position:absolute;left:56px;top:70px;font-size:13.5px;letter-spacing:.2em;color:var(--gold-ink);
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:15px;letter-spacing:.2em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
-  .badge{position:absolute;right:56px;top:70px;font-size:12.5px;color:#8F7033;background:#FBF7EE;
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
     border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
   .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
-  .note{font-size:12.5px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+  .note{font-size:14px;color:var(--muted);background:var(--card);border:1px solid var(--line);
     border-radius:4px;padding:12px 18px;line-height:1.6;}
-  .note-gold{font-size:12.5px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
     border-radius:4px;padding:12px 18px;line-height:1.7;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
-    font-size:12.5px;color:var(--muted);}
+    font-size:14px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
-  .steps{position:absolute;left:56px;top:200px;right:56px;display:flex;}
-  .step{flex:1;position:relative;padding:0 16px;}
+  .title{font-size:24px;}
+  .steps{position:absolute;left:56px;top:150px;right:56px;display:flex;}
+  .step{flex:1;position:relative;padding:0 14px;}
   .step:first-child{padding-left:0;} .step:last-child{padding-right:0;}
-  .step .num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:14px;
+  .step .num{width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-size:15px;
     font-weight:800;display:flex;align-items:center;justify-content:center;}
-  .step .t{margin-top:10px;font-size:14.5px;font-weight:800;color:var(--navy);}
-  .step .d{margin-top:6px;font-size:12.5px;color:var(--muted);line-height:1.6;}
-  .contact{position:absolute;left:56px;top:400px;right:56px;background:var(--navy);color:#fff;border-radius:8px;
-    padding:28px 32px;display:flex;justify-content:space-between;align-items:center;}
-  .contact .k{font-size:12.5px;color:#F0F4FC;letter-spacing:.05em;}
-  .contact .v{margin-top:8px;font-size:16px;font-weight:700;}
+  .step .t{margin-top:10px;font-size:16px;font-weight:800;color:var(--navy);}
+  .step .d{margin-top:6px;font-size:14px;color:var(--ink);line-height:1.6;}
+  .step .w{margin-top:8px;padding-top:7px;border-top:1px solid var(--line);
+    font-size:14px;color:var(--gold-ink);font-weight:700;}
+  .prep{position:absolute;left:56px;top:352px;right:56px;}
+  .prep .h{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:11px;}
+  .pg{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+  .p{border:1px solid var(--line);border-radius:6px;padding:13px 16px;}
+  .p .t{font-size:14px;font-weight:800;color:var(--navy);}
+  .p .d{margin-top:5px;font-size:14px;color:var(--ink);line-height:1.55;}
+  .contact{position:absolute;left:56px;bottom:50px;right:56px;background:var(--navy);color:#fff;
+    border-radius:8px;padding:20px 28px;display:flex;justify-content:space-between;align-items:center;}
+  .contact .k{font-size:14px;color:#E6ECF9;letter-spacing:.05em;}
+  .contact .v{margin-top:7px;font-size:17.5px;font-weight:700;}
 </style>
 </head>
 <body>
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>31 / 31</span></div>
   <div class="eyebrow">다음 단계 및 연락처 [고정]</div>
   <div class="title">{{단지명}}과 함께 다음 단계를 진행하겠습니다</div>
+
   <div class="steps">
     <div class="step"><div class="num">1</div><div class="t">제안 설명회</div>
-      <div class="d">입주자대표회의·주민 대상 제안 내용 설명</div></div>
+      <div class="d">입주자대표회의·주민 대상 제안 내용 설명</div>
+      <div class="w">법인이 직접 방문</div></div>
     <div class="step"><div class="num">2</div><div class="t">소 제기 의결</div>
-      <div class="d">입주자대표회의 의결 및 변호사 선임</div></div>
+      <div class="d">입주자대표회의 의결 및 변호사 선임</div>
+      <div class="w">안건 초안 지원</div></div>
     <div class="step"><div class="num">3</div><div class="t">하자조사 착수</div>
-      <div class="d">90일 하자조사와 채권양도 동의서 징구 병행</div></div>
+      <div class="d">90일 하자조사와 채권양도 동의서 징구 병행</div>
+      <div class="w">비용 법인 부담</div></div>
     <div class="step"><div class="num">4</div><div class="t">소장 접수</div>
-      <div class="d">확보된 동의서를 기준으로 소 제기</div></div>
+      <div class="d">확보된 동의서를 기준으로 소 제기</div>
+      <div class="w">인지대·송달료 대납</div></div>
   </div>
+
+  <div class="prep"><div class="h">착수를 위해 준비해 주실 자료</div>
+    <div class="pg">
+      <div class="p"><div class="t">사용검사필증</div><div class="d">담보책임 기산일 확정</div></div>
+      <div class="p"><div class="t">하자보수보증서</div><div class="d">보증기관·금액·기간</div></div>
+      <div class="p"><div class="t">하자보수 요청 공문</div><div class="d">시공사 회신 포함</div></div>
+      <div class="p"><div class="t">입주자모집공고문</div><div class="d">분양 카탈로그 포함</div></div>
+      <div class="p"><div class="t">하자 접수대장</div><div class="d">관리사무소 보유분</div></div>
+      <div class="p"><div class="t">입주자대표회의 명부</div><div class="d">회장·감사·동대표</div></div>
+      <div class="p"><div class="t">구분소유자 명부</div><div class="d">동의서 징구용</div></div>
+      <div class="p"><div class="t">준공도면</div><div class="d">없으면 정보공개청구</div></div>
+    </div>
+  </div>
+
   <div class="contact">
     <div><div class="k">담당 변호사</div><div class="v">박종일 대표변호사 · 하혜용 변호사</div></div>
     <div><div class="k">법무법인 제이엘</div><div class="v">서울 서초구 · 정원빌딩</div></div>

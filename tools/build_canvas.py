@@ -98,8 +98,10 @@ def build():
     for sub in ('graphics', 'lawyers'):
         for f in glob.glob(os.path.join(DESIGN, sub, '*')):
             shutil.copy(f, os.path.join(BUILD, os.path.basename(f)))
-    for f in ('cover-photo.jpg', 'jl-logo.png', 'canvas.json'):
-        shutil.copy(os.path.join(DESIGN, f), os.path.join(BUILD, f))
+    for f in (glob.glob(os.path.join(DESIGN, '*.jpg'))
+              + glob.glob(os.path.join(DESIGN, '*.png'))
+              + [os.path.join(DESIGN, 'canvas.json')]):
+        shutil.copy(f, os.path.join(BUILD, os.path.basename(f)))
 
     biggest = max(glob.glob(os.path.join(BUILD, '*.dc.html')), key=os.path.getsize)
     print('아트보드 %d개 · 최대 %s %.0f KB (항목 상한 2MB)'
