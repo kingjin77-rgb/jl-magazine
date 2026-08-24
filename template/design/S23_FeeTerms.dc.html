@@ -34,6 +34,19 @@
   .c .d{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.6;}
   .market{position:absolute;left:56px;top:400px;right:56px;}
   .foot-note{position:absolute;left:56px;bottom:56px;right:56px;}
+
+  .ico{width:52px;height:52px;display:block;margin-bottom:12px;}
+
+  .cmp{position:absolute;left:56px;top:452px;right:56px;}
+  .cmp .h{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:11px;}
+  .crow{display:flex;border-bottom:1px solid var(--line);padding:11px 12px;font-size:14px;}
+  .crow.hd{background:var(--navy);color:#fff;font-weight:700;border-radius:4px 4px 0 0;}
+  .k1{flex:1.5;font-weight:700;color:var(--navy);}
+  .crow.hd .k1{color:#fff;}
+  .k2{width:210px;text-align:center;color:var(--ink);}
+  .k3{width:210px;text-align:center;color:var(--ink);font-weight:700;}
+  .crow.hd .k2,.crow.hd .k3{color:#fff;}
+  .yes{color:var(--navy);font-weight:800;}
 </style>
 </head>
 <body>
@@ -41,14 +54,22 @@
   <div class="eyebrow">보수 조건 [고정]</div>
   <div class="title">착수금과 성공보수는 법인 내부 확정 후 표기합니다</div>
   <div class="cards">
-    <div class="c"><div class="k">착수금</div><div class="v">[협의]</div>
+    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 14a4 4 0 0 1 4-4h28v28a4 4 0 0 1-4 4H10a4 4 0 0 1-4-4z" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 14h32" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 24h6" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="k">착수금</div><div class="v">[협의]</div>
       <div class="d">법인 내부 확정 후 구체 금액을 수록합니다.</div></div>
-    <div class="c"><div class="k">성공보수</div><div class="v">[협의]</div>
+    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 20a6 6 0 1 0 0-12 6 6 0 0 0 0 12" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 40a6 6 0 1 0 0-12 6 6 0 0 0 0 12" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M38 10L10 38" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="k">성공보수</div><div class="v">[협의]</div>
       <div class="d">회수액 기준 비율로 산정하며, 확정 후 구체 비율을 수록합니다.</div></div>
-    <div class="c"><div class="k">패소 시 처리</div><div class="v">[협의]</div>
+    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 8v32" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 40h24" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 18h32" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 18l-5 12h10z" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M40 18l5 12H35z" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="k">패소 시 처리</div><div class="v">[협의]</div>
       <div class="d">상대방 소송비용 부담 방침·착수금 반환 여부를 확정 후 수록합니다.</div></div>
   </div>
   <div class="market"><div class="note-gold"><b>시장 관행 참고</b> · 착수금 무료, 성공보수 약 25% 수준이 일반적입니다. JL의 조건은 이 기준선과 대비해 법인 내부에서 확정합니다.</div></div>
+  <div class="cmp"><div class="h">확정된 비용 부담 구조 · 착수 단계 비용은 법인이 부담합니다</div>
+    <div class="crow hd"><div class="k1">항목</div><div class="k2">입주자대표회의</div><div class="k3">법무법인 제이엘</div></div>
+    <div class="crow"><div class="k1">하자조사·진단 비용</div><div class="k2">부담 없음</div><div class="k3 yes">전액 부담</div></div>
+    <div class="crow"><div class="k1">법원 감정료</div><div class="k2">부담 없음</div><div class="k3 yes">전액 대납</div></div>
+    <div class="crow"><div class="k1">인지대·송달료</div><div class="k2">부담 없음</div><div class="k3 yes">전액 대납</div></div>
+    <div class="crow"><div class="k1">채권양도 동의서 징구</div><div class="k2">협조</div><div class="k3 yes">법인이 직접 수행</div></div>
+  </div>
+
   <div class="foot-note"><div class="note">이 슬라이드는 착수금·성공보수·패소 시 처리가 법인 내부에서 확정되는 대로 실제 조건으로 갱신됩니다. 확정 전까지 구체 금액·비율을 추정해 기재하지 않습니다.</div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
