@@ -1,114 +1,114 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="'210 옴니고딕 030','OmniGothic030','Pretendard',sans-serif">
   <defs>
     <marker id="ar" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
-      <path d="M0,0 L7,3.5 L0,7 Z" fill="#223D5B"/>
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#081541"/>
     </marker>
   </defs>
 
   <rect width="1200" height="600" fill="#FFFFFF"/>
 
   <!-- 제목 -->
-  <rect x="40" y="34" width="42" height="5" fill="#385783"/>
-  <text x="96" y="46" font-size="27" font-weight="700" fill="#385783">비용 부담 구조</text>
-  <text x="96" y="70" font-size="13" fill="#5C6478" letter-spacing="2.6">COST STRUCTURE · ENGAGEMENT / APPRAISAL / RECOVERY</text>
+  <rect x="40" y="34" width="42" height="5" fill="#B08D4F"/>
+  <text x="96" y="46" font-size="27" font-weight="700" fill="#0D2162">비용 부담 구조</text>
+  <text x="96" y="70" font-size="13" fill="#8F7033" letter-spacing="2.6">COST STRUCTURE · ENGAGEMENT / APPRAISAL / RECOVERY</text>
 
   <!-- ================= 카드 1 : 착수 시점 ================= -->
   <g transform="translate(40,100)">
-    <rect x="0" y="0" width="340" height="265" rx="10" fill="#FFFFFF" stroke="#C3CCDE" stroke-width="1.4" stroke-dasharray="6 5"/>
-    <rect x="18" y="18" width="34" height="34" rx="8" fill="#E9EDF8"/>
-    <text x="35" y="41" font-size="18" font-weight="700" fill="#385783" text-anchor="middle">1</text>
-    <text x="64" y="32" font-size="18" font-weight="700" fill="#223D5B">착수 시점</text>
-    <text x="64" y="50" font-size="10.5" fill="#5C6478" letter-spacing="2">AT ENGAGEMENT</text>
-    <line x1="18" y1="64" x2="322" y2="64" stroke="#385783" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="265" rx="10" fill="#FFFFFF" stroke="#C7CBD3" stroke-width="1.4" stroke-dasharray="6 5"/>
+    <rect x="18" y="18" width="34" height="34" rx="8" fill="#EFF2FB"/>
+    <text x="35" y="41" font-size="18" font-weight="700" fill="#0D2162" text-anchor="middle">1</text>
+    <text x="64" y="32" font-size="18" font-weight="700" fill="#081541">착수 시점</text>
+    <text x="64" y="50" font-size="10.5" fill="#5A5F68" letter-spacing="2">AT ENGAGEMENT</text>
+    <line x1="18" y1="64" x2="322" y2="64" stroke="#0D2162" stroke-width="2"/>
 
-    <text x="18" y="100" font-size="14" fill="#223D5B">착수금 (F-1)</text>
-    <text x="18" y="132" font-size="26" font-weight="700" fill="#5C6478">[확정 대기]</text>
-    <line x1="18" y1="150" x2="322" y2="150" stroke="#C3CCDE"/>
+    <text x="18" y="100" font-size="14" fill="#081541">착수금 (F-1)</text>
+    <text x="18" y="132" font-size="26" font-weight="700" fill="#5A5F68">[확정 대기]</text>
+    <line x1="18" y1="150" x2="322" y2="150" stroke="#C7CBD3"/>
     <text x="18" y="174" font-size="12.5" fill="#42506A">시장 관행: 착수금 무료가 일반적</text>
     <text x="18" y="194" font-size="12.5" fill="#42506A">JL 조건은 계약 체결 시 확정</text>
   </g>
 
   <!-- 화살표 1 -->
-  <line x1="384" y1="232" x2="416" y2="232" stroke="#223D5B" stroke-width="2.2" marker-end="url(#ar)"/>
+  <line x1="384" y1="232" x2="416" y2="232" stroke="#081541" stroke-width="2.2" marker-end="url(#ar)"/>
 
   <!-- ================= 카드 2 : 감정 시점 (강조) ================= -->
   <g transform="translate(420,100)">
-    <rect x="0" y="0" width="360" height="265" rx="10" fill="#FFFFFF" stroke="#385783" stroke-width="2.6"/>
-    <rect x="18" y="18" width="34" height="34" rx="8" fill="#385783"/>
+    <rect x="0" y="0" width="360" height="265" rx="10" fill="#FFFFFF" stroke="#0D2162" stroke-width="2.6"/>
+    <rect x="18" y="18" width="34" height="34" rx="8" fill="#0D2162"/>
     <text x="35" y="41" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">2</text>
-    <text x="64" y="32" font-size="18" font-weight="700" fill="#223D5B">감정 시점</text>
-    <text x="64" y="50" font-size="10.5" fill="#5C6478" letter-spacing="2">AT APPRAISAL</text>
-    <line x1="18" y1="64" x2="342" y2="64" stroke="#385783" stroke-width="2.5"/>
+    <text x="64" y="32" font-size="18" font-weight="700" fill="#081541">감정 시점</text>
+    <text x="64" y="50" font-size="10.5" fill="#5A5F68" letter-spacing="2">AT APPRAISAL</text>
+    <line x1="18" y1="64" x2="342" y2="64" stroke="#0D2162" stroke-width="2.5"/>
 
-    <rect x="18" y="74" width="324" height="30" rx="15" fill="#385783"/>
+    <rect x="18" y="74" width="324" height="30" rx="15" fill="#0D2162"/>
     <text x="180" y="94" font-size="13.5" font-weight="700" fill="#FFFFFF" text-anchor="middle">감정료·인지대·송달료 전액 법인 선대납</text>
 
-    <text x="18" y="126" font-size="13" fill="#223D5B">감정인 제시 단가(시장 참고치): 세대당 10만~40만원</text>
-    <line x1="18" y1="140" x2="342" y2="140" stroke="#C3CCDE"/>
+    <text x="18" y="126" font-size="13" fill="#081541">감정인 제시 단가(시장 참고치): 세대당 10만~40만원</text>
+    <line x1="18" y1="140" x2="342" y2="140" stroke="#C7CBD3"/>
 
-    <rect x="18" y="152" width="324" height="58" rx="8" fill="#E9EDF8" stroke="#C3CCDE"/>
-    <text x="34" y="178" font-size="15" font-weight="700" fill="#223D5B">1,000세대 x 세대당 20만원 = 2억원</text>
-    <text x="34" y="200" font-size="11.5" fill="#5C6478">(참고치 · 실제 총액은 세대수·감정 항목에 따라 확정)</text>
+    <rect x="18" y="152" width="324" height="58" rx="8" fill="#EFF2FB" stroke="#C7CBD3"/>
+    <text x="34" y="178" font-size="15" font-weight="700" fill="#081541">1,000세대 x 세대당 20만원 = 2억원</text>
+    <text x="34" y="200" font-size="11.5" fill="#5A5F68">(참고치 · 실제 총액은 세대수·감정 항목에 따라 확정)</text>
 
     <text x="18" y="228" font-size="12.5" fill="#42506A">청구 인용 시 소송비용에 포함되어 상대방 부담분</text>
     <text x="18" y="246" font-size="12.5" fill="#42506A">일부 회수 가능 (회수 범위는 재판부 결정에 따름)</text>
   </g>
 
   <!-- 화살표 2 -->
-  <line x1="784" y1="232" x2="816" y2="232" stroke="#223D5B" stroke-width="2.2" marker-end="url(#ar)"/>
+  <line x1="784" y1="232" x2="816" y2="232" stroke="#081541" stroke-width="2.2" marker-end="url(#ar)"/>
 
   <!-- ================= 카드 3 : 회수 시점 ================= -->
   <g transform="translate(820,100)">
-    <rect x="0" y="0" width="340" height="265" rx="10" fill="#FFFFFF" stroke="#C3CCDE" stroke-width="1.4"/>
-    <rect x="18" y="18" width="34" height="34" rx="8" fill="#E9EDF8"/>
-    <text x="35" y="41" font-size="18" font-weight="700" fill="#385783" text-anchor="middle">3</text>
-    <text x="64" y="32" font-size="18" font-weight="700" fill="#223D5B">회수 시점</text>
-    <text x="64" y="50" font-size="10.5" fill="#5C6478" letter-spacing="2">AT RECOVERY</text>
-    <line x1="18" y1="64" x2="322" y2="64" stroke="#385783" stroke-width="2"/>
+    <rect x="0" y="0" width="340" height="265" rx="10" fill="#FFFFFF" stroke="#C7CBD3" stroke-width="1.4"/>
+    <rect x="18" y="18" width="34" height="34" rx="8" fill="#EFF2FB"/>
+    <text x="35" y="41" font-size="18" font-weight="700" fill="#0D2162" text-anchor="middle">3</text>
+    <text x="64" y="32" font-size="18" font-weight="700" fill="#081541">회수 시점</text>
+    <text x="64" y="50" font-size="10.5" fill="#5A5F68" letter-spacing="2">AT RECOVERY</text>
+    <line x1="18" y1="64" x2="322" y2="64" stroke="#0D2162" stroke-width="2"/>
 
-    <text x="18" y="100" font-size="13.5" fill="#223D5B">소송비용 부담원칙: 패소자가 부담</text>
-    <text x="18" y="120" font-size="11.5" fill="#5C6478">(민사소송법 제98조)</text>
-    <line x1="18" y1="138" x2="322" y2="138" stroke="#C3CCDE"/>
+    <text x="18" y="100" font-size="13.5" fill="#081541">소송비용 부담원칙: 패소자가 부담</text>
+    <text x="18" y="120" font-size="11.5" fill="#5A5F68">(민사소송법 제98조)</text>
+    <line x1="18" y1="138" x2="322" y2="138" stroke="#C7CBD3"/>
 
-    <text x="18" y="164" font-size="14" fill="#223D5B">성공보수 (F-2)</text>
-    <text x="322" y="164" font-size="16" font-weight="700" fill="#5C6478" text-anchor="end">[확정 대기]</text>
+    <text x="18" y="164" font-size="14" fill="#081541">성공보수 (F-2)</text>
+    <text x="322" y="164" font-size="16" font-weight="700" fill="#5A5F68" text-anchor="end">[확정 대기]</text>
     <text x="18" y="190" font-size="12.5" fill="#42506A">결과에 따라 비용 처리 방식이 아래와 같이</text>
     <text x="18" y="208" font-size="12.5" fill="#42506A">갈립니다</text>
   </g>
 
   <!-- ================= 분기 연결선 ================= -->
-  <line x1="990" y1="365" x2="990" y2="385" stroke="#223D5B" stroke-width="2"/>
-  <line x1="310" y1="385" x2="990" y2="385" stroke="#223D5B" stroke-width="2"/>
-  <line x1="310" y1="385" x2="310" y2="401" stroke="#223D5B" stroke-width="2" marker-end="url(#ar)"/>
-  <line x1="990" y1="385" x2="990" y2="401" stroke="#223D5B" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="990" y1="365" x2="990" y2="385" stroke="#081541" stroke-width="2"/>
+  <line x1="310" y1="385" x2="990" y2="385" stroke="#081541" stroke-width="2"/>
+  <line x1="310" y1="385" x2="310" y2="401" stroke="#081541" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="990" y1="385" x2="990" y2="401" stroke="#081541" stroke-width="2" marker-end="url(#ar)"/>
 
   <!-- ================= 분기 좌 : 청구 인용 시 ================= -->
   <g transform="translate(100,405)">
-    <rect x="0" y="0" width="420" height="145" rx="10" fill="#FFFFFF" stroke="#C3CCDE" stroke-width="1.4"/>
-    <rect x="0" y="0" width="6" height="145" rx="3" fill="#385783"/>
-    <text x="26" y="30" font-size="17" font-weight="700" fill="#223D5B">청구 인용 시</text>
-    <text x="26" y="48" font-size="10.5" fill="#5C6478" letter-spacing="2">IF CLAIM UPHELD</text>
-    <line x1="26" y1="60" x2="400" y2="60" stroke="#C3CCDE"/>
+    <rect x="0" y="0" width="420" height="145" rx="10" fill="#FFFFFF" stroke="#C7CBD3" stroke-width="1.4"/>
+    <rect x="0" y="0" width="6" height="145" rx="3" fill="#0D2162"/>
+    <text x="26" y="30" font-size="17" font-weight="700" fill="#081541">청구 인용 시</text>
+    <text x="26" y="48" font-size="10.5" fill="#5A5F68" letter-spacing="2">IF CLAIM UPHELD</text>
+    <line x1="26" y1="60" x2="400" y2="60" stroke="#C7CBD3"/>
 
-    <text x="26" y="84" font-size="13.5" fill="#223D5B">소송비용 중 상대방(시공사 등) 부담분 일부 회수 가능</text>
-    <text x="26" y="106" font-size="13.5"><tspan fill="#223D5B">성공보수(F-2) 지급 </tspan><tspan fill="#5C6478" font-weight="700">[확정 대기]</tspan></text>
+    <text x="26" y="84" font-size="13.5" fill="#081541">소송비용 중 상대방(시공사 등) 부담분 일부 회수 가능</text>
+    <text x="26" y="106" font-size="13.5"><tspan fill="#081541">성공보수(F-2) 지급 </tspan><tspan fill="#5A5F68" font-weight="700">[확정 대기]</tspan></text>
     <text x="26" y="128" font-size="11.5" fill="#42506A">회수 범위·비율은 재판부 결정에 따름 · 단정 예측 불가</text>
   </g>
 
   <!-- ================= 분기 우 : 패소 시 ================= -->
   <g transform="translate(780,405)">
-    <rect x="0" y="0" width="420" height="145" rx="10" fill="#FFFFFF" stroke="#C3CCDE" stroke-width="1.4"/>
-    <rect x="0" y="0" width="6" height="145" rx="3" fill="#5C6478"/>
-    <text x="26" y="30" font-size="17" font-weight="700" fill="#223D5B">패소 시</text>
-    <text x="26" y="48" font-size="10.5" fill="#5C6478" letter-spacing="2">IF CLAIM LOST</text>
-    <line x1="26" y1="60" x2="400" y2="60" stroke="#C3CCDE"/>
+    <rect x="0" y="0" width="420" height="145" rx="10" fill="#FFFFFF" stroke="#C7CBD3" stroke-width="1.4"/>
+    <rect x="0" y="0" width="6" height="145" rx="3" fill="#5A5F68"/>
+    <text x="26" y="30" font-size="17" font-weight="700" fill="#081541">패소 시</text>
+    <text x="26" y="48" font-size="10.5" fill="#5A5F68" letter-spacing="2">IF CLAIM LOST</text>
+    <line x1="26" y1="60" x2="400" y2="60" stroke="#C7CBD3"/>
 
-    <text x="26" y="84" font-size="13.5"><tspan fill="#223D5B">패소 시 처리 방식(F-5) </tspan><tspan fill="#5C6478" font-weight="700">[확정 대기]</tspan></text>
-    <text x="26" y="106" font-size="13.5" fill="#223D5B">선대납한 감정료·인지대·송달료 처리 방향 별도 확정 필요</text>
+    <text x="26" y="84" font-size="13.5"><tspan fill="#081541">패소 시 처리 방식(F-5) </tspan><tspan fill="#5A5F68" font-weight="700">[확정 대기]</tspan></text>
+    <text x="26" y="106" font-size="13.5" fill="#081541">선대납한 감정료·인지대·송달료 처리 방향 별도 확정 필요</text>
     <text x="26" y="128" font-size="11.5" fill="#42506A">법인 선대납금 회수 여부는 계약 조건에 따라 결정 · 숨기지 않음</text>
   </g>
 
   <!-- 각주 -->
-  <text x="40" y="572" font-size="12.5" fill="#5C6478">참고치 출처: proposal/08_타법인_시장조사.md · 감정인 제시 단가 세대당 10만~40만원, 총액 2,000만~1억원</text>
-  <text x="40" y="592" font-size="12.5" fill="#5C6478">계산 예시: 1,000세대 x 200,000원 = 200,000,000원(2억원) · F-1·F-2·F-5는 계약 체결 시 확정</text>
+  <text x="40" y="572" font-size="12.5" fill="#5A5F68">참고치 출처: proposal/08_타법인_시장조사.md · 감정인 제시 단가 세대당 10만~40만원, 총액 2,000만~1억원</text>
+  <text x="40" y="592" font-size="12.5" fill="#5A5F68">계산 예시: 1,000세대 x 200,000원 = 200,000,000원(2억원) · F-1·F-2·F-5는 계약 체결 시 확정</text>
 </svg>
