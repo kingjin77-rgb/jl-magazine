@@ -153,26 +153,29 @@
     <text x="26" y="112" font-size="12.5" fill="#5A5F68">등 청구 상대방</text>
   </g>
 
-  <!-- ================= 하단: 동의율 게이지 ================= -->
+  <!-- ================= 하단: 양도비율 게이지 (JL 실적 기준) ================= -->
   <g transform="translate(60,410)">
     <rect x="0" y="0" width="1080" height="118" rx="10" fill="#FFFFFF" stroke="#C7CBD3" stroke-width="1.5"/>
 
-    <text x="30" y="38" font-size="17" font-weight="700" fill="#081541">동의 세대수 / 전체 세대수 = 청구 규모</text>
-    <text x="30" y="60" font-size="12.5" fill="#5A5F68">채권양도에 동의한 세대 비율이 소송에서 청구할 수 있는 손해배상 범위를 결정합니다</text>
+    <text x="30" y="38" font-size="17" font-weight="700" fill="#081541">양도 전유면적 / 전체 전유면적 = 청구 규모</text>
+    <text x="30" y="60" font-size="12.5" fill="#5A5F68">공용부분 손해배상채권은 전유부분 면적 비율로 귀속되므로, 양도비율도 세대 수가 아니라 전유면적으로 산정합니다</text>
 
-    <text x="30" y="96" font-size="13" font-weight="700" fill="#081541">동의율</text>
+    <text x="30" y="96" font-size="13" font-weight="700" fill="#081541">양도비율</text>
 
     <!-- 트랙 -->
-    <rect x="110" y="78" width="820" height="26" rx="13" fill="#EFF2FB" stroke="#C7CBD3"/>
-    <!-- 채움 87% -->
-    <rect x="110" y="78" width="713.4" height="26" rx="13" fill="#0D2162"/>
+    <rect x="120" y="78" width="810" height="26" rx="13" fill="#EFF2FB" stroke="#C7CBD3"/>
+    <!-- 채움: JL 15건 평균 93.28% -->
+    <rect x="120" y="78" width="755.6" height="26" rx="13" fill="#0D2162"/>
+    <!-- 최저치 75.01% 눈금 -->
+    <line x1="727.6" y1="72" x2="727.6" y2="110" stroke="#B08D4F" stroke-width="2"/>
+    <text x="727.6" y="68" font-size="10.5" fill="#8F7033" text-anchor="middle">최저 75.01%</text>
 
-    <text x="944" y="99" font-size="26" font-weight="700" fill="#0D2162">87%</text>
+    <text x="944" y="99" font-size="26" font-weight="700" fill="#0D2162">93.28%</text>
 
-    <text x="110" y="118" font-size="11" fill="#5A5F68">0%</text>
+    <text x="120" y="118" font-size="11" fill="#5A5F68">0%</text>
     <text x="930" y="118" font-size="11" fill="#5A5F68" text-anchor="end">100%</text>
   </g>
 
   <text x="60" y="552" font-size="13" fill="#5A5F68">모식도 · 세대 아이콘 그리드는 5x4(20세대)로 단순화한 예시이며 실제 세대수를 나타내지 않음</text>
-  <text x="60" y="574" font-size="13" fill="#5A5F68">계산: 동의 세대수 / 전체 세대수 = 청구 가능 범위의 비율 · 동의율 87%는 구조 설명용 예시 수치(실제 단지 수치 아님)</text>
+  <text x="60" y="574" font-size="13" fill="#5A5F68">93.28% = 법무법인 제이엘 수행 사건 중 판결문에서 양도비율이 확인된 15건의 단순평균(범위 75.01~100.00%) · 개별 사건의 양도비율을 보장하지 않음</text>
 </svg>

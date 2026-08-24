@@ -32,11 +32,17 @@
   .c{flex:1;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:22px 20px;}
   .c .t{font-size:14px;font-weight:800;color:var(--navy);}
   .c .d{margin-top:8px;font-size:11.5px;color:var(--muted);line-height:1.7;}
-  .pending{position:absolute;left:56px;top:380px;right:56px;background:#FBF7EE;border:1px solid #E7D9BC;
-    border-radius:6px;padding:16px 22px;display:flex;justify-content:space-between;align-items:center;}
-  .pending .k{font-size:12.5px;color:var(--gold-ink);font-weight:700;}
-  .pending .v{font-size:13px;color:var(--muted);}
-  .why{position:absolute;left:56px;top:460px;right:56px;bottom:56px;}
+  .record{position:absolute;left:56px;top:372px;right:56px;background:var(--navy);color:#fff;
+    border-radius:8px;padding:18px 24px;}
+  .rec-h{font-size:11.5px;color:#C7CEE1;letter-spacing:.04em;font-weight:700;}
+  .rec-row{margin-top:12px;display:flex;}
+  .rec-stat{flex:1;border-left:1px solid rgba(255,255,255,.18);padding-left:20px;}
+  .rec-stat:first-child{border-left:none;padding-left:0;}
+  .rec-stat .n{font-size:26px;font-weight:800;letter-spacing:-.01em;}
+  .rec-stat .l{margin-top:4px;font-size:11px;color:#8FA0C9;}
+  .rec-note{margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18);
+    font-size:10.5px;color:#8FA0C9;line-height:1.6;}
+  .why{position:absolute;left:56px;top:552px;right:56px;bottom:56px;}
   .why .h{font-size:13px;font-weight:800;color:var(--navy);margin-bottom:10px;}
   .why p{font-size:12.5px;color:var(--muted);line-height:1.8;}
 </style>
@@ -50,10 +56,18 @@
     <div class="c"><div class="t">문자 접수</div><div class="d">구분소유자 대상 문자 안내와 회신을 통해 서명·날인 서류를 받습니다.</div></div>
     <div class="c"><div class="t">주민설명회</div><div class="d">동의서의 목적과 절차를 직접 설명해 서명률을 높입니다.</div></div>
   </div>
-  <div class="pending"><div class="k">JL 채권양도율 실적</div><div class="v">법인 내부 확인 후 수록 [확인 대기]</div></div>
+  <div class="record">
+    <div class="rec-h">JL 수행 사건 채권양도비율 · 판결문 확인 15건</div>
+    <div class="rec-row">
+      <div class="rec-stat"><div class="n">93.28%</div><div class="l">15건 단순평균</div></div>
+      <div class="rec-stat"><div class="n">75.01 ~ 100%</div><div class="l">확인된 범위</div></div>
+      <div class="rec-stat"><div class="n">11건</div><div class="l">15건 중 90% 이상</div></div>
+    </div>
+    <div class="rec-note">전유면적 기준. 판결문에 양도비율이 기재된 15건만 집계했으며, 개별 사건의 양도비율을 보장하지 않습니다.</div>
+  </div>
   <div class="why">
-    <div class="h">왜 중요한가</div>
-    <p>하자에 따른 손해배상청구권은 원칙적으로 각 구분소유자에게 귀속됩니다. 미양도 세대 비율만큼 청구 규모가 줄어들기 때문에, 동의서 징구는 시장이 공통으로 인정하는 입주자대표회의의 가장 큰 실무 부담입니다. 법인이 접수를 직접 맡아 이 부담을 줄입니다.</p>
+    <div class="h">양도는 이르게 받을수록 유리합니다</div>
+    <p>양도받지 못한 면적 비율만큼 청구 규모가 줄어듭니다. 나아가 여러 사건에서 <b>2·3차로 늦게 양도받은 세대의 2년차·3년차 하자가 제척기간 도과로 소멸</b>한 사실이 판결문에서 확인됩니다. 늦은 양도는 비율만이 아니라 청구 가능한 공종까지 줄입니다. 그래서 법인이 접수를 직접 맡습니다.</p>
   </div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
