@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:15px;letter-spacing:.02em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:24px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  /* ── 본문 프리미티브 ── */
+  .body{position:absolute;left:56px;right:56px;top:168px;bottom:246px;}
+  .sec{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
+  .sec+.sec,.blk+.sec{margin-top:16px;}
+
+  .cards{display:grid;gap:14px;}
+  .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
+  .c .ck{font-size:15.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:13.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:12px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
+  .c b{color:var(--navy);font-weight:800;}
+
+  .flow{display:grid;gap:0;}
+  .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
+  .step+.step{border-left:0;}
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--navy);
+    width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .step .t{font-size:14.5px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:12.5px;line-height:1.55;color:var(--ink);}
+
+  .tbl{border:1px solid var(--line);}
+  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:14px;font-weight:700;}
+  .tbl .th div{padding:10px 15px;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:13.5px;line-height:1.5;}
+  .tbl .tr div{padding:9px 15px;}
+  .tbl .tr b{color:var(--navy);font-weight:800;}
+
+  .kv .r{display:flex;gap:10px;font-size:13.5px;line-height:1.55;padding:7px 0;
+    border-bottom:1px solid var(--line);}
+  .kv .r:last-child{border-bottom:0;}
+  .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
+  .kv .r em{flex:1;font-style:normal;}
+
+  .split{display:flex;gap:26px;height:100%;}
+  .split>div{flex:1;}
+
+  .verify{position:absolute;left:56px;right:56px;bottom:78px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
+
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:13px;line-height:1.6;color:var(--ink);}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
+    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:142px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
+  .eyebrow{z-index:2;color:#CBB27E!important;}
+  .eyebrow::before{background:#CBB27E!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">사무소 안내 [고정]</div>
+  <div class="title">본사와 동탄 분사무소 두 곳에서 수도권·충청 단지를 맡습니다</div>
+  <div class="body"><div class="sec">사무소</div><div class="cards blk" style="grid-template-columns:repeat(2,1fr);margin-bottom:16px"><div class="c"><div class="cn">본사</div><div class="ck">서울 서초</div><div class="cv">서울 서초구 서초대로53길 15 정원빌딩 4층<br><b>02-537-0123</b><br>서울중앙지방법원·서울고등법원 인접</div></div><div class="c"><div class="cn">분사무소</div><div class="ck">경기 화성 동탄</div><div class="cv">경기 화성시 동탄순환대로 127-5 우성센트럴타워 914호<br><b>1899-4252</b><br>수원지방법원 관할 단지 대응</div></div></div><div class="sec">구성</div><div class="tbl blk" style="margin-bottom:14px"><div class="th"><div style="width:160px">구분</div><div style="width:200px">인원</div><div style="flex:1">역할</div></div><div class="tr"><div style="width:160px">변호사</div><div style="width:200px">7인</div><div style="flex:1">사건 수행 · 서면 작성 · 변론 · 감정 대응</div></div><div class="tr"><div style="width:160px">사무직원</div><div style="width:200px">36명</div><div style="flex:1">채권양도 서류 징구·검수 · 세대 명단 관리 · 송달 관리</div></div><div class="tr"><div style="width:160px">기술 인력</div><div style="width:200px">건축시공기술사</div><div style="flex:1">현장조사 입회 · 도면 대조 · 감정 항목 검토</div></div></div><div class="sec">왜 사무직원 규모를 밝히는가</div><div class="kv blk"><div class="r"><span>채권양도가 사무 업무다</span><em>1,000세대 단지면 서류가 1,000건입니다. 서명 확인·인적사항 대조·미회수 관리가 전부 수작업입니다</em></div><div class="r"><span>여기서 양도율이 갈린다</span><em>변호사 수보다 <b>징구를 감당할 인력이 있는가</b>가 실제 회수율을 좌우합니다</em></div></div></div>
+  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">하자소송은 변호사 한 명이 서면만 써서 되는 사건이 아닙니다. 세대 단위 사무 처리량이 결과를 좌우합니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">변호사 7인 · 사무직원 36명 구성입니다. 법원 인접 본사와 수도권 남부 분사무소로 <b>기일 대응 거리</b>를 줄였습니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">설명회와 서류 징구는 단지 일정에 맞춰야 합니다. 총회 일정이 정해지면 미리 알려 주시면 그 일정에 맞춰 준비합니다.</div></div></div>
+  <div class="note">홈페이지 www.jllawfirm.co.kr</div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

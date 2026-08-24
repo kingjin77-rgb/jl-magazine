@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-lt:#CBB27E;}
+  html,body{width:1332px;height:750px;overflow:hidden;position:relative;
+    font-family:"Pretendard","Malgun Gothic",sans-serif;
+    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);color:#fff;}
+  .grid{position:absolute;inset:0;opacity:.05;
+    background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);
+    background-size:37px 37px;}
+  .rule{position:absolute;left:0;right:0;top:0;height:4px;background:var(--gold);}
+  .eyebrow{position:absolute;left:76px;top:96px;font-size:14px;letter-spacing:.18em;
+    color:var(--gold-lt);font-weight:700;display:flex;align-items:center;gap:12px;}
+  .eyebrow::before{content:"";width:36px;height:1px;background:var(--gold-lt);}
+  .big{position:absolute;left:76px;top:146px;font-family:'JL디스플레이',"Pretendard",sans-serif;
+    font-size:55px;font-weight:700;line-height:1.20;letter-spacing:-.035em;color:#fff;}
+  .echo{position:absolute;left:76px;top:474px;width:700px;display:flex;gap:0;
+    border-top:1px solid rgba(255,255,255,.20);border-bottom:1px solid rgba(255,255,255,.20);}
+  .echo>div{flex:1;padding:15px 0 16px;border-left:1px solid rgba(255,255,255,.14);padding-left:20px;}
+  .echo>div:first-child{border-left:0;padding-left:0;}
+  .echo .t{font-size:19px;font-weight:800;color:var(--gold-lt);letter-spacing:-.02em;}
+  .echo .d{margin-top:6px;font-size:12.5px;line-height:1.55;color:rgba(255,255,255,.72);}
+  .lead{position:absolute;left:76px;top:306px;width:700px;font-size:16px;line-height:1.78;
+    color:rgba(255,255,255,.90);}
+  .lead b{color:var(--gold-lt);font-weight:700;}
+
+  .side{position:absolute;right:76px;top:150px;width:404px;}
+  .side .h{font-size:13px;font-weight:800;letter-spacing:.12em;color:var(--gold-lt);
+    padding-bottom:9px;border-bottom:1px solid rgba(203,178,126,.45);}
+  .side .row{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.14);}
+  .side .row:last-child{border-bottom:0;}
+  .side .k{flex:0 0 92px;font-size:13px;color:rgba(255,255,255,.62);font-weight:600;padding-top:2px;}
+  .side .v{flex:1;font-size:14.5px;line-height:1.6;color:#fff;font-weight:600;}
+  .side .v small{display:block;font-size:13px;font-weight:400;color:rgba(255,255,255,.66);margin-top:3px;}
+
+  .bar{position:absolute;left:76px;right:76px;bottom:126px;height:1px;background:rgba(255,255,255,.20);}
+  .stats{position:absolute;left:76px;bottom:62px;display:flex;gap:52px;}
+  .stats .s .n{font-family:'JL디스플레이',"Pretendard",sans-serif;font-size:29px;font-weight:700;
+    color:#fff;letter-spacing:-.02em;}
+  .stats .s .l{margin-top:4px;font-size:12.5px;color:rgba(255,255,255,.62);}
+  .mark{position:absolute;right:76px;bottom:62px;text-align:right;}
+  .mark .f{font-size:19px;font-weight:800;color:#fff;letter-spacing:-.01em;}
+  .mark .e{margin-top:5px;font-size:12px;letter-spacing:.22em;color:var(--gold-lt);}
+</style>
+</head>
+<body>
+  <div class="grid"></div>
+  <div class="rule"></div>
+
+  <div class="eyebrow">감사합니다</div>
+  <div class="big">단지의 하자를 기록으로 남기는<br>일부터 시작하겠습니다</div>
+
+  <div class="lead">이 제안서는 하자소송이 어떤 절차로, 무엇을 근거로 진행되는지를 설명하기 위해 작성했습니다.
+    <b>회수 금액을 예측하거나 결과를 보장하지 않았습니다.</b> 확정할 수 없는 것을 확정해 말씀드리지 않는 것이
+    저희가 지키는 원칙입니다.<br><br>
+    남은 담보책임 존속기간부터 계산해 보시고, 검토가 필요한 부분은 언제든 말씀해 주십시오.</div>
+
+  <div class="echo">
+    <div><div class="t">시급성</div><div class="d">존속기간은 지나면<br>되돌릴 수 없습니다</div></div>
+    <div><div class="t">전문성</div><div class="d">보이지 않는 하자를<br>수치로 증명합니다</div></div>
+    <div><div class="t">일원화</div><div class="d">조사부터 판결까지<br>한 창구로 진행합니다</div></div>
+  </div>
+
+  <div class="side">
+    <div class="h">CONTACT</div>
+    <div class="row"><div class="k">본사</div>
+      <div class="v">02-537-0123<small>서울 서초구 서초대로53길 15 정원빌딩 4층</small></div></div>
+    <div class="row"><div class="k">분사무소</div>
+      <div class="v">1899-4252<small>경기 화성시 동탄순환대로 127-5 우성센트럴타워 914호</small></div></div>
+    <div class="row"><div class="k">홈페이지</div>
+      <div class="v">www.jllawfirm.co.kr</div></div>
+    <div class="row"><div class="k">다음 절차</div>
+      <div class="v">검토 의견 회신<small>요청하시면 단지 자료를 검토해 남은 존속기간과 조사 범위를 정리해 드립니다</small></div></div>
+  </div>
+
+  <div class="bar"></div>
+  <div class="stats">
+    <div class="s"><div class="n">18건</div><div class="l">판결문으로 확인된 수행 실적</div></div>
+    <div class="s"><div class="n">9,979세대</div><div class="l">누적 수행 세대</div></div>
+    <div class="s"><div class="n">93.28%</div><div class="l">채권양도비율 평균 (15건)</div></div>
+  </div>
+  <div class="mark"><div class="f">법무법인 제이엘</div><div class="e">JL LAWFIRM</div></div>
+</body>
+</html>

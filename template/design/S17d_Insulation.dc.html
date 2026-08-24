@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:15px;letter-spacing:.02em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:24px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  /* ── 본문 프리미티브 ── */
+  .body{position:absolute;left:56px;right:56px;top:168px;bottom:246px;}
+  .sec{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
+  .sec+.sec,.blk+.sec{margin-top:16px;}
+
+  .cards{display:grid;gap:14px;}
+  .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
+  .c .ck{font-size:15.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:13.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:12px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
+  .c b{color:var(--navy);font-weight:800;}
+
+  .flow{display:grid;gap:0;}
+  .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
+  .step+.step{border-left:0;}
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--navy);
+    width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .step .t{font-size:14.5px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:12.5px;line-height:1.55;color:var(--ink);}
+
+  .tbl{border:1px solid var(--line);}
+  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:14px;font-weight:700;}
+  .tbl .th div{padding:10px 15px;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:13.5px;line-height:1.5;}
+  .tbl .tr div{padding:9px 15px;}
+  .tbl .tr b{color:var(--navy);font-weight:800;}
+
+  .kv .r{display:flex;gap:10px;font-size:13.5px;line-height:1.55;padding:7px 0;
+    border-bottom:1px solid var(--line);}
+  .kv .r:last-child{border-bottom:0;}
+  .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
+  .kv .r em{flex:1;font-style:normal;}
+
+  .split{display:flex;gap:26px;height:100%;}
+  .split>div{flex:1;}
+
+  .verify{position:absolute;left:56px;right:56px;bottom:78px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
+
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:13px;line-height:1.6;color:var(--ink);}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
+    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:142px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
+  .eyebrow{z-index:2;color:#CBB27E!important;}
+  .eyebrow::before{background:#CBB27E!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">단열재 변경시공 · 결로 [고정]</div>
+  <div class="title">단열재는 사용검사 전에 바뀌고, 결로는 사용검사 뒤에 나타납니다</div>
+  <div class="body"><div class="sec">원문 예시 — 설계와 실제의 차이</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);margin-bottom:15px"><div class="c"><div class="cn">설계</div><div class="ck">THK 85㎜ · 가등급</div><div class="cv">사용승인도면 형별성능관계내역에 기재된 사양입니다.</div></div><div class="c"><div class="cn">실제</div><div class="ck">THK 60㎜ · 나등급</div><div class="cv">두께와 등급이 모두 낮은 자재로 시공되었습니다.</div></div><div class="c"><div class="cn">결과</div><div class="ck">결로 · 곰팡이</div><div class="cv">시공은 사용검사 이전, 하자 현상은 사용검사일 이후에 나타납니다.</div></div></div><div class="sec">그래서 기간 판단이 갈립니다</div><div class="kv blk"><div class="r"><span>시공 시점</span><em>사용검사 이전 — 변경시공</em></div><div class="r"><span>현상 발생 시점</span><em>사용검사 이후 — 결로·곰팡이</em></div><div class="r"><span>원문의 판단</span><em>시공은 사용검사 이전이나 결로가 사용검사일 이후 발생했다면 <b>사용검사 이후 하자</b>로 판단합니다</em></div><div class="r"><span>실무상 의미</span><em><b>보수청구 공문으로 발생 시점을 특정</b>해 두는 절차가 담보책임기간 판단을 좌우합니다</em></div></div><div class="sec">조사 방법</div><div class="kv blk"><div class="r"><span>두께·등급</span><em>단열재를 국부 절개해 제품 표기를 촬영하고 형별성능관계내역과 대조합니다</em></div><div class="r"><span>결로 부위</span><em>발생 부위를 열화상으로 촬영해 단열 결손 위치를 특정합니다</em></div></div></div>
+  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">단열재는 벽 안에 있어 눈으로 확인할 수 없습니다. 절개 조사 없이는 설계와 다른 자재가 들어갔다는 사실 자체가 드러나지 않습니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">단열공사의 담보책임 구간은 <b>3년</b>입니다. 다만 결로가 사용검사 이후 발생한 경우 그 발생 시점을 기준으로 판단합니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">결로는 겨울에만 드러납니다. 발생한 해에 보수청구 공문을 남겨두지 않으면 발생 시점을 나중에 증명하기 어렵습니다.</div></div></div>
+  <div class="note">근거: 「2026 건설감정실무」 43면 [예시1]. 결로 하자의 판정 기준·보수 범위는 같은 책 제3장 3.나(73면)에 별도로 규정되어 있으나 본문 미확보분이므로 이 제안서에서는 기준 수치를 인용하지 않았습니다.</div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>
