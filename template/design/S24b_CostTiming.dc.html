@@ -22,7 +22,7 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   /* ── 본문 프리미티브 ── */
-  .body{position:absolute;left:56px;right:56px;top:168px;bottom:246px;}
+  .body{position:absolute;left:56px;right:56px;top:168px;bottom:220px;}
   .sec{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
   .sec+.sec,.blk+.sec{margin-top:16px;}
@@ -58,7 +58,7 @@
   .split{display:flex;gap:26px;height:100%;}
   .split>div{flex:1;}
 
-  .verify{position:absolute;left:56px;right:56px;bottom:78px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:52px;height:152px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
@@ -71,7 +71,7 @@
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:13px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:52px;font-size:13px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
@@ -85,15 +85,22 @@
   html,body{background:#FFFFFF!important;}
   body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
   .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+
+  /* 촘촘 모드 — 내용이 하단 밴드에 닿을 때 여백만 줄인다 */
+  .tbl .tr div{padding:6.6px 15px;}
+  .tbl .th div{padding:8px 15px;}
+  .kv .r{padding:4.6px 0;}
+  .sec{margin-bottom:9px;}
+  .sec+.sec,.blk+.sec{margin-top:12px;}
+  .c{padding:12px 16px;}
 </style>
 </head>
 <body>
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">비용 발생 시점 [고정]</div>
   <div class="title">비용은 한꺼번에 나가지 않습니다. 절차 단계마다 나뉘어 발생합니다</div>
-  <div class="body"><div class="sec">단계별 발생 항목</div><div class="tbl blk" style="margin-bottom:14px"><div class="th"><div style="width:170px">시점</div><div style="width:230px">항목</div><div style="flex:1">성격</div></div><div class="tr"><div style="width:170px"><b>소 제기 시</b></div><div style="width:230px">인지대 · 송달료</div><div style="flex:1">법원 납부금</div></div><div class="tr"><div style="width:170px"><b>감정 신청 후</b></div><div style="width:230px">감정료</div><div style="flex:1">감정인에게 납부. 단지 규모에 따라 금액이 달라집니다</div></div><div class="tr"><div style="width:170px"><b>감정 진행 중</b></div><div style="width:230px">조사 실비</div><div style="flex:1">시료 채취 · 시험 의뢰 등에 드는 비용</div></div><div class="tr"><div style="width:170px"><b>보완 감정 시</b></div><div style="width:230px">추가 감정료</div><div style="flex:1">보완신청이 받아들여진 경우에 한해 발생</div></div><div class="tr"><div style="width:170px"><b>판결 이후</b></div><div style="width:230px">집행 비용</div><div style="flex:1">임의 이행되지 않을 때만 발생</div></div></div><div class="sec">부담 방식</div><div class="kv blk"><div class="r"><span>법무법인 대납</span><em>감정료·인지대·송달료를 <b>법무법인이 먼저 납부</b>하고 판결금 수령 시 정산하는 방식으로 진행합니다</em></div><div class="r"><span>보수 조건</span><em>착수금과 성공보수 요율은 <b>단지 여건에 맞춰 협의</b>합니다 [협의 사항]</em></div><div class="r"><span>패소 시 처리</span><em>패소 또는 일부 패소 시의 처리 방식도 계약 단계에서 명확히 정합니다 [협의 사항]</em></div></div></div>
-  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">입주자대표회의가 가장 걱정하는 것은 "돈이 언제 얼마나 나가느냐"입니다. 시점을 먼저 보여드립니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">금액이 가장 큰 것은 <b>감정료</b>이며 단지 세대수와 조사 항목 수에 따라 정해집니다. 감정인 지정 후 법원이 금액을 정합니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">감정료를 기한 내 납부하지 않으면 <b>감정 신청이 각하</b>될 수 있습니다. 납부 시점을 미리 안내드립니다.</div></div></div>
-  <div class="note">착수금·성공보수 요율·패소 시 처리는 계약 협의 사항이며, 이 제안서에는 확정 수치를 기재하지 않았습니다. 협의 후 계약서에 명시합니다.</div>
+  <div class="body"><div class="sec">단계별 발생 항목</div><div class="tbl blk" style="margin-bottom:16px"><div class="th"><div style="width:160px">시점</div><div style="width:200px">항목</div><div style="flex:1">성격</div></div><div class="tr"><div style="width:160px"><b>소 제기 시</b></div><div style="width:200px">인지대 · 송달료</div><div style="flex:1">법원 납부금</div></div><div class="tr"><div style="width:160px"><b>감정 신청 후</b></div><div style="width:200px">감정료</div><div style="flex:1">감정인에게 납부. 단지 규모에 따라 금액이 달라집니다</div></div><div class="tr"><div style="width:160px"><b>감정 진행 중</b></div><div style="width:200px">조사 실비</div><div style="flex:1">시료 채취 · 시험 의뢰 등에 드는 비용</div></div><div class="tr"><div style="width:160px"><b>보완 감정 시</b></div><div style="width:200px">추가 감정료</div><div style="flex:1">보완신청이 받아들여진 경우에 한해 발생</div></div><div class="tr"><div style="width:160px"><b>판결 이후</b></div><div style="width:200px">집행 비용</div><div style="flex:1">임의 이행되지 않을 때만 발생</div></div></div><div class="sec">부담 방식</div><div class="kv blk"><div class="r"><span>법무법인 대납</span><em>감정료·인지대·송달료를 <b>법무법인이 먼저 납부</b>하고 판결금 수령 시 정산하는 방식으로 진행합니다</em></div><div class="r"><span>협의 사항</span><em>착수금·성공보수 요율과 패소 시 처리 방식은 단지 여건에 맞춰 협의해 계약서에 명시합니다</em></div></div></div>
+  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">입주자대표회의가 가장 걱정하는 것은 "돈이 언제 얼마나 나가느냐"입니다. 시점을 먼저 보여드립니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">금액이 가장 큰 것은 <b>감정료</b>이며 단지 세대수와 조사 항목 수에 따라 법원이 정합니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">감정료를 기한 내 납부하지 않으면 <b>감정 신청이 각하</b>될 수 있습니다. 납부 시점을 미리 안내드립니다.</div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>
