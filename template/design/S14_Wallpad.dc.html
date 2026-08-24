@@ -82,6 +82,17 @@
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
+
+  /* ── 판정 기준 · 조사 방법 (인정 금액 표를 대체) ── */
+  .method{margin-top:14px;}
+  .mh{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:7px;}
+  .method .mh+.mh,.method .mr+.mh{margin-top:15px;}
+  .mr{display:flex;gap:10px;font-size:13.5px;line-height:1.5;padding:5px 0;
+    border-bottom:1px solid var(--line);}
+  .mr:last-child{border-bottom:0;}
+  .mr span{flex:0 0 74px;color:var(--navy);font-weight:700;}
+  .mr b{flex:1;font-weight:500;color:var(--ink);}
 </style>
 </head>
 <body>
@@ -91,18 +102,22 @@
   <div class="cols">
     <div class="colL"><img src="s14_wallpad_wiring.png"></div>
     <div class="colR">
-      <div class="desc">세대 통신단자함을 개방해 장치 유무를 확인하고 준공도면과 대조합니다. 정전 시 월패드·홈게이트웨이가 작동하지 않는 하자로, 최근 세대 해킹 이슈와 맞물려 인정 금액이 상승하는 추세입니다.</div>
-      <div class="cases">
-        <div class="th"><div class="t1">단지</div><div class="t2">세대당</div><div class="t3">인정 금액</div></div>
-        <div class="tr"><div class="t1">백석더샵</div><div class="t2">10.6만원</div><div class="t3">약 7,000만원</div></div>
-        <div class="tr"><div class="t1">운서 SK1·2차</div><div class="t2">-</div><div class="t3">수행 중</div></div>
+      <div class="desc">세대 통신단자함을 개방해 장치 유무를 확인하고 준공도면과 대조합니다. 정전이 나면 월패드와 홈게이트웨이가 멈추므로, 외관상 아무 문제가 없어 보여도 실제로는 설계된 기능이 빠져 있는 상태입니다.</div>
+      <div class="method">
+        <div class="mh">판정 기준</div>
+        <div class="mr"><span>설계도서</span><b>준공도면·물량내역서에 예비전원장치·홈게이트웨이가 기재되어 있을 것</b></div>
+        <div class="mr"><span>현장</span><b>세대 통신단자함 개방 시 해당 장치가 존재하지 않을 것</b></div>
+        <div class="mr"><span>기능</span><b>정전 시 월패드·홈게이트웨이가 작동하지 않을 것</b></div>
+        <div class="mh">조사 방법</div>
+        <div class="mr"><span>1</span><b>표본 세대 통신단자함 개방 및 내부 촬영</b></div>
+        <div class="mr"><span>2</span><b>준공도면·시방서 대조로 미시공 항목 특정</b></div>
+        <div class="mr"><span>3</span><b>감정 신청 시 세대 표본 수와 산정 방식 제시</b></div>
       </div>
-      <div class="trend">전국 다수 단지에서 발생하는 유형입니다. 개별 사건의 인정 금액은 감정 결과에 따라 달라집니다.</div>
     </div>
   </div>
   <div class="verify">
     <div><div class="vk">핵심 내용</div><div class="vv">세대 거실 통신단자함을 개방해 예비전원장치·홈게이트웨이 설치 여부를 확인하고, 준공도면·설계도서와 대조해 미시공 항목을 특정합니다.</div></div>
-    <div><div class="vk">수치 강조</div><div class="vv">정전 시 월패드·홈게이트웨이가 작동하지 않는 하자입니다. 백석더샵 619세대 기준 세대당 10.6만원 · 약 7,000만원이 인정된 사례가 있습니다.</div></div>
+    <div><div class="vk">수치 강조</div><div class="vv">설계도서에 기재된 장치가 현장에 없으면 미시공으로 보아 설치비 상당액을 산정합니다. 표본 세대 조사 결과를 전체 세대로 확장하는 방식과 그 근거를 감정신청서에 명시합니다.</div></div>
     <div><div class="vk warnk">기한 경고</div><div class="vv">전유부분 설비 하자로 존속기간이 짧습니다. 소송 초기에 단자함 개방 조사와 증거 보전을 집행해야 합니다.</div></div>
   </div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>

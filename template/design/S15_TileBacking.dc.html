@@ -82,6 +82,17 @@
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
+
+  /* ── 판정 기준 · 조사 방법 (인정 금액 표를 대체) ── */
+  .method{margin-top:14px;}
+  .mh{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:7px;}
+  .method .mh+.mh,.method .mr+.mh{margin-top:15px;}
+  .mr{display:flex;gap:10px;font-size:13.5px;line-height:1.5;padding:5px 0;
+    border-bottom:1px solid var(--line);}
+  .mr:last-child{border-bottom:0;}
+  .mr span{flex:0 0 74px;color:var(--navy);font-weight:700;}
+  .mr b{flex:1;font-weight:500;color:var(--ink);}
 </style>
 </head>
 <body>
@@ -92,19 +103,21 @@
     <div class="colL"><img src="s15_tile_backing.png"></div>
     <div class="colR">
       <div class="desc">타일을 탈락시켜 뒤채움률을 실측하고 부착강도 시험을 병행합니다. 사진만으로는 부족률을 알 수 없어 단면 모식도와 뒤채움률(%)을 함께 제시합니다.</div>
-      <div class="cases">
-        <div class="th"><div class="t1">단지</div><div class="t2">상태</div><div class="t3">인정 금액</div></div>
-        <div class="tr"><div class="t1">남원 풍산누리안</div><div class="t2">뒤채움 30~40% 부족</div><div class="t3">세대당 21.7만원</div></div>
-        <div class="tr"><div class="t1">아산 법곡코아루</div><div class="t2">뒤채움 50~60% 부족</div><div class="t3">세대당 32.5만원</div></div>
-        <div class="tr"><div class="t1">파주한양수자인</div><div class="t2">뒤채움 부족</div><div class="t3">약 2억원</div></div>
-        <div class="tr"><div class="t1">대구 수성롯데캐슬</div><div class="t2">부착강도 부족</div><div class="t3">약 5억원</div></div>
+      <div class="method">
+        <div class="mh">판정 기준</div>
+        <div class="mr"><span>뒤채움</span><b>타일 배면에 접착재가 채워진 면적 비율(뒤채움률)</b></div>
+        <div class="mr"><span>부착강도</span><b>타일이 바탕면에서 떨어지지 않고 견디는 힘</b></div>
+        <div class="mr"><span>근거</span><b>서울중앙지법 「2026 건설감정실무」 타일 하자 기준</b></div>
+        <div class="mh">조사 방법</div>
+        <div class="mr"><span>1</span><b>표본 타일 탈락 후 배면 촬영·뒤채움률 실측</b></div>
+        <div class="mr"><span>2</span><b>부착강도 시험으로 기준 미달 여부 확인</b></div>
+        <div class="mr"><span>3</span><b>시방서상 시공법(떠붙임·압착 등)과 실제 시공 대조</b></div>
       </div>
-      <div class="trend">서울중앙지법 건설감정실무 2026 개정판에서 타일 뒤채움 및 부착강도 부족 하자 기준이 보강됐습니다.</div>
     </div>
   </div>
   <div class="verify">
     <div><div class="vk">핵심 내용</div><div class="vv">타일을 탈락시켜 뒤채움률을 실측하고 부착강도 시험을 병행합니다. 탈락면 사진만으로는 부족률이 드러나지 않습니다.</div></div>
-    <div><div class="vk">수치 강조</div><div class="vv">뒤채움 30~40% 부족 시 세대당 21.7만원, 50~60% 부족 시 세대당 32.5만원이 인정된 사례가 있습니다.</div></div>
+    <div><div class="vk">수치 강조</div><div class="vv">뒤채움률과 부착강도가 기준에 못 미치는 정도가 곧 보수 범위를 정합니다. 부분 보수로 끝나는지 전면 재시공인지가 여기서 갈립니다.</div></div>
     <div><div class="vk warnk">기한 경고</div><div class="vv">마감공사 하자는 2년 구간이지만, 미시공·변경시공으로 판단되면 5년 구간에 남습니다. 그 판단 근거를 조사 단계에서 확보합니다.</div></div>
   </div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
