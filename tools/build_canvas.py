@@ -18,11 +18,17 @@ FONTS = os.path.join(ROOT, 'assets', 'fonts')
 
 # CSS 굵기 -> 옴니고딕 파일. 5종이 각각 별도 패밀리이고 전부 usWeightClass 400이라
 # 이렇게 명시하지 않으면 브라우저가 가짜 볼드를 합성한다.
-# 010·020·030은 작은 크기에서 흐려진다. 본문에 040, 제목에 050을 쓴다.
-WEIGHTS = [('400', 'OmniGothic040.ttf'),
-           ('600', 'OmniGothic050.ttf'),
-           ('700', 'OmniGothic050.ttf')]
-FAMILY = 'JL옴니고딕'
+# 210 옴니고딕은 제목용 서체다. 자간이 좁아 14px 본문에서 획이 뭉친다.
+# 제목·숫자는 옴니고딕 050, 본문·라벨은 화면 가독성이 좋은 Pretendard를 쓴다.
+# (CLAUDE.md가 폴백으로 지정한 조합)
+DISPLAY = 'JL디스플레이'
+TEXT = 'JL본문'
+FACES = [(DISPLAY, '400', 'OmniGothic050.ttf'),
+         (DISPLAY, '700', 'OmniGothic050.ttf'),
+         (TEXT,    '400', 'Pretendard-Medium.ttf'),
+         (TEXT,    '600', 'Pretendard-SemiBold.ttf'),
+         (TEXT,    '700', 'Pretendard-SemiBold.ttf')]
+FAMILY = TEXT
 
 
 def artboards():
@@ -44,40 +50,44 @@ def used_chars():
 
 
 def subset(text):
-    """굵기별 woff2 서브셋을 만들어 base64로 돌려준다."""
+    """서체별 woff2 서브셋을 만들어 base64로 돌려준다. 같은 파일은 한 번만."""
     os.makedirs(BUILD, exist_ok=True)
     txt = os.path.join(BUILD, '_charset.txt')
     io.open(txt, 'w', encoding='utf-8').write(text)
+    cache = {}
     out = []
-    for weight, fname in WEIGHTS:
-        src = os.path.join(FONTS, fname)
-        dst = os.path.join(BUILD, '_%s.woff2' % weight)
-        subprocess.run(['pyftsubset', src, '--text-file=' + txt,
-                        '--flavor=woff2', '--output-file=' + dst],
-                       check=True, capture_output=True)
-        b64 = base64.b64encode(open(dst, 'rb').read()).decode()
-        out.append((weight, b64, os.path.getsize(dst)))
-        os.remove(dst)
+    for fam, weight, fname in FACES:
+        if fname not in cache:
+            dst = os.path.join(BUILD, '_%s.woff2' % fname)
+            subprocess.run(['pyftsubset', os.path.join(FONTS, fname),
+                            '--text-file=' + txt, '--flavor=woff2',
+                            '--output-file=' + dst], check=True, capture_output=True)
+            cache[fname] = (base64.b64encode(open(dst, 'rb').read()).decode(),
+                            os.path.getsize(dst))
+            os.remove(dst)
+        b64, sz = cache[fname]
+        out.append((fam, weight, b64, fname, sz))
     os.remove(txt)
     return out
 
 
 def face_block(faces):
-    css = []
-    for weight, b64, _ in faces:
-        css.append("@font-face{font-family:'%s';font-style:normal;font-weight:%s;"
-                   "font-display:block;src:url(data:font/woff2;base64,%s) format('woff2');}"
-                   % (FAMILY, weight, b64))
+    css = [("@font-face{font-family:'%s';font-style:normal;font-weight:%s;"
+            "font-display:block;src:url(data:font/woff2;base64,%s) format('woff2');}"
+            % (fam, weight, b64)) for fam, weight, b64, _, _ in faces]
+    # 제목과 숫자만 브랜드 서체로. 나머지는 본문 서체가 받는다.
+    css.append(".title,.n{font-family:'%s','%s',sans-serif !important;}" % (DISPLAY, TEXT))
     return '\n'.join(css)
 
 
 def build():
     text = used_chars()
     faces = subset(text)
-    total = sum(sz for _, _, sz in faces)
+    uniq = {fn: sz for _, _, _, fn, sz in faces}
     print('서브셋 문자 %d자 · woff2 %.1f KB (%s)'
-          % (len(text), total / 1024,
-             ', '.join('%s=%.1fKB' % (w, sz / 1024) for w, _, sz in faces)))
+          % (len(text), sum(uniq.values()) / 1024,
+             ', '.join('%s=%.1fKB' % (fn.split('.')[0], sz / 1024)
+                       for fn, sz in uniq.items())))
 
     block = face_block(faces)
     os.makedirs(BUILD, exist_ok=True)
