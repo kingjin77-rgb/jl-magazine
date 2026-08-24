@@ -130,10 +130,7 @@ def stage():
         s = io.open(p, encoding='utf-8').read()
         # 페이지 번호는 canvas.json 순서로 빌드 때 부여한다.
         # 장수가 바뀌어도 각 슬라이드를 고칠 필요가 없다.
-        name = os.path.basename(p)
-        if name in order:
-            s = re.sub(r'<span>\s*\d+\s*/\s*\d+\s*</span>',
-                       '<span>%02d / %d</span>' % (order[name], total), s, count=1)
+        # 슬라이드 번호는 표기하지 않는다(사용자 요청). canvas 순서만 유지한다.
         # 본문 폰트 스택을 옴니고딕 우선으로 교체
         s = s.replace('"Pretendard","Malgun Gothic",sans-serif',
                       "'%s','Pretendard','Malgun Gothic',sans-serif" % FAMILY)

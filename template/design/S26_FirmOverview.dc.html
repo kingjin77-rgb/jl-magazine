@@ -44,7 +44,7 @@
   .w{flex:1;border-left:3px solid var(--gold);padding-left:14px;}
   .w .t{font-size:15px;font-weight:800;color:var(--navy);}
   .w .d{margin-top:5px;font-size:14px;color:var(--muted);line-height:1.7;}
-  .addr{position:absolute;left:56px;bottom:52px;right:56px;background:#fff;
+  .addr{position:absolute;left:56px;bottom:50px;right:56px;background:#fff;flex-wrap:wrap;gap:6px 26px;
     border:1px solid var(--line);border-radius:0;padding:12px 20px;display:flex;
     justify-content:space-between;font-size:15px;color:var(--muted);}
   .addr b{color:var(--navy);}
@@ -74,10 +74,12 @@
   /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
   .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
   .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
 </style>
 </head>
 <body>
-  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>26 / 31</span></div>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">법인 개요 [고정]</div>
   <div class="title">하자소송을 조사부터 판결까지 직접 수행해 온 법인입니다</div>
 
@@ -111,8 +113,10 @@
       <div class="d">입주자대표회의의 최대 실무 부담을 법인이 직접 처리합니다.</div></div>
   </div>
 
-  <div class="addr"><span>법무법인 제이엘 · 변호사 7인 · 임직원 36명</span>
-    <span><b>서울 서초구 · 정원빌딩</b></span></div>
+  <div class="addr">
+    <span><b>주사무소(서초)</b> 서울 서초구 서초대로53길 15 정원빌딩 4층 · 02-537-0123</span>
+    <span><b>분사무소(동탄)</b> 경기 화성시 동탄순환대로 127-5 우성센트럴타워 914호 · 1899-4252</span>
+    <span>www.jllawfirm.co.kr</span></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>
