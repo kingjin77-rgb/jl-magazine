@@ -28,13 +28,13 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   .title{font-size:24px;}
-  .list{position:absolute;left:56px;top:150px;right:56px;display:flex;flex-direction:column;gap:13px;}
-  .item{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:16px 20px;}
+  .list{position:absolute;left:56px;top:150px;right:56px;display:flex;flex-direction:column;gap:9px;}
+  .item{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:12px 18px;}
   .item .n{width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:14px;
     font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
   .item .t{font-size:16px;font-weight:800;color:var(--navy);}
-  .item .d{margin-top:5px;font-size:14px;color:var(--ink);line-height:1.65;}
-  .resp{position:absolute;left:56px;top:492px;right:56px;background:var(--navy);color:#fff;
+  .item .d{margin-top:4px;font-size:13.5px;color:var(--ink);line-height:1.55;}
+  .resp{position:absolute;left:56px;top:558px;right:56px;background:var(--navy);color:#fff;
     border-radius:0;padding:18px 24px;}
   .resp .h{font-size:14px;color:#E6ECF9;font-weight:700;letter-spacing:.04em;}
   .resp .row{margin-top:11px;display:flex;}
@@ -42,7 +42,7 @@
   .resp .r:first-child{border-left:none;padding-left:0;}
   .resp .r .t{font-size:15px;font-weight:800;}
   .resp .r .s{margin-top:5px;font-size:14px;color:#E6ECF9;line-height:1.55;}
-  .foot-note{position:absolute;left:56px;bottom:50px;right:56px;}
+  .foot-note{display:none;}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
@@ -58,7 +58,7 @@
 
   /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
      내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
-  html,body{background:#E9EEF7!important;}
+  html,body{background:#FFFFFF!important;}
   body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
   .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
   /* 흰 블록 위로 올라오는 요소들 */

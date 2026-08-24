@@ -27,9 +27,16 @@
     font-size:14px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
-  .chart{position:absolute;left:56px;top:170px;right:56px;height:400px;border:1px solid var(--line);
-    border-radius:0;overflow:hidden;}
-  .chart img{width:100%;height:100%;object-fit:contain;background:#fff;}
+  .chart{position:absolute;left:56px;top:168px;width:820px;height:410px;
+    border:1px solid var(--line);overflow:hidden;background:#fff;}
+  .chart img{width:100%;height:100%;object-fit:contain;display:block;}
+  .side{position:absolute;right:56px;top:168px;width:344px;height:410px;
+    background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);padding:20px 22px;}
+  .side .h{font-size:15px;font-weight:800;color:var(--navy);}
+  .side .row{margin-top:13px;padding-top:11px;border-top:1px solid var(--line);}
+  .side .row:first-of-type{border-top:none;padding-top:0;}
+  .side .row .k{font-size:13.5px;color:var(--gold-ink);font-weight:700;}
+  .side .row .v{margin-top:4px;font-size:14px;color:var(--ink);line-height:1.6;}
   .total{position:absolute;left:56px;bottom:56px;right:56px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
     border-radius:0;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;font-size:15px;}
   .total b{color:var(--navy);font-size:17.5px;}
@@ -48,7 +55,7 @@
 
   /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
      내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
-  html,body{background:#E9EEF7!important;}
+  html,body{background:#FFFFFF!important;}
   body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
   .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
   /* 흰 블록 위로 올라오는 요소들 */
@@ -66,6 +73,17 @@
   <div class="eyebrow">소송 절차 11단계 [고정]</div>
   <div class="title">감정 절차가 소송 전체 소요기간을 좌우합니다</div>
   <div class="chart"><img src="s18_litigation_steps.png"></div>
+  <div class="side">
+    <div class="h">기간을 좌우하는 구간</div>
+    <div class="row"><div class="k">감정 신청 ~ 감정서 제출</div>
+      <div class="v">약 11개월. 감정인 지정·현장조사·보고서 작성이 이어지는 최장 구간입니다.</div></div>
+    <div class="row"><div class="k">감정 보완</div>
+      <div class="v">약 4개월. 오류·누락이 있으면 보완을 신청합니다. 단지에 따라 6~10개월까지 늘어납니다.</div></div>
+    <div class="row"><div class="k">변론</div>
+      <div class="v">약 6개월. 감정 결과를 두고 2~3회 공방이 진행됩니다.</div></div>
+    <div class="row"><div class="k">판결 이후</div>
+      <div class="v">판결원리금 수령 약 2개월, 보수공사 착공까지 약 6개월이 더 소요됩니다.</div></div>
+  </div>
   <div class="total"><span>1심 평균 소요기간</span><b>약 2년 6개월 종결</b></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>

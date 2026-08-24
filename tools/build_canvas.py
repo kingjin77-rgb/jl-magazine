@@ -35,10 +35,12 @@ def artboards():
     return sorted(glob.glob(os.path.join(DESIGN, '*.dc.html')))
 
 
-def used_chars():
+def used_chars(where=None):
     """아트보드 본문에서 실제로 쓰인 문자만 모은다 (style/script 제외)."""
     chars = set()
-    for p in artboards():
+    src = (sorted(glob.glob(os.path.join(where, '*.dc.html'))) if where
+           else artboards())
+    for p in src:
         s = io.open(p, encoding='utf-8').read()
         s = re.sub(r'<style[^>]*>.*?</style>', ' ', s, flags=re.S)
         s = re.sub(r'<script[^>]*>.*?</script>', ' ', s, flags=re.S)
@@ -92,7 +94,8 @@ def face_block(faces):
 
 
 def build():
-    text = used_chars()
+    stage()                       # 사본 생성 + 슬롯 채움
+    text = used_chars(BUILD)      # 채워진 결과에서 문자셋을 뽑는다
     faces = subset(text)
     uniq = {fn: sz for _, _, _, fn, sz in faces}
     print('서브셋 문자 %d자 · woff2 %.1f KB (%s)'
@@ -101,6 +104,25 @@ def build():
                        for fn, sz in uniq.items())))
 
     block = face_block(faces)
+    for p in sorted(glob.glob(os.path.join(BUILD, '*.dc.html'))):
+        s = io.open(p, encoding='utf-8').read()
+        s = s.replace('<style>', '<style>\n' + block + '\n', 1)
+        io.open(p, 'w', encoding='utf-8').write(s)
+
+    uniq = {fn: sz for _, _, _, fn, sz in faces}
+    print('서브셋 문자 %d자 · woff2 %.1f KB (%s)'
+          % (len(text), sum(uniq.values()) / 1024,
+             ', '.join('%s=%.1fKB' % (fn.split('.')[0], sz / 1024)
+                       for fn, sz in uniq.items())))
+    biggest = max(glob.glob(os.path.join(BUILD, '*.dc.html')), key=os.path.getsize)
+    print('아트보드 %d개 · 최대 %s %.0f KB (항목 상한 2MB)'
+          % (len(artboards()), os.path.basename(biggest),
+             os.path.getsize(biggest) / 1024))
+    return BUILD
+
+
+def stage():
+    """소스를 build/ 로 복사하고 페이지 번호 부여 + 슬롯 채움까지 한다."""
     os.makedirs(BUILD, exist_ok=True)
     order = canvas_order()
     total = len(order)
@@ -118,7 +140,6 @@ def build():
         # SVG 등에 남은 구 패밀리 지정도 통일
         s = re.sub(r"'210 옴니고딕 0[1-5]0'", "'%s'" % FAMILY, s)
         # @font-face를 style 맨 앞에 주입
-        s = s.replace('<style>', '<style>\n' + block + '\n', 1)
         io.open(os.path.join(BUILD, os.path.basename(p)), 'w',
                 encoding='utf-8').write(s)
 
@@ -131,6 +152,13 @@ def build():
               + glob.glob(os.path.join(DESIGN, '*.png'))
               + [os.path.join(DESIGN, 'canvas.json')]):
         shutil.copy(f, os.path.join(BUILD, os.path.basename(f)))
+
+    # 단지 데이터가 있으면 {{슬롯}}을 채운다 (기본제안서 -> 단지별 제안서)
+    data = os.environ.get('JL_DATA') or os.path.join(ROOT, 'template', 'data',
+                                                     '_example_이스트힐.json')
+    if os.path.exists(data):
+        subprocess.run(['python3', os.path.join(ROOT, 'tools', 'fill_complex.py'),
+                        data, '--dir', BUILD], check=False)
 
     biggest = max(glob.glob(os.path.join(BUILD, '*.dc.html')), key=os.path.getsize)
     print('아트보드 %d개 · 최대 %s %.0f KB (항목 상한 2MB)'

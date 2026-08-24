@@ -57,11 +57,8 @@
     color:#111418;opacity:.75;line-height:1.7;border-top:1px solid #C7CBD3;padding-top:14px;}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
-  body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
-    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
-  body::after{content:"";position:absolute;left:0;top:142px;right:0;height:4px;
-    background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
+  /* 좌측 네이비 패널이 헤더 역할을 하므로 상단 밴드는 쓰지 않는다 */
+  .runner{z-index:2;color:var(--ink)!important;opacity:.6;}
   .eyebrow{z-index:2;color:#CBB27E!important;}
   .eyebrow::before{background:#CBB27E!important;}
   .title{z-index:2;color:#FFFFFF!important;}
@@ -70,7 +67,7 @@
 
   /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
      내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
-  html,body{background:#E9EEF7!important;}
+  html,body{background:#FFFFFF!important;}
   body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
   .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
   /* 흰 블록 위로 올라오는 요소들 */

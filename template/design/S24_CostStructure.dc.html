@@ -28,10 +28,12 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   .title{font-size:24px;}
-  .cols{position:absolute;left:56px;top:168px;right:56px;bottom:56px;display:flex;gap:28px;}
-  .colL{width:52%;border:1px solid var(--line);border-radius:0;overflow:hidden;}
-  .colL img{width:100%;height:100%;object-fit:contain;background:#fff;}
-  .colR{width:48%;display:flex;flex-direction:column;gap:14px;}
+  .cols{position:absolute;left:56px;top:168px;right:56px;display:block;}
+  .colL{width:1220px;height:610px;display:none;}
+  .chartbox{width:760px;height:380px;border:1px solid var(--line);overflow:hidden;
+    background:#fff;float:left;}
+  .chartbox img{width:100%;height:100%;object-fit:contain;display:block;}
+  .colR{margin-left:788px;display:flex;flex-direction:column;gap:12px;}
   .calc{background:var(--navy);color:#fff;border-radius:0;padding:18px 20px;}
   .calc .k{font-size:14px;color:#F0F4FC;}
   .calc .v{margin-top:8px;font-size:19.5px;font-weight:800;font-family:monospace;}
@@ -53,7 +55,7 @@
 
   /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
      내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
-  html,body{background:#E9EEF7!important;}
+  html,body{background:#FFFFFF!important;}
   body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
   .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
   /* 흰 블록 위로 올라오는 요소들 */
@@ -71,12 +73,12 @@
   <div class="eyebrow">비용 부담 구조 [고정]</div>
   <div class="title">감정료·인지대·송달료는 법인이 전액 대납합니다</div>
   <div class="cols">
-    <div class="colL"><img src="s24_cost_flow.png"></div>
+    <div class="chartbox"><img src="s24_cost_flow.png"></div>
     <div class="colR">
       <div class="calc"><div class="k">감정료 환산 예시 (시장 단가 세대당 10~40만원 기준)</div>
         <div class="v">1,000세대 × 20만원 = 2억원</div>
         <div class="l">개별 단지의 실제 감정료는 감정 항목·규모에 따라 달라집니다.</div></div>
-      <div class="recover">판결 확정 시 소송비용 중 일부는 패소자(시공사 등)로부터 회수될 수 있습니다. 다만 회수 여부와 범위는 법원 판단에 따라 달라지며, 이를 단정적으로 예측하지 않습니다.</div>
+      <div class="recover" style="flex:1">판결 확정 시 소송비용 중 일부는 패소자(시공사 등)로부터 회수될 수 있습니다. 다만 회수 여부와 범위는 법원 판단에 따라 달라지며, 이를 단정적으로 예측하지 않습니다.</div>
     </div>
   </div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
