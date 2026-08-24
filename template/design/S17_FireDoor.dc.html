@@ -28,7 +28,7 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   .title{font-size:24px;}
-  .cols{position:absolute;left:56px;top:168px;right:56px;bottom:56px;display:flex;gap:28px;}
+  .cols{position:absolute;left:56px;top:168px;right:56px;bottom:220px;display:flex;gap:28px;}
   .colL{width:56%;border:1px solid var(--line);border-radius:0;overflow:hidden;}
   .colL img{width:100%;height:100%;object-fit:contain;background:#fff;}
   .colR{width:44%;display:flex;flex-direction:column;}
@@ -67,6 +67,20 @@
   .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
 
   /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 심층 검증 3단 밴드 (핵심 내용 · 수치 강조 · 기한 경고) ── */
+  .verify{position:absolute;left:56px;right:56px;bottom:52px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
 </style>
 </head>
 <body>
@@ -85,6 +99,11 @@
       <div class="case">인정 사례: 제일풍경채센트럴 · 방화문 성능 미달 판결 확보 <span style="color:#8F7033">[금액 확인 대기]</span></div>
       <div class="strength">시료 선정부터 성적서 접수까지 감정 절차 전 과정에 입회합니다. 기술적으로 까다로워 다른 법인이 잘 다루지 못하는 항목입니다.</div>
     </div>
+  </div>
+  <div class="verify">
+    <div><div class="vk">핵심 내용</div><div class="vv">시료 선정 → 방화문 철거 → 국가공인기관 성능시험 → 시험 결과 → 감정서 반영 순으로 진행하며, 전 과정에 입회합니다.</div></div>
+    <div><div class="vk">수치 강조</div><div class="vv">내화 KS F 2268-1 비차열 1시간 이상, 차연 KS F 2846 차압 25Pa에서 누설량 0.9㎥/min·㎡ 미만이 기준입니다.</div></div>
+    <div><div class="vk warnk">기한 경고</div><div class="vv">시료 철거부터 성적서 접수까지 장기간이 소요됩니다. 소송 초기에 시료 선정과 철거를 집행해야 합니다.</div></div>
   </div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>

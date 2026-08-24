@@ -28,7 +28,7 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   .title{font-size:24px;}
-  .cols{position:absolute;left:56px;top:168px;right:56px;bottom:56px;display:flex;gap:28px;}
+  .cols{position:absolute;left:56px;top:168px;right:56px;bottom:220px;display:flex;gap:28px;}
   .colL{width:56%;border:1px solid var(--line);border-radius:0;overflow:hidden;}
   .colL img{width:100%;height:100%;object-fit:contain;background:#fff;}
   .colR{width:44%;display:flex;flex-direction:column;}
@@ -68,6 +68,20 @@
   .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
 
   /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 심층 검증 3단 밴드 (핵심 내용 · 수치 강조 · 기한 경고) ── */
+  .verify{position:absolute;left:56px;right:56px;bottom:52px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
 </style>
 </head>
 <body>
@@ -87,6 +101,11 @@
       </div>
       <div class="trend">서울중앙지법 건설감정실무 2026 개정판에서 타일 뒤채움 및 부착강도 부족 하자 기준이 보강됐습니다.</div>
     </div>
+  </div>
+  <div class="verify">
+    <div><div class="vk">핵심 내용</div><div class="vv">타일을 탈락시켜 뒤채움률을 실측하고 부착강도 시험을 병행합니다. 탈락면 사진만으로는 부족률이 드러나지 않습니다.</div></div>
+    <div><div class="vk">수치 강조</div><div class="vv">뒤채움 30~40% 부족 시 세대당 21.7만원, 50~60% 부족 시 세대당 32.5만원이 인정된 사례가 있습니다.</div></div>
+    <div><div class="vk warnk">기한 경고</div><div class="vv">마감공사 하자는 2년 구간이지만, 미시공·변경시공으로 판단되면 5년 구간에 남습니다. 그 판단 근거를 조사 단계에서 확보합니다.</div></div>
   </div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>

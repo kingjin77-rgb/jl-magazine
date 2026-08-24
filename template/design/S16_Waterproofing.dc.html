@@ -28,7 +28,7 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   .title{font-size:24px;}
-  .cols{position:absolute;left:56px;top:168px;right:56px;bottom:56px;display:flex;gap:22px;}
+  .cols{position:absolute;left:56px;top:168px;right:56px;bottom:220px;display:flex;gap:22px;}
   .photo{width:30%;border-radius:0;overflow:hidden;position:relative;}
   .photo img{width:100%;height:100%;object-fit:cover;}
   .photo .cap{position:absolute;left:0;right:0;bottom:0;
@@ -75,6 +75,20 @@
   .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
 
   /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 심층 검증 3단 밴드 (핵심 내용 · 수치 강조 · 기한 경고) ── */
+  .verify{position:absolute;left:56px;right:56px;bottom:52px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
 </style>
 </head>
 <body>
@@ -97,6 +111,11 @@
         <div class="tr"><div class="t1">백석더샵</div><div class="t2">619</div><div class="t3">약 2억원</div></div>
       </div>
     </div>
+  </div>
+  <div class="verify">
+    <div><div class="vk">핵심 내용</div><div class="vv">원·피고 감정인 공동조사에서 파취 후 방수 두께를 실측하고 설계도서 기준과 대조합니다. 수치가 사진 안에 들어가도록 계측 장면을 촬영합니다.</div></div>
+    <div><div class="vk">수치 강조</div><div class="vv">감정 실측값 예시 — 발코니 바닥 5.35~5.55mm, 욕실 바닥·벽체 1.41~2.82mm. 기준 대비 부족분이 보수비 산정 근거가 됩니다.</div></div>
+    <div><div class="vk warnk">기한 경고</div><div class="vv">방수공사는 구조상·안전상 하자로 5년 구간입니다. 누수가 드러난 뒤에는 남은 기간이 길지 않습니다.</div></div>
   </div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
