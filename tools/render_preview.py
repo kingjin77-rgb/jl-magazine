@@ -12,6 +12,9 @@ CHROME = (glob.glob('/opt/pw-browsers/chromium*/chrome-linux/chrome') or [None])
 
 def capture():
     os.makedirs(OUT, exist_ok=True)
+    # 번호가 바뀌면 예전 파일이 남아 장수가 부풀어 오른다. 매번 비우고 찍는다.
+    for f in glob.glob(os.path.join(OUT, '*.png')):
+        os.remove(f)
     # canvas.json 순서를 따라 캡처한다. 파일명 순서가 아니라 실제 덱 순서.
     import json
     cj = os.path.join(BUILD, 'canvas.json')
