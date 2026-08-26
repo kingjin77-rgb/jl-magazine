@@ -22,7 +22,7 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   /* ── 본문 프리미티브 ── */
-  .body{position:absolute;left:56px;right:56px;top:168px;bottom:220px;}
+  .body{position:absolute;left:56px;right:56px;top:168px;bottom:246px;}
   .sec{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
   .sec+.sec,.blk+.sec{margin-top:16px;}
@@ -58,7 +58,7 @@
   .split{display:flex;gap:26px;height:100%;}
   .split>div{flex:1;}
 
-  .verify{position:absolute;left:56px;right:56px;bottom:52px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:78px;height:152px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
@@ -93,13 +93,19 @@
   .sec{margin-bottom:9px;}
   .sec+.sec,.blk+.sec{margin-top:12px;}
   .c{padding:12px 16px;}
+
+  /* 촘촘 — 밴드 위치 통일로 본문 높이가 26px 줄어든 만큼 여백을 압축한다 */
+  .tbl .tr div{padding:6.4px 15px;} .tbl .th div{padding:7.6px 15px;}
+  .kv .r{padding:4.4px 0;} .sec{margin-bottom:9px;}
+  .sec+.sec,.blk+.sec{margin-top:11px;} .c{padding:11px 15px;}
+  .cards{gap:12px;} .step{padding:11px 14px 12px;}
 </style>
 </head>
 <body>
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">보고서 수록 항목 [고정]</div>
   <div class="title">보고서에는 진행 상황만이 아니라 판단에 필요한 것을 담습니다</div>
-  <div class="body"><div class="sec">정기 보고서 구성 — 월 1회</div><div class="tbl blk" style="margin-bottom:16px"><div class="th"><div style="width:170px">구분</div><div style="flex:1">수록 항목</div></div><div class="tr"><div style="width:170px"><b>진행 현황</b></div><div style="flex:1">현재 단계 · 직전 기일 내용 · 다음 기일과 예정 사항</div></div><div class="tr"><div style="width:170px"><b>채권양도</b></div><div style="flex:1">차수별 양도 세대수와 비율 · 미회수 세대 현황</div></div><div class="tr"><div style="width:170px"><b>감정</b></div><div style="flex:1">감정인 지정 현황 · 감정료 납부 내역 · 현장조사 일정과 결과</div></div><div class="tr"><div style="width:170px"><b>쟁점</b></div><div style="flex:1">피고 주장 요지 · 이에 대한 대응 방향 · 판단이 필요한 사항</div></div><div class="tr"><div style="width:170px"><b>비용</b></div><div style="flex:1">기간 중 발생한 실비와 집행 내역</div></div><div class="tr"><div style="width:170px"><b>요청 사항</b></div><div style="flex:1">입주자대표회의가 준비하거나 결정해 주어야 할 것</div></div></div><div class="sec">별도 보고가 나가는 시점</div><div class="kv blk"><div class="r"><span>소장 접수 · 감정서 도착 · 판결 선고</span><em>사건번호·재판부·피고 확정 내역 / 인정 항목과 금액·보완신청 여부 / 인용 금액·책임제한 비율·항소 검토 의견</em></div></div></div>
+  <div class="body"><div class="sec">정기 보고서 구성 — 월 1회</div><div class="tbl blk" style="margin-bottom:16px"><div class="th"><div style="width:170px">구분</div><div style="flex:1">수록 항목</div></div><div class="tr"><div style="width:170px"><b>진행 현황</b></div><div style="flex:1">현재 단계 · 직전 기일 내용 · 다음 기일과 예정 사항</div></div><div class="tr"><div style="width:170px"><b>채권양도</b></div><div style="flex:1">차수별 양도 세대수와 비율 · 미회수 세대 현황</div></div><div class="tr"><div style="width:170px"><b>감정</b></div><div style="flex:1">감정인 지정 현황 · 감정료 납부 내역 · 현장조사 일정과 결과</div></div><div class="tr"><div style="width:170px"><b>쟁점</b></div><div style="flex:1">피고 주장 요지 · 이에 대한 대응 방향 · 판단이 필요한 사항</div></div><div class="tr"><div style="width:170px"><b>비용</b></div><div style="flex:1">기간 중 발생한 실비와 집행 내역</div></div><div class="tr"><div style="width:170px"><b>요청 사항</b></div><div style="flex:1">입주자대표회의가 준비하거나 결정해 주어야 할 것</div></div></div><div class="sec">별도 보고가 나가는 시점 — 소장 접수 · 감정서 도착 · 판결 선고</div><div class="kv blk"><div class="r"><span>수록 내용</span><em>사건번호·재판부·피고 확정 내역 / 인정 항목과 금액·보완신청 여부 / 인용 금액·책임제한 비율·항소 검토 의견</em></div></div></div>
   <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">입주자대표회의는 총회와 주민설명회에서 설명해야 하는 위치에 있습니다. 그대로 쓸 수 있는 형식으로 정리해 드립니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">정기 보고는 <b>월 1회</b>, 위 세 시점에는 별도 보고가 나갑니다. 움직임이 없는 달에도 현재 단계와 다음 일정을 알려드립니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">감정 구간은 길어 답답한 시기입니다. 이 구간에 연락이 끊기는 것이 가장 흔한 불만이라 정기 보고를 고정합니다.</div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>

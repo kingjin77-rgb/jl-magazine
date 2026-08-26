@@ -164,9 +164,9 @@ TIGHT = """
 
 
 def slide(eyebrow, title, body, footer_band=None, note=None, bottom=None, tight=False):
-    # 밴드와 주석이 함께 있으면 밴드를 위로 올려 주석 자리를 만든다
-    bb = 78 if (footer_band and note) else 52
-    nb = 44 if note else 52
+    # 밴드 위치는 주석 유무와 무관하게 고정한다.
+    # 장마다 달라지면 슬라이드를 넘길 때 밴드가 위아래로 튄다(출렁거림).
+    bb, nb = 78, 44
     bottom = bottom if bottom is not None else ((bb + 168) if footer_band else 56)
     css = CORE % {'bottom': bottom, 'note': nb, 'band': bb}
     if tight:
