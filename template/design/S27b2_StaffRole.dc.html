@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:32px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  /* ── 본문 프리미티브 ── */
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
+  .sec{font-size:14px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
+  .sec+.sec,.blk+.sec{margin-top:16px;}
+
+  .cards{display:grid;gap:14px;}
+  .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
+  .c .ck{font-size:16.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:14.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
+  .c b{color:var(--navy);font-weight:800;}
+
+  .flow{display:grid;gap:0;}
+  .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
+  .step+.step{border-left:0;}
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--navy);
+    width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
+
+  .tbl{border:1px solid var(--line);}
+  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:15px;font-weight:700;}
+  .tbl .th div{padding:10px 15px;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
+  .tbl .tr div{padding:9px 15px;}
+  .tbl .tr b{color:var(--navy);font-weight:800;}
+
+  .kv .r{display:flex;gap:10px;font-size:14.5px;line-height:1.55;padding:7px 0;
+    border-bottom:1px solid var(--line);}
+  .kv .r:last-child{border-bottom:0;}
+  .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
+  .kv .r em{flex:1;font-style:normal;}
+
+  .split{display:flex;gap:26px;height:100%;}
+  .split>div{flex:1;}
+
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
+
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14px;line-height:1.6;color:var(--ink);}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
+  .eyebrow{z-index:2;color:#CBB27E!important;}
+  .eyebrow::before{background:#CBB27E!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+</style>
+</head>
+<body>
+    <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">하자 전문 사무장의 역할 [고정]</div>
+  <div class="title">사무장은 변호사가 놓치기 쉬운 도면 대조·현장 입회를 맡습니다</div>
+  <div class="body"><div class="sec">무엇을 하는가 · 변호사가 못 하는 일입니다</div><div class="tbl blk" style=""><div class="th"><div style="width:130px">단계</div><div style="flex:1">기술 인력이 하는 일</div></div><div class="tr"><div style="width:130px"><b>조사 · 감정 신청</b></div><div style="flex:1">준공도면·시방서·내역서를 실제로 읽고 현장과 대조해 <b>미시공·변경시공 항목을 특정</b>한 뒤, 감정 항목을 공종 단위로 구체화합니다</div></div><div class="tr"><div style="width:130px"><b>현장조사 입회</b></div><div style="flex:1">감정인 조사에 입회해 <b>계측 방법과 기준 적용</b>을 그 자리에서 확인합니다</div></div><div class="tr"><div style="width:130px"><b>감정서 검토</b></div><div style="flex:1">항목 누락·계측 오류·단가 적용·수량 산출을 검증해 <b>감정보완신청 사유</b>를 정리합니다</div></div></div></div>
+  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">하자소송에서 다투는 것은 대부분 <b>기술적 사실</b>입니다. 두께가 몇 ㎜인지, 뒤채움이 얼마나 부족한지, 어떤 공법이 맞는지는 법률 지식만으로 판단할 수 없습니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">2026 개정판이 <b>감정인 재량을 넓혔기 때문에</b> 기술 인력의 역할이 더 커졌습니다. 어떤 기준이 적용되는지가 현장조사 자리에서 정해집니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">조사 단계에서 빠진 항목은 감정에서 되살리기 어렵습니다. <b>착수 시점에 기술 인력이 함께 들어가야</b> 하는 이유입니다.</div></div></div>
+  <div class="note">국가기술자격증·건설기술경력증 <b>사본은 요청 시 제출</b>합니다. 개인정보가 포함되어 있어 제안서에는 자격 사실만 기재했습니다.</div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

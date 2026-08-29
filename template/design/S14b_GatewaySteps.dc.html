@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:32px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  /* ── 본문 프리미티브 ── */
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
+  .sec{font-size:14px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
+  .sec+.sec,.blk+.sec{margin-top:16px;}
+
+  .cards{display:grid;gap:14px;}
+  .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
+  .c .ck{font-size:16.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:14.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
+  .c b{color:var(--navy);font-weight:800;}
+
+  .flow{display:grid;gap:0;}
+  .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
+  .step+.step{border-left:0;}
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--navy);
+    width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
+
+  .tbl{border:1px solid var(--line);}
+  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:15px;font-weight:700;}
+  .tbl .th div{padding:10px 15px;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
+  .tbl .tr div{padding:9px 15px;}
+  .tbl .tr b{color:var(--navy);font-weight:800;}
+
+  .kv .r{display:flex;gap:10px;font-size:14.5px;line-height:1.55;padding:7px 0;
+    border-bottom:1px solid var(--line);}
+  .kv .r:last-child{border-bottom:0;}
+  .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
+  .kv .r em{flex:1;font-style:normal;}
+
+  .split{display:flex;gap:26px;height:100%;}
+  .split>div{flex:1;}
+
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
+
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14px;line-height:1.6;color:var(--ink);}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
+  .eyebrow{z-index:2;color:#CBB27E!important;}
+  .eyebrow::before{background:#CBB27E!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+
+  /* 촘촘 모드 — 내용이 하단 밴드에 닿을 때 여백만 줄인다 */
+  .tbl .tr div{padding:6.6px 15px;}
+  .tbl .th div{padding:8px 15px;}
+  .kv .r{padding:4.6px 0;}
+  .sec{margin-bottom:9px;}
+  .sec+.sec,.blk+.sec{margin-top:12px;}
+  .c{padding:12px 16px;}
+</style>
+</head>
+<body>
+    <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">홈게이트웨이 판단 단계 [고정]</div>
+  <div class="title">홈게이트웨이는 설치·연동·고지 세 단계로 판단합니다</div>
+  <div class="body"><div class="sec">홈게이트웨이는 세 단계로 판단합니다</div><div class="tbl blk" style=""><div class="th"><div style="width:110px">단계</div><div style="width:430px">무엇을 확인하나</div><div style="flex:1">판단</div></div><div class="tr"><div style="width:110px"><b>① 시점</b></div><div style="width:430px"><b>사업승인일</b>과 그때 시행 중이던 기술기준</div><div style="flex:1">이후 개정된 보안 요건은 <b>소급 적용되지 않습니다</b></div></div><div class="tr"><div style="width:110px"><b>② 설계</b></div><div style="width:430px">설계도서에 홈게이트웨이가 <b>별도 장비로</b> 기재되어 있는가</div><div style="flex:1">별도 기재가 있으면 내장형 시공은 변경시공 문제로 넘어갑니다</div></div><div class="tr"><div style="width:110px"><b>③ 기능</b></div><div style="width:430px">내장형이라면 그 기능이 <b>실제로 구현</b>되어 있는가</div><div style="flex:1">기능이 없으면 명칭과 무관하게 다툴 여지가 있습니다</div></div></div></div>
+  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">이 항목은 다른 하자와 성격이 다릅니다. <b>장비가 없다는 사실만으로 하자가 되지 않습니다.</b> 시공사 측은 내장형이면 적법이라고 반박하며, 그 주장은 고시 문언에 근거가 있습니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">상호연동(KS X 4501)·NAT·시험성적서 보유는 <b>필수 요건이 아니라는 반론</b>이 제기됩니다. 이 항목만으로 하자를 구성하기는 어렵습니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">전유부분 설비 하자로 존속기간이 짧습니다. 그리고 <b>사업승인 시점과 당시 시행 고시를 먼저 확보해야</b> 판단이 시작됩니다.</div></div></div>
+  <div class="note">본 제안서는 시공사 측 반대 논리를 함께 제시합니다. 개별 단지의 판단은 사업승인일과 당시 시행 기준을 확인한 뒤 드립니다. 「지능형 홈네트워크 설비 설치 및 기술기준」 고시 원문은 <b>확인 대기</b>입니다.</div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

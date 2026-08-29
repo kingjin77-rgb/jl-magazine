@@ -11,12 +11,12 @@
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
     font-size:15px;color:var(--muted);}
-  .eyebrow{position:absolute;left:56px;top:70px;font-size:15px;letter-spacing:.2em;color:var(--gold-ink);
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
   .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
     border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
-  .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:34px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
     border-radius:0;padding:12px 18px;line-height:1.6;}
@@ -27,17 +27,17 @@
     font-size:14px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
-  .title{font-size:24px;}
-  .flow{position:absolute;left:56px;top:190px;right:56px;display:flex;}
+  .title{font-size:32px;}
+  .flow{position:absolute;left:56px;top:186px;right:56px;display:flex;}
   .step{flex:1;position:relative;padding:0 16px;}
   .step:first-child{padding-left:0;} .step:last-child{padding-right:0;}
   .step .num{width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-size:15px;
     font-weight:800;display:flex;align-items:center;justify-content:center;}
   .step .t{margin-top:10px;font-size:16px;font-weight:800;color:var(--navy);}
-  .step .b{margin-top:6px;font-size:14px;color:var(--muted);line-height:1.6;}
+  .step .b{margin-top:6px;font-size:15px;color:var(--muted);line-height:1.6;}
   .step::after{content:"";position:absolute;top:13px;left:calc(100% - 4px);width:32px;height:1px;background:var(--line);}
   .step:last-child::after{display:none;}
-  .pending{position:absolute;left:56px;top:434px;right:56px;background:#FBF7EE;border:1px solid #E7D9BC;
+  .pending{position:absolute;left:56px;top:340px;right:56px;background:#FBF7EE;border:1px solid #E7D9BC;
     border-radius:0;padding:16px 22px;}
   .pending .k{font-size:15px;color:var(--gold-ink);font-weight:700;}
   .pending .v{margin-top:6px;font-size:15px;color:var(--muted);line-height:1.7;}
@@ -46,9 +46,9 @@
   .why p{font-size:15px;color:var(--muted);line-height:1.8;}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
-  body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
     background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
-  body::after{content:"";position:absolute;left:0;top:142px;right:0;height:4px;
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
   .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
   .eyebrow{z-index:2;color:#CBB27E!important;}
@@ -74,15 +74,15 @@
   /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
 
   /* ── 심층 검증 3단 밴드 ── */
-  .verify{position:absolute;left:56px;right:56px;bottom:78px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
   .verify>div:first-child{border-left:0;}
-  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent!important;}
@@ -111,21 +111,10 @@
     <div class="step"><div class="num">4</div><div class="t">사후 이의</div>
       <div class="b">감정보완신청으로 오류·누락 대응</div></div>
   </div>
-  <div class="rsn">
-    <div class="h">감정서가 도착하면 이 네 가지를 먼저 봅니다 — 감정보완신청 사유</div>
-    <div class="g">
-      <div class="i"><div class="k">항목 누락</div><div class="v">신청한 하자 항목이 감정서에서 빠졌거나 판단이 없는 경우</div></div>
-      <div class="i"><div class="k">계측 방법 오류</div><div class="v">기준과 다른 방법으로 측정했거나 표본 수가 부족한 경우</div></div>
-      <div class="i"><div class="k">단가 적용 오류</div><div class="v">공법에 맞지 않는 단가나 시점이 다른 단가를 적용한 경우</div></div>
-      <div class="i"><div class="k">수량 산출 오류</div><div class="v">면적·연장·세대수 산출이 도면·명단과 맞지 않는 경우</div></div>
-    </div>
-  </div>
   <div class="pending"><div class="k">협력 진단업체</div>
-    <div class="v"><b>㈜좋은도시관리</b> — 건축 특급기술자 2인이 배치되어 감정인 현장조사에 함께 입회합니다. 법인 내부 건축시공기술사와 같은 자리에서 계측 방법과 기준 적용을 확인합니다.</div></div>
-  <div class="verify">
-    <div><div class="vk">핵심 내용</div><div class="vv"><b>2026 개정판은 감정인의 재량을 넓혔습니다.</b> 기준이 하나로 정해지지 않은 항목이 늘었다는 것은, 감정 과정에서 어떤 기준이 적용되는지가 곧 결과가 된다는 뜻입니다.</div></div>
-    <div><div class="vk">수치 강조</div><div class="vv">감정보완신청 사유는 위 네 가지가 대부분입니다. 어느 하나만 관철되어도 인정 금액이 달라집니다.</div></div>
-    <div><div class="vk warnk">기한 경고</div><div class="vv">감정서가 나온 뒤 보완신청 없이 변론이 종결되면 그대로 확정됩니다. 도착 즉시 검토해야 합니다.</div></div>
+    <div class="v"><b>㈜좋은도시관리</b> · 건축 특급기술자 2인이 배치되어 감정인 현장조사에 함께 입회합니다. 법인 내부 건축시공기술사와 같은 자리에서 계측 방법과 기준 적용을 확인합니다.</div></div>
+  <div class="verify" style="bottom:56px;height:auto;padding:18px 0 0;border:0;border-top:1.4px solid var(--line);display:block;">
+    <div style="border-left:0;padding:0;"><div class="vk warnk">기한 경고</div><div class="vv">감정서가 나온 뒤 보완신청 없이 변론이 종결되면 그대로 확정됩니다. 도착 즉시 검토해야 합니다.</div></div>
   </div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>

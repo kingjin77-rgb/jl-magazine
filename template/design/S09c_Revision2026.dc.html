@@ -11,10 +11,10 @@
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
     font-size:15px;color:var(--muted);}
-  .eyebrow{position:absolute;left:56px;top:70px;font-size:15px;letter-spacing:.02em;color:var(--gold-ink);
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
-  .title{position:absolute;left:56px;top:96px;right:56px;font-size:24px;font-weight:800;
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:32px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
@@ -22,16 +22,16 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   /* ── 본문 프리미티브 ── */
-  .body{position:absolute;left:56px;right:56px;top:168px;bottom:246px;}
-  .sec{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
+  .sec{font-size:14px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
   .sec+.sec,.blk+.sec{margin-top:16px;}
 
   .cards{display:grid;gap:14px;}
   .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
-  .c .ck{font-size:15.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
-  .c .cv{margin-top:8px;font-size:13.5px;line-height:1.62;color:var(--ink);}
-  .c .cn{font-size:12px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
+  .c .ck{font-size:16.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:14.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
   .c b{color:var(--navy);font-weight:800;}
 
   .flow{display:grid;gap:0;}
@@ -39,17 +39,17 @@
   .step+.step{border-left:0;}
   .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--navy);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
-  .step .t{font-size:14.5px;font-weight:800;color:var(--ink);line-height:1.35;}
-  .step .b{margin-top:7px;font-size:12.5px;line-height:1.55;color:var(--ink);}
+  .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:14px;font-weight:700;}
+  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:15px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
-  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:13.5px;line-height:1.5;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
   .tbl .tr b{color:var(--navy);font-weight:800;}
 
-  .kv .r{display:flex;gap:10px;font-size:13.5px;line-height:1.55;padding:7px 0;
+  .kv .r{display:flex;gap:10px;font-size:14.5px;line-height:1.55;padding:7px 0;
     border-bottom:1px solid var(--line);}
   .kv .r:last-child{border-bottom:0;}
   .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
@@ -58,25 +58,25 @@
   .split{display:flex;gap:26px;height:100%;}
   .split>div{flex:1;}
 
-  .verify{position:absolute;left:56px;right:56px;bottom:78px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
   .verify>div:first-child{border-left:0;}
-  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:13px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
-  body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
     background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
-  body::after{content:"";position:absolute;left:0;top:142px;right:0;height:4px;
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
   .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
   .eyebrow{z-index:2;color:#CBB27E!important;}
@@ -88,12 +88,10 @@
 </style>
 </head>
 <body>
-  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+    <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">판단 기준의 변화 [고정]</div>
   <div class="title">하자 판단의 기준이 되는 「건설감정실무」가 10년 만에 개정됐습니다</div>
-  <div class="body"><div class="sec">개정 연혁</div><div class="flow blk" style="grid-template-columns:repeat(5,1fr);margin-bottom:16px"><div class="step"><div class="num">1</div><div class="t">2011. 9.</div><div class="b">서울중앙지방법원 건설소송실무연구회 최초 발간</div></div><div class="step"><div class="num">2</div><div class="t">2014. 2.</div><div class="b">법원행정처 건설감정 매뉴얼</div></div><div class="step"><div class="num">3</div><div class="t">2015년</div><div class="b">건설감정실무 추록(개정)</div></div><div class="step"><div class="num">4</div><div class="t">2016. 10.</div><div class="b">2016 개정판 — 이후 10년간 표준으로 기능</div></div><div class="step"><div class="num">5</div><div class="t">2026. 1.</div><div class="b"><b>2026 개정판 발간</b></div></div></div><div class="sec">왜 바뀌었나</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);"><div class="c"><div class="ck">변화된 시공 환경</div><div class="cv">2016 개정판의 일부 내용이 달라진 건설 환경과 실무를 반영하지 못한다는 지적이 있었습니다.</div></div><div class="c"><div class="ck">고도화된 분쟁 양상</div><div class="cv">하자소송에서 새로 다투어지는 항목들에 유효·적절한 판단 기준이 없었습니다.</div></div><div class="c"><div class="ck">개정 법령 미반영</div><div class="cv">표준시방서·국토교통부 고시 등의 개정 사항이 제대로 반영되지 못했습니다.</div></div></div></div>
-  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">전면 개편이 아니라 <b>기존 원칙을 유지하면서 기준을 구체화</b>하고, 감정인이 현장 여건을 고려해 판단할 수 있도록 <b>재량을 넓힌</b> 개정입니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">재량이 넓어졌다는 것은 <b>감정 과정에서의 대응이 곧 결과</b>가 된다는 뜻입니다. 감정 신청 단계부터 개정된 기준에 맞춘 전략이 필요합니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">현재 진행 중이거나 앞으로 제기될 사건에는 <b>2026 개정판이 적용</b>됩니다. 2016년 기준으로 준비된 조사·감정 항목은 그대로 쓸 수 없습니다.</div></div></div>
-  <div class="note">출처: 「2026 건설감정실무」(서울중앙지방법원 건설소송실무연구회, 사법발전재단, 2026. 1.) 개정 내용에 관한 법무법인 발간 해설 자료 <b>[2차 출처]</b>. 개별 수치는 원문 확보 후 근거 등급을 올립니다. 판결례는 원문 확인 전이므로 판시 취지를 단정하지 않았습니다.</div>
+  <div class="body" style="bottom:56px"><div class="sec">개정 연혁</div><div class="flow blk" style="grid-template-columns:repeat(5,1fr);margin-bottom:16px"><div class="step"><div class="num">1</div><div class="t">2011. 9.</div><div class="b">서울중앙지방법원 건설소송실무연구회 최초 발간</div></div><div class="step"><div class="num">2</div><div class="t">2014. 2.</div><div class="b">법원행정처 건설감정 매뉴얼</div></div><div class="step"><div class="num">3</div><div class="t">2015년</div><div class="b">건설감정실무 추록(개정)</div></div><div class="step"><div class="num">4</div><div class="t">2016. 10.</div><div class="b">2016 개정판 · 이후 10년간 표준으로 기능</div></div><div class="step"><div class="num">5</div><div class="t">2026. 1.</div><div class="b"><b>2026 개정판 발간</b></div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

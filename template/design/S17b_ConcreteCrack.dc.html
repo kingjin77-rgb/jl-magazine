@@ -11,10 +11,10 @@
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
     font-size:15px;color:var(--muted);}
-  .eyebrow{position:absolute;left:56px;top:70px;font-size:15px;letter-spacing:.02em;color:var(--gold-ink);
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
-  .title{position:absolute;left:56px;top:96px;right:56px;font-size:24px;font-weight:800;
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:32px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
@@ -22,16 +22,16 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   /* ── 본문 프리미티브 ── */
-  .body{position:absolute;left:56px;right:56px;top:168px;bottom:246px;}
-  .sec{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
+  .sec{font-size:14px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
   .sec+.sec,.blk+.sec{margin-top:16px;}
 
   .cards{display:grid;gap:14px;}
   .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
-  .c .ck{font-size:15.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
-  .c .cv{margin-top:8px;font-size:13.5px;line-height:1.62;color:var(--ink);}
-  .c .cn{font-size:12px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
+  .c .ck{font-size:16.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:14.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
   .c b{color:var(--navy);font-weight:800;}
 
   .flow{display:grid;gap:0;}
@@ -39,17 +39,17 @@
   .step+.step{border-left:0;}
   .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--navy);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
-  .step .t{font-size:14.5px;font-weight:800;color:var(--ink);line-height:1.35;}
-  .step .b{margin-top:7px;font-size:12.5px;line-height:1.55;color:var(--ink);}
+  .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:14px;font-weight:700;}
+  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:15px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
-  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:13.5px;line-height:1.5;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
   .tbl .tr b{color:var(--navy);font-weight:800;}
 
-  .kv .r{display:flex;gap:10px;font-size:13.5px;line-height:1.55;padding:7px 0;
+  .kv .r{display:flex;gap:10px;font-size:14.5px;line-height:1.55;padding:7px 0;
     border-bottom:1px solid var(--line);}
   .kv .r:last-child{border-bottom:0;}
   .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
@@ -58,25 +58,25 @@
   .split{display:flex;gap:26px;height:100%;}
   .split>div{flex:1;}
 
-  .verify{position:absolute;left:56px;right:56px;bottom:78px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
   .verify>div:first-child{border-left:0;}
-  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:13px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
-  body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
     background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
-  body::after{content:"";position:absolute;left:0;top:142px;right:0;height:4px;
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
   .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
   .eyebrow{z-index:2;color:#CBB27E!important;}
@@ -88,12 +88,10 @@
 </style>
 </head>
 <body>
-  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+    <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">콘크리트 균열 [고정]</div>
   <div class="title">균열은 어느 법인이나 청구합니다. 차이는 원인을 분류해 공법을 관철하는가입니다</div>
-  <div class="body"><div class="sec">원인 분류 — 「2026 건설감정실무」 [표 8] 균열발생 원인과 패턴</div><div class="cards blk" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px"><div class="c"><div class="cn">A</div><div class="ck">재료적 성질</div><div class="cv">7개 원인. 시멘트·골재·배합에서 비롯됩니다.</div></div><div class="c"><div class="cn">B</div><div class="ck">시공</div><div class="cv">13개 원인. <b>불충분한 다짐</b>은 수개월 후 불규칙한 표층 균열로, <b>거푸집 조기 제거</b>는 5~6일 만에 규칙적인 표층 균열로 나타납니다.</div></div><div class="c"><div class="cn">C</div><div class="ck">사용·환경</div><div class="cv">3개 원인. 사용 중 환경 조건에서 비롯됩니다.</div></div><div class="c"><div class="cn">D</div><div class="ck">구조·외력</div><div class="cv">4개 원인. 하중·변형에서 비롯됩니다.</div></div></div><div class="sec">원인이 정해지면 보수공법이 정해집니다</div><div class="cards blk" style="grid-template-columns:repeat(4,1fr);"><div class="c"><div class="cn">①</div><div class="ck">표면처리 공법</div><div class="cv">표층에 그친 미세 균열에 적용</div></div><div class="c"><div class="cn">②</div><div class="ck">주입식 공법</div><div class="cv">균열 내부에 보수재를 주입해 채움</div></div><div class="c"><div class="cn">③</div><div class="ck">충전식 공법</div><div class="cv">비교적 큰 폭. 균열을 따라 U형·V형으로 절단한 뒤 충전</div></div><div class="c"><div class="cn">④</div><div class="ck">도포식 공법</div><div class="cv">망상균열에 적합</div></div></div></div>
-  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">균열 사진은 흔합니다. 다투는 지점은 사진이 아니라 <b>원인 분류 → 공법 결정</b>의 논리를 감정 단계에서 관철하는가입니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">외벽 층이음 <b>0.3㎜ 미만</b> 균열은 2026 개정판에서 충전식을 원칙으로 하되, 누수·결로 발생 여부와 수밀·기밀 조치, 부위의 내구성을 고려해 <b>예외적으로 표면처리</b>를 적용할 수 있게 됐습니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">보수 일위대가도 바뀌었습니다. <b>노무 공량·단가를 소 제기 시점 기준</b>으로 적용하므로, 제소가 늦어지면 적용 단가 자체가 달라집니다.</div></div></div>
-  <div class="note">근거: 「2026 건설감정실무」(서울중앙지방법원 건설소송실무연구회, 사법발전재단, 2026. 1.) 제3장 3.가 콘크리트 균열 하자 52~56면. [표 8]의 출처는 「실무자를 위한 콘크리트구조물 유지관리매뉴얼」(사단법인 한국콘크리트학회, 2008) 19면입니다.</div>
+  <div class="body" style="bottom:56px"><div class="sec">원인 분류 · 「2026 건설감정실무」 [표 8] 균열발생 원인과 패턴</div><div class="cards blk" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px"><div class="c"><div class="cn">A</div><div class="ck">재료적 성질</div><div class="cv">7개 원인. 시멘트·골재·배합에서 비롯됩니다.</div></div><div class="c"><div class="cn">B</div><div class="ck">시공</div><div class="cv">13개 원인. <b>불충분한 다짐</b>은 수개월 후 불규칙한 표층 균열로, <b>거푸집 조기 제거</b>는 5~6일 만에 규칙적인 표층 균열로 나타납니다.</div></div><div class="c"><div class="cn">C</div><div class="ck">사용·환경</div><div class="cv">3개 원인. 사용 중 환경 조건에서 비롯됩니다.</div></div><div class="c"><div class="cn">D</div><div class="ck">구조·외력</div><div class="cv">4개 원인. 하중·변형에서 비롯됩니다.</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

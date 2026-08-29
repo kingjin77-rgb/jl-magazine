@@ -11,12 +11,12 @@
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
     font-size:15px;color:var(--muted);}
-  .eyebrow{position:absolute;left:56px;top:70px;font-size:15px;letter-spacing:.2em;color:var(--gold-ink);
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
   .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
     border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
-  .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:34px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
     border-radius:0;padding:12px 18px;line-height:1.6;}
@@ -27,14 +27,14 @@
     font-size:14px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
-  .title{font-size:24px;}
-  .band{position:absolute;left:56px;top:150px;right:56px;background:var(--navy);color:#fff;
+  .title{font-size:32px;}
+  .band{position:absolute;left:56px;top:186px;right:56px;background:var(--navy);color:#fff;
     border-radius:0;padding:20px 26px;display:flex;}
   .band .s{flex:1;border-left:1px solid rgba(255,255,255,.18);padding-left:22px;}
   .band .s:first-child{border-left:none;padding-left:0;}
   .band .n{font-size:25px;font-weight:800;letter-spacing:-.01em;}
   .band .l{margin-top:5px;font-size:14px;color:#E6ECF9;}
-  .grid{position:absolute;left:56px;top:272px;right:56px;display:grid;
+  .grid{position:absolute;left:56px;top:308px;right:56px;display:grid;
     grid-template-columns:repeat(4,1fr);gap:16px;}
   .g{border:1px solid var(--line);border-radius:0;padding:16px 18px;}
   .g .k{font-size:14px;color:var(--gold-ink);font-weight:700;}
@@ -50,9 +50,9 @@
   .addr b{color:var(--navy);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
-  body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
     background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
-  body::after{content:"";position:absolute;left:0;top:142px;right:0;height:4px;
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
   .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
   .eyebrow{z-index:2;color:#CBB27E!important;}
@@ -78,15 +78,15 @@
   /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
 
   /* ── 심층 검증 3단 밴드 ── */
-  .verify{position:absolute;left:56px;right:56px;bottom:78px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
   .verify>div:first-child{border-left:0;}
-  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent!important;}
@@ -116,26 +116,6 @@
       <div class="d">수도권·대구·경북·충남·전남 등 전국 단지를 수행했습니다.</div></div>
   </div>
 
-  <div class="why">
-    <div class="w"><div class="t">외주 없이 직접 수행</div>
-      <div class="d">하자조사·감정 대응·소송·회수까지 법인이 직접 맡습니다.</div></div>
-    <div class="w"><div class="t">건설 전문 인력</div>
-      <div class="d">건축시공기술사 사무장이 조사·감정 대응을 기술적으로 뒷받침합니다.</div></div>
-    <div class="w"><div class="t">비용 선지급</div>
-      <div class="d">감정료·인지대·송달료를 전액 대납해 착수 부담을 없앱니다.</div></div>
-    <div class="w"><div class="t">동의서 징구 대행</div>
-      <div class="d">입주자대표회의의 최대 실무 부담을 법인이 직접 처리합니다.</div></div>
-  </div>
-
-  <div class="addr">
-    <span><b>주사무소(서초)</b> 서울 서초구 서초대로53길 15 정원빌딩 4층 · 02-537-0123</span>
-    <span><b>분사무소(동탄)</b> 경기 화성시 동탄순환대로 127-5 우성센트럴타워 914호 · 1899-4252</span>
-    <span>www.jllawfirm.co.kr</span></div>
-  <div class="verify">
-    <div><div class="vk">핵심 내용</div><div class="vv">하자소송은 서면만으로 되지 않습니다. 세대 단위 서류 처리량과 현장 대응이 결과를 좌우합니다.</div></div>
-    <div><div class="vk">수치 강조</div><div class="vv">변호사 7인 · 사무직원 36명 구성이며, 사무장은 <b>건축시공기술사</b>입니다. 도면을 읽는 인력이 법인 안에 있습니다.</div></div>
-    <div><div class="vk warnk">기한 경고</div><div class="vv">설명회·서류 징구는 단지 일정에 맞춰야 합니다. 총회 일정이 정해지면 미리 알려 주십시오.</div></div>
-  </div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

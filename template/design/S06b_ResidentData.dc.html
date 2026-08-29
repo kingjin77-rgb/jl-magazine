@@ -11,10 +11,10 @@
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
     font-size:15px;color:var(--muted);}
-  .eyebrow{position:absolute;left:56px;top:70px;font-size:15px;letter-spacing:.02em;color:var(--gold-ink);
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
-  .title{position:absolute;left:56px;top:96px;right:56px;font-size:24px;font-weight:800;
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:32px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
@@ -22,16 +22,16 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   /* ── 본문 프리미티브 ── */
-  .body{position:absolute;left:56px;right:56px;top:168px;bottom:246px;}
-  .sec{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
+  .sec{font-size:14px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
   .sec+.sec,.blk+.sec{margin-top:16px;}
 
   .cards{display:grid;gap:14px;}
   .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
-  .c .ck{font-size:15.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
-  .c .cv{margin-top:8px;font-size:13.5px;line-height:1.62;color:var(--ink);}
-  .c .cn{font-size:12px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
+  .c .ck{font-size:16.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:14.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
   .c b{color:var(--navy);font-weight:800;}
 
   .flow{display:grid;gap:0;}
@@ -39,17 +39,17 @@
   .step+.step{border-left:0;}
   .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--navy);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
-  .step .t{font-size:14.5px;font-weight:800;color:var(--ink);line-height:1.35;}
-  .step .b{margin-top:7px;font-size:12.5px;line-height:1.55;color:var(--ink);}
+  .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:14px;font-weight:700;}
+  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:15px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
-  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:13.5px;line-height:1.5;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
   .tbl .tr b{color:var(--navy);font-weight:800;}
 
-  .kv .r{display:flex;gap:10px;font-size:13.5px;line-height:1.55;padding:7px 0;
+  .kv .r{display:flex;gap:10px;font-size:14.5px;line-height:1.55;padding:7px 0;
     border-bottom:1px solid var(--line);}
   .kv .r:last-child{border-bottom:0;}
   .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
@@ -58,25 +58,25 @@
   .split{display:flex;gap:26px;height:100%;}
   .split>div{flex:1;}
 
-  .verify{position:absolute;left:56px;right:56px;bottom:78px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
   .verify>div:first-child{border-left:0;}
-  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:52px;font-size:13px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:52px;font-size:14px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
-  body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
     background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
-  body::after{content:"";position:absolute;left:0;top:142px;right:0;height:4px;
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
   .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
   .eyebrow{z-index:2;color:#CBB27E!important;}
@@ -88,11 +88,10 @@
 </style>
 </head>
 <body>
-  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+    <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">단지 보유 자료 활용 [고정]</div>
   <div class="title">관리사무소에 쌓인 하자 접수 기록이 그대로 청구 근거가 됩니다</div>
-  <div class="body"><div class="sec">세 가지로 쓰입니다</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);margin-bottom:15px"><div class="c"><div class="cn">01</div><div class="ck">하자의 존재</div><div class="cv">같은 부위에 반복 접수된 기록은 <b>일시적 현상이 아니라는 근거</b>가 됩니다.</div></div><div class="c"><div class="cn">02</div><div class="ck">발생 시점</div><div class="cv">접수 일자가 곧 발생 시점의 증거입니다. <b>결로처럼 사용검사 후에 나타나는 하자</b>에서 결정적입니다.</div></div><div class="c"><div class="cn">03</div><div class="ck">미이행 사실</div><div class="cv">보수 요구 공문과 회신을 대조하면 <b>무엇이 이행되지 않았는지</b>가 드러납니다.</div></div></div><div class="sec">제출해 주시면 이렇게 정리합니다</div><div class="flow blk" style="grid-template-columns:repeat(4,1fr);"><div class="step"><div class="num">1</div><div class="t">원자료 수령</div><div class="b">하자 접수대장 · 공문 · 회신 · 보수 지출 내역</div></div><div class="step"><div class="num">2</div><div class="t">부위·유형 분류</div><div class="b">14종 하자 유형 체계로 재분류</div></div><div class="step"><div class="num">3</div><div class="t">중복·시점 정리</div><div class="b">반복 접수를 묶고 최초 접수일을 특정</div></div><div class="step"><div class="num">4</div><div class="t">감정 항목 연결</div><div class="b">감정신청서 항목으로 옮겨 근거로 붙임</div></div></div></div>
-  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">단지가 이미 가지고 있는 자료가 가장 값싸고 강한 증거입니다. 새로 만들 필요 없이 정리만 하면 됩니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">접수 건수 자체보다 <b>같은 부위의 반복 접수</b>가 중요합니다. 반복은 시공 원인을 가리키고, 일회성은 사용 원인으로 반박당합니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">관리사무소 자료는 보존 연한이 지나면 폐기됩니다. 착수 시점에 먼저 사본을 확보해 두어야 합니다.</div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">세 가지로 쓰입니다</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);margin-bottom:15px"><div class="c"><div class="cn">01</div><div class="ck">하자의 존재</div><div class="cv">같은 부위에 반복 접수된 기록은 <b>일시적 현상이 아니라는 근거</b>가 됩니다.</div></div><div class="c"><div class="cn">02</div><div class="ck">발생 시점</div><div class="cv">접수 일자가 곧 발생 시점의 증거입니다. <b>결로처럼 사용검사 후에 나타나는 하자</b>에서 결정적입니다.</div></div><div class="c"><div class="cn">03</div><div class="ck">미이행 사실</div><div class="cv">보수 요구 공문과 회신을 대조하면 <b>무엇이 이행되지 않았는지</b>가 드러납니다.</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

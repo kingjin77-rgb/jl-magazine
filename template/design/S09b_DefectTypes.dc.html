@@ -11,10 +11,10 @@
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
     font-size:15px;color:var(--muted);}
-  .eyebrow{position:absolute;left:56px;top:70px;font-size:15px;letter-spacing:.02em;color:var(--gold-ink);
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
-  .title{position:absolute;left:56px;top:96px;right:56px;font-size:24px;font-weight:800;
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:32px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
@@ -22,16 +22,16 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   /* ── 본문 프리미티브 ── */
-  .body{position:absolute;left:56px;right:56px;top:168px;bottom:246px;}
-  .sec{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
+  .sec{font-size:14px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
   .sec+.sec,.blk+.sec{margin-top:16px;}
 
   .cards{display:grid;gap:14px;}
   .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
-  .c .ck{font-size:15.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
-  .c .cv{margin-top:8px;font-size:13.5px;line-height:1.62;color:var(--ink);}
-  .c .cn{font-size:12px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
+  .c .ck{font-size:16.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:14.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
   .c b{color:var(--navy);font-weight:800;}
 
   .flow{display:grid;gap:0;}
@@ -39,17 +39,17 @@
   .step+.step{border-left:0;}
   .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--navy);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
-  .step .t{font-size:14.5px;font-weight:800;color:var(--ink);line-height:1.35;}
-  .step .b{margin-top:7px;font-size:12.5px;line-height:1.55;color:var(--ink);}
+  .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:14px;font-weight:700;}
+  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:15px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
-  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:13.5px;line-height:1.5;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
   .tbl .tr b{color:var(--navy);font-weight:800;}
 
-  .kv .r{display:flex;gap:10px;font-size:13.5px;line-height:1.55;padding:7px 0;
+  .kv .r{display:flex;gap:10px;font-size:14.5px;line-height:1.55;padding:7px 0;
     border-bottom:1px solid var(--line);}
   .kv .r:last-child{border-bottom:0;}
   .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
@@ -58,25 +58,25 @@
   .split{display:flex;gap:26px;height:100%;}
   .split>div{flex:1;}
 
-  .verify{position:absolute;left:56px;right:56px;bottom:78px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
   .verify>div:first-child{border-left:0;}
-  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:20px;font-size:13px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:20px;font-size:14px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
-  body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
     background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
-  body::after{content:"";position:absolute;left:0;top:142px;right:0;height:4px;
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
   .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
   .eyebrow{z-index:2;color:#CBB27E!important;}
@@ -88,11 +88,10 @@
 </style>
 </head>
 <body>
-  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+    <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">하자의 법적 유형 [고정]</div>
   <div class="title">하자는 네 가지 유형으로 나뉘고, 어느 유형으로 보느냐에 따라 기간이 달라집니다</div>
-  <div class="body"><div class="sec">유형 구분 — 「2026 건설감정실무」 정리</div><div class="cards blk" style="grid-template-columns:repeat(4,1fr);"><div class="c"><div class="cn">01</div><div class="ck">미시공</div><div class="cv">설계도서에 있는데 <b>아예 시공되지 않은</b> 것.<br>세대 통신단자함 예비전원장치가 대표적입니다.</div></div><div class="c"><div class="cn">02</div><div class="ck">변경시공</div><div class="cv">설계도서와 <b>다른 자재·규격</b>으로 시공한 것.<br>단열재 THK85 설계를 THK60으로 넣은 경우입니다.</div></div><div class="c"><div class="cn">03</div><div class="ck">부실시공</div><div class="cv">시공은 했으나 <b>시방 기준에 못 미치는</b> 것.<br>방수층 두께 부족, 타일 뒤채움 부족이 여기 해당합니다.</div></div><div class="c"><div class="cn">04</div><div class="ck">설계상 하자</div><div class="cv">시공이 아니라 <b>설계 자체</b>가 기준에 미달하거나 부적합한 것.<br>설계도서 대조로만 드러납니다.</div></div></div><div class="sec">유형을 정확히 잡아야 하는 이유</div><div class="kv blk"><div class="r"><span>기간이 갈린다</span><em>마감공사로 보면 2년, 미시공·변경시공으로 보면 5년 구간에 남습니다</em></div><div class="r"><span>산정 방식이 갈린다</span><em>철거·재시공비로 볼지 시공비 차액으로 볼지가 유형에 따라 달라집니다</em></div><div class="r"><span>입증 방법이 갈린다</span><em>미시공은 도면 대조로, 부실시공은 실측·시험으로 증명합니다</em></div></div></div>
-  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">종전에 쓰이던 「오시공」이라는 표현은 「2026 건설감정실무」에서 정리되어, 미시공·변경시공·부실시공·설계상 하자로 구분합니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">미시공이나 변경시공 자체가 하자인 경우는 사용검사 전 하자와 마찬가지로 보아 담보책임기간의 제한을 받지 않습니다 (대법원 2012. 7. 12. 선고 2010다108234 판결).</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">유형 분류는 조사 단계에서 끝내야 합니다. 소 제기 후에 바꾸면 청구 원인을 다시 짜야 합니다.</div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">유형 구분 · 「2026 건설감정실무」 정리</div><div class="cards blk" style="grid-template-columns:repeat(4,1fr);"><div class="c"><div class="cn">01</div><div class="ck">미시공</div><div class="cv">설계도서에 있는데 <b>아예 시공되지 않은</b> 것.<br>세대 통신단자함 예비전원장치가 대표적입니다.</div></div><div class="c"><div class="cn">02</div><div class="ck">변경시공</div><div class="cv">설계도서와 <b>다른 자재·규격</b>으로 시공한 것.<br>단열재 THK85 설계를 THK60으로 넣은 경우입니다.</div></div><div class="c"><div class="cn">03</div><div class="ck">부실시공</div><div class="cv">시공은 했으나 <b>시방 기준에 못 미치는</b> 것.<br>방수층 두께 부족, 타일 뒤채움 부족이 여기 해당합니다.</div></div><div class="c"><div class="cn">04</div><div class="ck">설계상 하자</div><div class="cv">시공이 아니라 <b>설계 자체</b>가 기준에 미달하거나 부적합한 것.<br>설계도서 대조로만 드러납니다.</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

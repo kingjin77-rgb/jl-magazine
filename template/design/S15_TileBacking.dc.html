@@ -11,12 +11,12 @@
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
     font-size:15px;color:var(--muted);}
-  .eyebrow{position:absolute;left:56px;top:70px;font-size:15px;letter-spacing:.2em;color:var(--gold-ink);
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
   .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
     border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
-  .title{position:absolute;left:56px;top:96px;right:56px;font-size:26px;font-weight:800;
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:34px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
     border-radius:0;padding:12px 18px;line-height:1.6;}
@@ -27,7 +27,7 @@
     font-size:14px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
-  .title{font-size:24px;}
+  .title{font-size:32px;}
   .cols{position:absolute;left:56px;top:168px;right:56px;bottom:246px;display:flex;gap:28px;}
   .colL{width:56%;border:1px solid var(--line);border-radius:0;overflow:hidden;}
   .colL img{width:100%;height:100%;object-fit:contain;background:#fff;}
@@ -42,9 +42,9 @@
   .t1{flex:1.3;} .t2{flex:1.2;} .t3{flex:1;text-align:right;color:var(--navy);font-weight:700;}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
-  body::before{content:"";position:absolute;left:0;top:0;right:0;height:142px;
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
     background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
-  body::after{content:"";position:absolute;left:0;top:142px;right:0;height:4px;
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
   .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
   .eyebrow{z-index:2;color:#CBB27E!important;}
@@ -70,15 +70,15 @@
   /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
 
   /* ── 심층 검증 3단 밴드 (핵심 내용 · 수치 강조 · 기한 경고) ── */
-  .verify{position:absolute;left:56px;right:56px;bottom:78px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
   .verify>div:first-child{border-left:0;}
-  .verify .vk{font-size:14.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
@@ -106,7 +106,7 @@
       <div class="method">
         <div class="mh">판정 기준</div>
         <div class="mr"><span>뒤채움</span><b>타일 배면에 접착재가 채워진 면적 비율(뒤채움률)</b></div>
-        <div class="mr"><span>부착강도</span><b>인장 부착강도 <b style="color:#0D2162">0.39N/㎟ 미만이면 하자</b> — 2026 개정판이 처음으로 제시한 기준입니다</b></div>
+        <div class="mr"><span>부착강도</span><b>인장 부착강도 <b style="color:#0D2162">0.39N/㎟ 미만이면 하자</b> · 2026 개정판이 처음으로 제시한 기준입니다</b></div>
         <div class="mr"><span>중첩 제외</span><b>떠붙이기 타일의 들뜸·파손·탈락 재시공비를 산정할 때 <b style="color:#0D2162">뒤채움 부족 보수비와 중첩되는 면적은 제외</b>합니다</b></div>
         <div class="mh">조사 방법</div>
         <div class="mr"><span>1</span><b>표본 타일 탈락 후 배면 촬영·뒤채움률 실측</b></div>
