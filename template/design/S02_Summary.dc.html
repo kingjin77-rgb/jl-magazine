@@ -44,10 +44,17 @@
   .num{flex:1;padding-right:26px;}
   .num .v{font-size:56px;font-weight:800;color:#0D2162;letter-spacing:-.03em;line-height:1;}
   .num .l{margin-top:12px;font-size:15px;font-weight:700;color:#111418;}
-  .num .s{margin-top:6px;font-size:13.5px;color:#111418;opacity:.72;}
+  .num .s{margin-top:8px;font-size:13.5px;color:#111418;opacity:.72;}
+  /* 강조 텍스트 — 03b(제안의 세 축)와 같은 어법: 골드 바 + 단문 선언 */
+  .num .nbar{margin-top:14px;width:56px;height:4px;background:var(--gold);}
+  .num .nsub{margin-top:13px;font-size:18px;font-weight:800;color:var(--navy);
+    line-height:1.45;letter-spacing:-.02em;}
 
   /* 연한 톤 블록 — 흰 바탕의 가벼움을 눌러준다 */
-  .zone{margin-top:34px;background:#EFF2FB;padding:26px 30px;display:flex;gap:34px;}
+  /* 아래 블록은 주석 바로 위에 붙인다 — 숫자 무리와 두 덩어리로 나뉘게 해
+     가운데 여백이 구멍이 아니라 의도된 간격으로 읽히도록 한다. */
+  .zone{position:absolute;left:56px;right:56px;bottom:126px;
+    background:#EFF2FB;padding:30px 30px;display:flex;gap:34px;}
   .z{flex:1;}
   .z .k{font-size:13.5px;color:#8F7033;font-weight:700;letter-spacing:.04em;}
   .z .v{margin-top:9px;font-size:21px;font-weight:800;color:#0D2162;}
@@ -94,10 +101,16 @@
     <div class="rt">JL 단독 수행 실적</div>
     <div class="nums">
       <div class="num"><div class="v">18</div><div class="l">건</div>
+        <div class="nbar"></div>
+        <div class="nsub">외주 없이<br>직접 수행한 사건입니다</div>
         <div class="s">2018~2021년 접수 사건</div></div>
       <div class="num"><div class="v">328</div><div class="l">억원</div>
+        <div class="nbar"></div>
+        <div class="nsub">법원이 인정한<br>하자보수비입니다</div>
         <div class="s">32,836,812,673원</div></div>
       <div class="num"><div class="v">329</div><div class="l">만원 · 세대당</div>
+        <div class="nbar"></div>
+        <div class="nsub">세대 수로 나눈<br>실적 참고치입니다</div>
         <div class="s">328억 ÷ 9,979세대</div></div>
     </div>
 
