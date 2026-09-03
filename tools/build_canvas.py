@@ -142,7 +142,7 @@ def stage():
 
     # 이미지는 build 루트에 평면으로 복사한다. .dc.html이 파일명만으로
     # 참조하므로 캔버스(files 키 = 파일명)와 로컬 프리뷰 렌더가 모두 맞는다.
-    for sub in ('graphics', 'lawyers'):
+    for sub in ('graphics', 'lawyers', 'photos'):
         for f in glob.glob(os.path.join(DESIGN, sub, '*')):
             shutil.copy(f, os.path.join(BUILD, os.path.basename(f)))
     for f in (glob.glob(os.path.join(DESIGN, '*.jpg'))
