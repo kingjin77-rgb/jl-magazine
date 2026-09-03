@@ -5,8 +5,8 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
@@ -31,15 +31,15 @@
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
-  .eyebrow{z-index:2;color:#CBB27E!important;}
-  .eyebrow::before{background:#CBB27E!important;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   .badge{z-index:2;background:rgba(255,255,255,.10)!important;
-    border-color:rgba(203,178,126,.55)!important;color:#CBB27E!important;}
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
 
   /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
      내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
@@ -62,20 +62,20 @@
   <div class="title">집합건물법과 공동주택관리법이 함께 적용됩니다</div>
 
   <table style="position:absolute;top:150px;left:56px;right:56px;width:1220px;border-collapse:collapse;font-size:14.5px;">
-    <tr style="background:#F4F5F8;">
-      <th style="width:16%;text-align:left;padding:10px 18px;border:1.4px solid #C7CBD3;color:#111418;">구분</th>
-      <th style="text-align:left;padding:10px 18px;border:1.4px solid #C7CBD3;color:#111418;">집합건물의 소유 및 관리에 관한 법률</th>
-      <th style="text-align:left;padding:10px 18px;border:1.4px solid #C7CBD3;color:#111418;">공동주택관리법</th>
+    <tr style="background:#E9EDF8;">
+      <th style="width:16%;text-align:left;padding:10px 18px;border:1.4px solid #C6CFE0;color:#111418;">구분</th>
+      <th style="text-align:left;padding:10px 18px;border:1.4px solid #C6CFE0;color:#111418;">집합건물의 소유 및 관리에 관한 법률</th>
+      <th style="text-align:left;padding:10px 18px;border:1.4px solid #C6CFE0;color:#111418;">공동주택관리법</th>
     </tr>
     <tr>
-      <td style="padding:10px 18px;border:1.4px solid #C7CBD3;color:#111418;">성격</td>
-      <td style="padding:10px 18px;border:1.4px solid #C7CBD3;">사법(私法) · 담보책임·손해배상의 근거</td>
-      <td style="padding:10px 18px;border:1.4px solid #C7CBD3;">행정 규율 · 하자보수 절차·보증금·분쟁조정</td>
+      <td style="padding:10px 18px;border:1.4px solid #C6CFE0;color:#111418;">성격</td>
+      <td style="padding:10px 18px;border:1.4px solid #C6CFE0;">사법 성격 · 담보책임·손해배상의 근거</td>
+      <td style="padding:10px 18px;border:1.4px solid #C6CFE0;">행정 규율 · 하자보수 절차·보증금·분쟁조정</td>
     </tr>
     <tr>
-      <td style="padding:10px 18px;border:1.4px solid #C7CBD3;color:#111418;">핵심 조문</td>
-      <td style="padding:10px 18px;border:1.4px solid #C7CBD3;">제9조(담보책임) · 제9조의2(존속기간)</td>
-      <td style="padding:10px 18px;border:1.4px solid #C7CBD3;">제36조 · 제37조 · 제38조 · 제39조</td>
+      <td style="padding:10px 18px;border:1.4px solid #C6CFE0;color:#111418;">핵심 조문</td>
+      <td style="padding:10px 18px;border:1.4px solid #C6CFE0;">제9조(담보책임) · 제9조의2(존속기간)</td>
+      <td style="padding:10px 18px;border:1.4px solid #C6CFE0;">제36조 · 제37조 · 제38조 · 제39조</td>
     </tr>
   </table>
 
@@ -84,63 +84,63 @@
     <text x="1120" y="18" font-size="11" fill="#111418" letter-spacing="1" text-anchor="end">CLAIM FLOW</text>
 
     <!-- 하자 발생 -->
-    <rect x="0" y="44" width="180" height="80" rx="8" fill="#FFFFFF" stroke="#C7CBD3"/>
-    <rect x="0" y="44" width="4" height="80" rx="2" fill="#0D2162"/>
+    <rect x="0" y="44" width="180" height="80" rx="8" fill="#FFFFFF" stroke="#C6CFE0"/>
+    <rect x="0" y="44" width="4" height="80" rx="2" fill="#223D5B"/>
     <text x="20" y="78" font-size="15" font-weight="700" fill="#111418">하자 발생</text>
     <text x="20" y="100" font-size="11.5" fill="#111418">공용부분·전유부분</text>
 
     <!-- 화살표 분기 -->
-    <path d="M188,84 L230,44" stroke="#0D2162" stroke-width="1.6" fill="none"/>
-    <path d="M188,84 L230,124" stroke="#0D2162" stroke-width="1.6" fill="none"/>
-    <polygon points="230,44 224,48 224,40" fill="#0D2162"/>
-    <polygon points="230,124 224,128 224,120" fill="#0D2162"/>
+    <path d="M188,84 L230,44" stroke="#223D5B" stroke-width="1.6" fill="none"/>
+    <path d="M188,84 L230,124" stroke="#223D5B" stroke-width="1.6" fill="none"/>
+    <polygon points="230,44 224,48 224,40" fill="#223D5B"/>
+    <polygon points="230,124 224,128 224,120" fill="#223D5B"/>
 
     <!-- 상단: 집합건물법 트랙 -->
-    <rect x="238" y="10" width="330" height="68" rx="8" fill="#F4F5F8"/>
-    <text x="256" y="32" font-size="12" font-weight="700" fill="#0D2162">집합건물법 제9조 · 제9조의2</text>
+    <rect x="238" y="10" width="330" height="68" rx="8" fill="#E9EDF8"/>
+    <text x="256" y="32" font-size="12" font-weight="700" fill="#223D5B">집합건물법 제9조 · 제9조의2</text>
     <text x="256" y="54" font-size="13.5" fill="#111418">담보책임 성립 · 존속기간 내 하자</text>
 
-    <path d="M568,44 L610,44" stroke="#0D2162" stroke-width="1.6" fill="none"/>
-    <polygon points="610,44 604,48 604,40" fill="#0D2162"/>
+    <path d="M568,44 L610,44" stroke="#223D5B" stroke-width="1.6" fill="none"/>
+    <polygon points="610,44 604,48 604,40" fill="#223D5B"/>
 
-    <rect x="618" y="10" width="290" height="68" rx="8" fill="#0D2162"/>
-    <text x="636" y="30" font-size="11" font-weight="700" fill="#CBB27E" letter-spacing="1">민법 제667조 이하 준용</text>
+    <rect x="618" y="10" width="290" height="68" rx="8" fill="#223D5B"/>
+    <text x="636" y="30" font-size="11" font-weight="700" fill="#EBD9B4" letter-spacing="1">민법 제667조 이하 준용</text>
     <text x="636" y="54" font-size="14" font-weight="700" fill="#FFFFFF">손해배상청구권 발생</text>
 
-    <path d="M908,44 L950,44" stroke="#0D2162" stroke-width="1.6" fill="none"/>
-    <polygon points="950,44 944,48 944,40" fill="#0D2162"/>
+    <path d="M908,44 L950,44" stroke="#223D5B" stroke-width="1.6" fill="none"/>
+    <polygon points="950,44 944,48 944,40" fill="#223D5B"/>
 
-    <rect x="958" y="10" width="262" height="68" rx="8" fill="#FFFFFF" stroke="#0D2162" stroke-width="1.6"/>
-    <text x="976" y="32" font-size="12" font-weight="700" fill="#0D2162">S11 채권양도 → 소송</text>
+    <rect x="958" y="10" width="262" height="68" rx="8" fill="#FFFFFF" stroke="#223D5B" stroke-width="1.6"/>
+    <text x="976" y="32" font-size="12" font-weight="700" fill="#223D5B">S11 채권양도 → 소송</text>
     <text x="976" y="54" font-size="13.5" fill="#111418">입대의 명의로 소 제기</text>
 
     <!-- 하단: 공동주택관리법 트랙 -->
-    <rect x="238" y="90" width="330" height="68" rx="8" fill="#F4F5F8"/>
-    <text x="256" y="112" font-size="12" font-weight="700" fill="#0D2162">공동주택관리법 제36·37조</text>
+    <rect x="238" y="90" width="330" height="68" rx="8" fill="#E9EDF8"/>
+    <text x="256" y="112" font-size="12" font-weight="700" fill="#223D5B">공동주택관리법 제36·37조</text>
     <text x="256" y="134" font-size="13.5" fill="#111418">하자보수 청구 절차 개시</text>
 
-    <path d="M568,124 L610,124" stroke="#0D2162" stroke-width="1.6" fill="none"/>
-    <polygon points="610,124 604,128 604,120" fill="#0D2162"/>
+    <path d="M568,124 L610,124" stroke="#223D5B" stroke-width="1.6" fill="none"/>
+    <polygon points="610,124 604,128 604,120" fill="#223D5B"/>
 
-    <rect x="618" y="90" width="290" height="68" rx="8" fill="#FFFFFF" stroke="#C7CBD3"/>
+    <rect x="618" y="90" width="290" height="68" rx="8" fill="#FFFFFF" stroke="#C6CFE0"/>
     <text x="636" y="112" font-size="12" font-weight="700" fill="#111418">제38조 하자보수보증금</text>
     <text x="636" y="134" font-size="14" font-weight="700" fill="#111418">보증기관 대상 청구</text>
 
-    <path d="M908,124 L950,124" stroke="#0D2162" stroke-width="1.6" fill="none"/>
-    <polygon points="950,124 944,128 944,120" fill="#0D2162"/>
+    <path d="M908,124 L950,124" stroke="#223D5B" stroke-width="1.6" fill="none"/>
+    <polygon points="950,124 944,128 944,120" fill="#223D5B"/>
 
-    <rect x="958" y="90" width="262" height="68" rx="8" fill="#FFFFFF" stroke="#C7CBD3"/>
+    <rect x="958" y="90" width="262" height="68" rx="8" fill="#FFFFFF" stroke="#C6CFE0"/>
     <text x="976" y="112" font-size="12" font-weight="700" fill="#111418">제39조 하자심사·분쟁조정</text>
     <text x="976" y="134" font-size="13.5" fill="#111418">조정 절차 병행 가능</text>
 
     <!-- 하단 결론 밴드 -->
-    <rect x="0" y="196" width="1220" height="140" rx="10" fill="#FFFFFF" stroke="#C7CBD3"/>
-    <rect x="0" y="196" width="5" height="140" rx="2" fill="#0D2162"/>
+    <rect x="0" y="196" width="1220" height="140" rx="10" fill="#FFFFFF" stroke="#C6CFE0"/>
+    <rect x="0" y="196" width="5" height="140" rx="2" fill="#223D5B"/>
     <text x="30" y="228" font-size="14" font-weight="700" fill="#111418">이 제안서에서 실제로 청구를 만드는 것은</text>
-    <text x="30" y="258" font-size="20" font-weight="700" fill="#0D2162">집합건물법 제9조 계열의 손해배상청구권</text>
-    <text x="30" y="286" font-size="14" fill="#111418">공동주택관리법은 보수 청구와 보증금 청구·조정의 통로이며, 두 경로는 병행하여 활용할 수 있다.</text>
+    <text x="30" y="258" font-size="20" font-weight="700" fill="#223D5B">집합건물법 제9조 계열의 손해배상청구권</text>
+    <text x="30" y="286" font-size="14" fill="#111418">공동주택관리법은 보수 청구와 보증금 청구·조정의 통로이며, 두 경로는 병행하여 활용할 수 있습니다.</text>
 
-    <line x1="740" y1="212" x2="740" y2="322" stroke="#C7CBD3"/>
+    <line x1="740" y1="212" x2="740" y2="322" stroke="#C6CFE0"/>
     <text x="770" y="234" font-size="13" fill="#111418">근거</text>
     <text x="770" y="258" font-size="14.5" fill="#111418">민법 제667조·제668조 준용 (집합건물법 제9조 제1항)</text>
     <text x="770" y="286" font-size="13" fill="#111418">→ 존속기간 내 하자에 한해 성립 (S10 참조)</text>

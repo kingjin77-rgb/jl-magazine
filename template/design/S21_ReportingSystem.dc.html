@@ -5,8 +5,8 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
@@ -36,7 +36,7 @@
   .tl{position:absolute;left:56px;top:352px;right:56px;}
   .tl .h{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:14px;}
   .track{position:relative;height:7px;background:var(--card);border-radius:0;}
-  .fill{position:absolute;top:0;left:0;height:7px;background:var(--navy);border-radius:0;width:100%;}
+  .fill{position:absolute;top:0;left:0;height:7px;background:var(--fill);border-radius:0;width:100%;}
   .pts{position:relative;margin-top:14px;display:flex;}
   .pt{flex:1;position:relative;padding-right:12px;}
   .pt::before{content:"";position:absolute;top:-25px;left:0;width:11px;height:11px;
@@ -49,15 +49,15 @@
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
-  .eyebrow{z-index:2;color:#CBB27E!important;}
-  .eyebrow::before{background:#CBB27E!important;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   .badge{z-index:2;background:rgba(255,255,255,.10)!important;
-    border-color:rgba(203,178,126,.55)!important;color:#CBB27E!important;}
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
 
   /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
      내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
@@ -81,13 +81,13 @@
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:12px;}
   .chan .row{display:flex;align-items:stretch;gap:0;}
   .chan .n{flex:1;border:1px solid var(--line);background:#fff;padding:11px 15px 12px;}
-  .chan .n.hi{background:var(--navy);border-color:var(--navy);}
+  .chan .n.hi{background:var(--fill);border-color:var(--navy);}
   .chan .n .k{font-size:11.5px;font-weight:800;letter-spacing:.1em;color:var(--gold-ink);}
-  .chan .n.hi .k{color:#CBB27E;}
+  .chan .n.hi .k{color:#EBD9B4;}
   .chan .n .t{margin-top:6px;font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em;}
   .chan .n.hi .t{color:#fff;}
   .chan .n .d{margin-top:5px;font-size:12px;line-height:1.5;color:var(--ink);}
-  .chan .n.hi .d{color:rgba(255,255,255,.80);}
+  .chan .n.hi .d{color:#FFFFFF;}
   .chan .ar{flex:0 0 44px;display:flex;align-items:center;justify-content:center;
     font-size:15px;color:var(--navy);font-weight:700;}
   .chan .n.hi *{background:transparent;}
@@ -99,11 +99,11 @@
   <div class="title">진행 상황은 정기적으로, 정해진 창구로 보고합니다</div>
 
   <div class="cards">
-    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 12h32v30H8z" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 6v10" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 6v10" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 22h32" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="k">보고 주기</div><div class="v">월 1회 정기 + 주요 시점 수시</div>
+    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 12h32v30H8z" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 6v10" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M32 6v10" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 22h32" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="k">보고 주기</div><div class="v">월 1회 정기 + 주요 시점 수시</div>
       <div class="d">정기 보고와 별개로, 절차가 움직이는 시점마다 즉시 알립니다.</div></div>
-    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4h16l10 10v30H12z" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 4v10h10" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 28h14" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="k">보고 형식</div><div class="v">서면 보고 + 요청 시 대면 설명</div>
+    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 4h16l10 10v30H12z" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M28 4v10h10" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 28h14" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="k">보고 형식</div><div class="v">서면 보고 + 요청 시 대면 설명</div>
       <div class="d">입주자대표회의가 총회·주민설명회에 그대로 쓸 수 있는 형식으로 정리합니다.</div></div>
-    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 6h8l4 10-5 3a20 20 0 0 0 9 9l3-5 10 4v8a4 4 0 0 1-4 4A32 32 0 0 1 9 10a4 4 0 0 1 4-4" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="k">전담 창구</div><div class="v">담당 변호사 직통 연락</div>
+    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13 6h8l4 10-5 3a20 20 0 0 0 9 9l3-5 10 4v8a4 4 0 0 1-4 4A32 32 0 0 1 9 10a4 4 0 0 1 4-4" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="k">전담 창구</div><div class="v">담당 변호사 직통 연락</div>
       <div class="d">사건마다 담당 변호사를 지정해 문의가 한 창구로 모이게 합니다.</div></div>
   </div>
 

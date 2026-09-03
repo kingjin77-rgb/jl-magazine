@@ -5,8 +5,8 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
@@ -50,15 +50,15 @@
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
-  .eyebrow{z-index:2;color:#CBB27E!important;}
-  .eyebrow::before{background:#CBB27E!important;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   .badge{z-index:2;background:rgba(255,255,255,.10)!important;
-    border-color:rgba(203,178,126,.55)!important;color:#CBB27E!important;}
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
 
   /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
      내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
@@ -111,8 +111,8 @@
   <div class="body">
     <div class="method">
       <div class="mh">2026 개정판이 달라진 점</div>
-      <div class="mr"><span>통일 기준 없음</span><b>개정판은 두께의 통일 기준을 제시하지 않고, 감정인이 현장 여건에 따라 <b style="color:#0D2162">4㎜ · 6㎜ · 벽 6㎜/바닥 10㎜</b> 등을 기준으로 할 수 있다고 밝혔습니다</b></div>
-      <div class="mr"><span>그래서</span><b>해당 단지 <b style="color:#0D2162">설계도서에 무엇이 적혀 있는지 확인하는 것이 먼저</b>입니다</b></div>
+      <div class="mr"><span>통일 기준 없음</span><b>개정판은 두께의 통일 기준을 제시하지 않고, 감정인이 현장 여건에 따라 <b style="color:#223D5B">4㎜ · 6㎜ · 벽 6㎜/바닥 10㎜</b> 등을 기준으로 할 수 있다고 밝혔습니다</b></div>
+      <div class="mr"><span>그래서</span><b>해당 단지 <b style="color:#223D5B">설계도서에 무엇이 적혀 있는지 확인하는 것이 먼저</b>입니다</b></div>
       <div class="mh">왜 도해를 함께 쓰나</div>
       <div class="mr"><span></span><b>사진만으로는 기준선과 실측선의 차이가 보이지 않습니다. 단면 모식도에 두 선을 겹쳐 그려야 부족분이 드러납니다.</b></div>
     </div>

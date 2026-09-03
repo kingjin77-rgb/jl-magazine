@@ -5,8 +5,8 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
@@ -34,7 +34,7 @@
   .bar-row .lbl{display:flex;justify-content:space-between;font-size:15px;margin-bottom:5px;}
   .bar-row .lbl b{color:var(--ink);font-weight:700;} .bar-row .lbl span{color:var(--muted);}
   .bar-bg{height:16px;background:var(--card);border-radius:0;overflow:hidden;}
-  .bar-fg{height:100%;background:var(--navy);border-radius:0;}
+  .bar-fg{height:100%;background:var(--fill);border-radius:0;}
   .heat{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;}
   .hcell{aspect-ratio:1;border-radius:0;display:flex;align-items:center;justify-content:center;
     font-size:14px;color:#fff;font-weight:700;}
@@ -42,15 +42,15 @@
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
-  .eyebrow{z-index:2;color:#CBB27E!important;}
-  .eyebrow::before{background:#CBB27E!important;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   .badge{z-index:2;background:rgba(255,255,255,.10)!important;
-    border-color:rgba(203,178,126,.55)!important;color:#CBB27E!important;}
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
 
   /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
      내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
@@ -105,13 +105,13 @@
       <div class="heat">
         <div class="hcell" style="background:#C0392B">{{101동}}</div>
         <div class="hcell" style="background:#E67E22">{{102동}}</div>
-        <div class="hcell" style="background:#0D2162">{{103동}}</div>
-        <div class="hcell" style="background:#0D2162">{{104동}}</div>
-        <div class="hcell" style="background:#0D2162">{{105동}}</div>
+        <div class="hcell" style="background:var(--fill)">{{103동}}</div>
+        <div class="hcell" style="background:var(--fill)">{{104동}}</div>
+        <div class="hcell" style="background:var(--fill)">{{105동}}</div>
         <div class="hcell" style="background:#E67E22">{{106동}}</div>
         <div class="hcell" style="background:#C0392B">{{107동}}</div>
-        <div class="hcell" style="background:#0D2162">{{108동}}</div>
-        <div class="hcell" style="background:#0D2162">{{109동}}</div>
+        <div class="hcell" style="background:var(--fill)">{{108동}}</div>
+        <div class="hcell" style="background:var(--fill)">{{109동}}</div>
         <div class="hcell" style="background:#E67E22">{{110동}}</div>
       </div></div>
   </div>

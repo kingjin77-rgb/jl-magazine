@@ -5,8 +5,8 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
@@ -32,7 +32,7 @@
   .c{flex:1;background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:22px 20px;}
   .c .t{font-size:16px;font-weight:800;color:var(--navy);}
   .c .d{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.7;}
-  .record{position:absolute;left:56px;top:372px;right:56px;background:var(--navy);color:#fff;
+  .record{position:absolute;left:56px;top:372px;right:56px;background:var(--fill);color:#fff;
     border-radius:0;padding:18px 24px;}
   .rec-h{font-size:14px;color:#F0F4FC;letter-spacing:.04em;font-weight:700;}
   .rec-row{margin-top:12px;display:flex;}
@@ -50,15 +50,15 @@
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
-  .eyebrow{z-index:2;color:#CBB27E!important;}
-  .eyebrow::before{background:#CBB27E!important;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   .badge{z-index:2;background:rgba(255,255,255,.10)!important;
-    border-color:rgba(203,178,126,.55)!important;color:#CBB27E!important;}
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
 
   /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
      내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
@@ -82,9 +82,9 @@
   <div class="eyebrow">채권양도 동의서 징구 지원 [고정]</div>
   <div class="title">동의서 징구는 법인이 직접 수행합니다</div>
   <div class="cards">
-    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 42c0-7 5-12 12-12s12 5 12 12" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M31 22l5 5 9-10" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">현장 접수</div><div class="d">입주자대표회의·관리사무소와 협의해 현장 접수 창구를 운영합니다.</div></div>
-    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 4h18a3 3 0 0 1 3 3v34a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 36h8" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">문자 접수</div><div class="d">구분소유자 대상 문자 안내와 회신을 통해 서명·날인 서류를 받습니다.</div></div>
-    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8h36v22H6z" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 30v8" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 42h16" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 24l7-8 5 6 8-9" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">주민설명회</div><div class="d">동의서의 목적과 절차를 직접 설명해 서명률을 높입니다.</div></div>
+    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 42c0-7 5-12 12-12s12 5 12 12" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M31 22l5 5 9-10" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">현장 접수</div><div class="d">입주자대표회의·관리사무소와 협의해 현장 접수 창구를 운영합니다.</div></div>
+    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 4h18a3 3 0 0 1 3 3v34a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 36h8" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">문자 접수</div><div class="d">구분소유자 대상 문자 안내와 회신을 통해 서명·날인 서류를 받습니다.</div></div>
+    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8h36v22H6z" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 30v8" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 42h16" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 24l7-8 5 6 8-9" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">주민설명회</div><div class="d">동의서의 목적과 절차를 직접 설명해 서명률을 높입니다.</div></div>
   </div>
   <div class="record">
     <div class="rec-h">JL 수행 사건 채권양도비율 · 판결문 확인 15건</div>

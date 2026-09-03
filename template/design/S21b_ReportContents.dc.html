@@ -5,8 +5,8 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
@@ -37,13 +37,13 @@
   .flow{display:grid;gap:0;}
   .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
   .step+.step{border-left:0;}
-  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--navy);
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--fill);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
   .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
   .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:15px;font-weight:700;}
+  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:15px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
   .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
@@ -75,12 +75,12 @@
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
-  .eyebrow{z-index:2;color:#CBB27E!important;}
-  .eyebrow::before{background:#CBB27E!important;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   html,body{background:#FFFFFF!important;}
   body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
@@ -99,13 +99,32 @@
   .kv .r{padding:4.4px 0;} .sec{margin-bottom:9px;}
   .sec+.sec,.blk+.sec{margin-top:11px;} .c{padding:11px 15px;}
   .cards{gap:12px;} .step{padding:11px 14px 12px;}
+
+  /* ── 사진 자리 ── 파일이 없으면 연한 상자로 남고, 넣으면 그대로 채워진다.
+     아래 배경 파일명 그대로 template/design/photos/ 에 두면 된다. */
+  .pslot{display:flex;gap:22px;align-items:stretch;margin-top:18px;
+    border-top:1.4px solid var(--line);padding-top:16px;}
+  .pslot .pbox{flex:0 0 auto;border:1px solid var(--line);
+    background:var(--card) center/cover no-repeat;position:relative;}
+  .pslot .pbox::after{content:"사진";position:absolute;left:50%;top:50%;
+    transform:translate(-50%,-50%);font-size:13px;font-weight:800;
+    letter-spacing:.24em;color:#7F8CA6;}
+  .pslot .ptx{flex:1;display:flex;flex-direction:column;justify-content:center;}
+  .pslot .ph{font-size:15.5px;font-weight:800;color:var(--navy);
+    display:flex;align-items:center;gap:8px;letter-spacing:-.01em;}
+  .pslot .ph::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .pslot .pd{margin-top:10px;font-size:14.5px;line-height:1.7;color:var(--ink);max-width:600px;}
+  .pslot .pd b{color:var(--navy);font-weight:800;}
+  .pslot .pf{margin-top:13px;padding-top:11px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--ink);}
+  .pslot .pf b{color:var(--gold-ink);font-weight:800;}
 </style>
 </head>
 <body>
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">보고서 수록 항목 [고정]</div>
   <div class="title">보고서에는 진행 상황만이 아니라 판단에 필요한 것을 담습니다</div>
-  <div class="body" style="bottom:56px"><div class="sec">정기 보고서 구성 · 월 1회</div><div class="tbl blk" style="margin-bottom:16px"><div class="th"><div style="width:170px">구분</div><div style="flex:1">수록 항목</div></div><div class="tr"><div style="width:170px"><b>진행 현황</b></div><div style="flex:1">현재 단계 · 직전 기일 내용 · 다음 기일과 예정 사항</div></div><div class="tr"><div style="width:170px"><b>채권양도</b></div><div style="flex:1">차수별 양도 세대수와 비율 · 미회수 세대 현황</div></div><div class="tr"><div style="width:170px"><b>감정</b></div><div style="flex:1">감정인 지정 현황 · 감정료 납부 내역 · 현장조사 일정과 결과</div></div><div class="tr"><div style="width:170px"><b>쟁점</b></div><div style="flex:1">피고 주장 요지 · 이에 대한 대응 방향 · 판단이 필요한 사항</div></div><div class="tr"><div style="width:170px"><b>비용</b></div><div style="flex:1">기간 중 발생한 실비와 집행 내역</div></div><div class="tr"><div style="width:170px"><b>요청 사항</b></div><div style="flex:1">입주자대표회의가 준비하거나 결정해 주어야 할 것</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">정기 보고서 구성 · 월 1회</div><div class="tbl blk" style="margin-bottom:16px"><div class="th"><div style="width:170px">구분</div><div style="flex:1">수록 항목</div></div><div class="tr"><div style="width:170px"><b>진행 현황</b></div><div style="flex:1">현재 단계 · 직전 기일 내용 · 다음 기일과 예정 사항</div></div><div class="tr"><div style="width:170px"><b>채권양도</b></div><div style="flex:1">차수별 양도 세대수와 비율 · 미회수 세대 현황</div></div><div class="tr"><div style="width:170px"><b>감정</b></div><div style="flex:1">감정인 지정 현황 · 감정료 납부 내역 · 현장조사 일정과 결과</div></div><div class="tr"><div style="width:170px"><b>쟁점</b></div><div style="flex:1">피고 주장 요지 · 이에 대한 대응 방향 · 판단이 필요한 사항</div></div><div class="tr"><div style="width:170px"><b>비용</b></div><div style="flex:1">기간 중 발생한 실비와 집행 내역</div></div><div class="tr"><div style="width:170px"><b>요청 사항</b></div><div style="flex:1">입주자대표회의가 준비하거나 결정해 주어야 할 것</div></div></div><div class="pslot"><div class="pbox" style="width:264px;height:198px;background-image:url(p-report-inside.jpg)"></div><div class="ptx"><div class="ph">보고서 내지</div><div class="pd"><b>진행 상황과 판단 근거가 적힌 내지</b>입니다. 어떤 내용을 담는지 보여 주는 용도입니다.</div><div class="pf">파일을 <b>template/design/photos/p-report-inside.jpg</b> 로 두시면 그대로 들어갑니다 · 가로 4:3 권장</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

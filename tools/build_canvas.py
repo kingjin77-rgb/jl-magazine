@@ -23,11 +23,15 @@ FONTS = os.path.join(ROOT, 'assets', 'fonts')
 # 제목·숫자는 050, 본문은 030/040을 써서 같은 가족 안에서 굵기만 나눈다.
 DISPLAY = 'JL디스플레이'
 TEXT = 'JL본문'
-FACES = [(DISPLAY, '400', 'OmniGothic050.ttf'),
-         (DISPLAY, '700', 'OmniGothic050.ttf'),
-         (TEXT,    '400', 'OmniGothic030.ttf'),
-         (TEXT,    '600', 'OmniGothic040.ttf'),
-         (TEXT,    '700', 'OmniGothic050.ttf')]
+# 사용자 지정 서체 — 지마켓 산스. 굵은 인상을 위해 제목은 Bold,
+# 본문은 Medium을 쓴다(Light는 회색처럼 흐려 보여 쓰지 않는다).
+FACES = [(DISPLAY, '400', 'GmarketSansBold.ttf'),
+         (DISPLAY, '700', 'GmarketSansBold.ttf'),
+         (DISPLAY, '800', 'GmarketSansBold.ttf'),
+         (TEXT,    '400', 'GmarketSansMedium.ttf'),
+         (TEXT,    '600', 'GmarketSansBold.ttf'),
+         (TEXT,    '700', 'GmarketSansBold.ttf'),
+         (TEXT,    '800', 'GmarketSansBold.ttf')]
 FAMILY = TEXT
 
 

@@ -5,8 +5,8 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
@@ -37,13 +37,13 @@
   .flow{display:grid;gap:0;}
   .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
   .step+.step{border-left:0;}
-  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--navy);
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--fill);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
   .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
   .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:15px;font-weight:700;}
+  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:15px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
   .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
@@ -75,12 +75,12 @@
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
-  .eyebrow{z-index:2;color:#CBB27E!important;}
-  .eyebrow::before{background:#CBB27E!important;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   html,body{background:#FFFFFF!important;}
   body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
@@ -93,13 +93,32 @@
   .sec{margin-bottom:9px;}
   .sec+.sec,.blk+.sec{margin-top:12px;}
   .c{padding:12px 16px;}
+
+  /* ── 사진 자리 ── 파일이 없으면 연한 상자로 남고, 넣으면 그대로 채워진다.
+     아래 배경 파일명 그대로 template/design/photos/ 에 두면 된다. */
+  .pslot{display:flex;gap:22px;align-items:stretch;margin-top:18px;
+    border-top:1.4px solid var(--line);padding-top:16px;}
+  .pslot .pbox{flex:0 0 auto;border:1px solid var(--line);
+    background:var(--card) center/cover no-repeat;position:relative;}
+  .pslot .pbox::after{content:"사진";position:absolute;left:50%;top:50%;
+    transform:translate(-50%,-50%);font-size:13px;font-weight:800;
+    letter-spacing:.24em;color:#7F8CA6;}
+  .pslot .ptx{flex:1;display:flex;flex-direction:column;justify-content:center;}
+  .pslot .ph{font-size:15.5px;font-weight:800;color:var(--navy);
+    display:flex;align-items:center;gap:8px;letter-spacing:-.01em;}
+  .pslot .ph::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .pslot .pd{margin-top:10px;font-size:14.5px;line-height:1.7;color:var(--ink);max-width:600px;}
+  .pslot .pd b{color:var(--navy);font-weight:800;}
+  .pslot .pf{margin-top:13px;padding-top:11px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--ink);}
+  .pslot .pf b{color:var(--gold-ink);font-weight:800;}
 </style>
 </head>
 <body>
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">하자심사·분쟁조정위원회 [고정]</div>
   <div class="title">하심위 하자심사에서 판정서 10건 중 약 7건이 하자로 인정됩니다</div>
-  <div class="body" style="bottom:56px"><div class="sec">국토교통부가 공개한 처리 현황</div><div class="cards blk" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px"><div class="c"><div class="cn">처리량</div><div class="ck">연평균 4,600여건</div><div class="cv">'21~'25년 5년간 하자심사·분쟁조정·재정을 합해 연평균 약 4,600건을 처리했습니다. '25년은 4,761건입니다.</div></div><div class="c"><div class="cn">인정률</div><div class="ck">68.3%</div><div class="cv">판정서 교부 11,081건 중 <b>7,573건이 하자로 판정</b>됐습니다. 연도별로는 61.0~78.8% 사이에서 움직입니다.</div></div><div class="c"><div class="cn">보수 의무</div><div class="ck">60일 이내</div><div class="cv">하자로 판정되면 사업주체는 공동주택관리법령에 따라 <b>60일 이내 보수</b>하고 하자관리정보시스템에 결과를 등록해야 합니다.</div></div><div class="c"><div class="cn">명단 공개</div><div class="ck">반기마다</div><div class="cv">하자 판정 건수·비율 상위 건설사 명단이 반기마다 공개됩니다. '26년 하반기부터는 하심위 누리집에 게시됩니다.</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">국토교통부가 공개한 처리 현황</div><div class="cards blk" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px"><div class="c"><div class="cn">처리량</div><div class="ck">연평균 4,600여건</div><div class="cv">'21~'25년 5년간 하자심사·분쟁조정·재정을 합해 연평균 약 4,600건을 처리했습니다. '25년은 4,761건입니다.</div></div><div class="c"><div class="cn">인정률</div><div class="ck">68.3%</div><div class="cv">판정서 교부 11,081건 중 <b>7,573건이 하자로 판정</b>됐습니다. 연도별로는 61.0~78.8% 사이에서 움직입니다.</div></div><div class="c"><div class="cn">보수 의무</div><div class="ck">60일 이내</div><div class="cv">하자로 판정되면 사업주체는 공동주택관리법령에 따라 <b>60일 이내 보수</b>하고 하자관리정보시스템에 결과를 등록해야 합니다.</div></div><div class="c"><div class="cn">명단 공개</div><div class="ck">반기마다</div><div class="cv">하자 판정 건수·비율 상위 건설사 명단이 반기마다 공개됩니다. '26년 하반기부터는 하심위 누리집에 게시됩니다.</div></div></div><div class="pslot"><div class="pbox" style="width:362px;height:272px;background-image:url(p-committee.jpg)"></div><div class="ptx"><div class="ph">하심위 판정서</div><div class="pd"><b>판정서 표지 또는 결론 페이지</b>입니다. 사건번호·단지명은 가립니다. 없으면 회의 장면도 됩니다.</div><div class="pf">파일을 <b>template/design/photos/p-committee.jpg</b> 로 두시면 그대로 들어갑니다 · 가로 4:3 권장</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

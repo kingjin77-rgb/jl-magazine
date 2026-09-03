@@ -5,8 +5,8 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
@@ -30,7 +30,7 @@
   .title{font-size:32px;}
   .cards{position:absolute;left:56px;top:186px;right:56px;display:flex;gap:20px;}
   .c{flex:1;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:20px 20px;display:flex;flex-direction:column;}
-  .c .num{width:30px;height:30px;border-radius:50%;background:var(--navy);color:#fff;font-size:16px;
+  .c .num{width:30px;height:30px;border-radius:50%;background:var(--fill);color:#fff;font-size:16px;
     font-weight:800;display:flex;align-items:center;justify-content:center;}
   .c .t{margin-top:12px;font-size:19.5px;font-weight:800;color:var(--navy);}
   .c .d{margin-top:8px;font-size:14px;color:var(--ink);line-height:1.7;}
@@ -38,7 +38,7 @@
   .c .r{display:flex;font-size:14px;padding:5px 0;line-height:1.5;}
   .c .r .k{width:62px;color:var(--gold-ink);font-weight:700;flex:0 0 auto;}
   .c .r .v{color:var(--ink);}
-  .warn{position:absolute;left:56px;top:520px;right:56px;background:var(--navy);color:#fff;
+  .warn{position:absolute;left:56px;top:520px;right:56px;background:var(--fill);color:#fff;
     border-radius:0;padding:18px 24px;}
   .warn .h{font-size:14px;color:#E6ECF9;font-weight:700;letter-spacing:.04em;}
   .warn .row{margin-top:11px;display:flex;}
@@ -55,15 +55,15 @@
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
-  .eyebrow{z-index:2;color:#CBB27E!important;}
-  .eyebrow::before{background:#CBB27E!important;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   .badge{z-index:2;background:rgba(255,255,255,.10)!important;
-    border-color:rgba(203,178,126,.55)!important;color:#CBB27E!important;}
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
 
   /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
      내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
@@ -88,21 +88,21 @@
   <div class="title">청구 상대방은 분양자·시공자·보증기관 셋으로 나뉩니다</div>
 
   <div class="cards">
-    <div class="c"><div class="num">1</div><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 42V12l14-6 14 6v30" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 42V26h12v16" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 42h28" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">분양자</div>
+    <div class="c"><div class="num">1</div><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 42V12l14-6 14 6v30" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 42V26h12v16" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 42h28" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">분양자</div>
       <div class="d">시행사·조합. 집합건물법 제9조에 따른 담보책임의 1차 주체입니다.</div>
       <div class="rows">
         <div class="r"><div class="k">근거</div><div class="v">집합건물법 제9조 제1항</div></div>
         <div class="r"><div class="k">확인</div><div class="v">분양계약서 · 건축물대장 · 등기사항증명서 · 신탁원부</div></div>
         <div class="r"><div class="k">주의</div><div class="v">신탁사가 분양자인 경우가 있고, 무자력인 사례가 많습니다</div></div>
       </div></div>
-    <div class="c"><div class="num">2</div><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 33a17 17 0 0 1 34 0" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 17V10a5 5 0 0 1 10 0v7" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 33h40" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">시공자</div>
+    <div class="c"><div class="num">2</div><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 33a17 17 0 0 1 34 0" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 17V10a5 5 0 0 1 10 0v7" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 33h40" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">시공자</div>
       <div class="d">개정 집합건물법에서 법정책임화되어, 분양자에게 회생·파산·무자력 등 사유가 있는 경우 직접 청구할 수 있습니다.</div>
       <div class="rows">
         <div class="r"><div class="k">근거</div><div class="v">집합건물법 제9조 제3항</div></div>
         <div class="r"><div class="k">확인</div><div class="v">건축물대장 · 도급계약 관계</div></div>
         <div class="r"><div class="k">주의</div><div class="v">분양자에게 이미 배상한 범위에서는 책임을 면합니다</div></div>
       </div></div>
-    <div class="c"><div class="num">3</div><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 6l16 6v12c0 10-7 16-16 18-9-2-16-8-16-18V12z" stroke="#0D2162" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 24l5 5 9-10" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">보증기관</div>
+    <div class="c"><div class="num">3</div><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 6l16 6v12c0 10-7 16-16 18-9-2-16-8-16-18V12z" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 24l5 5 9-10" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">보증기관</div>
       <div class="d">건설공제조합·서울보증보험·주택도시보증공사 등. 하자보수보증금을 청구합니다.</div>
       <div class="rows">
         <div class="r"><div class="k">근거</div><div class="v">공동주택관리법 제38조 · 보증계약</div></div>

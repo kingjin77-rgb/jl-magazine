@@ -5,8 +5,8 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
@@ -37,13 +37,13 @@
   .flow{display:grid;gap:0;}
   .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
   .step+.step{border-left:0;}
-  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--navy);
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--fill);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
   .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
   .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:15px;font-weight:700;}
+  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:15px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
   .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
@@ -75,12 +75,12 @@
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
-  .eyebrow{z-index:2;color:#CBB27E!important;}
-  .eyebrow::before{background:#CBB27E!important;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   html,body{background:#FFFFFF!important;}
   body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
@@ -93,13 +93,32 @@
   .sec{margin-bottom:9px;}
   .sec+.sec,.blk+.sec{margin-top:12px;}
   .c{padding:12px 16px;}
+
+  /* ── 사진 자리 ── 파일이 없으면 연한 상자로 남고, 넣으면 그대로 채워진다.
+     아래 배경 파일명 그대로 template/design/photos/ 에 두면 된다. */
+  .pslot{display:flex;gap:22px;align-items:stretch;margin-top:18px;
+    border-top:1.4px solid var(--line);padding-top:16px;}
+  .pslot .pbox{flex:0 0 auto;border:1px solid var(--line);
+    background:var(--card) center/cover no-repeat;position:relative;}
+  .pslot .pbox::after{content:"사진";position:absolute;left:50%;top:50%;
+    transform:translate(-50%,-50%);font-size:13px;font-weight:800;
+    letter-spacing:.24em;color:#7F8CA6;}
+  .pslot .ptx{flex:1;display:flex;flex-direction:column;justify-content:center;}
+  .pslot .ph{font-size:15.5px;font-weight:800;color:var(--navy);
+    display:flex;align-items:center;gap:8px;letter-spacing:-.01em;}
+  .pslot .ph::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .pslot .pd{margin-top:10px;font-size:14.5px;line-height:1.7;color:var(--ink);max-width:600px;}
+  .pslot .pd b{color:var(--navy);font-weight:800;}
+  .pslot .pf{margin-top:13px;padding-top:11px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--ink);}
+  .pslot .pf b{color:var(--gold-ink);font-weight:800;}
 </style>
 </head>
 <body>
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">개정으로 달라진 항목 · 균열·타일 [고정]</div>
   <div class="title">균열은 충전식 원칙, 타일은 부착강도 0.39N/㎟ 기준이 새로 생겼습니다</div>
-  <div class="body" style="bottom:56px"><div class="tbl blk" style=""><div class="th"><div style="width:170px">항목</div><div style="width:230px">2016 개정판까지</div><div style="flex:1">2026 개정판</div></div><div class="tr"><div style="width:170px"><b>콘크리트 균열</b><br>층이음 0.3㎜ 미만</div><div style="width:230px">2015년부터 <b>충전식 공법으로 일원화</b></div><div style="flex:1">충전식을 원칙으로 하되, 누수·결로 발생 여부, 수밀성·기밀성 확보를 위한 시공상 조치, 부위의 내구성·품질 상태를 고려해 <b>예외적으로 표면처리 공법</b> 적용 가능</div></div><div class="tr"><div style="width:170px"><b>균열 보수 일위대가</b></div><div style="width:230px">2016 개정판의 <b>2014년 단가</b>를 그대로 적용</div><div style="flex:1">인력품은 유지하되 <b>노무 공량·노무비 단가는 소 제기 시점</b> 기준, 재료비는 성능이 확인된 제품 중 가장 저렴한 단가를 적용</div></div><div class="tr"><div style="width:170px"><b>타일 부착강도</b></div><div style="width:230px">별도 기준 없음</div><div style="flex:1"><b>인장 부착강도 0.39N/㎟ 미만이면 하자</b>로 판정. 시공 부위·바탕 접착 상태·들뜸 범위를 고려해 철거 후 재시공 또는 접착재 주입 보수를 선택</div></div><div class="tr"><div style="width:170px"><b>타일 재시공비</b></div><div style="width:230px">중첩 처리 기준 없음</div><div style="flex:1">떠붙이기 공법 타일의 들뜸·파손·탈락 재시공비 산정 시 <b>뒤채움 부족 보수비와 중첩되는 면적은 제외</b></div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="tbl blk" style=""><div class="th"><div style="width:170px">항목</div><div style="width:230px">2016 개정판까지</div><div style="flex:1">2026 개정판</div></div><div class="tr"><div style="width:170px"><b>콘크리트 균열</b><br>층이음 0.3㎜ 미만</div><div style="width:230px">2015년부터 <b>충전식 공법으로 일원화</b></div><div style="flex:1">충전식을 원칙으로 하되, 누수·결로 발생 여부, 수밀성·기밀성 확보를 위한 시공상 조치, 부위의 내구성·품질 상태를 고려해 <b>예외적으로 표면처리 공법</b> 적용 가능</div></div><div class="tr"><div style="width:170px"><b>균열 보수 일위대가</b></div><div style="width:230px">2016 개정판의 <b>2014년 단가</b>를 그대로 적용</div><div style="flex:1">인력품은 유지하되 <b>노무 공량·노무비 단가는 소 제기 시점</b> 기준, 재료비는 성능이 확인된 제품 중 가장 저렴한 단가를 적용</div></div><div class="tr"><div style="width:170px"><b>타일 부착강도</b></div><div style="width:230px">별도 기준 없음</div><div style="flex:1"><b>인장 부착강도 0.39N/㎟ 미만이면 하자</b>로 판정. 시공 부위·바탕 접착 상태·들뜸 범위를 고려해 철거 후 재시공 또는 접착재 주입 보수를 선택</div></div><div class="tr"><div style="width:170px"><b>타일 재시공비</b></div><div style="width:230px">중첩 처리 기준 없음</div><div style="flex:1">떠붙이기 공법 타일의 들뜸·파손·탈락 재시공비 산정 시 <b>뒤채움 부족 보수비와 중첩되는 면적은 제외</b></div></div></div><div class="pslot"><div class="pbox" style="width:311px;height:233px;background-image:url(p-tile-test.jpg)"></div><div class="ptx"><div class="ph">타일 부착강도 시험</div><div class="pd">현장에서 <b>부착강도 시험기를 타일에 붙여 인장하는 장면</b>입니다. 계측값이 보이면 더 좋습니다.</div><div class="pf">파일을 <b>template/design/photos/p-tile-test.jpg</b> 로 두시면 그대로 들어갑니다 · 가로 4:3 권장</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

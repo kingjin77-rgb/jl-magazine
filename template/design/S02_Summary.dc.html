@@ -5,8 +5,8 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
@@ -29,12 +29,12 @@
 
   /* 좌측 네이비 패널이 화면 무게를 잡는다 */
   .panel{position:absolute;left:0;top:0;bottom:0;width:392px;
-    background:linear-gradient(160deg,#0D2162,#081541);color:#fff;padding:56px 44px;}
-  .panel .pn{font-size:14px;letter-spacing:.3em;color:#CBB27E;font-weight:700;}
+    background:linear-gradient(160deg,#385783,#2A3B4F);color:#fff;padding:56px 44px;}
+  .panel .pn{font-size:14px;letter-spacing:.3em;color:#EBD9B4;font-weight:700;}
   .panel .kr{margin-top:22px;font-size:38px;font-weight:800;line-height:1.32;letter-spacing:-.02em;}
   .panel .rule{margin-top:26px;width:56px;height:3px;background:#B08D4F;}
   .panel .d{margin-top:24px;font-size:15px;line-height:1.9;color:#FFFFFF;}
-  .panel .foot{position:absolute;left:44px;bottom:44px;font-size:13.5px;color:rgba(255,255,255,.88);}
+  .panel .foot{position:absolute;left:44px;bottom:44px;font-size:13.5px;color:#FFFFFF;}
 
   .right{position:absolute;left:392px;right:0;top:0;bottom:0;padding:56px 56px 0;}
   .rt{font-size:14px;letter-spacing:.16em;color:#8F7033;font-weight:700;}
@@ -42,7 +42,7 @@
   /* 큰 숫자 3개 — 참조안의 거대 숫자 어법 */
   .nums{margin-top:26px;display:flex;}
   .num{flex:1;padding-right:26px;}
-  .num .v{font-size:56px;font-weight:800;color:#0D2162;letter-spacing:-.03em;line-height:1;}
+  .num .v{font-size:56px;font-weight:800;color:#223D5B;letter-spacing:-.03em;line-height:1;}
   .num .l{margin-top:12px;font-size:15px;font-weight:700;color:#111418;}
   .num .s{margin-top:8px;font-size:13.5px;color:#111418;opacity:1;}
   /* 강조 텍스트 — 03b(제안의 세 축)와 같은 어법: 골드 바 + 단문 선언 */
@@ -54,23 +54,23 @@
   /* 아래 블록은 주석 바로 위에 붙인다 — 숫자 무리와 두 덩어리로 나뉘게 해
      가운데 여백이 구멍이 아니라 의도된 간격으로 읽히도록 한다. */
   .zone{position:absolute;left:56px;right:56px;bottom:126px;
-    background:#EFF2FB;padding:30px 30px;display:flex;gap:34px;}
+    background:#E9EDF8;padding:30px 30px;display:flex;gap:34px;}
   .z{flex:1;}
   .z .k{font-size:13.5px;color:#8F7033;font-weight:700;letter-spacing:.04em;}
-  .z .v{margin-top:9px;font-size:21px;font-weight:800;color:#0D2162;}
+  .z .v{margin-top:9px;font-size:21px;font-weight:800;color:#223D5B;}
   .z .d{margin-top:8px;font-size:13.5px;color:#111418;line-height:1.65;}
 
   .note2{position:absolute;left:448px;right:56px;bottom:44px;font-size:13px;
-    color:#111418;opacity:1;line-height:1.7;border-top:1px solid #C7CBD3;padding-top:14px;}
+    color:#111418;opacity:1;line-height:1.7;border-top:1px solid #C6CFE0;padding-top:14px;}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   /* 좌측 네이비 패널이 헤더 역할을 하므로 상단 밴드는 쓰지 않는다 */
   .runner{z-index:2;color:var(--ink)!important;opacity:1;}
-  .eyebrow{z-index:2;color:#CBB27E!important;}
-  .eyebrow::before{background:#CBB27E!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   .badge{z-index:2;background:rgba(255,255,255,.10)!important;
-    border-color:rgba(203,178,126,.55)!important;color:#CBB27E!important;}
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
 
   /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
      내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */

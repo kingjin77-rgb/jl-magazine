@@ -5,8 +5,8 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
@@ -37,13 +37,13 @@
   .flow{display:grid;gap:0;}
   .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
   .step+.step{border-left:0;}
-  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--navy);
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--fill);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
   .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
   .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--navy);color:#fff;font-size:15px;font-weight:700;}
+  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:15px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
   .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
@@ -75,12 +75,12 @@
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
-  .eyebrow{z-index:2;color:#CBB27E!important;}
-  .eyebrow::before{background:#CBB27E!important;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   html,body{background:#FFFFFF!important;}
   body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
@@ -91,12 +91,12 @@
   .mx{display:grid;grid-template-columns:96px 1fr 1fr 1fr;gap:0;margin-top:12px;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .mx .hd{padding:11px 14px 10px;border-left:1px solid var(--line);
-    background:var(--navy);color:#fff;}
+    background:var(--fill);color:#fff;}
   .mx .hd:first-child{border-left:0;}
   .mx .hd .y{font-size:19px;font-weight:800;letter-spacing:-.02em;}
-  .mx .hd .n{margin-top:3px;font-size:12.5px;color:#CBB27E;font-weight:700;}
+  .mx .hd .n{margin-top:3px;font-size:12.5px;color:#EBD9B4;font-weight:700;}
   .mx .rh{padding:14px;border-top:1px solid var(--line);border-left:0;
-    display:flex;flex-direction:column;justify-content:center;background:#EFF2FB;}
+    display:flex;flex-direction:column;justify-content:center;background:#E9EDF8;}
   .mx .rh .t{font-size:15.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
   .mx .rh .c{margin-top:4px;font-size:12.5px;color:var(--ink);}
   .mx .cell{padding:11px 12px 12px;border-top:1px solid var(--line);
@@ -111,7 +111,7 @@
   .prop div{display:flex;align-items:center;justify-content:center;
     font-size:13px;font-weight:800;color:#fff;letter-spacing:-.01em;}
   .prop .p2{background:#8A9AC0;} .prop .p3{background:#41598C;}
-  .prop .p5{background:#0D2162;} .prop .px{background:#B08D4F;}
+  .prop .p5{background:var(--fill);} .prop .px{background:#B08D4F;}
   .plg{display:flex;gap:20px;margin-top:9px;font-size:13px;color:var(--ink);}
   .plg span{display:flex;align-items:center;gap:7px;}
   .plg i{width:11px;height:11px;display:inline-block;font-style:normal;}
@@ -121,7 +121,7 @@
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">하자 유형 분포 [고정]</div>
   <div class="title">14종은 기간 구간과 부위로 이렇게 갈립니다</div>
-  <div class="body"><div class="sec">기간 구간 · 부위별 분포 — 「2026 건설감정실무」 분류와 JL 하자내역서 대조본</div><div class="mx"><div class="hd"><div class="y">구분</div><div class="n">14종</div></div><div class="hd"><div class="y">2년 구간</div><div class="n">4종</div></div><div class="hd"><div class="y">3년 구간</div><div class="n">5종</div></div><div class="hd"><div class="y">5년 구간</div><div class="n">4종</div></div><div class="rh"><div class="t">전유부</div><div class="c">4종</div></div><div class="cell"><div class="chip"><b>02</b> 타일 뒤채움·부착강도 부족</div></div><div class="cell"><div class="chip"><b>01</b> 월패드 예비전원·홈게이트웨이 미시공</div></div><div class="cell"><div class="chip"><b>03</b> 방수 두께 부족·방수층 축소시공</div></div><div class="rh"><div class="t">공용부</div><div class="c">10종</div></div><div class="cell"><div class="chip"><b>09</b> 미장 바름 두께 부족</div><div class="chip"><b>10</b> 상도 미시공</div><div class="chip"><b>11</b> 경량철골 천장틀 변경시공</div></div><div class="cell"><div class="chip"><b>04</b> 방화문 성능 미달</div><div class="chip"><b>07</b> 소방·전기 부속 미시공</div><div class="chip"><b>08</b> 창호·유리 시공 하자</div><div class="chip"><b>13</b> 단열재 변경시공·이음부 불량</div></div><div class="cell"><div class="chip"><b>06</b> 옥상·옥탑 방수 축소시공</div><div class="chip"><b>12</b> 콘크리트 균열</div><div class="chip"><b>14</b> 부대토목·조경 부족시공</div></div></div><div class="sec" style="margin-top:15px;">구간별 종수 — 3년 구간이 가장 많고, 방수·구조는 5년 구간에 남습니다</div><div class="prop"><div class="p2" style="flex:4">2년 · 4종</div><div class="p3" style="flex:5">3년 · 5종</div><div class="p5" style="flex:4">5년 · 4종</div><div class="px" style="flex:1">별도 1종</div></div><div class="plg"><span><i style="background:#8A9AC0"></i>2년 · 마감·미장 계열</span><span><i style="background:#41598C"></i>3년 · 설비·창호·단열 계열</span><span><i style="background:#0D2162"></i>5년 · 방수·구조·토목 계열</span><span><i style="background:#B08D4F"></i>별도 · 05 대피공간 (기간 [확인])</span></div></div>
+  <div class="body"><div class="sec">기간 구간 · 부위별 분포 — 「2026 건설감정실무」 분류와 JL 하자내역서 대조본</div><div class="mx"><div class="hd"><div class="y">구분</div><div class="n">14종</div></div><div class="hd"><div class="y">2년 구간</div><div class="n">4종</div></div><div class="hd"><div class="y">3년 구간</div><div class="n">5종</div></div><div class="hd"><div class="y">5년 구간</div><div class="n">4종</div></div><div class="rh"><div class="t">전유부</div><div class="c">4종</div></div><div class="cell"><div class="chip"><b>02</b> 타일 뒤채움·부착강도 부족</div></div><div class="cell"><div class="chip"><b>01</b> 월패드 예비전원·홈게이트웨이 미시공</div></div><div class="cell"><div class="chip"><b>03</b> 방수 두께 부족·방수층 축소시공</div></div><div class="rh"><div class="t">공용부</div><div class="c">10종</div></div><div class="cell"><div class="chip"><b>09</b> 미장 바름 두께 부족</div><div class="chip"><b>10</b> 상도 미시공</div><div class="chip"><b>11</b> 경량철골 천장틀 변경시공</div></div><div class="cell"><div class="chip"><b>04</b> 방화문 성능 미달</div><div class="chip"><b>07</b> 소방·전기 부속 미시공</div><div class="chip"><b>08</b> 창호·유리 시공 하자</div><div class="chip"><b>13</b> 단열재 변경시공·이음부 불량</div></div><div class="cell"><div class="chip"><b>06</b> 옥상·옥탑 방수 축소시공</div><div class="chip"><b>12</b> 콘크리트 균열</div><div class="chip"><b>14</b> 부대토목·조경 부족시공</div></div></div><div class="sec" style="margin-top:15px;">구간별 종수 — 3년 구간이 가장 많고, 방수·구조는 5년 구간에 남습니다</div><div class="prop"><div class="p2" style="flex:4">2년 · 4종</div><div class="p3" style="flex:5">3년 · 5종</div><div class="p5" style="flex:4">5년 · 4종</div><div class="px" style="flex:1">별도 1종</div></div><div class="plg"><span><i style="background:#8A9AC0"></i>2년 · 마감·미장 계열</span><span><i style="background:#41598C"></i>3년 · 설비·창호·단열 계열</span><span><i style="background:var(--fill)"></i>5년 · 방수·구조·토목 계열</span><span><i style="background:#B08D4F"></i>별도 · 05 대피공간 (기간 [확인])</span></div></div>
   <div class="note">항목·부위·기간은 앞 장(주요 하자 유형 14종) 표의 값을 그대로 옮긴 것이며 새로 산정한 값이 없습니다. 기간은 집합건물법 제9조의2 존속기간 구간이고, <b>05 대피공간</b>은 구간 표기를 확정하지 않아 별도로 두었습니다 <b>[확인]</b>. 구간은 하자의 성격과 부위에 따라 개별적으로 판단되므로 이 분포는 검토의 출발점이지 결론이 아닙니다.</div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>

@@ -5,8 +5,8 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#0D2162;--navy-deep:#081541;--gold:#B08D4F;--gold-ink:#8F7033;
-    --ink:#111418;--muted:#111418;--card:#F4F5F8;--line:#C7CBD3;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
   html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
@@ -29,39 +29,39 @@
 
   .runner{top:28px;font-size:13px;}
   .band{position:absolute;left:0;right:0;top:52px;height:96px;
-    background:linear-gradient(160deg,#0D2162,#081541);color:#fff;padding:20px 56px;
+    background:linear-gradient(160deg,#385783,#2A3B4F);color:#fff;padding:20px 56px;
     display:flex;align-items:center;justify-content:space-between;}
-  .band .l .pn{font-size:13px;letter-spacing:.24em;color:#CBB27E;font-weight:700;}
+  .band .l .pn{font-size:13px;letter-spacing:.24em;color:#EBD9B4;font-weight:700;}
   .band .l .kr{margin-top:8px;font-size:27px;font-weight:800;letter-spacing:-.02em;}
   .band .r{display:flex;gap:40px;text-align:right;}
   .band .r .b .v{font-size:26px;font-weight:800;letter-spacing:-.02em;}
-  .band .r .b .k{margin-top:4px;font-size:12.5px;color:#CBB27E;}
+  .band .r .b .k{margin-top:4px;font-size:12.5px;color:#EBD9B4;}
 
   .tbl{position:absolute;left:56px;right:56px;top:160px;font-size:11.4px;}
-  .th{display:flex;padding:7px 12px;background:#EFF2FB;color:#0D2162;font-weight:800;
-    border-bottom:2px solid #0D2162;}
+  .th{display:flex;padding:7px 12px;background:#E9EDF8;color:#223D5B;font-weight:800;
+    border-bottom:2px solid #223D5B;}
   .tr{display:flex;padding:5.1px 12px;border-bottom:1px solid #DDE2ED;color:#111418;}
   .tr:nth-child(even){background:#F7F9FD;}
   .c1{width:150px;} .c2{flex:1.6;font-weight:700;} .c3{width:66px;text-align:right;}
-  .c4{width:150px;text-align:right;} .c5{width:118px;text-align:right;font-weight:800;color:#0D2162;}
-  .th .c5{color:#0D2162;}
-  .sum{display:flex;padding:8px 12px;background:#0D2162;color:#fff;font-weight:800;}
-  .sum .c5{color:#CBB27E;}
+  .c4{width:150px;text-align:right;} .c5{width:118px;text-align:right;font-weight:800;color:#223D5B;}
+  .th .c5{color:#223D5B;}
+  .sum{display:flex;padding:8px 12px;background:var(--fill);color:#fff;font-weight:800;}
+  .sum .c5{color:#EBD9B4;}
   .src{position:absolute;left:56px;right:56px;bottom:44px;font-size:12.5px;color:#111418;
     opacity:1;line-height:1.6;}
   .footer{height:32px;font-size:12.5px;}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
-  .eyebrow{z-index:2;color:#CBB27E!important;}
-  .eyebrow::before{background:#CBB27E!important;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   .badge{z-index:2;background:rgba(255,255,255,.10)!important;
-    border-color:rgba(203,178,126,.55)!important;color:#CBB27E!important;}
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
 
   /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
      내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
