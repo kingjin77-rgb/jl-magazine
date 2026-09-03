@@ -23,15 +23,15 @@
 
   /* ── 본문 프리미티브 ── */
   .body{position:absolute;left:56px;right:56px;top:186px;bottom:104px;}
-  .sec{font-size:14px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+  .sec{font-size:15.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
   .sec+.sec,.blk+.sec{margin-top:16px;}
 
   .cards{display:grid;gap:14px;}
   .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
-  .c .ck{font-size:16.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
-  .c .cv{margin-top:8px;font-size:14.5px;line-height:1.62;color:var(--ink);}
-  .c .cn{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
+  .c .ck{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:15.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
   .c b{color:var(--navy);font-weight:800;}
 
   .flow{display:grid;gap:0;}
@@ -39,17 +39,17 @@
   .step+.step{border-left:0;}
   .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--fill);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
-  .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
-  .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
+  .step .t{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:14.5px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:15px;font-weight:700;}
+  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
-  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
   .tbl .tr b{color:var(--navy);font-weight:800;}
 
-  .kv .r{display:flex;gap:10px;font-size:14.5px;line-height:1.55;padding:7px 0;
+  .kv .r{display:flex;gap:10px;font-size:15.5px;line-height:1.55;padding:7px 0;
     border-bottom:1px solid var(--line);}
   .kv .r:last-child{border-bottom:0;}
   .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
@@ -63,15 +63,15 @@
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
   .verify>div:first-child{border-left:0;}
-  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+  .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14.5px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
@@ -90,23 +90,28 @@
   .gal{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:14px;}
   .gal .im{aspect-ratio:4/3;border:1px solid var(--line);position:relative;
     background:var(--card) center/cover no-repeat;}
-  .gal .im.empty::after{content:"사진";position:absolute;left:50%;top:50%;
-    transform:translate(-50%,-50%);font-size:13px;font-weight:800;
-    letter-spacing:.24em;color:#7F8CA6;}
-  .gal .lb{margin-top:11px;font-size:15.5px;font-weight:800;color:var(--navy);
+  .gal .im .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
+    text-align:center;font-size:12.5px;line-height:1.75;color:#7F8CA6;}
+  .gal .im .hint b{display:block;font-size:13px;font-weight:800;letter-spacing:.24em;
+    margin-bottom:7px;color:#7F8CA6;}
+  .gal .lb{margin-top:12px;font-size:17px;font-weight:800;color:var(--navy);
     letter-spacing:-.01em;display:flex;align-items:center;gap:8px;}
   .gal .lb::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .gal .cp{margin-top:7px;font-size:13.5px;line-height:1.6;color:var(--ink);}
+  .gal .cp{margin-top:8px;font-size:14.5px;line-height:1.6;color:var(--ink);}
   .gal .cp b{color:var(--navy);font-weight:800;}
   .gal .fn{margin-top:9px;font-size:12px;color:var(--ink);}
   .gal .fn b{color:var(--gold-ink);font-weight:800;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
 </style>
 </head>
 <body>
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">감정 현장 [고정 · 사진 받는 대로]</div>
   <div class="title">감정 현장은 이 세 단계로 진행됩니다</div>
-  <div class="body"><div class="gal"><div><div class="im empty" style="background-image:url(p-appraisal-joint.jpg)"></div><div class="lb">원·피고 공동조사</div><div class="cp"><b>감정인·원고 대리인·피고 측이 함께 현장에 서는</b> 장면입니다. 이 자리에 들어가느냐가 감정 결과를 좌우합니다.</div><div class="fn">사진을 <b>photos/p-appraisal-joint.jpg</b> 로 두시면 그대로 들어갑니다</div></div><div><div class="im empty" style="background-image:url(p-appraisal-measure.jpg)"></div><div class="lb">파취 · 실측</div><div class="cp"><b>바닥이나 벽을 파취해 두께를 계측하는</b> 장면입니다. 계측기 눈금이 함께 보이면 가장 좋습니다.</div><div class="fn">사진을 <b>photos/p-appraisal-measure.jpg</b> 로 두시면 그대로 들어갑니다</div></div><div><div class="im empty" style="background-image:url(p-appraisal-record.jpg)"></div><div class="lb">기록 · 사진 대장</div><div class="cp"><b>측정값과 위치를 그 자리에서 기록하는</b> 장면입니다. 기록이 남아야 뒤에 감정보완신청의 근거가 됩니다.</div><div class="fn">사진을 <b>photos/p-appraisal-record.jpg</b> 로 두시면 그대로 들어갑니다</div></div></div></div>
+  <div class="body"><div class="gal"><div><div class="im empty" style="background-image:url(p-appraisal-joint.jpg)"><div class="hint"><b>사진</b>p-appraisal-joint.jpg<br>가로 4:3 권장</div></div><div class="lb">원·피고 공동조사</div><div class="cp"><b>감정인·원고 대리인·피고 측이 함께 현장에 서는</b> 장면입니다. 이 자리에 들어가느냐가 감정 결과를 좌우합니다.</div></div><div><div class="im empty" style="background-image:url(p-appraisal-measure.jpg)"><div class="hint"><b>사진</b>p-appraisal-measure.jpg<br>가로 4:3 권장</div></div><div class="lb">파취 · 실측</div><div class="cp"><b>바닥이나 벽을 파취해 두께를 계측하는</b> 장면입니다. 계측기 눈금이 함께 보이면 가장 좋습니다.</div></div><div><div class="im empty" style="background-image:url(p-appraisal-record.jpg)"><div class="hint"><b>사진</b>p-appraisal-record.jpg<br>가로 4:3 권장</div></div><div class="lb">기록 · 사진 대장</div><div class="cp"><b>측정값과 위치를 그 자리에서 기록하는</b> 장면입니다. 기록이 남아야 뒤에 감정보완신청의 근거가 됩니다.</div></div></div></div>
   <div class="note">아래 사진은 {{단지명}} 자료를 받는 대로 채웁니다. 촬영 시 단지명·동호수·업체명이 드러나지 않는 각도를 권해 드리며, 드러난 경우 저희가 가려서 싣습니다.</div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>

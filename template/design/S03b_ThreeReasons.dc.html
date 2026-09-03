@@ -52,6 +52,10 @@
     justify-content:space-between;padding:0 56px;border-top:2px solid var(--navy);
     font-size:14px;color:var(--ink);background:#fff;}
   .footer .firm{color:var(--navy);font-weight:700;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
 </style>
 </head>
 <body>

@@ -23,15 +23,15 @@
 
   /* ── 본문 프리미티브 ── */
   .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
-  .sec{font-size:14px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+  .sec{font-size:15.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
   .sec+.sec,.blk+.sec{margin-top:16px;}
 
   .cards{display:grid;gap:14px;}
   .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
-  .c .ck{font-size:16.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
-  .c .cv{margin-top:8px;font-size:14.5px;line-height:1.62;color:var(--ink);}
-  .c .cn{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
+  .c .ck{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:15.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
   .c b{color:var(--navy);font-weight:800;}
 
   .flow{display:grid;gap:0;}
@@ -39,17 +39,17 @@
   .step+.step{border-left:0;}
   .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--fill);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
-  .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
-  .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
+  .step .t{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:14.5px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:15px;font-weight:700;}
+  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
-  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
   .tbl .tr b{color:var(--navy);font-weight:800;}
 
-  .kv .r{display:flex;gap:10px;font-size:14.5px;line-height:1.55;padding:7px 0;
+  .kv .r{display:flex;gap:10px;font-size:15.5px;line-height:1.55;padding:7px 0;
     border-bottom:1px solid var(--line);}
   .kv .r:last-child{border-bottom:0;}
   .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
@@ -63,15 +63,15 @@
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
   .verify>div:first-child{border-left:0;}
-  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+  .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14.5px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
@@ -88,12 +88,16 @@
   /* ── 실사 한 컷 ── 본문 아래에 사진 + 설명을 나란히. 파일이 없어도 흰 상자로 남는다 */
   .shot{display:flex;gap:24px;align-items:center;margin-top:18px;
     border-top:1.4px solid var(--line);padding-top:16px;}
-  .shot .im{flex:0 0 368px;aspect-ratio:4/3;border:1px solid var(--line);
+  .shot .im{flex:0 0 340px;aspect-ratio:4/3;border:1px solid var(--line);
     background:#fff center/cover no-repeat;}
   .shot .tx{flex:1;max-width:560px;font-size:15px;line-height:1.7;color:var(--ink);}
   .shot .tx b{color:var(--navy);font-weight:800;}
   .shot .lb{font-size:12.5px;font-weight:800;color:var(--gold-ink);
     letter-spacing:.1em;margin-bottom:7px;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
 </style>
 </head>
 <body>

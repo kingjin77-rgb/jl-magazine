@@ -45,6 +45,10 @@
   .mark{position:absolute;right:76px;bottom:62px;text-align:right;}
   .mark .f{font-size:19px;font-weight:800;color:#fff;letter-spacing:-.01em;}
   .mark .e{margin-top:5px;font-size:12px;letter-spacing:.22em;color:var(--gold-lt);}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
 </style>
 </head>
 <body>

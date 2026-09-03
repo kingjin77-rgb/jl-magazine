@@ -16,7 +16,7 @@
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
   .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
     border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
-  .title{position:absolute;left:56px;top:96px;right:56px;font-size:34px;font-weight:800;
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
     border-radius:0;padding:12px 18px;line-height:1.6;}
@@ -27,7 +27,7 @@
     font-size:14px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
-  .title{font-size:32px;}
+  .title{font-size:35px;line-height:1.34;}
   .band{position:absolute;left:56px;top:186px;right:56px;background:var(--fill);color:#fff;
     border-radius:0;padding:20px 26px;display:flex;}
   .band .s{flex:1;border-left:1px solid rgba(255,255,255,.18);padding-left:22px;}
@@ -83,10 +83,10 @@
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
   .verify>div:first-child{border-left:0;}
-  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+  .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent!important;}
@@ -97,17 +97,21 @@
     border-top:1.4px solid var(--line);padding-top:15px;}
   .pslot .pbox{flex:0 0 auto;border:1px solid var(--line);
     background:var(--card) center/cover no-repeat;position:relative;}
-  .pslot .pbox::after{content:"사진";position:absolute;left:50%;top:50%;
-    transform:translate(-50%,-50%);font-size:13px;font-weight:800;letter-spacing:.24em;color:#7F8CA6;}
+  /* 안내는 상자 안에 둔다. 사진을 넣으면 그대로 가려진다. */
+  .pslot .pbox .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
+    text-align:center;font-size:12.5px;line-height:1.75;color:#7F8CA6;}
+  .pslot .pbox .hint b{display:block;font-size:13px;font-weight:800;letter-spacing:.24em;
+    margin-bottom:7px;color:#7F8CA6;}
   .pslot .ptx{flex:1;display:flex;flex-direction:column;justify-content:center;}
-  .pslot .ph{font-size:15.5px;font-weight:800;color:var(--navy);
+  .pslot .ph{font-size:17px;font-weight:800;color:var(--navy);
     display:flex;align-items:center;gap:8px;letter-spacing:-.01em;}
   .pslot .ph::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .pslot .pd{margin-top:10px;font-size:14.5px;line-height:1.68;color:var(--ink);max-width:610px;}
+  .pslot .pd{margin-top:10px;font-size:15.5px;line-height:1.68;color:var(--ink);max-width:610px;}
   .pslot .pd b{color:var(--navy);font-weight:800;}
-  .pslot .pf{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);
-    font-size:13px;color:var(--ink);}
-  .pslot .pf b{color:var(--gold-ink);font-weight:800;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
 </style>
 </head>
 <body>
@@ -134,7 +138,7 @@
       <div class="d">수도권·대구·경북·충남·전남 등 전국 단지를 수행했습니다.</div></div>
   </div>
 
-  <div class="pslot" style="top:456px;height:232px"><div class="pbox" style="width:289px;height:217px;background-image:url(p-firm.jpg)"></div><div class="ptx"><div class="ph">법인 전경</div><div class="pd"><b>사무실 외관 또는 응접·회의 공간</b>이면 충분합니다. 법인의 규모와 분위기를 한 장으로 보여 주는 자리입니다.</div><div class="pf">사진을 <b>photos/p-firm.jpg</b> 로 두시면 그대로 들어갑니다 · 가로 4:3 권장</div></div></div>
+  <div class="pslot" style="top:456px;height:232px"><div class="pbox" style="width:289px;height:217px;background-image:url(p-firm.jpg)"><div class="hint"><b>사진</b>p-firm.jpg<br>가로 4:3 권장</div></div><div class="ptx"><div class="ph">법인 전경</div><div class="pd"><b>사무실 외관 또는 응접·회의 공간</b>이면 충분합니다. 법인의 규모와 분위기를 한 장으로 보여 주는 자리입니다.</div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>
