@@ -90,6 +90,24 @@
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent!important;}
+
+  /* ── 사진 자리 ── 이 슬라이드는 본문 컨테이너가 없어 좌표로 직접 앉힌다.
+     파일이 없으면 연한 상자로 남고, 넣으면 그대로 채워진다. */
+  .pslot{position:absolute;left:56px;right:56px;display:flex;gap:22px;align-items:stretch;
+    border-top:1.4px solid var(--line);padding-top:15px;}
+  .pslot .pbox{flex:0 0 auto;border:1px solid var(--line);
+    background:var(--card) center/cover no-repeat;position:relative;}
+  .pslot .pbox::after{content:"사진";position:absolute;left:50%;top:50%;
+    transform:translate(-50%,-50%);font-size:13px;font-weight:800;letter-spacing:.24em;color:#7F8CA6;}
+  .pslot .ptx{flex:1;display:flex;flex-direction:column;justify-content:center;}
+  .pslot .ph{font-size:15.5px;font-weight:800;color:var(--navy);
+    display:flex;align-items:center;gap:8px;letter-spacing:-.01em;}
+  .pslot .ph::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .pslot .pd{margin-top:10px;font-size:14.5px;line-height:1.68;color:var(--ink);max-width:610px;}
+  .pslot .pd b{color:var(--navy);font-weight:800;}
+  .pslot .pf{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--ink);}
+  .pslot .pf b{color:var(--gold-ink);font-weight:800;}
 </style>
 </head>
 
@@ -118,6 +136,7 @@
     <div><div class="vk">수치 강조</div><div class="vv">변호사 7인 · 사무직원 36명 구성이며, 사무장은 <b>건축시공기술사</b>입니다. 도면을 읽는 인력이 법인 안에 있습니다.</div></div>
     <div><div class="vk warnk">기한 경고</div><div class="vv">설명회·서류 징구는 단지 일정에 맞춰야 합니다. 총회 일정이 정해지면 미리 알려 주십시오.</div></div>
   </div>
+  <div class="pslot" style="top:275px;height:166px"><div class="pbox" style="width:201px;height:151px;background-image:url(p-inhouse.jpg)"></div><div class="ptx"><div class="ph">변호사와 기술사가 같은 자리에서</div><div class="pd"><b>변호사와 건축시공기술사가 함께 도면을 검토하는 장면</b>입니다. 외주가 아니라 법인 안에서 한다는 이 장의 논지를 그대로 보여 주는 사진입니다.</div><div class="pf">사진을 <b>photos/p-inhouse.jpg</b> 로 두시면 그대로 들어갑니다 · 가로 4:3 권장</div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>
