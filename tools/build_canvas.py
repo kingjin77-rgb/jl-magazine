@@ -18,16 +18,16 @@ FONTS = os.path.join(ROOT, 'assets', 'fonts')
 
 # CSS 굵기 -> 옴니고딕 파일. 5종이 각각 별도 패밀리이고 전부 usWeightClass 400이라
 # 이렇게 명시하지 않으면 브라우저가 가짜 볼드를 합성한다.
-# 210 옴니고딕은 제목용 서체다. 자간이 좁아 14px 본문에서 획이 뭉친다.
-# 제목·숫자는 옴니고딕 050, 본문·라벨은 화면 가독성이 좋은 Pretendard를 쓴다.
-# (CLAUDE.md가 폴백으로 지정한 조합)
+# 사용자 요청으로 서체를 210 옴니고딕으로 통일한다.
+# 다만 본문까지 050(굵은 제목용)을 쓰면 14px에서 획이 뭉치므로
+# 제목·숫자는 050, 본문은 030/040을 써서 같은 가족 안에서 굵기만 나눈다.
 DISPLAY = 'JL디스플레이'
 TEXT = 'JL본문'
 FACES = [(DISPLAY, '400', 'OmniGothic050.ttf'),
          (DISPLAY, '700', 'OmniGothic050.ttf'),
-         (TEXT,    '400', 'Pretendard-Medium.ttf'),
-         (TEXT,    '600', 'Pretendard-SemiBold.ttf'),
-         (TEXT,    '700', 'Pretendard-SemiBold.ttf')]
+         (TEXT,    '400', 'OmniGothic030.ttf'),
+         (TEXT,    '600', 'OmniGothic040.ttf'),
+         (TEXT,    '700', 'OmniGothic050.ttf')]
 FAMILY = TEXT
 
 

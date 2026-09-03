@@ -78,20 +78,29 @@
     background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
+  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
   .eyebrow{z-index:2;color:#CBB27E!important;}
   .eyebrow::before{background:#CBB27E!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   html,body{background:#FFFFFF!important;}
   body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
   .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* ── 실사 한 컷 ── 본문 아래에 사진 + 설명을 나란히. 파일이 없어도 흰 상자로 남는다 */
+  .shot{display:flex;gap:24px;align-items:center;margin-top:18px;
+    border-top:1.4px solid var(--line);padding-top:16px;}
+  .shot .im{flex:0 0 330px;aspect-ratio:4/3;border:1px solid var(--line);
+    background:#fff center/cover no-repeat;}
+  .shot .tx{flex:1;max-width:560px;font-size:15px;line-height:1.7;color:var(--ink);}
+  .shot .tx b{color:var(--navy);font-weight:800;}
+  .shot .lb{font-size:12.5px;font-weight:800;color:var(--gold-ink);
+    letter-spacing:.1em;margin-bottom:7px;}
 </style>
 </head>
 <body>
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">콘크리트 균열 [고정]</div>
   <div class="title">균열은 어느 법인이나 청구합니다. 차이는 원인을 분류해 공법을 관철하는가입니다</div>
-  <div class="body" style="bottom:56px"><div class="sec">원인 분류 · 「2026 건설감정실무」 [표 8] 균열발생 원인과 패턴</div><div class="cards blk" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px"><div class="c"><div class="cn">A</div><div class="ck">재료적 성질</div><div class="cv">7개 원인. 시멘트·골재·배합에서 비롯됩니다.</div></div><div class="c"><div class="cn">B</div><div class="ck">시공</div><div class="cv">13개 원인. <b>불충분한 다짐</b>은 수개월 후 불규칙한 표층 균열로, <b>거푸집 조기 제거</b>는 5~6일 만에 규칙적인 표층 균열로 나타납니다.</div></div><div class="c"><div class="cn">C</div><div class="ck">사용·환경</div><div class="cv">3개 원인. 사용 중 환경 조건에서 비롯됩니다.</div></div><div class="c"><div class="cn">D</div><div class="ck">구조·외력</div><div class="cv">4개 원인. 하중·변형에서 비롯됩니다.</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">원인 분류 · 「2026 건설감정실무」 [표 8] 균열발생 원인과 패턴</div><div class="cards blk" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px"><div class="c"><div class="cn">A</div><div class="ck">재료적 성질</div><div class="cv">7개 원인. 시멘트·골재·배합에서 비롯됩니다.</div></div><div class="c"><div class="cn">B</div><div class="ck">시공</div><div class="cv">13개 원인. <b>불충분한 다짐</b>은 수개월 후 불규칙한 표층 균열로, <b>거푸집 조기 제거</b>는 5~6일 만에 규칙적인 표층 균열로 나타납니다.</div></div><div class="c"><div class="cn">C</div><div class="ck">사용·환경</div><div class="cv">3개 원인. 사용 중 환경 조건에서 비롯됩니다.</div></div><div class="c"><div class="cn">D</div><div class="ck">구조·외력</div><div class="cv">4개 원인. 하중·변형에서 비롯됩니다.</div></div></div><div class="shot"><div class="im" style="background-image:url(slab-brick.jpg)"></div><div class="tx"><div class="lb">타 단지 조사 사례</div>슬래브에 <b>폐자재가 매립</b>된 채 균열이 동반된 상태입니다. 균열 원인을 재료·시공·구조 중 어디로 볼지 가르는 근거가 됩니다.</div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

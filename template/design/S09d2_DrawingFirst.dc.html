@@ -78,7 +78,7 @@
     background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
+  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
   .eyebrow{z-index:2;color:#CBB27E!important;}
   .eyebrow::before{background:#CBB27E!important;}
   .title{z-index:2;color:#FFFFFF!important;}
@@ -93,13 +93,19 @@
   .sec{margin-bottom:9px;}
   .sec+.sec,.blk+.sec{margin-top:12px;}
   .c{padding:12px 16px;}
+  /* ── 도면 대 실제 2단 대비 ── 파일이 없어도 흰 상자로 남도록 CSS 배경으로 넣는다 */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;}
+  .pair .box{height:142px;border:1px solid var(--line);background:#fff center/contain no-repeat;}
+  .pair .ph{background-size:cover;}
+  .pair .cap{margin-top:9px;font-size:13.5px;line-height:1.5;color:var(--ink);}
+  .pair .cap b{color:var(--navy);font-weight:800;}
 </style>
 </head>
 <body>
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">조사의 출발점 [고정]</div>
   <div class="title">설계도서를 먼저 확보해야 실제 시공과 대조할 수 있습니다</div>
-  <div class="body"><div class="sec">그래서 설계도서 확보가 첫 단계입니다</div><div class="kv blk"><div class="r"><span>무엇이 달라지나</span><em>같은 하자라도 <b>어느 문서를 기준으로 보느냐</b>에 따라 하자 여부와 보수 범위가 달라집니다</em></div><div class="r"><span>우리가 하는 일</span><em>사업승인·준공 시점의 도면·시방서·내역서를 <b>정보공개청구로 확보</b>한 뒤 조사에 들어갑니다</em></div></div></div>
+  <div class="body"><div class="sec">그래서 설계도서 확보가 첫 단계입니다</div><div class="kv blk"><div class="r"><span>무엇이 달라지나</span><em>같은 하자라도 <b>어느 문서를 기준으로 보느냐</b>에 따라 하자 여부와 보수 범위가 달라집니다</em></div><div class="r"><span>우리가 하는 일</span><em>사업승인·준공 시점의 도면·시방서·내역서를 <b>정보공개청구로 확보</b>한 뒤 조사에 들어갑니다</em></div></div><div class="pair"><div><div class="box" style="background-image:url(dwg-heating.jpg)"></div><div class="cap"><b>설계도면</b> · 단위세대 난방배관 평면도</div></div><div><div class="box ph" style="background-image:url(act-heating.jpg)"></div><div class="cap"><b>실제 시공</b> · 같은 공종의 현장 상태</div></div></div></div>
   <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">기준 문서를 확보하지 못한 상태에서 현장을 보면 무엇이 하자인지 판단할 수 없습니다. 조사보다 <b>설계도서 확보가 먼저</b>인 이유입니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">설계도서 기재가 모호하거나 문서 간 불일치가 있으면 감정 단계에서 그대로 다툼이 됩니다. <b>미리 확인해 두는 것이 감정 대응의 출발점</b>입니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">정보공개청구는 접수일부터 10일 이내 결정이 원칙이나 비공개 결정 시 이의신청·행정심판을 거쳐야 합니다. <b>착수 직후 바로 청구합니다.</b></div></div></div>
   <div class="note">출처: 「2026 건설감정실무」(서울중앙지방법원 건설소송실무연구회, 사법발전재단, 2026. 1.) 개정 내용에 관한 법무법인 발간 해설 자료 <b>[2차 출처]</b>. 개별 수치는 원문 확보 후 근거 등급을 올립니다. 판결례는 원문 확인 전이므로 판시 취지를 단정하지 않았습니다.</div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>

@@ -78,20 +78,29 @@
     background:linear-gradient(150deg,#0D2162 0%,#081541 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
-  .runner{z-index:2;color:rgba(255,255,255,.66)!important;}
+  .runner{z-index:2;color:rgba(255,255,255,.92)!important;}
   .eyebrow{z-index:2;color:#CBB27E!important;}
   .eyebrow::before{background:#CBB27E!important;}
   .title{z-index:2;color:#FFFFFF!important;}
   html,body{background:#FFFFFF!important;}
   body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
   .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* ── 실사 한 컷 ── 본문 아래에 사진 + 설명을 나란히. 파일이 없어도 흰 상자로 남는다 */
+  .shot{display:flex;gap:24px;align-items:center;margin-top:18px;
+    border-top:1.4px solid var(--line);padding-top:16px;}
+  .shot .im{flex:0 0 392px;aspect-ratio:4/3;border:1px solid var(--line);
+    background:#fff center/cover no-repeat;}
+  .shot .tx{flex:1;max-width:560px;font-size:15px;line-height:1.7;color:var(--ink);}
+  .shot .tx b{color:var(--navy);font-weight:800;}
+  .shot .lb{font-size:12.5px;font-weight:800;color:var(--gold-ink);
+    letter-spacing:.1em;margin-bottom:7px;}
 </style>
 </head>
 <body>
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">단열재 변경시공 · 결로 [고정]</div>
   <div class="title">단열재는 사용검사 전에 바뀌고, 결로는 사용검사 뒤에 나타납니다</div>
-  <div class="body" style="bottom:56px"><div class="sec">원문 예시 · 설계와 실제의 차이</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);margin-bottom:16px"><div class="c"><div class="cn">설계</div><div class="ck">THK 85㎜ · 가등급</div><div class="cv">사용승인도면 형별성능관계내역에 기재된 사양입니다.</div></div><div class="c"><div class="cn">실제</div><div class="ck">THK 60㎜ · 나등급</div><div class="cv">두께와 등급이 모두 낮은 자재로 시공되었습니다.</div></div><div class="c"><div class="cn">결과</div><div class="ck">결로 · 곰팡이</div><div class="cv">시공은 사용검사 이전, 하자 현상은 사용검사일 이후에 나타납니다.</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">원문 예시 · 설계와 실제의 차이</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);margin-bottom:16px"><div class="c"><div class="cn">설계</div><div class="ck">THK 85㎜ · 가등급</div><div class="cv">사용승인도면 형별성능관계내역에 기재된 사양입니다.</div></div><div class="c"><div class="cn">실제</div><div class="ck">THK 60㎜ · 나등급</div><div class="cv">두께와 등급이 모두 낮은 자재로 시공되었습니다.</div></div><div class="c"><div class="cn">결과</div><div class="ck">결로 · 곰팡이</div><div class="cv">시공은 사용검사 이전, 하자 현상은 사용검사일 이후에 나타납니다.</div></div></div><div class="shot"><div class="im" style="background-image:url(ins-foam.jpg)"></div><div class="tx"><div class="lb">타 단지 조사 사례</div>단열재가 놓일 자리에 <b>우레탄폼이 충전</b>된 상태입니다. 사용승인도면의 형별성능관계내역에 적힌 두께·등급과 대조해 미시공·변경시공에 해당하는지를 판단합니다.</div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>
