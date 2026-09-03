@@ -22,7 +22,7 @@
   .footer .firm{color:var(--navy);font-weight:700;}
 
   /* ── 본문 프리미티브 ── */
-  .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:264px;}
   .sec{font-size:14px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
   .sec+.sec,.blk+.sec{margin-top:16px;}
@@ -31,7 +31,7 @@
   .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
   .c .ck{font-size:16.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
   .c .cv{margin-top:8px;font-size:14.5px;line-height:1.62;color:var(--ink);}
-  .c .cn{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
+  .c .cn{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
   .c b{color:var(--navy);font-weight:800;}
 
   .flow{display:grid;gap:0;}
@@ -71,11 +71,11 @@
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:52px;font-size:14px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+    background:linear-gradient(150deg,#223D5B 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
   .runner{z-index:2;color:#FFFFFF!important;}
@@ -86,27 +86,34 @@
   body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
   .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
 
-  /* 촘촘 모드 — 내용이 하단 밴드에 닿을 때 여백만 줄인다 */
-  .tbl .tr div{padding:6.6px 15px;}
-  .tbl .th div{padding:8px 15px;}
-  .kv .r{padding:4.6px 0;}
-  .sec{margin-bottom:9px;}
-  .sec+.sec,.blk+.sec{margin-top:12px;}
-  .c{padding:12px 16px;}
-
-  /* 촘촘 — 밴드 위치 통일로 본문 높이가 26px 줄어든 만큼 여백을 압축한다 */
-  .tbl .tr div{padding:6.4px 15px;} .tbl .th div{padding:7.6px 15px;}
-  .kv .r{padding:4.4px 0;} .sec{margin-bottom:9px;}
-  .sec+.sec,.blk+.sec{margin-top:11px;} .c{padding:11px 15px;}
-  .cards{gap:12px;} .step{padding:11px 14px 12px;}
+  /* ── 인원 도트 차트 ── 표로 '36명'이라고 적는 것보다 점 36개가 눈에 들어온다.
+     점 하나가 사람 한 명이고, 개수는 법인 소개 자료 기재분과 같다. */
+  .team{display:grid;grid-template-columns:1fr 1fr;gap:34px;margin-top:12px;}
+  .grp .gh{display:flex;align-items:baseline;gap:11px;
+    padding-bottom:9px;border-bottom:1.6px solid var(--navy);}
+  .grp .gn{font-size:30px;font-weight:800;color:var(--navy);letter-spacing:-.03em;line-height:1;}
+  .grp .gt{font-size:16px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .grp .gr{margin-left:auto;font-size:13px;color:var(--ink);}
+  .dots{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px;max-width:462px;}
+  .dots i{width:22px;height:22px;display:block;background:var(--fill);}
+  .dots.gold i{background:var(--gold);}
+  .grp .gd{margin-top:18px;font-size:15px;line-height:1.65;color:var(--ink);}
+  .grp .gd b{color:var(--navy);font-weight:800;}
+  .tech{margin-top:26px;padding-top:18px;border-top:1.4px solid var(--line);
+    display:flex;gap:16px;align-items:flex-start;}
+  .tech .tk{flex:0 0 176px;font-size:16px;font-weight:800;color:var(--navy);
+    display:flex;align-items:center;gap:8px;letter-spacing:-.01em;}
+  .tech .tk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .tech .tv{flex:1;font-size:15px;line-height:1.65;color:var(--ink);}
+  .tech .tv b{color:var(--navy);font-weight:800;}
 </style>
 </head>
 <body>
-    <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
-  <div class="eyebrow">사무소 안내 [고정]</div>
-  <div class="title">본사와 동탄 분사무소 두 곳에서 수도권·충청 단지를 맡습니다</div>
-  <div class="body"><div class="sec">구성 · 하자소송은 세대 단위 사무 처리량이 결과를 좌우합니다</div><div class="tbl blk" style=""><div class="th"><div style="width:150px">구분</div><div style="width:190px">인원</div><div style="flex:1">역할</div></div><div class="tr"><div style="width:150px">변호사</div><div style="width:190px">7인</div><div style="flex:1">사건 수행 · 서면 작성 · 변론 · 감정 대응</div></div><div class="tr"><div style="width:150px">사무직원</div><div style="width:190px">36명</div><div style="flex:1">채권양도 서류 징구·검수 · 세대 명단 관리 · 송달 관리</div></div><div class="tr"><div style="width:150px">기술 인력</div><div style="width:190px">건축시공기술사</div><div style="flex:1">현장조사 입회 · 도면 대조 · 감정 항목 검토</div></div></div><img src="idea-stat.svg" style="position:absolute;right:20px;bottom:18px;width:128px;height:128px;opacity:.13;pointer-events:none;"></div>
-  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">1,000세대 단지면 채권양도 서류가 1,000건입니다. 서명 확인·인적사항 대조·미회수 관리가 전부 수작업입니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">변호사 수보다 <b>징구를 감당할 인력이 있는가</b>가 실제 회수율을 좌우합니다. 사무직원 36명 구성입니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">설명회와 서류 징구는 단지 일정에 맞춰야 합니다. 총회 일정이 정해지면 미리 알려 주십시오.</div></div></div>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">인력 구성 [고정]</div>
+  <div class="title">하자소송의 결과는 세대 단위 사무 처리량이 좌우합니다</div>
+  <div class="body"><div class="sec">인원 구성 · 점 하나가 한 사람입니다</div><div class="team"><div class="grp"><div class="gh"><div class="gn">7</div><div class="gt">변호사</div><div class="gr">인</div></div><div class="dots gold"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="gd">사건 수행 · 서면 작성 · 변론 · <b>감정 대응</b>을 맡습니다.</div></div><div class="grp"><div class="gh"><div class="gn">36</div><div class="gt">사무직원</div><div class="gr">명</div></div><div class="dots"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="gd">채권양도 서류 <b>징구·검수</b> · 세대 명단 관리 · 송달 관리를 맡습니다.</div></div></div><div class="tech"><div class="tk">건축시공기술사</div><div class="tv">법인 내부 기술 인력입니다. <b>현장조사 입회 · 도면 대조 · 감정 항목 검토</b>를 변호사와 같은 자리에서 수행합니다.</div></div></div>
+  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">1,000세대 단지면 채권양도 서류가 <b>1,000건</b>입니다. 서명 확인·인적사항 대조·미회수 관리가 전부 수작업입니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">변호사 수보다 <b>징구를 감당할 인력이 있는가</b>가 실제 회수율을 좌우합니다. 사무직원 36명 구성입니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">설명회와 서류 징구는 단지 일정에 맞춰야 합니다. 총회 일정이 정해지면 미리 알려 주십시오.</div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

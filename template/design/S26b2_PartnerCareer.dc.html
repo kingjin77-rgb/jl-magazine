@@ -11,105 +11,115 @@
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
   .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
     font-size:15px;color:var(--muted);}
-  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
-  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
-    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
-  .title{position:absolute;left:56px;top:96px;right:56px;font-size:34px;font-weight:800;
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:32px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
-  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
-    border-radius:0;padding:12px 18px;line-height:1.6;}
-  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
-    border-radius:0;padding:12px 18px;line-height:1.7;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
     font-size:14px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
-  .title{font-size:32px;}
-  .wrap{position:absolute;left:56px;top:186px;right:56px;bottom:52px;display:flex;gap:38px;}
-  .photo{width:290px;flex:0 0 auto;}
-  .photo .box{width:290px;height:362px;border:1px solid var(--line);overflow:hidden;
-    background:radial-gradient(circle at 50% 30%,#E9EDF8,#dfe3ec);}
-  .photo img{width:100%;height:100%;object-fit:cover;display:block;}
-  .photo .nm{margin-top:16px;font-size:24px;font-weight:800;color:var(--navy);}
-  .photo .rl{margin-top:5px;font-size:14px;color:var(--gold-ink);font-weight:700;letter-spacing:.04em;}
-  .body{flex:1;display:flex;flex-direction:column;}
-  .greet{font-size:18px;line-height:1.95;color:var(--ink);}
-  /* 강조 문장 — S02·S03b와 같은 어법(골드 바 + 굵은 네이비 단문) */
-  .gbar{margin-top:24px;width:56px;height:4px;background:var(--gold);}
-  .gpunch{margin-top:16px;font-size:22px;font-weight:800;color:var(--navy);
-    line-height:1.5;letter-spacing:-.02em;}
-  .greet b{color:var(--navy);}
-  .career{margin-top:22px;padding-top:18px;border-top:1.4px solid var(--line);
-    display:grid;grid-template-columns:repeat(2,1fr);gap:9px 28px;}
-  .career li{position:relative;padding-left:13px;font-size:14px;color:var(--ink);line-height:1.65;list-style:none;}
-  .career li::before{content:"";position:absolute;left:0;top:9px;width:4px;height:4px;
-    background:var(--gold);border-radius:50%;}
-  .sign{margin-top:auto;padding-top:16px;border-top:1px solid var(--line);
-    display:flex;justify-content:space-between;align-items:flex-end;}
-  .sign .f{font-size:14px;color:var(--ink);}
-  .sign .n{font-size:19px;font-weight:800;color:var(--navy);}
+  /* ── 본문 프리미티브 ── */
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:104px;}
+  .sec{font-size:14px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
+  .sec+.sec,.blk+.sec{margin-top:16px;}
+
+  .cards{display:grid;gap:14px;}
+  .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
+  .c .ck{font-size:16.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:14.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
+  .c b{color:var(--navy);font-weight:800;}
+
+  .flow{display:grid;gap:0;}
+  .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
+  .step+.step{border-left:0;}
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--fill);
+    width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
+
+  .tbl{border:1px solid var(--line);}
+  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:15px;font-weight:700;}
+  .tbl .th div{padding:10px 15px;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
+  .tbl .tr div{padding:9px 15px;}
+  .tbl .tr b{color:var(--navy);font-weight:800;}
+
+  .kv .r{display:flex;gap:10px;font-size:14.5px;line-height:1.55;padding:7px 0;
+    border-bottom:1px solid var(--line);}
+  .kv .r:last-child{border-bottom:0;}
+  .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
+  .kv .r em{flex:1;font-style:normal;}
+
+  .split{display:flex;gap:26px;height:100%;}
+  .split>div{flex:1;}
+
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
+
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
-    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+    background:linear-gradient(150deg,#223D5B 0%,#2A3B4F 100%);z-index:0;}
   body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
     background:var(--gold);z-index:1;}
   .runner{z-index:2;color:#FFFFFF!important;}
   .eyebrow{z-index:2;color:#EBD9B4!important;}
   .eyebrow::before{background:#EBD9B4!important;}
   .title{z-index:2;color:#FFFFFF!important;}
-  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
-    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
-
-  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
-     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
   html,body{background:#FFFFFF!important;}
-  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
   .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
-  /* 흰 블록 위로 올라오는 요소들 */
-  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
-  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
-  .note{background:#fff!important;}
 
-  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
-  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
-  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
-  /* ── 약력 장 ── 2열 카드형. 경력 한 줄 + 하자소송에서 어떻게 쓰이는지 한 줄 */
-  .cv{position:absolute;left:56px;top:186px;right:56px;
-    display:grid;grid-template-columns:1fr 1fr;gap:20px 26px;}
-  .cv .i{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;
-    padding:19px 22px 20px;}
-  .cv .wide{grid-column:1 / -1;}
-  .cv .k{font-size:16.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;line-height:1.4;}
-  .cv .d{margin-top:8px;font-size:14.5px;line-height:1.62;color:var(--ink);}
-  .cv .d b{color:var(--navy);font-weight:800;}
-  .cvnote{position:absolute;left:56px;right:56px;bottom:52px;font-size:14px;
-    line-height:1.6;color:var(--ink);}
+  /* ── 세로 연혁 타임라인 ── 왼쪽에 경력, 오른쪽에 그 경력이 이 사건에서 쓰이는 곳.
+     카드 상자를 반복하지 않으려고 축과 점으로만 구성했다. */
+  .cvwrap{display:flex;gap:30px;margin-top:10px;}
+  .tl{flex:1;position:relative;padding-left:26px;}
+  /* 축은 마지막 점에서 끝나야 한다. 마지막 항목의 아래 여백만큼 잘라 낸다. */
+  .tl::before{content:"";position:absolute;left:6px;top:8px;bottom:40px;width:2px;background:var(--line);}
+  .tl .it{position:relative;padding:0 0 34px;}
+  .tl .it:last-child{padding-bottom:0;}
+  .tl .it::before{content:"";position:absolute;left:-26px;top:5px;width:14px;height:14px;
+    background:#fff;border:3px solid var(--fill);border-radius:50%;}
+  .tl .it.key::before{border-color:var(--gold);background:var(--gold);}
+  .tl .k{font-size:17.5px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .tl .v{margin-top:8px;font-size:15px;line-height:1.7;color:var(--ink);}
+  .tl .v b{color:var(--navy);font-weight:800;}
+  .cvside{flex:0 0 330px;display:flex;flex-direction:column;}
+  .cvside .pbox{width:330px;height:258px;border:1px solid var(--line);
+    background:var(--card) center/cover no-repeat;position:relative;}
+  .cvside .pbox::after{content:"사진";position:absolute;left:50%;top:50%;
+    transform:translate(-50%,-50%);font-size:13px;font-weight:800;letter-spacing:.24em;color:#7F8CA6;}
+  .cvside .nm{margin-top:14px;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .cvside .rl{margin-top:6px;font-size:14px;color:var(--ink);}
+  .cvside .ed{margin-top:14px;padding-top:12px;border-top:1.4px solid var(--navy);
+    font-size:13px;line-height:1.62;color:var(--ink);}
+  .cvside .ed b{display:block;margin-bottom:5px;color:var(--gold-ink);font-weight:800;font-size:13px;}
+  .cvside .pf{margin-top:11px;font-size:12px;line-height:1.5;color:var(--ink);}
+  .cvside .pf b{color:var(--gold-ink);font-weight:800;}
 </style>
 </head>
 <body>
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">MANAGING PARTNER · 약력</div>
   <div class="title">검사와 공인회계사 경력을 하자소송 판단에 씁니다</div>
-
-  <div class="cv">
-    <div class="i"><div class="k">사법고시 38회 · 사법연수원 28기</div>
-      <div class="d">공동주택 하자 사건을 <b>집합건물법·공동주택관리법 두 축</b>으로 나누어 구성합니다.</div></div>
-    <div class="i"><div class="k">제21회 공인회계사 · 회계법인 근무</div>
-      <div class="d">감정서의 <b>단가 적용과 수량 산출</b>을 직접 검산합니다. 감정보완신청 사유의 절반이 이 두 가지입니다.</div></div>
-    <div class="i"><div class="k">수원·광주·부산지방검찰청 부장검사 역임</div>
-      <div class="d">사실관계를 <b>증거로 세우는 순서</b>를 기준으로 조사 단계를 설계합니다.</div></div>
-    <div class="i"><div class="k">JB금융지주 사외이사</div>
-      <div class="d">입주자대표회의 의결·회계 처리 등 <b>단지 내부 절차</b>에 관한 검토를 함께 봅니다.</div></div>
-    <div class="i wide"><div class="k">학력</div>
-      <div class="d">성균관대학교 졸업 · 서울대학교 대학원 경영학과 수료</div></div>
-  </div>
-
-  <img src="step-judgment.svg" style="position:absolute;right:56px;bottom:118px;width:118px;height:118px;opacity:.13;pointer-events:none;">
-  <div class="cvnote">경력 사항은 법인 소개 자료 기재분입니다. 각 항목의 설명은 해당 경력이 하자소송 수행에서 어떻게 쓰이는지를 적은 것으로, 개별 사건의 결과를 보장하는 표현이 아닙니다.</div>
+  <div class="body"><div class="sec">경력 · 그 경력이 이 사건에서 쓰이는 곳</div><div class="cvwrap"><div class="tl"><div class="it key"><div class="k">사법고시 38회 · 사법연수원 28기</div><div class="v">공동주택 하자 사건을 <b>집합건물법·공동주택관리법 두 축</b>으로 나누어 구성합니다.</div></div><div class="it key"><div class="k">제21회 공인회계사 · 회계법인 근무</div><div class="v">감정서의 <b>단가 적용과 수량 산출</b>을 직접 검산합니다. 감정보완신청 사유의 절반이 이 두 가지입니다.</div></div><div class="it"><div class="k">수원·광주·부산지방검찰청 부장검사 역임</div><div class="v">사실관계를 <b>증거로 세우는 순서</b>를 기준으로 조사 단계를 설계합니다.</div></div><div class="it"><div class="k">JB금융지주 사외이사</div><div class="v">입주자대표회의 의결·회계 처리 등 <b>단지 내부 절차</b>에 관한 검토를 함께 봅니다.</div></div></div><div class="cvside"><div class="pbox" style="background-image:url(p-partner.jpg)"></div><div class="nm">박종일</div><div class="rl">법무법인 제이엘 대표변호사</div><div class="ed"><b>학력</b>성균관대학교 졸업 · 서울대학교 대학원 경영학과 수료</div><div class="pf">사진을 <b>photos/p-partner.jpg</b> 로 두시면 그대로 들어갑니다</div></div></div></div>
+  <div class="note">경력 사항은 법인 소개 자료 기재분입니다. 각 항목의 설명은 해당 경력이 하자소송 수행에서 어떻게 쓰이는지를 적은 것으로, 개별 사건의 결과를 보장하는 표현이 아닙니다.</div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>
