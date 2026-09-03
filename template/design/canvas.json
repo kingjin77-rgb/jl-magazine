@@ -385,372 +385,380 @@
       "title": "48 주요 하자 유형"
     },
     {
-      "file": "S13c_DefectStatistics.dc.html",
+      "file": "S13b2_DefectMatrix.dc.html",
       "x": 69696,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "49 하자 유형별 분포"
+      "title": "49 하자 유형 분포 매트릭스"
     },
     {
-      "file": "S13c2_DesignMismatch.dc.html",
+      "file": "S13c_DefectStatistics.dc.html",
       "x": 71148,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "50 설계도서 상이시공의 비중"
+      "title": "50 하자 유형별 분포"
     },
     {
-      "file": "S14_Wallpad.dc.html",
+      "file": "S13c2_DesignMismatch.dc.html",
       "x": 72600,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "51 월패드"
+      "title": "51 설계도서 상이시공의 비중"
     },
     {
-      "file": "S14b_GatewaySteps.dc.html",
+      "file": "S14_Wallpad.dc.html",
       "x": 74052,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "52 홈게이트웨이 판단 단계"
+      "title": "52 월패드"
     },
     {
-      "file": "S15_TileBacking.dc.html",
+      "file": "S14b_GatewaySteps.dc.html",
       "x": 75504,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "53 타일 뒤채움"
+      "title": "53 홈게이트웨이 판단 단계"
     },
     {
-      "file": "S16_Waterproofing.dc.html",
+      "file": "S15_TileBacking.dc.html",
       "x": 76956,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "54 방수"
+      "title": "54 타일 뒤채움"
     },
     {
-      "file": "S16b_StandardChange.dc.html",
+      "file": "S16_Waterproofing.dc.html",
       "x": 78408,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "55 방수 두께 기준의 현실"
+      "title": "55 방수"
     },
     {
-      "file": "S17_FireDoor.dc.html",
+      "file": "S16b_StandardChange.dc.html",
       "x": 79860,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "56 방화문"
+      "title": "56 방수 두께 기준의 현실"
     },
     {
-      "file": "S17b_ConcreteCrack.dc.html",
+      "file": "S17_FireDoor.dc.html",
       "x": 81312,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "57 콘크리트 균열 "
+      "title": "57 방화문"
     },
     {
-      "file": "S17b2_CrackRemedy.dc.html",
+      "file": "S17b_ConcreteCrack.dc.html",
       "x": 82764,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "58 원인별 보수공법"
+      "title": "58 콘크리트 균열 "
     },
     {
-      "file": "S17c_MortarThickness.dc.html",
+      "file": "S17b2_CrackRemedy.dc.html",
       "x": 84216,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "59 미장 두께 부족"
+      "title": "59 원인별 보수공법"
     },
     {
-      "file": "S17d_Insulation.dc.html",
+      "file": "S17c_MortarThickness.dc.html",
       "x": 85668,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "60 단열재·결로  "
+      "title": "60 미장 두께 부족"
     },
     {
-      "file": "S17d2_CondensationCheck.dc.html",
+      "file": "S17d_Insulation.dc.html",
       "x": 87120,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "61 결로 조사 방법"
+      "title": "61 단열재·결로  "
     },
     {
-      "file": "S17e_CommonAreas.dc.html",
+      "file": "S17d2_CondensationCheck.dc.html",
       "x": 88572,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "62 공용부 조사 대상"
+      "title": "62 결로 조사 방법"
     },
     {
-      "file": "S17f_RevisedItems.dc.html",
+      "file": "S17e_CommonAreas.dc.html",
       "x": 90024,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "63 개정으로 달라진 항목"
+      "title": "63 공용부 조사 대상"
     },
     {
-      "file": "S17g_RevisedItems2.dc.html",
+      "file": "S17f_RevisedItems.dc.html",
       "x": 91476,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "64 개정 항목 · 방수·도장·방화문"
+      "title": "64 개정으로 달라진 항목"
     },
     {
-      "file": "S17h_FieldUnit.dc.html",
+      "file": "S17g_RevisedItems2.dc.html",
       "x": 92928,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "65 실사 조사 사례 · 세대 내부"
+      "title": "65 개정 항목 · 방수·도장·방화문"
     },
     {
-      "file": "S17i_FieldCommon.dc.html",
+      "file": "S17h_FieldUnit.dc.html",
       "x": 94380,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "66 실사 조사 사례 · 공용부·지하"
+      "title": "66 실사 조사 사례 · 세대 내부"
     },
     {
-      "file": "D5_Divider.dc.html",
+      "file": "S17i_FieldCommon.dc.html",
       "x": 95832,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "67 PART 5 간지"
+      "title": "67 실사 조사 사례 · 공용부·지하"
     },
     {
-      "file": "S18_LitigationProcess.dc.html",
+      "file": "D5_Divider.dc.html",
       "x": 97284,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "68 소송 절차"
+      "title": "68 PART 5 간지"
     },
     {
-      "file": "S18b_ProcessTimeline.dc.html",
+      "file": "S18_LitigationProcess.dc.html",
       "x": 98736,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "69 소송 절차 11단계"
+      "title": "69 소송 절차"
     },
     {
-      "file": "S19_ConsentCollection.dc.html",
+      "file": "S18b_ProcessTimeline.dc.html",
       "x": 100188,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "70 동의서 징구"
+      "title": "70 소송 절차 11단계"
     },
     {
-      "file": "S19b_AssignmentPractice.dc.html",
+      "file": "S19_ConsentCollection.dc.html",
       "x": 101640,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "71 채권양도 실무"
+      "title": "71 동의서 징구"
     },
     {
-      "file": "S19b2_PracticeIssues.dc.html",
+      "file": "S19b_AssignmentPractice.dc.html",
       "x": 103092,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "72 채권양도 실무의 난점"
+      "title": "72 채권양도 실무"
     },
     {
-      "file": "S20_AppraisalResponse.dc.html",
+      "file": "S19b2_PracticeIssues.dc.html",
       "x": 104544,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "73 감정 대응"
+      "title": "73 채권양도 실무의 난점"
     },
     {
-      "file": "S20b_SupplementReasons.dc.html",
+      "file": "S20_AppraisalResponse.dc.html",
       "x": 105996,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "74 감정보완신청 사유"
+      "title": "74 감정 대응"
     },
     {
-      "file": "S21_ReportingSystem.dc.html",
+      "file": "S20b_SupplementReasons.dc.html",
       "x": 107448,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "75 보고 체계"
+      "title": "75 감정보완신청 사유"
     },
     {
-      "file": "S21b_ReportContents.dc.html",
+      "file": "S21_ReportingSystem.dc.html",
       "x": 108900,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "76 보고서 수록 항목"
+      "title": "76 보고 체계"
     },
     {
-      "file": "S21b2_AdhocReport.dc.html",
+      "file": "S21b_ReportContents.dc.html",
       "x": 110352,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "77 수시 보고 시점"
+      "title": "77 보고서 수록 항목"
     },
     {
-      "file": "S22_Timeline.dc.html",
+      "file": "S21b2_AdhocReport.dc.html",
       "x": 111804,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "78 전체 일정표"
+      "title": "78 수시 보고 시점"
     },
     {
-      "file": "S22b_AfterJudgment.dc.html",
+      "file": "S22_Timeline.dc.html",
       "x": 113256,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "79 판결 이후"
+      "title": "79 전체 일정표"
     },
     {
-      "file": "S22b2_PostRepair.dc.html",
+      "file": "S22b_AfterJudgment.dc.html",
       "x": 114708,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "80 회수 이후의 보수공사"
+      "title": "80 판결 이후"
     },
     {
-      "file": "D6_Divider.dc.html",
+      "file": "S22b2_PostRepair.dc.html",
       "x": 116160,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "81 PART 6 간지"
+      "title": "81 회수 이후의 보수공사"
     },
     {
-      "file": "S23_FeeTerms.dc.html",
+      "file": "D6_Divider.dc.html",
       "x": 117612,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "82 보수 조건"
+      "title": "82 PART 6 간지"
     },
     {
-      "file": "S24_CostStructure.dc.html",
+      "file": "S23_FeeTerms.dc.html",
       "x": 119064,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "83 비용 부담 구조"
+      "title": "83 보수 조건"
     },
     {
-      "file": "S24b_CostTiming.dc.html",
+      "file": "S24_CostStructure.dc.html",
       "x": 120516,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "84 비용 발생 시점"
+      "title": "84 비용 부담 구조"
     },
     {
-      "file": "S24b2_CostBurden.dc.html",
+      "file": "S24b_CostTiming.dc.html",
       "x": 121968,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "85 비용 부담 방식"
+      "title": "85 비용 발생 시점"
     },
     {
-      "file": "S25_Disclaimer.dc.html",
+      "file": "S24b2_CostBurden.dc.html",
       "x": 123420,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "86 유의사항"
+      "title": "86 비용 부담 방식"
     },
     {
-      "file": "D7_Divider.dc.html",
+      "file": "S25_Disclaimer.dc.html",
       "x": 124872,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "87 PART 7 간지"
+      "title": "87 유의사항"
     },
     {
-      "file": "S30_FAQ.dc.html",
+      "file": "D7_Divider.dc.html",
       "x": 126324,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "88 예상 질의응답"
+      "title": "88 PART 7 간지"
     },
     {
-      "file": "S30b_FAQ2.dc.html",
+      "file": "S30_FAQ.dc.html",
       "x": 127776,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "89 자주 묻는 질문"
+      "title": "89 예상 질의응답"
     },
     {
-      "file": "S30c_FAQ3.dc.html",
+      "file": "S30b_FAQ2.dc.html",
       "x": 129228,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "90 자주 묻는 질문 · 계속"
+      "title": "90 자주 묻는 질문"
     },
     {
-      "file": "S31_NextSteps.dc.html",
+      "file": "S30c_FAQ3.dc.html",
       "x": 130680,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "91 다음 단계·연락처"
+      "title": "91 자주 묻는 질문 · 계속"
     },
     {
-      "file": "S31b_Checklist.dc.html",
+      "file": "S31_NextSteps.dc.html",
       "x": 132132,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "92 착수 전 준비"
+      "title": "92 다음 단계·연락처"
     },
     {
-      "file": "S31b2_ListSchedule.dc.html",
+      "file": "S31b_Checklist.dc.html",
       "x": 133584,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "93 명단·일정 준비"
+      "title": "93 착수 전 준비"
     },
     {
-      "file": "S32_Closing.dc.html",
+      "file": "S31b2_ListSchedule.dc.html",
       "x": 135036,
       "y": 0,
       "w": 1332,
       "h": 750,
-      "title": "94 끝인사"
+      "title": "94 명단·일정 준비"
+    },
+    {
+      "file": "S32_Closing.dc.html",
+      "x": 136488,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "95 끝인사"
     }
   ],
   "launch": {
