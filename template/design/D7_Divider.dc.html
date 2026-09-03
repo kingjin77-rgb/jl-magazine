@@ -5,43 +5,56 @@
 <script src="./support.js"></script>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
-  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-light:#EBD9B4;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;
+    --gold-light:#EBD9B4;--line:#C6CFE0;}
   html,body{width:1332px;height:750px;overflow:hidden;position:relative;
-    font-family:"Pretendard","Malgun Gothic",sans-serif;
-    background:linear-gradient(135deg,#223D5B 0%,#2A3B4F 100%);color:#fff;}
-  .rule{position:absolute;left:0;top:0;width:100%;height:6px;background:var(--gold);}
-  .pn{position:absolute;left:72px;top:150px;font-size:15px;letter-spacing:.34em;
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:#FFFFFF;
+    background:#2A3B4F;}
+
+  /* ── 실사 사진 전면 배경 ──
+     파일이 없으면 아래 그러데이션만 보이므로 레이아웃이 깨지지 않는다.
+     사진은 template/design/photos/p-part7.jpg 로 두면 그대로 들어간다. */
+  .bg{position:absolute;inset:0;
+    background:linear-gradient(150deg,#385783 0%,#2A3B4F 100%),
+               url(p-part7.jpg) center/cover no-repeat;
+    background-blend-mode:normal;}
+  .bg img{width:100%;height:100%;object-fit:cover;display:block;}
+  /* 글자가 얹히는 왼쪽을 어둡게 눌러 사진이 어떤 밝기든 읽히게 한다 */
+  .scrim{position:absolute;inset:0;
+    background:linear-gradient(100deg,rgba(23,38,58,.94) 0%,rgba(23,38,58,.88) 38%,
+               rgba(23,38,58,.42) 68%,rgba(23,38,58,.30) 100%);}
+  .edge{position:absolute;left:0;top:0;bottom:0;width:6px;background:var(--gold);}
+  .hint{position:absolute;right:44px;top:34px;font-size:12px;letter-spacing:.14em;
+    color:rgba(255,255,255,.55);}
+
+  .pn{position:absolute;left:76px;top:152px;font-size:15px;letter-spacing:.34em;
     color:var(--gold-light);font-weight:700;}
-  .kr{position:absolute;left:72px;top:186px;font-size:64px;font-weight:800;
-    letter-spacing:-.025em;line-height:1.2;}
-  .en{position:absolute;left:72px;top:290px;font-size:15px;letter-spacing:.24em;
+  .kr{position:absolute;left:76px;top:188px;font-size:66px;font-weight:800;
+    letter-spacing:-.03em;line-height:1.16;text-shadow:0 2px 18px rgba(0,0,0,.35);}
+  .en{position:absolute;left:76px;top:280px;font-size:15px;letter-spacing:.24em;
     color:#FFFFFF;}
-  .q{position:absolute;left:72px;top:348px;font-size:25px;font-weight:700;
+  .q{position:absolute;left:76px;top:338px;font-size:26px;font-weight:700;
     color:var(--gold-light);letter-spacing:-.01em;}
-  .q::before{content:"";position:absolute;left:0;top:-20px;width:52px;height:3px;background:var(--gold);}
-  .list{position:absolute;left:72px;top:436px;right:620px;display:flex;flex-direction:column;gap:0;}
-  .li{font-size:16px;color:#FFFFFF;padding:11px 0;display:flex;gap:16px;
-    border-bottom:1px solid rgba(255,255,255,.13);align-items:baseline;}
-  .li b{font-size:12.5px;color:var(--gold-light);letter-spacing:.1em;font-weight:700;
-    flex:0 0 26px;}
-  .art{position:absolute;right:0;top:0;bottom:0;width:560px;overflow:hidden;
-    display:flex;align-items:center;opacity:.95;}
-  .art::before{content:"";position:absolute;left:0;top:0;bottom:0;width:1px;
-    background:rgba(255,255,255,.14);}
-  .art .motif{width:126%;height:auto;display:block;margin-left:-6%;}
-  .foot{position:absolute;left:72px;bottom:44px;font-size:13px;
-    color:#FFFFFF;letter-spacing:.03em;}
-  .page{position:absolute;right:72px;bottom:44px;font-size:13px;color:#FFFFFF;}
+  .q::before{content:"";position:absolute;left:0;top:-22px;width:56px;height:4px;background:var(--gold);}
+  .list{position:absolute;left:76px;top:426px;width:470px;}
+  .li{font-size:16.5px;color:#FFFFFF;padding:11px 0;display:flex;gap:16px;
+    border-bottom:1px solid rgba(255,255,255,.24);align-items:baseline;}
+  .li b{font-size:12.5px;color:var(--gold-light);letter-spacing:.1em;font-weight:700;flex:0 0 26px;}
+  .foot{position:absolute;left:76px;bottom:44px;font-size:13.5px;color:#FFFFFF;letter-spacing:.03em;}
+  .firm{position:absolute;right:44px;bottom:44px;font-size:13.5px;color:#FFFFFF;letter-spacing:.06em;}
 </style>
 </head>
 <body>
-  <div class="rule"></div>
-  <div class="art"><svg class="motif" viewBox="0 0 700 310" xmlns="http://www.w3.org/2000/svg"><rect x="40" y="150" width="34" height="150" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.13"/><rect x="114" y="104" width="34" height="196" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.13"/><rect x="188" y="58" width="34" height="242" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.13"/><rect x="262" y="12" width="34" height="288" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.13"/><rect x="336" y="150" width="34" height="150" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.13"/><rect x="410" y="104" width="34" height="196" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.13"/><rect x="484" y="58" width="34" height="242" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.13"/><rect x="558" y="12" width="34" height="288" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.13"/><rect x="632" y="150" width="34" height="150" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.13"/></svg></div>
+  <div class="bg"></div>
+  <div class="scrim"></div>
+  <div class="edge"></div>
+  <div class="hint">사진 자리 · 단지 전경 또는 입대의 회의</div>
   <div class="pn">PART 7</div>
   <div class="kr">마무리</div>
   <div class="en">NEXT STEPS</div>
   <div class="q">무엇부터 시작하는가</div>
   <div class="list"><div class="li"><b>01</b>예상 질의응답</div><div class="li"><b>02</b>다음 단계 및 연락처</div></div>
   <div class="foot">법무법인 제이엘</div>
+  <div class="firm">JL LAWFIRM</div>
 </body>
 </html>
