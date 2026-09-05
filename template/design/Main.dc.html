@@ -13,8 +13,8 @@
      template/design/photos/p-cover.jpg 로 두면 그대로 들어가고,
      없으면 아래 브랜드 그러데이션만 보인다. */
   .bg{position:absolute;inset:0;
-    background:linear-gradient(148deg,#385783 0%,#2A3B4F 62%,#223D5B 100%),
-               url(p-cover.jpg) center/cover no-repeat;}
+    background:url(p-cover.jpg) center/cover no-repeat,
+               linear-gradient(148deg,#385783 0%,#2A3B4F 62%,#223D5B 100%);}
   /* 아래에서 위로 어둡게 눌러 어떤 사진이 와도 글자가 읽히게 한다 */
   .scrim{position:absolute;inset:0;
     background:linear-gradient(0deg,rgba(20,33,52,.96) 0%,rgba(20,33,52,.88) 32%,
@@ -52,7 +52,6 @@
 <body>
   <div class="bg"></div>
   <div class="scrim"></div>
-  <div class="hint">사진 자리 · 단지 전경 (가로 16:9 권장) · photos/p-cover.jpg</div>
   <img class="logo" src="jl-logo.png">
 
   <div class="eyebrow">JL LAWFIRM</div>

@@ -15,8 +15,8 @@
      파일이 없으면 아래 그러데이션만 보이므로 레이아웃이 깨지지 않는다.
      사진은 template/design/photos/p-part1.jpg 로 두면 그대로 들어간다. */
   .bg{position:absolute;inset:0;
-    background:linear-gradient(150deg,#385783 0%,#2A3B4F 100%),
-               url(p-part1.jpg) center/cover no-repeat;
+    background:url(p-part1.jpg) center/cover no-repeat,
+               linear-gradient(150deg,#385783 0%,#2A3B4F 100%);
     background-blend-mode:normal;}
   .bg img{width:100%;height:100%;object-fit:cover;display:block;}
   /* 글자가 얹히는 왼쪽을 어둡게 눌러 사진이 어떤 밝기든 읽히게 한다 */
@@ -52,7 +52,6 @@
   <div class="bg"></div>
   <div class="scrim"></div>
   <div class="edge"></div>
-  <div class="hint">사진 자리 · 법인 사무실 또는 변호사 집무 장면</div>
   <div class="pn">PART 1</div>
   <div class="kr">법무법인 제이엘</div>
   <div class="en">THE FIRM</div>
