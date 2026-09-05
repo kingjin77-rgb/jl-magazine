@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:32px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  /* ── 본문 프리미티브 ── */
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:104px;}
+  .sec{font-size:15.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
+  .sec+.sec,.blk+.sec{margin-top:16px;}
+
+  .cards{display:grid;gap:14px;}
+  .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
+  .c .ck{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:15.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
+  .c b{color:var(--navy);font-weight:800;}
+
+  .flow{display:grid;gap:0;}
+  .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
+  .step+.step{border-left:0;}
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--fill);
+    width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .step .t{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:14.5px;line-height:1.55;color:var(--ink);}
+
+  .tbl{border:1px solid var(--line);}
+  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
+  .tbl .th div{padding:10px 15px;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
+  .tbl .tr div{padding:9px 15px;}
+  .tbl .tr b{color:var(--navy);font-weight:800;}
+
+  .kv .r{display:flex;gap:10px;font-size:15.5px;line-height:1.55;padding:7px 0;
+    border-bottom:1px solid var(--line);}
+  .kv .r:last-child{border-bottom:0;}
+  .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
+  .kv .r em{flex:1;font-style:normal;}
+
+  .split{display:flex;gap:26px;height:100%;}
+  .split>div{flex:1;}
+
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
+
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14.5px;line-height:1.6;color:var(--ink);}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+
+  /* ── 순위형 가로 막대 ── 표를 그대로 차트로 옮긴 것이다.
+     막대 길이는 최대값(18.0%)을 100으로 두고 비례로만 그린다. */
+  .rank{margin-top:10px;}
+  .rk{display:flex;align-items:center;gap:16px;padding:13px 0;
+    border-bottom:1px solid var(--line);}
+  .rk:last-child{border-bottom:0;}
+  .rk .no{flex:0 0 34px;height:34px;background:var(--fill);color:#fff;
+    font-size:14px;font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .rk .nm{flex:0 0 142px;font-size:19px;font-weight:800;color:var(--navy);
+    letter-spacing:-.02em;}
+  .rk .track{flex:0 0 392px;height:34px;background:#E9EDF8;position:relative;}
+  .rk .fill{position:absolute;left:0;top:0;bottom:0;background:var(--fill);}
+  .rk .pct{flex:0 0 96px;font-size:31px;font-weight:800;color:var(--navy);
+    letter-spacing:-.03em;text-align:right;font-variant-numeric:tabular-nums;}
+  .rk .ds{flex:1;font-size:15px;line-height:1.55;color:var(--ink);padding-left:4px;}
+  .rk.top .fill{background:linear-gradient(90deg,#223D5B,#41598C);}
+  .rk.top .no{background:var(--gold);}
+  .axis{display:flex;margin-top:4px;padding-left:174px;}
+  .axis .t{flex:0 0 366px;display:flex;justify-content:space-between;
+    font-size:12px;color:var(--ink);border-top:1px solid var(--line);padding-top:5px;}
+
+  /* 막대 아래 남는 구간 — 카드 상자를 또 쓰지 않고 금색 세로선만으로 3단을 나눈다 */
+  .use{display:grid;grid-template-columns:repeat(3,1fr);gap:30px;margin-top:26px;
+    padding-top:20px;border-top:1.4px solid var(--navy);}
+  .use .u{border-left:3px solid var(--gold);padding-left:14px;}
+  .use .uk{font-size:16px;font-weight:800;color:var(--navy);letter-spacing:-.02em;}
+  .use .uv{margin-top:8px;font-size:14px;line-height:1.65;color:var(--ink);}
+  .use .uv b{color:var(--navy);font-weight:800;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">하자 유형별 실제 분포 [고정]</div>
+  <div class="title">어떤 하자가 실제로 많이 신청되는지는 공식 통계로 확인됩니다</div>
+  <div class="body"><div class="sec">하심위 하자심사 신청 유형별 비율 ('21~'26.2 평균) · 상위 5종</div><div class="rank"><div class="rk top"><div class="no">1</div><div class="nm">기능 불량</div><div class="track"><div class="fill" style="width:100.0%"></div></div><div class="pct">18.0%</div><div class="ds">조명·주방후드·인터폰·위생설비 등이 정상 작동하지 않는 결함</div></div><div class="rk"><div class="no">2</div><div class="nm">들뜸 및 탈락</div><div class="track"><div class="fill" style="width:83.9%"></div></div><div class="pct">15.1%</div><div class="ds">타일·도배·바닥재·가구에서 발생하는 결함</div></div><div class="rk"><div class="no">3</div><div class="nm">균열</div><div class="track"><div class="fill" style="width:61.7%"></div></div><div class="pct">11.1%</div><div class="ds">콘크리트 균열 · 거의 모든 사건에 포함되는 항목</div></div><div class="rk"><div class="no">4</div><div class="nm">결로</div><div class="track"><div class="fill" style="width:55.0%"></div></div><div class="pct">9.9%</div><div class="ds">단열 결손에서 비롯되며 겨울에만 드러납니다</div></div><div class="rk"><div class="no">5</div><div class="nm">누수</div><div class="track"><div class="fill" style="width:42.2%"></div></div><div class="pct">7.6%</div><div class="ds">방수 부족·시공 불량의 결과로 나타납니다</div></div></div><div class="axis"><div class="t"><span>0%</span><span>9%</span><span>18%</span></div></div><div class="use"><div class="u"><div class="uk">조사 범위를 먼저 정합니다</div><div class="uv">신청이 많은 유형은 <b>{{단지명}}에서도 나타날 가능성이 높아</b> 90일 하자조사의 우선 항목으로 넣습니다.</div></div><div class="u"><div class="uk">건수와 금액은 다릅니다</div><div class="uv">위 비율은 <b>신청 건수</b> 기준입니다. 인정 금액은 부위 면적과 보수 공법으로 정해지므로 순위가 달라질 수 있습니다.</div></div><div class="u"><div class="uk">결로는 계절을 탑니다</div><div class="uv">결로 9.9%는 <b>겨울에만 드러납니다.</b> 조사 시기를 놓치면 같은 하자를 그 해에 확인하지 못합니다.</div></div></div></div>
+  <div class="note">막대 길이는 최대값 18.0%를 기준으로 한 비례 표시이며, 표에 있는 값 외에 새로 산정한 수치는 없습니다. 상위 5종의 합이 100%가 되지 않는 것은 그 밖의 유형이 있기 때문입니다. 출처 표기(발표 기관·자료명·기준일)는 원문 확인 후 확정합니다 <b>[확인]</b>. 신청 건수 비율이며 인정 금액 비율이 아닙니다.</div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

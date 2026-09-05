@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .title{font-size:35px;line-height:1.34;}
+  .cols{position:absolute;left:56px;top:186px;right:56px;bottom:56px;display:flex;gap:22px;}
+  .photo{width:30%;border-radius:0;overflow:hidden;position:relative;}
+  .photo img{width:100%;height:100%;object-fit:cover;}
+  .photo .cap{position:absolute;left:0;right:0;bottom:0;
+    background:linear-gradient(to top,rgba(8,21,65,.85),transparent);
+    color:#fff;font-size:14px;padding:24px 12px 10px;line-height:1.5;}
+  .diagram{width:32%;display:flex;flex-direction:column;}
+  .diagram .box{flex:1;border:1px solid var(--line);border-radius:0;overflow:hidden;}
+  .diagram img{width:100%;height:100%;object-fit:contain;background:#fff;}
+  .diagram .cap2{margin-top:6px;font-size:14px;color:var(--muted);line-height:1.5;}
+  .colR{width:38%;display:flex;flex-direction:column;}
+  .meas{background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:14px 16px;}
+  .meas .h{font-size:14px;font-weight:800;color:var(--navy);}
+  .meas .row{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;color:var(--muted);}
+  .meas .row b{color:var(--ink);}
+  .th,.tr{display:flex;font-size:14px;padding:6px 0;border-bottom:1px solid var(--line);}
+  .th{color:var(--muted);font-weight:700;} .tr{color:var(--ink);}
+  .t1{flex:1.4;} .t2{flex:.8;text-align:right;} .t3{flex:1;text-align:right;color:var(--navy);font-weight:700;}
+  .cases{margin-top:12px;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 심층 검증 3단 밴드 (핵심 내용 · 수치 강조 · 기한 경고) ── */
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
+
+  /* ── 판정 기준 · 조사 방법 (인정 금액 표를 대체) ── */
+  .method{margin-top:10px;}
+  .mh{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:7px;}
+  .method .mh+.mh,.method .mr+.mh{margin-top:15px;}
+  .mr{display:flex;gap:10px;font-size:13px;line-height:1.45;padding:3.4px 0;
+    border-bottom:1px solid var(--line);}
+  .mr:last-child{border-bottom:0;}
+  .mr span{flex:0 0 74px;color:var(--navy);font-weight:700;}
+  .mr b{flex:1;font-weight:500;color:var(--ink);}
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:264px;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">방수 두께 기준의 현실 [고정]</div>
+  <div class="title">두께 기준은 현장마다 달라 설계도서 확인이 먼저입니다</div>
+  <div class="body">
+    <div class="method">
+      <div class="mh">2026 개정판이 달라진 점</div>
+      <div class="mr"><span>통일 기준 없음</span><b>개정판은 두께의 통일 기준을 제시하지 않고, 감정인이 현장 여건에 따라 <b style="color:#223D5B">4㎜ · 6㎜ · 벽 6㎜/바닥 10㎜</b> 등을 기준으로 할 수 있다고 밝혔습니다</b></div>
+      <div class="mr"><span>그래서</span><b>해당 단지 <b style="color:#223D5B">설계도서에 무엇이 적혀 있는지 확인하는 것이 먼저</b>입니다</b></div>
+      <div class="mh">왜 도해를 함께 쓰나</div>
+      <div class="mr"><span></span><b>사진만으로는 기준선과 실측선의 차이가 보이지 않습니다. 단면 모식도에 두 선을 겹쳐 그려야 부족분이 드러납니다.</b></div>
+    </div>
+  <img src="defect-waterproof.svg" style="position:absolute;right:20px;bottom:18px;width:128px;height:128px;opacity:.13;pointer-events:none;"></div>
+  <div class="verify">
+    <div><div class="vk">핵심 내용</div><div class="vv">원·피고 감정인 공동조사에서 파취 후 방수 두께를 실측하고 설계도서 기준과 대조합니다. 수치가 사진 안에 들어가도록 계측 장면을 촬영합니다.</div></div>
+    <div><div class="vk">수치 강조</div><div class="vv">두께 기준은 현장마다 다릅니다. 개정판이 통일 기준을 두지 않았고, 공사시방서 기재에 따라 두께를 기준으로 삼기 어려운 경우도 있습니다. <b>설계도서 확보가 이 항목의 출발점</b>입니다.</div></div>
+    <div><div class="vk warnk">기한 경고</div><div class="vv">방수공사는 구조상·안전상 하자로 5년 구간입니다. 누수가 드러난 뒤에는 남은 기간이 길지 않습니다.</div></div>
+  </div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

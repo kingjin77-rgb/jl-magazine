@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .timeline{position:absolute;left:56px;top:200px;right:56px;height:8px;background:var(--card);border-radius:0;}
+  .seg{position:absolute;top:0;height:8px;border-radius:0;}
+  .marks{position:absolute;left:56px;right:56px;top:220px;height:20px;}
+  .mark{position:absolute;top:0;transform:translateX(-50%);font-size:14px;color:var(--muted);}
+  .stages{position:absolute;left:56px;top:270px;right:56px;bottom:56px;display:flex;gap:20px;}
+  .st{flex:1;background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:16px 18px;}
+  .st .t{font-size:15px;font-weight:800;color:var(--navy);}
+  .st .m{margin-top:6px;font-size:14px;color:var(--gold-ink);font-weight:700;}
+  .st .d{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.6;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">전체 일정표 [고정]</div>
+  <div class="title">착수부터 보수공사까지 전체 일정입니다</div>
+  <div class="timeline">
+    <div class="seg" style="left:0%;width:15%;background:var(--fill)"></div>
+    <div class="seg" style="left:15%;width:10%;background:#B08D4F"></div>
+    <div class="seg" style="left:25%;width:55%;background:var(--fill)"></div>
+    <div class="seg" style="left:80%;width:20%;background:#C0392B"></div>
+  </div>
+  <div class="marks">
+    <div class="mark" style="left:0%">착수</div>
+    <div class="mark" style="left:15%">소제기</div>
+    <div class="mark" style="left:25%">감정</div>
+    <div class="mark" style="left:80%">판결</div>
+    <div class="mark" style="left:100%">보수공사</div>
+  </div>
+  <div class="stages">
+    <div class="st"><div class="t">하자조사 · 동의서 징구</div><div class="m">약 3개월</div>
+      <div class="d">정밀 조사와 채권양도 동의서 징구를 병행합니다.</div></div>
+    <div class="st"><div class="t">소장 접수 · 채권양도 통지</div><div class="m">약 2개월</div>
+      <div class="d">확보된 동의서를 기준으로 소를 제기합니다.</div></div>
+    <div class="st"><div class="t">감정 · 변론</div><div class="m">약 18개월</div>
+      <div class="d">감정 신청부터 변론기일까지 가장 긴 구간입니다.</div></div>
+    <div class="st"><div class="t">판결 · 보수공사</div><div class="m">확정 후 순차</div>
+      <div class="d">판결 확정 후 회수 절차와 보수공사로 이어집니다.</div></div>
+  </div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

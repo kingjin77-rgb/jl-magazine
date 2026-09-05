@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:4px;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .runner{top:28px;font-size:13px;}
+  .band{position:absolute;left:0;right:0;top:52px;height:96px;
+    background:linear-gradient(160deg,#385783,#2A3B4F);color:#fff;padding:20px 56px;
+    display:flex;align-items:center;justify-content:space-between;}
+  .band .l .pn{font-size:13px;letter-spacing:.24em;color:#EBD9B4;font-weight:700;}
+  .band .l .kr{margin-top:8px;font-size:27px;font-weight:800;letter-spacing:-.02em;}
+  .band .r{display:flex;gap:40px;text-align:right;}
+  .band .r .b .v{font-size:26px;font-weight:800;letter-spacing:-.02em;}
+  .band .r .b .k{margin-top:4px;font-size:12.5px;color:#EBD9B4;}
+
+  .tbl{position:absolute;left:56px;right:56px;top:160px;font-size:11.4px;}
+  .th{display:flex;padding:7px 12px;background:#E9EDF8;color:#223D5B;font-weight:800;
+    border-bottom:2px solid #223D5B;}
+  .tr{display:flex;padding:5.1px 12px;border-bottom:1px solid #DDE2ED;color:#111418;}
+  .tr:nth-child(even){background:#F7F9FD;}
+  .c1{width:150px;} .c2{flex:1.6;font-weight:700;} .c3{width:66px;text-align:right;}
+  .c4{width:150px;text-align:right;} .c5{width:118px;text-align:right;font-weight:800;color:#223D5B;}
+  .th .c5{color:#223D5B;}
+  .sum{display:flex;padding:8px 12px;background:var(--fill);color:#fff;font-weight:800;}
+  .sum .c5{color:#EBD9B4;}
+  .src{position:absolute;left:56px;right:56px;bottom:44px;font-size:12.5px;color:#111418;
+    opacity:1;line-height:1.6;}
+  .footer{height:32px;font-size:12.5px;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="band">
+    <div class="l"><div class="pn">TRACK RECORD</div>
+      <div class="kr">단독으로 판결까지 수행한 18건</div></div>
+    <div class="r">
+      <div class="b"><div class="v">9,979</div><div class="k">누적 세대</div></div>
+      <div class="b"><div class="v">328억</div><div class="k">판결금 합계</div></div>
+      <div class="b"><div class="v">329만원</div><div class="k">세대당 평균</div></div>
+    </div>
+  </div>
+
+  <div class="tbl">
+    <div class="th"><div class="c1">사건번호</div><div class="c2">단지</div><div class="c3">세대</div>
+      <div class="c4">판결금(원)</div><div class="c5">세대당(원)</div></div>
+    <div class="tr"><div class="c1">2020가합5*****</div><div class="c2">미사강변2차푸르지오</div><div class="c3">1,066</div><div class="c4">3,453,345,785</div><div class="c5">3,239,536</div></div><div class="tr"><div class="c1">2020가합1*****</div><div class="c2">이지더원2차 에듀그린</div><div class="c3">900</div><div class="c4">4,592,574,765</div><div class="c5">5,102,861</div></div><div class="tr"><div class="c1">2020가합5*****</div><div class="c2">가락마을16단지</div><div class="c3">463</div><div class="c4">1,344,902,393</div><div class="c5">2,904,757</div></div><div class="tr"><div class="c1">2020가합1*****</div><div class="c2">경북도청우방아이유쉘1차</div><div class="c3">442</div><div class="c4">1,999,334,282</div><div class="c5">4,523,381</div></div><div class="tr"><div class="c1">2019가합1*****</div><div class="c2">가재마을3단지</div><div class="c3">559</div><div class="c4">1,545,971,961</div><div class="c5">2,765,603</div></div><div class="tr"><div class="c1">2020가합5*****</div><div class="c2">힐스테이트은파</div><div class="c3">449</div><div class="c4">1,252,700,693</div><div class="c5">2,789,979</div></div><div class="tr"><div class="c1">2020가합5*****</div><div class="c2">양덕코오롱하늘채</div><div class="c3">535</div><div class="c4">1,425,762,466</div><div class="c5">2,665,000</div></div><div class="tr"><div class="c1">2020가합3*****</div><div class="c2">우성KTX타워 관리단</div><div class="c3">94</div><div class="c4">316,008,868</div><div class="c5">3,361,796</div></div><div class="tr"><div class="c1">2019가합2*****</div><div class="c2">대구혁신도시서한이다음2차</div><div class="c3">429</div><div class="c4">930,800,781</div><div class="c5">2,169,699</div></div><div class="tr"><div class="c1">2020가합1*****</div><div class="c2">수원성균관대역 동문굿모닝힐</div><div class="c3">699</div><div class="c4">1,286,000,000</div><div class="c5">1,839,771</div></div><div class="tr"><div class="c1">2021나1**** 항소심</div><div class="c2">가재마을10단지</div><div class="c3">436</div><div class="c4">1,250,767,772</div><div class="c5">2,868,733</div></div><div class="tr"><div class="c1">2020가합5*****</div><div class="c2">대진유토피아</div><div class="c3">284</div><div class="c4">1,109,825,889</div><div class="c5">3,907,838</div></div><div class="tr"><div class="c1">2018가합5*****</div><div class="c2">아산더샵레이크시티2차</div><div class="c3">796</div><div class="c4">2,576,151,449</div><div class="c5">3,236,371</div></div><div class="tr"><div class="c1">2018가합3*****</div><div class="c2">신촌푸르지오</div><div class="c3">940</div><div class="c4">1,135,061,108</div><div class="c5">1,207,512</div></div><div class="tr"><div class="c1">2020가합3*****</div><div class="c2">신안실크밸리스카이시티</div><div class="c3">790</div><div class="c4">3,129,096,298</div><div class="c5">3,960,881</div></div><div class="tr"><div class="c1">2020가합5*****</div><div class="c2">예산행정타운 신동아파밀리에</div><div class="c3">462</div><div class="c4">2,131,590,488</div><div class="c5">4,613,832</div></div><div class="tr"><div class="c1">2020가합6*****</div><div class="c2">한국아델리움중해마루힐</div><div class="c3">226</div><div class="c4">2,028,172,698</div><div class="c5">8,974,215</div></div><div class="tr"><div class="c1">2021가합5*****</div><div class="c2">태안동문이테크코아루</div><div class="c3">409</div><div class="c4">1,328,744,977</div><div class="c5">3,248,766</div></div>
+    <div class="sum"><div class="c1"></div><div class="c2">합계 18건</div><div class="c3">9,979</div>
+      <div class="c4">32,836,812,673</div><div class="c5">3,290,592</div></div>
+  </div>
+
+  <div class="src">사건번호는 대한변호사협회 광고 규정 확인 전까지 마스킹해 표기합니다 [확인 대기]. 판결금은 법원이 인정한 하자보수비이며, 책임제한(확인된 7건 기준 70~85%) 적용 전 금액입니다. 개별 사건의 결과를 보장하지 않습니다.</div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

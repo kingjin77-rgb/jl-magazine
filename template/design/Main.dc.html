@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-light:#EBD9B4;}
+  html,body{width:1332px;height:750px;overflow:hidden;position:relative;
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:#FFFFFF;background:#2A3B4F;}
+
+  /* ── 표지 배경 ── 단지 전경 실사 사진 한 장.
+     template/design/photos/p-cover.jpg 로 두면 그대로 들어가고,
+     없으면 아래 브랜드 그러데이션만 보인다. */
+  .bg{position:absolute;inset:0;
+    background:url(p-cover.jpg) center/cover no-repeat,
+               linear-gradient(148deg,#385783 0%,#2A3B4F 62%,#223D5B 100%);}
+  /* 아래에서 위로 어둡게 눌러 어떤 사진이 와도 글자가 읽히게 한다 */
+  .scrim{position:absolute;inset:0;
+    background:linear-gradient(0deg,rgba(20,33,52,.96) 0%,rgba(20,33,52,.88) 32%,
+               rgba(20,33,52,.46) 58%,rgba(20,33,52,.30) 100%);}
+  .edge{position:absolute;left:0;right:0;bottom:0;height:7px;background:var(--gold);}
+  .hint{position:absolute;left:76px;top:34px;font-size:12px;letter-spacing:.14em;
+    color:rgba(255,255,255,.62);}
+
+  /* 로고 원본이 짙은 남색이라 사진 위에서 묻힌다. 단색 로고이므로 흰색으로 바꿔 얹는다. */
+  .logo{position:absolute;right:72px;top:60px;height:52px;filter:brightness(0) invert(1);opacity:.96;}
+  .eyebrow{position:absolute;left:76px;top:200px;font-size:15px;letter-spacing:.34em;
+    color:var(--gold-light);font-weight:700;}
+  .eyebrow::after{content:"";display:block;width:58px;height:4px;background:var(--gold);margin-top:16px;}
+
+  .title{position:absolute;left:76px;top:274px;right:300px;font-size:40px;font-weight:800;
+    letter-spacing:-.03em;line-height:1.34;text-shadow:0 2px 20px rgba(0,0,0,.42);}
+  .title .l2{font-size:52px;color:#FFFFFF;}
+  .desc{position:absolute;left:76px;top:428px;font-size:16.5px;color:#FFFFFF;
+    display:flex;align-items:center;gap:14px;}
+  .desc span{color:var(--gold-light);}
+
+  .stats{position:absolute;left:76px;right:72px;bottom:70px;display:flex;align-items:flex-end;
+    gap:56px;border-top:1px solid rgba(255,255,255,.34);padding-top:22px;}
+  .stat .n{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1;}
+  .stat .l{margin-top:9px;font-size:13.5px;color:#FFFFFF;}
+  .recipient{margin-left:auto;text-align:right;}
+  .recipient .k{font-size:12.5px;letter-spacing:.22em;color:var(--gold-light);font-weight:700;}
+  .recipient .v{margin-top:9px;font-size:17px;font-weight:800;letter-spacing:-.02em;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="bg"></div>
+  <div class="scrim"></div>
+  <img class="logo" src="jl-logo.png">
+
+  <div class="eyebrow">JL LAWFIRM</div>
+  <div class="title">{{단지명}} 입주자대표회의<br><span class="l2">공동주택 하자소송 수행 제안서</span></div>
+  <div class="desc">건설 전문 변호사<span>|</span>건축시공기술사<span>|</span>감정료·인지대·송달료 전액 대납</div>
+
+  <div class="stats">
+    <div class="stat"><div class="n">18건</div><div class="l">단독 수행 판결</div></div>
+    <div class="stat"><div class="n">328억</div><div class="l">판결금 합계</div></div>
+    <div class="stat"><div class="n">9,979세대</div><div class="l">누적 수행 세대</div></div>
+    <div class="stat"><div class="n">93.28%</div><div class="l">채권양도비율 평균</div></div>
+    <div class="recipient"><div class="k">수신</div><div class="v">{{단지명}} 입주자대표회의 귀중</div></div>
+  </div>
+  <div class="edge"></div>
+</body>
+</html>

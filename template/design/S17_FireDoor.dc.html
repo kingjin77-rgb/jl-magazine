@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .title{font-size:35px;line-height:1.34;}
+  .cols{position:absolute;left:56px;top:186px;right:56px;bottom:264px;display:flex;gap:28px;}
+  .colL{width:56%;border:1px solid var(--line);border-radius:0;overflow:hidden;}
+  .colL img{width:100%;height:100%;object-fit:contain;background:#fff;}
+  .colR{width:44%;display:flex;flex-direction:column;}
+  .std{background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:14px 16px;}
+  .std .row{display:flex;justify-content:space-between;font-size:14px;padding:6px 0;color:var(--muted);}
+  .std .row b{color:var(--ink);} .kscode{color:var(--navy);font-weight:800;}
+  .case{margin-top:14px;font-size:15px;color:var(--muted);line-height:1.7;
+    border-left:3px solid var(--gold);padding-left:14px;}
+  .strength{margin-top:14px;font-size:14px;color:var(--gold-ink);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:10px 14px;line-height:1.6;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 심층 검증 3단 밴드 (핵심 내용 · 수치 강조 · 기한 경고) ── */
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">방화문 성능 미달 [고정]</div>
+  <div class="title">외관은 멀쩡해도 내화·차연 성능시험에서 미달이 드러납니다</div>
+  <div class="cols">
+    <div class="colL"><img src="s17_firedoor_test.png"></div>
+    <div class="colR">
+      <div class="std">
+        <div class="row"><span>내화 시험</span><b class="kscode">KS F 2268-1</b></div>
+        <div class="row"><span>기준</span><b>비차열 1시간 이상 + 차열 30분 이상</b></div>
+        <div class="row"><span>차연 성능 시험</span><b class="kscode">KS F 2846</b></div>
+        <div class="row"><span>기준</span><b>차압 25Pa, 누설량 0.9㎥/min·㎡ 미만</b></div>
+        <div class="row"><span>불합격 비율</span><b>2026 개정판은 <b style="color:#223D5B">당기는 면과 미는 면의 합격률을 모두 고려</b>해 산정하도록 했습니다</b></div>
+      </div>
+      <div class="strength">시료 선정부터 성적서 접수까지 감정 절차 전 과정에 입회합니다. 기술적으로 까다로워 다른 법인이 잘 다루지 못하는 항목입니다.</div>
+    </div>
+  </div>
+  <div class="verify">
+    <div><div class="vk">핵심 내용</div><div class="vv">시료 선정 → 방화문 철거 → 국가공인기관 성능시험 → 시험 결과 → 감정서 반영 순으로 진행하며, 전 과정에 입회합니다.</div></div>
+    <div><div class="vk">수치 강조</div><div class="vv">내화 KS F 2268-1 비차열 1시간 이상, 차연 KS F 2846 차압 25Pa에서 누설량 0.9㎥/min·㎡ 미만이 기준입니다.</div></div>
+    <div><div class="vk warnk">기한 경고</div><div class="vv">시료 철거부터 성적서 접수까지 장기간이 소요됩니다. 소송 초기에 시료 선정과 철거를 집행해야 합니다.</div></div>
+  </div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

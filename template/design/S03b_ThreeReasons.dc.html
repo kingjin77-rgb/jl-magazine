@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--line:#C6CFE0;--alert:#C0392B;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:#fff;
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--ink);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.35;}
+  .rule{position:absolute;left:56px;top:140px;width:1220px;height:3px;background:var(--fill);}
+
+  .three{position:absolute;left:56px;top:172px;right:56px;height:352px;display:grid;
+    grid-template-columns:1fr 1fr 1fr;gap:0;}
+  .col{padding:0 34px;border-left:1px solid var(--line);}
+  .col:first-child{border-left:0;padding-left:0;}
+  .col:last-child{padding-right:0;}
+  .idx{font-size:14px;font-weight:800;letter-spacing:.14em;color:var(--gold-ink);}
+  .big{font-family:'JL디스플레이',"Pretendard",sans-serif;font-size:78px;font-weight:700;
+    line-height:1.02;letter-spacing:-.04em;color:#111418;margin-top:8px;}
+  .sub{margin-top:14px;font-size:18px;font-weight:800;color:var(--navy);line-height:1.45;
+    letter-spacing:-.02em;}
+  .bar{margin-top:14px;width:56px;height:4px;background:var(--gold);}
+  .pts{margin-top:14px;}
+  .pts li{list-style:none;position:relative;padding-left:13px;font-size:14px;line-height:1.62;
+    color:var(--ink);margin-bottom:8px;}
+  .pts li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;background:var(--fill);}
+  .pts b{color:var(--navy);font-weight:800;}
+  .pts .red{color:var(--alert);font-weight:800;}
+
+  .band{position:absolute;left:56px;right:56px;bottom:96px;height:100px;background:var(--fill);
+    display:grid;grid-template-columns:1.15fr 1fr 1fr 1fr;align-items:center;}
+  .band .lab{padding:0 26px;color:#EBD9B4;font-size:14px;font-weight:800;line-height:1.5;
+    border-right:1px solid rgba(255,255,255,.18);}
+  .band .st{padding:0 26px;border-right:1px solid rgba(255,255,255,.18);}
+  .band .st:last-child{border-right:0;}
+  .band .k{font-size:13px;color:#FFFFFF;font-weight:600;}
+  .band .v{font-family:'JL디스플레이',"Pretendard",sans-serif;margin-top:5px;font-size:32px;
+    font-weight:700;color:#fff;letter-spacing:-.02em;}
+  .band *{background:transparent;}
+
+  .note{position:absolute;left:56px;right:56px;bottom:52px;font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:2px solid var(--navy);
+    font-size:14px;color:var(--ink);background:#fff;}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">제안의 세 가지 축 [고정]</div>
+  <div class="title">시급성 · 전문성 · 일원화 · 이 세 가지로 제안을 구성했습니다</div>
+  <div class="rule"></div>
+
+  <div class="three">
+    <div class="col">
+      <div class="idx">01</div>
+      <div class="big">시급성</div>
+      <div class="bar"></div>
+      <div class="sub">존속기간은 지나면<br>되돌릴 수 없습니다</div>
+      <ul class="pts">
+        <li>마감공사 <b>2년</b>·기능상 <b>3년</b> 구간이 먼저 도과합니다. <span class="red">도과한 항목은 감정에서 되살아나지 않습니다.</span></li>
+        <li>사용검사 전에 발생한 미시공·변경시공 하자는 <b>5년</b> 구간에 남습니다.</li>
+        <li>JL 14건 합산 기준 보수비의 <b>66.4%</b>가 이 5년 구간에서 나왔습니다.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="idx">02</div>
+      <div class="big">전문성</div>
+      <div class="bar"></div>
+      <div class="sub">사진에 보이지 않는 하자를<br>수치로 증명합니다</div>
+      <ul class="pts">
+        <li>방수 두께 <b>실측</b>, 타일 <b>뒤채움률</b>, 방화문 <b>KS 성능시험</b> · 외관만으로는 드러나지 않는 항목입니다.</li>
+        <li>준공도면·시방서 대조와 관할 지자체 <b>정보공개청구</b>로 설계도서 기준을 확보합니다.</li>
+        <li>대한변호사협회 <b>건설 전문변호사</b> 등록, 사무장 <b>건축시공기술사</b>.</li>
+      </ul>
+    </div>
+    <div class="col">
+      <div class="idx">03</div>
+      <div class="big">일원화</div>
+      <div class="bar"></div>
+      <div class="sub">조사부터 판결까지<br>한 창구로 진행합니다</div>
+      <ul class="pts">
+        <li>하자조사 · 채권양도 · 소 제기 · 감정 대응 · 보고를 <b>나누지 않습니다</b>.</li>
+        <li>사건마다 담당 변호사를 지정해 문의가 한 창구로 모이게 합니다.</li>
+        <li><b>월 1회</b> 정기 보고 + 소장 접수·감정 개시·감정서 도착·선고 시점 <b>수시 보고</b>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="lab">법무법인 제이엘<br>단독 수행 실적</div>
+    <div class="st"><div class="k">하자소송 판결</div><div class="v">18건</div></div>
+    <div class="st"><div class="k">총 판결금</div><div class="v">328억원</div></div>
+    <div class="st"><div class="k">세대당 평균 판결금</div><div class="v">329만원</div></div>
+  </div>
+
+  <div class="note">실적은 판결문으로 확인된 JL 단독 수행 18건(9,979세대) 기준입니다. 세대당 평균은 32,836,812,673원 ÷ 9,979세대 = 3,290,592원으로 산정한 <b>실적 기준 참고치</b>이며, 개별 단지의 인정 금액은 감정 결과와 책임제한 비율에 따라 달라집니다.</div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

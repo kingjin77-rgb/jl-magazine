@@ -1,0 +1,98 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .chart{position:absolute;left:56px;top:186px;width:800px;height:400px;
+    border:1px solid var(--line);overflow:hidden;background:#fff;}
+  .chart img{width:100%;height:100%;object-fit:contain;display:block;}
+  .side{position:absolute;right:56px;top:186px;width:364px;height:400px;
+    background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);padding:20px 22px;}
+  .side .h{font-size:15px;font-weight:800;color:var(--navy);}
+  .side .d{margin-top:9px;font-size:14px;color:var(--ink);line-height:1.75;}
+  .side .stat{margin-top:16px;padding-top:14px;border-top:1px solid var(--line);}
+  .side .stat .v{font-size:30px;font-weight:800;color:var(--navy);}
+  .side .stat .k{margin-top:5px;font-size:13.5px;color:var(--ink);opacity:1;}
+  .cards{position:absolute;left:56px;top:534px;right:56px;display:flex;gap:20px;}
+  .c{flex:1;background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:16px 18px;}
+  .c .k{font-size:15px;font-weight:800;color:var(--navy);}
+  .c .v{margin-top:6px;font-size:15px;color:var(--muted);line-height:1.6;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">채권양도 구조 [고정]</div>
+  <div class="title">동의(채권양도) 세대 비율이 곧 청구 규모입니다</div>
+  <div class="chart"><img src="s11_assignment_structure.png"></div>
+  <div class="side">
+    <div class="h">양도비율이 곧 청구 규모</div>
+    <div class="d">공용부분 손해배상채권은 <b>전유부분 면적 비율</b>로 각 구분소유자에게 귀속됩니다. 양도받지 못한 면적만큼 청구할 수 없습니다.</div>
+    <div class="stat"><div class="v">93.28%</div>
+      <div class="k">JL 수행 사건 평균 · 판결문에서 양도비율이 확인된 15건 기준(범위 75.01~100%)</div></div>
+    <div class="stat"><div class="v">4차</div>
+      <div class="k">양도 통지는 여러 차수로 나눠 진행합니다. 늦은 차수는 2·3년차 하자가 제척기간으로 소멸한 사례가 있습니다</div></div>
+  </div>
+  <div class="cards">
+    <div class="c"><div class="k">청구권자</div><div class="v">하자 손해배상청구권은 원칙적으로 각 구분소유자에게 귀속됩니다.</div></div>
+    <div class="c"><div class="k">산정 기준</div><div class="v">공용부분 채권은 전유부분 <b>면적 비율</b>로 귀속됩니다. 양도비율도 세대 수가 아니라 전유면적으로 계산합니다.</div></div>
+    <div class="c"><div class="k">결론</div><div class="v">양도받지 못한 면적 비율만큼 청구 규모가 줄어듭니다. 징구 지원이 핵심입니다.</div></div>
+  </div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:32px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  /* ── 본문 프리미티브 ── */
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
+  .sec{font-size:15.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
+  .sec+.sec,.blk+.sec{margin-top:16px;}
+
+  .cards{display:grid;gap:14px;}
+  .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
+  .c .ck{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:15.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
+  .c b{color:var(--navy);font-weight:800;}
+
+  .flow{display:grid;gap:0;}
+  .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
+  .step+.step{border-left:0;}
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--fill);
+    width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .step .t{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:14.5px;line-height:1.55;color:var(--ink);}
+
+  .tbl{border:1px solid var(--line);}
+  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
+  .tbl .th div{padding:10px 15px;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
+  .tbl .tr div{padding:9px 15px;}
+  .tbl .tr b{color:var(--navy);font-weight:800;}
+
+  .kv .r{display:flex;gap:10px;font-size:15.5px;line-height:1.55;padding:7px 0;
+    border-bottom:1px solid var(--line);}
+  .kv .r:last-child{border-bottom:0;}
+  .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
+  .kv .r em{flex:1;font-style:normal;}
+
+  .split{display:flex;gap:26px;height:100%;}
+  .split>div{flex:1;}
+
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
+
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14.5px;line-height:1.6;color:var(--ink);}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+
+  /* 촘촘 모드 — 내용이 하단 밴드에 닿을 때 여백만 줄인다 */
+  .tbl .tr div{padding:6.6px 15px;}
+  .tbl .th div{padding:8px 15px;}
+  .kv .r{padding:4.6px 0;}
+  .sec{margin-bottom:9px;}
+  .sec+.sec,.blk+.sec{margin-top:12px;}
+  .c{padding:12px 16px;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">설계도서 상이시공의 비중 [고정]</div>
+  <div class="title">2.7%는 낮아 보이지만 미시공·변경시공의 단서입니다</div>
+  <div class="body"><div class="sec">나머지 유형 · 비율은 낮아도 판단이 갈리는 항목입니다</div><div class="tbl blk" style=""><div class="th"><div style="width:200px">하자 유형</div><div style="width:110px">비율</div><div style="flex:1">무엇을 말하는가</div></div><div class="tr"><div style="width:200px">오염 및 변색 · 파손</div><div style="width:110px">6.8% · 6.4%</div><div style="flex:1">마감재 관련</div></div><div class="tr"><div style="width:200px"><b>설계도서 상이시공</b></div><div style="width:110px"><b>2.7%</b></div><div style="flex:1">설계와 다르게 시공된 것 · <b>미시공·변경시공의 단서</b></div></div><div class="tr"><div style="width:200px">부착·접지 불량</div><div style="width:110px">1.2%</div><div style="flex:1">조명·에어컨·통신설비 배선연결 불량</div></div></div><img src="idea-spec.svg" style="position:absolute;right:20px;bottom:18px;width:128px;height:128px;opacity:.13;pointer-events:none;"></div>
+  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">신청이 많은 순서와 <b>금액이 큰 순서는 다릅니다.</b> 기능 불량은 건수가 많지만 세대당 금액이 작고, 방수·균열 같은 공용부 항목은 건수가 적어도 금액이 큽니다.</div></div><div><div class="vk">수치 강조</div><div class="vv"><b>설계도서 상이시공 2.7%</b>는 낮아 보이지만, 이것이 곧 미시공·변경시공이며 <b>5년 구간</b>에 남는 항목입니다. 세대 신고만으로는 드러나지 않아 도면 대조로 찾아냅니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">세대가 신고하는 하자는 눈에 보이는 것에 몰립니다. <b>벽 안·바닥 아래의 하자는 신고되지 않은 채 기간이 지나갑니다.</b></div></div></div>
+  <div class="note">출처: 국토교통부 보도자료 「‘26년 상반기 공동주택 하자 판정 상위 20개 건설사 명단 공개」(2026. 3. 29.) 및 같은 자료 참고1·참고2 <b>[1차 출처 · 공공저작물]</b> · 이 통계는 하심위 <b>하자심사 신청</b> 기준이며 소송에서 인정된 금액 분포와는 다릅니다.</div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

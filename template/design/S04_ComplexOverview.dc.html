@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .cols{position:absolute;left:56px;top:186px;right:56px;display:flex;gap:44px;}
+  .col{flex:1;}
+  .row{display:flex;border-bottom:1px solid var(--line);padding:13px 4px;}
+  .row .k{width:158px;font-size:15px;color:var(--navy);font-weight:700;}
+  .row .v{font-size:16px;font-weight:700;color:var(--ink);}
+  .decide{position:absolute;left:56px;top:428px;right:56px;background:var(--fill);color:#fff;
+    border-radius:0;padding:18px 24px;}
+  .decide .h{font-size:14px;color:#E6ECF9;font-weight:700;letter-spacing:.04em;}
+  .decide .row2{margin-top:12px;display:flex;}
+  .decide .d{flex:1;border-left:1px solid rgba(255,255,255,.2);padding-left:20px;}
+  .decide .d:first-child{border-left:none;padding-left:0;}
+  .decide .d .t{font-size:16px;font-weight:800;}
+  .decide .d .s{margin-top:5px;font-size:14px;color:#E6ECF9;line-height:1.55;}
+  .need{position:absolute;left:56px;top:568px;right:56px;display:flex;gap:16px;}
+  .n{flex:1;border:1px solid var(--line);border-radius:0;padding:13px 16px;}
+  .n .t{font-size:14px;font-weight:800;color:var(--navy);}
+  .n .d{margin-top:5px;font-size:14px;color:var(--ink);line-height:1.55;}
+  .foot-note{position:absolute;left:56px;bottom:50px;right:56px;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">단지 현황 [가변]</div>
+  <div class="badge">예시 슬롯</div>
+  <div class="title">{{단지명}}의 기본 현황입니다</div>
+
+  <div class="cols">
+    <div class="col">
+      <div class="row"><div class="k">단지명</div><div class="v">{{단지명}}</div></div>
+      <div class="row"><div class="k">소재지</div><div class="v">{{소재지_도로명}}</div></div>
+      <div class="row"><div class="k">총 세대수 / 동수</div><div class="v">{{총세대수}}세대 / {{동수}}개동</div></div>
+      <div class="row"><div class="k">복도유형 · 난방</div><div class="v">{{복도유형}} · {{난방방식}}</div></div>
+    </div>
+    <div class="col">
+      <div class="row"><div class="k">사용검사일</div><div class="v">{{사용검사일}}</div></div>
+      <div class="row"><div class="k">시행사</div><div class="v">{{시행사}}</div></div>
+      <div class="row"><div class="k">시공사</div><div class="v">{{시공사}}</div></div>
+      <div class="row"><div class="k">관리방식</div><div class="v">{{관리방식}}</div></div>
+    </div>
+  </div>
+
+  <div class="decide"><div class="h">이 정보가 결정하는 것</div>
+    <div class="row2">
+      <div class="d"><div class="t">사용검사일 → 담보책임기간</div>
+        <div class="s">공종별 만료일이 이 날짜 하나로 계산됩니다 (S5)</div></div>
+      <div class="d"><div class="t">시행사·시공사 → 피고</div>
+        <div class="s">청구 상대방과 신탁·무자력 여부를 확인합니다 (S12)</div></div>
+      <div class="d"><div class="t">총 세대수 → 청구 규모</div>
+        <div class="s">전유면적 기준 채권양도 대상이 됩니다 (S11)</div></div>
+    </div></div>
+
+  <div class="need">
+    <div class="n"><div class="t">사용검사필증</div><div class="d">담보책임 기산일 확정 근거</div></div>
+    <div class="n"><div class="t">하자보수보증서</div><div class="d">보증기관·보증금액·보증기간</div></div>
+    <div class="n"><div class="t">입주자모집공고문</div><div class="d">광고 사양 대비 시공 대조 (S8)</div></div>
+    <div class="n"><div class="t">하자 접수대장</div><div class="d">유형별·동별 집계 (S6)</div></div>
+  </div>
+
+  <div class="foot-note"><div class="note">단지 정보 입력표(<code>template/data/&lt;단지&gt;.json</code>) 한 건으로 이 장과 S5 타임라인이 함께 채워집니다.</div></div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

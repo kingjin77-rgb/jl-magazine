@@ -1,0 +1,64 @@
+<svg viewBox="0 0 1220 300" xmlns="http://www.w3.org/2000/svg" font-family="Pretendard,'Malgun Gothic',sans-serif">
+<rect width="1220" height="300" fill="#FFFFFF"/>
+<line x1="250.2" y1="48" x2="250.2" y2="258" stroke="#C7CBD3" stroke-width="1"/>
+<text x="250.2" y="276" font-size="12.5" fill="#111418" text-anchor="middle" opacity=".75">2016</text>
+<line x1="319.3" y1="48" x2="319.3" y2="258" stroke="#C7CBD3" stroke-width="1"/>
+<text x="319.3" y="276" font-size="12.5" fill="#111418" text-anchor="middle" opacity=".75">2017</text>
+<line x1="388.4" y1="48" x2="388.4" y2="258" stroke="#C7CBD3" stroke-width="1"/>
+<text x="388.4" y="276" font-size="12.5" fill="#111418" text-anchor="middle" opacity=".75">2018</text>
+<line x1="457.5" y1="48" x2="457.5" y2="258" stroke="#C7CBD3" stroke-width="1"/>
+<text x="457.5" y="276" font-size="12.5" fill="#111418" text-anchor="middle" opacity=".75">2019</text>
+<line x1="526.6" y1="48" x2="526.6" y2="258" stroke="#C7CBD3" stroke-width="1"/>
+<text x="526.6" y="276" font-size="12.5" fill="#111418" text-anchor="middle" opacity=".75">2020</text>
+<line x1="595.6" y1="48" x2="595.6" y2="258" stroke="#C7CBD3" stroke-width="1"/>
+<text x="595.6" y="276" font-size="12.5" fill="#111418" text-anchor="middle" opacity=".75">2021</text>
+<line x1="664.7" y1="48" x2="664.7" y2="258" stroke="#C7CBD3" stroke-width="1"/>
+<text x="664.7" y="276" font-size="12.5" fill="#111418" text-anchor="middle" opacity=".75">2022</text>
+<line x1="733.8" y1="48" x2="733.8" y2="258" stroke="#C7CBD3" stroke-width="1"/>
+<text x="733.8" y="276" font-size="12.5" fill="#111418" text-anchor="middle" opacity=".75">2023</text>
+<line x1="802.9" y1="48" x2="802.9" y2="258" stroke="#C7CBD3" stroke-width="1"/>
+<text x="802.9" y="276" font-size="12.5" fill="#111418" text-anchor="middle" opacity=".75">2024</text>
+<line x1="872.0" y1="48" x2="872.0" y2="258" stroke="#C7CBD3" stroke-width="1"/>
+<text x="872.0" y="276" font-size="12.5" fill="#111418" text-anchor="middle" opacity=".75">2025</text>
+<line x1="941.1" y1="48" x2="941.1" y2="258" stroke="#C7CBD3" stroke-width="1"/>
+<text x="941.1" y="276" font-size="12.5" fill="#111418" text-anchor="middle" opacity=".75">2026</text>
+<line x1="1010.0" y1="48" x2="1010.0" y2="258" stroke="#C7CBD3" stroke-width="1"/>
+<text x="1010.0" y="276" font-size="12.5" fill="#111418" text-anchor="middle" opacity=".75">2027</text>
+<rect x="8" y="71.8" width="46" height="28" fill="#EFF2FB"/>
+<text x="31" y="90.8" font-size="14" font-weight="700" fill="#0D2162" text-anchor="middle">10년</text>
+<text x="66" y="84.8" font-size="14" font-weight="700" fill="#0D2162">주요구조부 · 지반공사</text>
+<text x="66" y="100.8" font-size="11.5" fill="#111418" opacity=".72">공용부분(사용검사일)</text>
+<rect x="307.9" y="74.8" width="690.7" height="22" fill="#E67E22"/>
+<text x="1007.6" y="82.8" font-size="13" font-weight="700" fill="#E67E22">2026-11-01 임박</text>
+<text x="315.9" y="110.8" font-size="10.5" fill="#111418" opacity=".60">2016-11-01 + 10년 = 2026-11-01</text>
+<rect x="8" y="119.2" width="46" height="28" fill="#EFF2FB"/>
+<text x="31" y="138.2" font-size="14" font-weight="700" fill="#0D2162" text-anchor="middle">5년</text>
+<text x="66" y="132.2" font-size="14" font-weight="700" fill="#0D2162">구조상·안전상</text>
+<text x="66" y="148.2" font-size="11.5" fill="#111418" opacity=".72">공용부분(사용검사일)</text>
+<rect x="307.9" y="122.2" width="345.3" height="22" fill="#C0392B"/>
+<text x="662.1" y="130.2" font-size="13" font-weight="700" fill="#C0392B">2021-11-01 도과</text>
+<text x="315.9" y="158.2" font-size="10.5" fill="#111418" opacity=".60">2016-11-01 + 5년 = 2021-11-01</text>
+<rect x="8" y="166.8" width="46" height="28" fill="#EFF2FB"/>
+<text x="31" y="185.8" font-size="14" font-weight="700" fill="#0D2162" text-anchor="middle">3년</text>
+<text x="66" y="179.8" font-size="14" font-weight="700" fill="#0D2162">기능상·미관상</text>
+<text x="66" y="195.8" font-size="11.5" fill="#111418" opacity=".72">공용부분(사용검사일)</text>
+<rect x="307.9" y="169.8" width="207.1" height="22" fill="#C0392B"/>
+<text x="524.0" y="177.8" font-size="13" font-weight="700" fill="#C0392B">2019-11-01 도과</text>
+<text x="315.9" y="205.8" font-size="10.5" fill="#111418" opacity=".60">2016-11-01 + 3년 = 2019-11-01</text>
+<rect x="8" y="214.2" width="46" height="28" fill="#EFF2FB"/>
+<text x="31" y="233.2" font-size="14" font-weight="700" fill="#0D2162" text-anchor="middle">2년</text>
+<text x="66" y="227.2" font-size="14" font-weight="700" fill="#0D2162">마감공사 등 발견·교체·보수가 용</text>
+<text x="66" y="243.2" font-size="11.5" fill="#111418" opacity=".72">공용부분(사용검사일)</text>
+<rect x="307.9" y="217.2" width="138.0" height="22" fill="#C0392B"/>
+<text x="454.9" y="225.2" font-size="13" font-weight="700" fill="#C0392B">2018-11-01 도과</text>
+<text x="315.9" y="253.2" font-size="10.5" fill="#111418" opacity=".60">2016-11-01 + 2년 = 2018-11-01</text>
+<line x1="985.6" y1="42" x2="985.6" y2="258" stroke="#111418" stroke-width="1.6" stroke-dasharray="5 4"/>
+<text x="985.6" y="36" font-size="12" font-weight="700" fill="#111418" text-anchor="middle">오늘 2026-08-24</text>
+<rect x="250" y="282" width="11" height="11" fill="#0D2162"/>
+<text x="266" y="292" font-size="11.5" fill="#111418">여유</text>
+<rect x="316" y="282" width="11" height="11" fill="#E67E22"/>
+<text x="332" y="292" font-size="11.5" fill="#111418">임박</text>
+<rect x="382" y="282" width="11" height="11" fill="#C0392B"/>
+<text x="398" y="292" font-size="11.5" fill="#111418">도과</text>
+<text x="1050" y="292" font-size="10.5" fill="#111418" opacity=".6" text-anchor="end">집합건물법 제9조의2 · 시행령 제5조</text>
+</svg>

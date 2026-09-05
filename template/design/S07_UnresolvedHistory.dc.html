@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .flow{position:absolute;left:56px;top:190px;right:56px;display:flex;}
+  .step{flex:1;background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:20px 18px;position:relative;}
+  .step + .step{margin-left:28px;}
+  .step + .step::before{content:"→";position:absolute;left:-24px;top:50%;transform:translateY(-50%);
+    color:var(--muted);font-size:17.5px;}
+  .step .d{font-size:14px;color:var(--gold-ink);font-weight:700;}
+  .step .t{margin-top:8px;font-size:16px;font-weight:800;color:var(--navy);}
+  .step .b{margin-top:8px;font-size:15px;color:var(--muted);line-height:1.6;}
+  .step.last{background:#FDEDEA;border-color:#F1B7AE;} .step.last .t{color:var(--alert);}
+  .table{position:absolute;left:56px;top:400px;right:56px;}
+  .thead,.trow{display:flex;padding:10px 4px;border-bottom:1px solid var(--line);font-size:15px;}
+  .thead{color:var(--muted);font-weight:700;} .trow{color:var(--ink);}
+  .c1{width:150px;} .c2{width:130px;font-weight:700;} .c3{flex:1;color:var(--muted);}
+  .foot-note{position:absolute;left:56px;bottom:56px;right:56px;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">미이행 하자보수 이력 [가변 · 자료 있을 때만]</div>
+  <div class="badge">레이아웃 예시</div>
+  <div class="title">{{단지명}}은 하자보수를 요청했지만 이행되지 않았습니다</div>
+  <div class="flow">
+    <div class="step"><div class="d">{{공문1_일자}}</div><div class="t">1차 하자보수 요청</div>
+      <div class="b">관리사무소 → 시공사 공문 발송</div></div>
+    <div class="step"><div class="d">{{회신1_일자}}</div><div class="t">시공사 회신</div>
+      <div class="b">일부 보수 착수, 완료 지연</div></div>
+    <div class="step"><div class="d">{{공문2_일자}}</div><div class="t">2차 하자보수 요청</div>
+      <div class="b">미보수 항목 재통보</div></div>
+    <div class="step last"><div class="d">{{현재}}</div><div class="t">미이행 지속</div>
+      <div class="b">공용부·전유부 하자 다수 잔존</div></div>
+  </div>
+  <div class="table">
+    <div class="thead"><div class="c1">일자</div><div class="c2">구분</div><div class="c3">내용</div></div>
+    <div class="trow"><div class="c1">{{일자1}}</div><div class="c2">공문 발송</div><div class="c3">{{내용1}}</div></div>
+    <div class="trow"><div class="c1">{{일자2}}</div><div class="c2">시공사 회신</div><div class="c3">{{내용2}}</div></div>
+    <div class="trow"><div class="c1">{{일자3}}</div><div class="c2">재요청</div><div class="c3">{{내용3}}</div></div>
+    <div class="trow"><div class="c1">{{일자4}}</div><div class="c2">현재</div><div class="c3">{{내용4}}</div></div>
+  </div>
+  <div class="foot-note"><div class="note">이 슬라이드는 관리사무소가 시공사에 보낸 <b>하자보수 요청 공문·회신</b>이 있을 때만 채워집니다. 자료가 없으면 삭제하고 진행합니다.</div></div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

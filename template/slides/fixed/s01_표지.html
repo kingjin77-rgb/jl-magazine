@@ -1,0 +1,54 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link rel="stylesheet" href="../_master.css">
+<style>
+body{background:#fff;}
+.cv-runner{position:absolute;top:36px;left:56px;right:56px;display:flex;justify-content:space-between;
+  font-size:12px;color:#5A5F68;letter-spacing:.04em;}
+.cv-photo{position:absolute;top:0;right:0;width:420px;height:750px;overflow:hidden;}
+.cv-photo img{width:100%;height:100%;object-fit:cover;}
+.cv-photo .cap{position:absolute;left:16px;bottom:16px;right:16px;
+  font-size:10.5px;color:rgba(255,255,255,.85);line-height:1.5;
+  text-shadow:0 1px 6px rgba(0,0,0,.6);}
+.cv-eyebrow{position:absolute;left:56px;top:150px;display:inline-flex;align-items:center;gap:12px;
+  font-size:13px;letter-spacing:.22em;color:#8F7033;}
+.cv-eyebrow::before{content:"";width:40px;height:1px;background:#8F7033;}
+.cv-title{position:absolute;left:56px;top:186px;right:460px;
+  font-size:44px;font-weight:800;line-height:1.36;letter-spacing:-.02em;color:#0D2162;}
+.cv-title em{font-style:normal;color:#B08D4F;}
+.cv-sub{position:absolute;left:56px;top:392px;right:460px;
+  font-size:15px;line-height:1.85;color:#42506A;}
+.cv-stats{position:absolute;left:56px;top:492px;right:460px;display:flex;gap:0;
+  border-top:1.4px solid #C7CBD3;padding-top:22px;}
+.cv-stat{flex:1;}
+.cv-stat .n{font-size:27px;font-weight:800;color:#0D2162;}
+.cv-stat .l{margin-top:6px;font-size:11.5px;color:#5A5F68;}
+.cv-recipient{position:absolute;left:56px;top:606px;font-size:14px;color:#42506A;}
+.cv-recipient b{color:#111418;font-weight:700;margin-left:6px;}
+.cv-foot{position:absolute;left:56px;top:660px;right:460px;
+  border-top:1.4px solid #C7CBD3;padding-top:18px;}
+.cv-foot img{display:block;height:26px;width:auto;}
+</style></head>
+<body>
+  <div class="cv-runner"><span>법무법인 제이엘 하자소송 수행 제안서</span><span>01 / 31</span></div>
+
+  <div class="cv-photo">
+    <img src="img/실측사진.jpg">
+    <div class="cap">현장 실측 · 파취조사 후 바닥 두께 계측</div>
+  </div>
+
+  <div class="cv-eyebrow">DEFECT LITIGATION PROPOSAL</div>
+  <div class="cv-title">담보책임기간이<br>도과하기 전,<br><em>지금</em> 시작해야 합니다</div>
+  <div class="cv-sub">공동주택 하자소송을 하자 진단부터 감정, 소송, 회수까지<br>법무법인 제이엘이 처음부터 끝까지 직접 수행합니다.</div>
+
+  <div class="cv-stats">
+    <div class="cv-stat"><div class="n">18건</div><div class="l">수행 사건</div></div>
+    <div class="cv-stat"><div class="n">328억</div><div class="l">판결금 합계</div></div>
+    <div class="cv-stat"><div class="n">329만원</div><div class="l">세대당 평균</div></div>
+  </div>
+
+  <div class="cv-recipient">수신 <b>{{단지명}} 입주자대표회의 귀중</b></div>
+
+  <div class="cv-foot"><img src="img/jl-logo.png" width="140" height="43"></div>
+
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body></html>

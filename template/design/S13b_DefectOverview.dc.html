@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:3px;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:var(--card);border:1px solid var(--line);
+    border-radius:4px;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:4px;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .title{font-size:35px;line-height:1.34;}
+  .lead{position:absolute;left:56px;top:186px;right:56px;font-size:14px;color:var(--ink);line-height:1.7;}
+  .lead b{color:var(--navy);}
+  .cols{position:absolute;left:56px;top:196px;right:56px;display:flex;gap:24px;}
+  .col{flex:1;}
+  .th{display:flex;padding:8px 10px;background:var(--fill);color:#fff;font-size:12.5px;font-weight:800;}
+  .tr{display:flex;padding:6.5px 10px;border-bottom:1px solid var(--line);font-size:12.5px;color:var(--ink);}
+  .tr:nth-child(odd){background:#F7F9FD;}
+  .c1{width:26px;color:var(--gold-ink);font-weight:800;}
+  .th .c1{color:#EBD9B4;}
+  .c2{flex:1;font-weight:700;}
+  .c3{width:52px;} .c4{width:96px;} .c5{width:38px;text-align:right;font-weight:800;color:var(--navy);}
+  .th .c5{color:#fff;}
+  .how{position:absolute;left:56px;top:452px;right:56px;}
+  .how .h{font-size:15px;font-weight:800;color:var(--navy);margin-bottom:12px;}
+  .how .g{display:flex;gap:20px;}
+  .how .i{flex:1;border:1px solid var(--line);border-top:3px solid var(--navy);padding:14px 18px;}
+  .how .i .t{font-size:14px;font-weight:800;color:var(--navy);}
+  .how .i .d{margin-top:6px;font-size:13px;color:var(--ink);line-height:1.6;}
+  .how .i .n{margin-top:9px;font-size:12.5px;color:var(--gold-ink);font-weight:700;}
+  .band{position:absolute;left:56px;bottom:50px;right:56px;background:var(--fill);color:#fff;
+    padding:16px 24px;display:flex;}
+  .band .b{flex:1;border-left:1px solid rgba(255,255,255,.2);padding-left:20px;}
+  .band .b:first-child{border-left:none;padding-left:0;}
+  .band .b .v{font-size:22px;font-weight:800;}
+  .band .b .k{margin-top:4px;font-size:12.5px;color:#E6ECF9;line-height:1.5;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">주요 하자 유형 [고정]</div>
+  <div class="title">법무법인 제이엘이 찾아내는 하자는 14종입니다</div>
+
+  <div class="lead">「2026 건설감정실무」(서울중앙지방법원 건설소송실무연구회)의 하자 분류와 법무법인 제이엘 수행 사건의 하자내역서를 대조해 정리했습니다. <b>미시공·변경시공은 사용검사 전 하자로 분류되어 5년 구간에 남습니다.</b></div>
+
+  <div class="cols">
+    <div class="col">
+      <div class="th"><div class="c1">#</div><div class="c2">하자 유형</div>
+        <div class="c3">부위</div><div class="c4">성격</div><div class="c5">기간</div></div>
+      <div class="tr"><div class="c1">01</div><div class="c2">세대 월패드 예비전원장치 · 홈게이트웨이 미시공</div><div class="c3">전유부</div><div class="c4">미시공</div><div class="c5">3년</div></div><div class="tr"><div class="c1">02</div><div class="c2">타일 뒤채움 부족 및 부착강도 부족</div><div class="c3">전유부</div><div class="c4">변경시공(부실시공)</div><div class="c5">2년</div></div><div class="tr"><div class="c1">03</div><div class="c2">방수 두께 부족 · 방수층 축소시공</div><div class="c3">전유부</div><div class="c4">미시공 / 변경시공</div><div class="c5">5년</div></div><div class="tr"><div class="c1">04</div><div class="c2">방화문 성능 미달</div><div class="c3">공용부</div><div class="c4">변경시공(부실시공)</div><div class="c5">3년</div></div><div class="tr"><div class="c1">05</div><div class="c2">세대 대피공간·피난 관련 미시공 및 변경시공</div><div class="c3">전유부</div><div class="c4">미시공 · 변경시공</div><div class="c5">-</div></div><div class="tr"><div class="c1">06</div><div class="c2">옥상·옥탑 방수층 축소시공 및 바닥 부속 부족시공</div><div class="c3">공용부</div><div class="c4">미시공 · 변경시공</div><div class="c5">5년</div></div><div class="tr"><div class="c1">07</div><div class="c2">소방·전기 안전 부속 미시공</div><div class="c3">공용부</div><div class="c4">미시공</div><div class="c5">3년</div></div>
+    </div>
+    <div class="col">
+      <div class="th"><div class="c1">#</div><div class="c2">하자 유형</div>
+        <div class="c3">부위</div><div class="c4">성격</div><div class="c5">기간</div></div>
+      <div class="tr"><div class="c1">08</div><div class="c2">창호·유리 시공 하자</div><div class="c3">공용부</div><div class="c4">미시공 · 변경시공</div><div class="c5">3년</div></div><div class="tr"><div class="c1">09</div><div class="c2">시멘트 모르타르(미장) 바름 두께 부족시공</div><div class="c3">공용부</div><div class="c4">변경시공</div><div class="c5">2년</div></div><div class="tr"><div class="c1">10</div><div class="c2">상도 미시공</div><div class="c3">공용부</div><div class="c4">미시공 · 변경시공</div><div class="c5">2년</div></div><div class="tr"><div class="c1">11</div><div class="c2">경량철골 천장틀 변경시공 및 부속 미시공</div><div class="c3">공용부</div><div class="c4">변경시공 · 미시공</div><div class="c5">2년</div></div><div class="tr"><div class="c1">12</div><div class="c2">콘크리트 균열</div><div class="c3">공용부</div><div class="c4">부실시공</div><div class="c5">5년</div></div><div class="tr"><div class="c1">13</div><div class="c2">단열재 변경시공 및 이음부 시공불량 (→ 결로·곰팡이)</div><div class="c3">공용부</div><div class="c4">변경시공 · 부실시공</div><div class="c5">3년</div></div><div class="tr"><div class="c1">14</div><div class="c2">부대토목·조경 부족시공</div><div class="c3">공용부</div><div class="c4">미시공 · 변경시공</div><div class="c5">5년</div></div>
+    </div>
+  </div>
+
+  <div class="how"><div class="h">이 14종을 찾아내는 방법</div>
+    <div class="g">
+      <div class="i"><div class="t">설계도서 대조</div>
+        <div class="d">준공도면·시방서·내역서와 실제 시공을 대조합니다. 눈에 보이지 않는 미시공·변경시공은 이 방법으로만 드러납니다.</div>
+        <div class="n">14종 중 9종에 적용</div></div>
+      <div class="i"><div class="t">실측 · 성능시험</div>
+        <div class="d">두께·뒤채움률을 실측하고, 방화문은 KS 시험기관에 시료를 보내 성능을 확인합니다.</div>
+        <div class="n">수치로만 드러나는 하자</div></div>
+      <div class="i"><div class="t">정보공개청구</div>
+        <div class="d">시공사가 주지 않는 준공도면·감리보고서·설계변경 내역을 관할 지자체에 청구해 확보합니다.</div>
+        <div class="n">대조의 전제 자료</div></div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="b"><div class="v">14종</div><div class="k">조사 대상 하자 유형</div></div>
+    <div class="b"><div class="v">546항목</div><div class="k">실제 사건 하자내역서 확인 항목<br>(공용 463 · 전유 83)</div></div>
+    <div class="b"><div class="v">66.4%</div><div class="k">사용검사 전 하자가 차지한 보수비 비중<br>(JL 수행 14건 합산)</div></div>
+    <div class="b"><div class="v">5년</div><div class="k">미시공·변경시공이 남는 담보책임 구간<br>2·3년차 도과 후에도 청구 가능</div></div>
+  </div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:32px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  /* ── 본문 프리미티브 ── */
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
+  .sec{font-size:15.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
+  .sec+.sec,.blk+.sec{margin-top:16px;}
+
+  .cards{display:grid;gap:14px;}
+  .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
+  .c .ck{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:15.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
+  .c b{color:var(--navy);font-weight:800;}
+
+  .flow{display:grid;gap:0;}
+  .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
+  .step+.step{border-left:0;}
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--fill);
+    width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .step .t{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:14.5px;line-height:1.55;color:var(--ink);}
+
+  .tbl{border:1px solid var(--line);}
+  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
+  .tbl .th div{padding:10px 15px;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
+  .tbl .tr div{padding:9px 15px;}
+  .tbl .tr b{color:var(--navy);font-weight:800;}
+
+  .kv .r{display:flex;gap:10px;font-size:15.5px;line-height:1.55;padding:7px 0;
+    border-bottom:1px solid var(--line);}
+  .kv .r:last-child{border-bottom:0;}
+  .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
+  .kv .r em{flex:1;font-style:normal;}
+
+  .split{display:flex;gap:26px;height:100%;}
+  .split>div{flex:1;}
+
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
+
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14.5px;line-height:1.6;color:var(--ink);}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+
+  /* 촘촘 모드 — 내용이 하단 밴드에 닿을 때 여백만 줄인다 */
+  .tbl .tr div{padding:6.6px 15px;}
+  .tbl .th div{padding:8px 15px;}
+  .kv .r{padding:4.6px 0;}
+  .sec{margin-bottom:9px;}
+  .sec+.sec,.blk+.sec{margin-top:12px;}
+  .c{padding:12px 16px;}
+  /* ── 도면 대 실제 2단 대비 ── 파일이 없어도 흰 상자로 남도록 CSS 배경으로 넣는다 */
+  /* 도면은 1024x931(거의 정사각)이고 사진은 4:3이다. 두 박스를 같은 가로폭으로
+     묶으면 도면이 흰 여백 속에 파묻히므로, 박스는 각자 제 비율대로 두고
+     남는 가로 공간에 설명을 붙인다. */
+  .pair{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:16px;}
+  .pair>div{display:flex;gap:15px;}
+  .pair .box{flex:0 0 181px;height:178px;border:1px solid var(--line);
+    background:#fff center/contain no-repeat;}
+  .pair .ph{flex:0 0 237px;background-size:cover;}
+  .pair .tx{flex:1;padding-top:2px;}
+  .pair .cap{font-size:13.5px;line-height:1.5;color:var(--ink);}
+  .pair .cap b{display:block;margin-bottom:5px;color:var(--navy);font-weight:800;font-size:15px;}
+  .pair .cap .d{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);
+    font-size:13px;line-height:1.6;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+    <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">조사의 출발점 [고정]</div>
+  <div class="title">설계도서를 먼저 확보해야 실제 시공과 대조할 수 있습니다</div>
+  <div class="body"><div class="sec">그래서 설계도서 확보가 첫 단계입니다</div><div class="kv blk"><div class="r"><span>무엇이 달라지나</span><em>같은 하자라도 <b>어느 문서를 기준으로 보느냐</b>에 따라 하자 여부와 보수 범위가 달라집니다</em></div><div class="r"><span>우리가 하는 일</span><em>사업승인·준공 시점의 도면·시방서·내역서를 <b>정보공개청구로 확보</b>한 뒤 조사에 들어갑니다</em></div></div><div class="pair"><div><div class="box" style="background-image:url(dwg-heating.jpg)"></div><div class="tx"><div class="cap"><b>설계도면</b>단위세대 난방배관 평면도입니다. 배관 간격과 경로가 도면에 수치로 적혀 있습니다.<div class="d">이 문서를 확보해야 현장에서 무엇을 재야 하는지가 정해집니다.</div></div></div></div><div><div class="box ph" style="background-image:url(act-heating.jpg)"></div><div class="tx"><div class="cap"><b>실제 시공</b>같은 공종의 현장 상태입니다. 타 단지 조사 사례로, 단지명·동호수는 드러나지 않습니다.<div class="d">도면과 나란히 놓고 대조할 때 비로소 하자 여부를 말할 수 있습니다.</div></div></div></div></div></div>
+  <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">기준 문서를 확보하지 못한 상태에서 현장을 보면 무엇이 하자인지 판단할 수 없습니다. 조사보다 <b>설계도서 확보가 먼저</b>인 이유입니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">설계도서 기재가 모호하거나 문서 간 불일치가 있으면 감정 단계에서 그대로 다툼이 됩니다. <b>미리 확인해 두는 것이 감정 대응의 출발점</b>입니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">정보공개청구는 접수일부터 10일 이내 결정이 원칙이나 비공개 결정 시 이의신청·행정심판을 거쳐야 합니다. <b>착수 직후 바로 청구합니다.</b></div></div></div>
+  <div class="note">출처: 「2026 건설감정실무」(서울중앙지방법원 건설소송실무연구회, 사법발전재단, 2026. 1.) 개정 내용에 관한 법무법인 발간 해설 자료 <b>[2차 출처]</b>. 개별 수치는 원문 확보 후 근거 등급을 올립니다. 판결례는 원문 확인 전이므로 판시 취지를 단정하지 않았습니다.</div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

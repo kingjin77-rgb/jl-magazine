@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .title{font-size:35px;line-height:1.34;}
+  .cols{position:absolute;left:56px;top:186px;right:56px;bottom:264px;display:block;overflow:hidden;}
+  .colL{width:1220px;height:610px;display:none;}
+  .chartbox{width:760px;height:380px;border:1px solid var(--line);overflow:hidden;
+    background:#fff;float:left;}
+  .chartbox img{width:100%;height:100%;object-fit:contain;display:block;}
+  .colR{margin-left:788px;display:flex;flex-direction:column;gap:12px;}
+  .calc{background:var(--fill);color:#fff;border-radius:0;padding:18px 20px;}
+  .calc .k{font-size:14px;color:#F0F4FC;}
+  .calc .v{margin-top:8px;font-size:19.5px;font-weight:800;font-family:monospace;}
+  .calc .l{margin-top:6px;font-size:14px;color:#E6ECF9;}
+  .recover{background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:14px 18px;
+    font-size:14px;color:var(--muted);line-height:1.7;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 심층 검증 3단 밴드 ── */
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent!important;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">비용 부담 구조 [고정]</div>
+  <div class="title">감정료·인지대·송달료는 법인이 전액 대납합니다</div>
+  <div class="cols">
+    <div class="chartbox"><img src="s24_cost_flow.png"></div>
+    <div class="colR">
+      <div class="calc"><div class="k">감정료 환산 예시 (시장 단가 세대당 10~40만원 기준)</div>
+        <div class="v">1,000세대 × 20만원 = 2억원</div>
+        <div class="l">개별 단지의 실제 감정료는 감정 항목·규모에 따라 달라집니다.</div></div>
+      <div class="recover" style="flex:1">판결 확정 시 소송비용 중 일부는 패소자(시공사 등)로부터 회수될 수 있습니다. 다만 회수 여부와 범위는 법원 판단에 따라 달라지며, 이를 단정적으로 예측하지 않습니다.</div>
+    </div>
+  </div>
+  <div class="verify">
+    <div><div class="vk">핵심 내용</div><div class="vv">비용 구조를 먼저 밝히는 이유는, 진행 중에 예상하지 못한 지출이 생기면 그때부터 신뢰가 무너지기 때문입니다.</div></div>
+    <div><div class="vk">수치 강조</div><div class="vv">금액이 가장 큰 항목은 <b>감정료</b>이며, 단지 세대수와 조사 항목 수에 따라 법원이 정합니다.</div></div>
+    <div><div class="vk warnk">기한 경고</div><div class="vv">감정료를 기한 내 납부하지 않으면 감정 신청이 각하될 수 있습니다. 납부 시점을 미리 안내드립니다.</div></div>
+  </div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .runner{top:28px;font-size:14px;}
+  .eyebrow{font-size:15px;letter-spacing:.18em;} .eyebrow::before{width:28px;}
+  .title{font-size:33px;line-height:1.34;}
+  .grid{position:absolute;left:56px;top:186px;right:56px;bottom:52px;display:grid;
+    grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr);gap:14px;}
+  .qa{background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:14px 18px;}
+  .qa .q{font-size:15px;font-weight:800;color:var(--navy);}
+  .qa .a{margin-top:6px;font-size:14px;color:var(--muted);line-height:1.6;}
+  .footer{font-size:14px;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">예상 질의응답 [고정]</div>
+  <div class="title">입주자대표회의가 자주 묻는 질문입니다</div>
+  <div class="grid">
+    <div class="qa"><div class="q">Q. 비용은 언제, 얼마나 부담하나요?</div>
+      <div class="a">감정료·인지대·송달료는 법무법인 제이엘이 전액 대납합니다. 착수금과 성공보수는 법인 내부 확정 후 안내합니다.</div></div>
+    <div class="qa"><div class="q">Q. 소송은 얼마나 걸리나요?</div>
+      <div class="a">1심 평균 약 2년 6개월이 소요됩니다. 감정보완신청·준비서면 공방 진행에 따라 기간은 달라질 수 있습니다.</div></div>
+    <div class="qa"><div class="q">Q. 채권양도 동의서를 다 못 받으면 어떻게 되나요?</div>
+      <div class="a">미양도 세대 비율만큼 청구 규모가 줄어듭니다. 현장·문자 접수와 주민설명회로 동의서 징구를 법인이 직접 지원합니다.</div></div>
+    <div class="qa"><div class="q">Q. 패소하면 어떻게 되나요?</div>
+      <div class="a">상대방 소송비용 부담 방침과 착수금 반환 여부는 법인 내부 확정 후 위임계약서에 명시해 안내합니다.</div></div>
+    <div class="qa"><div class="q">Q. 판결금은 실적 평균만큼 받을 수 있나요?</div>
+      <div class="a">세대당 평균 329만원은 과거 18건의 실적 참고치이며, 개별 단지의 회수액은 감정 결과와 법원 판단에 따라 달라집니다.</div></div>
+    <div class="qa"><div class="q">Q. 이미 도과한 하자는 청구할 수 없나요?</div>
+      <div class="a">공종별로 존속기간이 다릅니다. 도과한 공종은 정직하게 표시하고, 남은 구간(예: 주요구조부·지반공사)에 청구를 집중합니다.</div></div>
+  </div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

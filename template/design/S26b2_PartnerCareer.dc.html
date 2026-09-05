@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:32px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  /* ── 본문 프리미티브 ── */
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:104px;}
+  .sec{font-size:14px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
+  .sec+.sec,.blk+.sec{margin-top:16px;}
+
+  .cards{display:grid;gap:14px;}
+  .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
+  .c .ck{font-size:16.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:14.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
+  .c b{color:var(--navy);font-weight:800;}
+
+  .flow{display:grid;gap:0;}
+  .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
+  .step+.step{border-left:0;}
+  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--fill);
+    width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .step .t{font-size:15.5px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:13.5px;line-height:1.55;color:var(--ink);}
+
+  .tbl{border:1px solid var(--line);}
+  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:15px;font-weight:700;}
+  .tbl .th div{padding:10px 15px;}
+  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:14.5px;line-height:1.5;}
+  .tbl .tr div{padding:9px 15px;}
+  .tbl .tr b{color:var(--navy);font-weight:800;}
+
+  .kv .r{display:flex;gap:10px;font-size:14.5px;line-height:1.55;padding:7px 0;
+    border-bottom:1px solid var(--line);}
+  .kv .r:last-child{border-bottom:0;}
+  .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
+  .kv .r em{flex:1;font-style:normal;}
+
+  .split{display:flex;gap:26px;height:100%;}
+  .split>div{flex:1;}
+
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:15.5px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
+
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14px;line-height:1.6;color:var(--ink);}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(150deg,#223D5B 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+
+  /* ── 인물 카드 + 경력 표 ──
+     왼쪽에 사진과 이름, 오른쪽에 경력과 그 경력이 이 사건에서 쓰이는 곳. */
+  .cv{display:flex;gap:34px;margin-top:12px;}
+
+  .who{flex:0 0 292px;}
+  .who .pbox{width:292px;height:270px;border:1px solid var(--line);
+    background:var(--card) center/cover no-repeat;position:relative;}
+  /* 안내는 사진 상자 안에 둔다. 사진을 넣으면 그대로 가려진다. */
+  .who .pbox .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
+    text-align:center;font-size:12.5px;line-height:1.7;color:#7F8CA6;}
+  .who .pbox .hint b{display:block;font-size:13px;font-weight:800;letter-spacing:.24em;
+    margin-bottom:7px;color:#7F8CA6;}
+  .who .nm{margin-top:14px;font-size:28px;font-weight:800;color:var(--navy);letter-spacing:-.03em;}
+  .who .rl{margin-top:7px;font-size:16px;color:var(--ink);}
+  .who .ed{margin-top:15px;padding-top:13px;border-top:1.6px solid var(--navy);}
+  .who .ed b{display:block;font-size:13px;font-weight:800;letter-spacing:.02em;
+    color:var(--gold-ink);margin-bottom:6px;}
+  .who .ed span{font-size:14.5px;line-height:1.62;color:var(--ink);}
+
+  .career{flex:1;display:flex;flex-direction:column;}
+  /* 4개 항목이 오른쪽 단을 끝까지 채우도록 간격을 벌린다 */
+  .cr{display:flex;gap:18px;padding:27px 0;border-bottom:1px solid var(--line);}
+  .cr:first-child{padding-top:4px;}
+  .cr:last-child{border-bottom:0;}
+  .cr .no{flex:0 0 34px;height:34px;background:var(--fill);color:#fff;font-size:15px;
+    font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .cr .tx{flex:1;}
+  .cr .k{font-size:20px;font-weight:800;color:var(--navy);letter-spacing:-.025em;line-height:1.3;}
+  .cr .v{margin-top:8px;font-size:15.5px;line-height:1.62;color:var(--ink);}
+  .cr .v b{color:var(--navy);font-weight:800;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">MANAGING PARTNER · 약력</div>
+  <div class="title">검사와 공인회계사 경력을 하자소송 판단에 씁니다</div>
+  <div class="body"><div class="sec">경력 · 그 경력이 이 사건에서 쓰이는 곳</div><div class="cv"><div class="who"><div class="pbox" style="background-image:url(p-partner.jpg)"></div><div class="nm">박종일</div><div class="rl">법무법인 제이엘 대표변호사</div><div class="ed"><b>학력</b><span>성균관대학교 졸업<br>서울대학교 대학원 경영학과 수료</span></div></div><div class="career"><div class="cr"><div class="no">01</div><div class="tx"><div class="k">사법고시 38회 · 사법연수원 28기</div><div class="v">공동주택 하자 사건을 <b>집합건물법과 공동주택관리법 두 축</b>으로 나누어 구성합니다.</div></div></div><div class="cr"><div class="no">02</div><div class="tx"><div class="k">제21회 공인회계사 · 회계법인 근무</div><div class="v">감정서의 <b>단가 적용과 수량 산출</b>을 직접 검산합니다. 감정보완신청 사유의 절반이 이 두 가지입니다.</div></div></div><div class="cr"><div class="no">03</div><div class="tx"><div class="k">수원·광주·부산지방검찰청 부장검사 역임</div><div class="v">사실관계를 <b>증거로 세우는 순서</b>를 기준으로 조사 단계를 설계합니다.</div></div></div><div class="cr"><div class="no">04</div><div class="tx"><div class="k">JB금융지주 사외이사</div><div class="v">입주자대표회의 의결과 회계 처리 등 <b>단지 내부 절차</b>에 관한 검토를 함께 봅니다.</div></div></div></div></div></div>
+  <div class="note">경력 사항은 법인 소개 자료 기재분입니다. 각 항목의 설명은 해당 경력이 하자소송 수행에서 어떻게 쓰이는지를 적은 것으로, 개별 사건의 결과를 보장하는 표현이 아닙니다.</div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

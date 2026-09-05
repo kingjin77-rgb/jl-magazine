@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .title{font-size:35px;line-height:1.34;}
+  .list{position:absolute;left:56px;top:186px;right:56px;display:flex;flex-direction:column;gap:9px;}
+  .item{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:12px 18px;}
+  .item .n{width:26px;height:26px;border-radius:50%;background:var(--fill);color:#fff;font-size:14px;
+    font-weight:800;display:flex;align-items:center;justify-content:center;flex:0 0 auto;}
+  .item .t{font-size:16px;font-weight:800;color:var(--navy);}
+  .item .d{margin-top:4px;font-size:13.5px;color:var(--ink);line-height:1.55;}
+  .resp{position:absolute;left:56px;top:558px;right:56px;background:var(--fill);color:#fff;
+    border-radius:0;padding:18px 24px;}
+  .resp .h{font-size:14px;color:#E6ECF9;font-weight:700;letter-spacing:.04em;}
+  .resp .row{margin-top:11px;display:flex;}
+  .resp .r{flex:1;border-left:1px solid rgba(255,255,255,.2);padding-left:20px;}
+  .resp .r:first-child{border-left:none;padding-left:0;}
+  .resp .r .t{font-size:15px;font-weight:800;}
+  .resp .r .s{margin-top:5px;font-size:14px;color:#E6ECF9;line-height:1.55;}
+  .foot-note{display:none;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">유의사항 [고정]</div>
+  <div class="title">감정 결과와 법원 판단에 따라 결과는 달라질 수 있습니다</div>
+
+  <div class="list">
+    <div class="item"><div class="n">1</div><div><div class="t">청구액은 감정 결과에 따라 변동합니다</div>
+      <div class="d">소장 접수 시 청구액은 잠정치입니다(실무상 세대당 200만원 내외로 책정). 감정 결과가 나온 뒤 청구취지변경신청으로 최종 확정합니다.</div></div></div>
+    <div class="item"><div class="n">2</div><div><div class="t">소요 기간은 사건마다 다릅니다</div>
+      <div class="d">1심 평균 약 2년 6개월입니다. 감정보완신청과 준비서면 공방이 길어지면 더 걸릴 수 있고, 단지에 따라 이 구간만 6~10개월이 소요됩니다.</div></div></div>
+    <div class="item"><div class="n">3</div><div><div class="t">감정금액 전액이 인용되지는 않습니다</div>
+      <div class="d">법원은 자연노후·사용관리상 과실 등을 이유로 하자보수비의 일정 비율만 인용합니다. 법무법인 제이엘 수행 사건 중 판결문에서 확인된 책임제한 비율은 <b>70~85%</b>(7건)입니다.</div></div></div>
+    <div class="item"><div class="n">4</div><div><div class="t">늦게 양도받은 세대는 일부 공종이 소멸할 수 있습니다</div>
+      <div class="d">여러 사건에서 2·3차로 늦게 양도받은 세대의 2년차·3년차 하자가 제척기간 도과로 소멸한 사실이 판결문에서 확인됩니다. 동의서 징구가 이를수록 유리합니다.</div></div></div>
+  </div>
+
+  <div class="resp"><div class="h">그래서 법무법인 제이엘이 하는 것</div>
+    <div class="row">
+      <div class="r"><div class="t">감정 전 항목 정리</div>
+        <div class="s">조사 결과로 감정 항목을 구체화해 누락을 줄입니다</div></div>
+      <div class="r"><div class="t">현장조사 입회</div>
+        <div class="s">계측 기준 적용을 직접 확인합니다</div></div>
+      <div class="r"><div class="t">감정보완신청</div>
+        <div class="s">오류·누락이 있으면 보완을 신청합니다</div></div>
+      <div class="r"><div class="t">동의서 조기 징구</div>
+        <div class="s">제척기간 도과로 잃는 공종을 줄입니다</div></div>
+    </div></div>
+
+  <div class="foot-note"><div class="note">위 사항을 숨기지 않고 먼저 알려드립니다. 판결금은 <b>법원이 인정한 하자보수비</b>이지 회수액이 아니며, 회수 금액을 단정적으로 예측하지 않습니다.</div></div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

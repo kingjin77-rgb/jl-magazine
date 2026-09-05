@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .title{font-size:35px;line-height:1.34;}
+  .cards{position:absolute;left:56px;top:186px;right:56px;display:flex;gap:22px;}
+  .c{flex:1;background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:22px 20px;}
+  .c .t{font-size:16px;font-weight:800;color:var(--navy);}
+  .c .d{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.7;}
+  .record{position:absolute;left:56px;top:372px;right:56px;background:var(--fill);color:#fff;
+    border-radius:0;padding:18px 24px;}
+  .rec-h{font-size:14px;color:#F0F4FC;letter-spacing:.04em;font-weight:700;}
+  .rec-row{margin-top:12px;display:flex;}
+  .rec-stat{flex:1;border-left:1px solid rgba(255,255,255,.18);padding-left:20px;}
+  .rec-stat:first-child{border-left:none;padding-left:0;}
+  .rec-stat .n{font-size:26px;font-weight:800;letter-spacing:-.01em;}
+  .rec-stat .l{margin-top:4px;font-size:14px;color:#E6ECF9;}
+  .rec-note{margin-top:14px;padding-top:10px;border-top:1px solid rgba(255,255,255,.18);
+    font-size:14px;color:#E6ECF9;line-height:1.6;}
+  .why{position:absolute;left:56px;top:552px;right:56px;bottom:56px;}
+  .why .h{font-size:16px;font-weight:800;color:var(--navy);margin-bottom:10px;}
+  .why p{font-size:15px;color:var(--muted);line-height:1.8;}
+
+  .ico{width:52px;height:52px;display:block;margin-bottom:12px;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">채권양도 동의서 징구 지원 [고정]</div>
+  <div class="title">동의서 징구는 법인이 직접 수행합니다</div>
+  <div class="cards">
+    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 42c0-7 5-12 12-12s12 5 12 12" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M31 22l5 5 9-10" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">현장 접수</div><div class="d">입주자대표회의·관리사무소와 협의해 현장 접수 창구를 운영합니다.</div></div>
+    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 4h18a3 3 0 0 1 3 3v34a3 3 0 0 1-3 3H15a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M20 36h8" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">문자 접수</div><div class="d">구분소유자 대상 문자 안내와 회신을 통해 서명·날인 서류를 받습니다.</div></div>
+    <div class="c"><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8h36v22H6z" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M24 30v8" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M16 42h16" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 24l7-8 5 6 8-9" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">주민설명회</div><div class="d">동의서의 목적과 절차를 직접 설명해 서명률을 높입니다.</div></div>
+  </div>
+  <div class="record">
+    <div class="rec-h">JL 수행 사건 채권양도비율 · 판결문 확인 15건</div>
+    <div class="rec-row">
+      <div class="rec-stat"><div class="n">93.28%</div><div class="l">15건 단순평균</div></div>
+      <div class="rec-stat"><div class="n">75.01 ~ 100%</div><div class="l">확인된 범위</div></div>
+      <div class="rec-stat"><div class="n">11건</div><div class="l">15건 중 90% 이상</div></div>
+    </div>
+    <div class="rec-note">전유면적 기준. 판결문에 양도비율이 기재된 15건만 집계했으며, 개별 사건의 양도비율을 보장하지 않습니다.</div>
+  </div>
+  <div class="why">
+    <div class="h">양도는 이르게 받을수록 유리합니다</div>
+    <p>양도받지 못한 면적 비율만큼 청구 규모가 줄어듭니다. 나아가 여러 사건에서 <b>2·3차로 늦게 양도받은 세대의 2년차·3년차 하자가 제척기간 도과로 소멸</b>한 사실이 판결문에서 확인됩니다. 늦은 양도는 비율만이 아니라 청구 가능한 공종까지 줄입니다. 그래서 법인이 접수를 직접 맡습니다.</p>
+  </div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

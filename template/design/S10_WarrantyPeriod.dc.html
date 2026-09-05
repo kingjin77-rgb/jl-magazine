@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .table{position:absolute;left:56px;top:186px;right:56px;border:1px solid var(--line);
+    border-radius:0;overflow:hidden;}
+  .thead{display:flex;background:var(--fill);color:#fff;font-size:15px;font-weight:700;}
+  .thead div{padding:12px 16px;color:#fff;}
+  .row{display:flex;border-top:1px solid var(--line);font-size:15px;}
+  .row div{padding:11px 16px;} .row:nth-child(even){background:#fff;}
+  .c-period{width:78px;font-weight:800;color:var(--navy);}
+  .c-cat{width:198px;font-weight:700;} .c-detail{flex:1;color:var(--muted);}
+  /* ── 존속기간 가로 막대 ── */
+  .c-bar{width:270px;display:flex;align-items:center;gap:9px;}
+  .c-bar .track{flex:1;height:15px;background:#EEF0F5;position:relative;}
+  .c-bar .fill{position:absolute;left:0;top:0;bottom:0;}
+  .c-bar .yr{width:46px;white-space:nowrap;text-align:right;font-size:13.5px;font-weight:800;color:var(--navy);}
+  .y10 .fill{background:#2A3B4F;} .y5 .fill{background:var(--fill);}
+  .y3 .fill{background:#5A6E9C;} .y2 .fill{background:#B08D4F;}
+  .thead .c-bar{color:#fff;display:block;}
+  .basis{position:absolute;left:56px;top:556px;right:56px;display:flex;gap:24px;}
+  .b{flex:1;background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:16px 20px;}
+  .b .k{font-size:14px;color:var(--gold-ink);font-weight:700;}
+  .b .v{margin-top:6px;font-size:16px;font-weight:700;color:var(--ink);}
+  .b.hi{background:var(--fill);border-color:var(--navy);}
+  .b.hi .k{color:#EBD9B4;} .b.hi .v{color:#fff;}
+  .src{position:absolute;left:56px;bottom:48px;right:56px;font-size:14px;color:var(--muted);line-height:1.65;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">담보책임 존속기간 [고정]</div>
+  <div class="title">담보책임 존속기간은 공종에 따라 2년에서 10년까지 구분됩니다</div>
+  <div class="table">
+    <div class="thead"><div class="c-period">기간</div><div class="c-cat">구분</div><div class="c-bar">존속기간 길이 비교</div><div class="c-detail">세부 공종</div></div>
+    <div class="row"><div class="c-period">10년</div><div class="c-cat">주요구조부·지반공사</div><div class="c-bar y10"><div class="track"><div class="fill" style="width:100%"></div></div><div class="yr">10년</div></div>
+      <div class="c-detail">내력벽·기둥·바닥·보·지붕틀·주계단, 지반공사</div></div>
+    <div class="row"><div class="c-period">5년</div><div class="c-cat">기산일 전 발생 하자</div><div class="c-bar y5"><div class="track"><div class="fill" style="width:50%"></div></div><div class="yr">5년</div></div>
+      <div class="c-detail">미시공·변경시공 등 사용검사 전 하자</div></div>
+    <div class="row"><div class="c-period">5년</div><div class="c-cat">구조상·안전상 하자</div><div class="c-bar y5"><div class="track"><div class="fill" style="width:50%"></div></div><div class="yr">5년</div></div>
+      <div class="c-detail">대지조성·철근콘크리트·철골·조적·지붕 및 방수공사 등</div></div>
+    <div class="row"><div class="c-period">3년</div><div class="c-cat">기능상·미관상 하자</div><div class="c-bar y3"><div class="track"><div class="fill" style="width:30%"></div></div><div class="yr">3년</div></div>
+      <div class="c-detail">건축설비공사·목공사·창호공사·조경공사 등</div></div>
+    <div class="row"><div class="c-period">2년</div><div class="c-cat">마감공사 하자</div><div class="c-bar y2"><div class="track"><div class="fill" style="width:20%"></div></div><div class="yr">2년</div></div>
+      <div class="c-detail">발견·교체·보수가 용이한 하자</div></div>
+  </div>
+  <div class="basis">
+    <div class="b"><div class="k">기산점 · 전유부분</div><div class="v">구분소유자에게 인도한 날</div></div>
+    <div class="b"><div class="k">기산점 · 공용부분</div><div class="v">사용검사일(주택법) / 사용승인일(건축법)</div></div>
+    <div class="b hi"><div class="k">사용검사 전 하자 = 5년 구간</div><div class="v">JL 14건 실적상 <b>보수비의 66.4%</b></div></div>
+  </div>
+  <div class="src">근거: 집합건물의 소유 및 관리에 관한 법률 제9조의2 + 같은 법 시행령 제5조. 적용 법령 분기는 2013.6.19. 이후 분양 · 2016.8.12. 이후 사용검사입니다. 66.4%는 JL 수행 사건 중 판결문에 하자보수비 총괄집계표가 있는 14건의 합산 기준(22,714,455,231 ÷ 34,199,288,617)이며, 사건별 범위는 34.7~93.9%입니다. <b>2년차·3년차가 도과해도 미시공·변경시공 하자는 5년 구간에 남습니다.</b></div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

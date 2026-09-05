@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .title{font-size:35px;line-height:1.34;}
+  .cards{position:absolute;left:56px;top:186px;right:56px;display:flex;gap:20px;}
+  .c{flex:1;border:1px solid var(--line);border-top:3px solid var(--navy);border-radius:0;padding:20px 20px;display:flex;flex-direction:column;}
+  .c .num{width:30px;height:30px;border-radius:50%;background:var(--fill);color:#fff;font-size:16px;
+    font-weight:800;display:flex;align-items:center;justify-content:center;}
+  .c .t{margin-top:12px;font-size:19.5px;font-weight:800;color:var(--navy);}
+  .c .d{margin-top:8px;font-size:14px;color:var(--ink);line-height:1.7;}
+  .c .rows{margin-top:12px;padding-top:10px;border-top:1px solid var(--line);}
+  .c .r{display:flex;font-size:14px;padding:5px 0;line-height:1.5;}
+  .c .r .k{width:62px;color:var(--gold-ink);font-weight:700;flex:0 0 auto;}
+  .c .r .v{color:var(--ink);}
+  .warn{position:absolute;left:56px;top:520px;right:56px;background:var(--fill);color:#fff;
+    border-radius:0;padding:18px 24px;}
+  .warn .h{font-size:14px;color:#E6ECF9;font-weight:700;letter-spacing:.04em;}
+  .warn .row{margin-top:11px;display:flex;}
+  .warn .w{flex:1;border-left:1px solid rgba(255,255,255,.2);padding-left:20px;}
+  .warn .w:first-child{border-left:none;padding-left:0;}
+  .warn .w .t{font-size:15px;font-weight:800;}
+  .warn .w .s{margin-top:5px;font-size:14px;color:#E6ECF9;line-height:1.55;}
+  .foot-note{position:absolute;left:56px;bottom:50px;right:56px;}
+
+  .ico{width:52px;height:52px;display:block;margin-bottom:12px;}
+
+  .c .num{display:none;}
+  .c .t{margin-top:0;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">청구 대상 3축 [고정]</div>
+  <div class="title">청구 상대방은 분양자·시공자·보증기관 셋으로 나뉩니다</div>
+
+  <div class="cards">
+    <div class="c"><div class="num">1</div><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 42V12l14-6 14 6v30" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 42V26h12v16" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 42h28" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">분양자</div>
+      <div class="d">시행사·조합. 집합건물법 제9조에 따른 담보책임의 1차 주체입니다.</div>
+      <div class="rows">
+        <div class="r"><div class="k">근거</div><div class="v">집합건물법 제9조 제1항</div></div>
+        <div class="r"><div class="k">확인</div><div class="v">분양계약서 · 건축물대장 · 등기사항증명서 · 신탁원부</div></div>
+        <div class="r"><div class="k">주의</div><div class="v">신탁사가 분양자인 경우가 있고, 무자력인 사례가 많습니다</div></div>
+      </div></div>
+    <div class="c"><div class="num">2</div><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7 33a17 17 0 0 1 34 0" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M19 17V10a5 5 0 0 1 10 0v7" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M4 33h40" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">시공자</div>
+      <div class="d">개정 집합건물법에서 법정책임화되어, 분양자에게 회생·파산·무자력 등 사유가 있는 경우 직접 청구할 수 있습니다.</div>
+      <div class="rows">
+        <div class="r"><div class="k">근거</div><div class="v">집합건물법 제9조 제3항</div></div>
+        <div class="r"><div class="k">확인</div><div class="v">건축물대장 · 도급계약 관계</div></div>
+        <div class="r"><div class="k">주의</div><div class="v">분양자에게 이미 배상한 범위에서는 책임을 면합니다</div></div>
+      </div></div>
+    <div class="c"><div class="num">3</div><svg class="ico" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 6l16 6v12c0 10-7 16-16 18-9-2-16-8-16-18V12z" stroke="#223D5B" stroke-width="2.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M17 24l5 5 9-10" stroke="#B08D4F" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="t">보증기관</div>
+      <div class="d">건설공제조합·서울보증보험·주택도시보증공사 등. 하자보수보증금을 청구합니다.</div>
+      <div class="rows">
+        <div class="r"><div class="k">근거</div><div class="v">공동주택관리법 제38조 · 보증계약</div></div>
+        <div class="r"><div class="k">확인</div><div class="v">하자보수보증서(보증금액 · 보증기간 · 연차별 구분)</div></div>
+        <div class="r"><div class="k">주의</div><div class="v">사용검사 <b>후</b> 하자만 보증 대상입니다</div></div>
+      </div></div>
+  </div>
+
+  <div class="warn"><div class="h">실무상 반드시 구분해야 하는 것</div>
+    <div class="row">
+      <div class="w"><div class="t">보증금은 보수 용도로만</div>
+        <div class="s">보증금은 하자보수에만 쓸 수 있어 그것만 청구하면 회수가 어렵습니다</div></div>
+      <div class="w"><div class="t">보증금 청구는 입대의 고유 권한</div>
+        <div class="s">채권양도 비율의 영향을 받지 않는 별도 청구입니다</div></div>
+      <div class="w"><div class="t">사용검사 전 하자는 보증 대상 아님</div>
+        <div class="s">보수비의 66.4%를 차지하는 이 부분은 분양자·시공자에게 청구합니다</div></div>
+    </div></div>
+
+  <div class="foot-note"><div class="note">세 축을 함께 걸어 두는 것이 원칙입니다. 소 제기 후 다툼 없는 사실로 피고를 정리하는 것이 실무 관례입니다.</div></div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

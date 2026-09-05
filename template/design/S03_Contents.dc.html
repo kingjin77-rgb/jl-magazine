@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+    border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+    border-radius:0;padding:12px 18px;line-height:1.6;}
+  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+    border-radius:0;padding:12px 18px;line-height:1.7;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:14px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  .title{font-size:36px;}
+  .grid{position:absolute;left:56px;top:170px;right:56px;bottom:56px;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:16px 32px;}
+  .part{border-left:3px solid var(--gold);padding-left:16px;}
+  .part .pn{font-size:14px;color:var(--gold-ink);font-weight:700;letter-spacing:.08em;}
+  .part .pt{margin-top:4px;font-size:16px;font-weight:800;color:var(--navy);}
+  .part ul{margin-top:8px;list-style:none;}
+  .part li{font-size:15px;color:var(--muted);line-height:1.9;}
+  .part li b{color:var(--ink);font-weight:600;margin-right:6px;}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  .badge{z-index:2;background:rgba(255,255,255,.10)!important;
+    border-color:rgba(203,178,126,.55)!important;color:#EBD9B4!important;}
+
+  /* ── 바탕 ── 흰 여백이 구멍처럼 보이지 않도록 연한 지면을 깔고
+     내용 블록을 흰색으로 올린다. 빈 곳도 지면으로 읽힌다. */
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.badge):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+  /* 흰 블록 위로 올라오는 요소들 */
+  .note,.card,.c,.g,.b,.n,.m,.st,.item,.qa,.q,.p,.w,.s,.z,.tbl,.table,
+  .cards>div,.grid>div,.list>div,.cols>div,.need>div,.stages>div{background:#fff;}
+  .note{background:#fff!important;}
+
+  /* 네이비 패널 내부는 바탕 규칙에서 제외 (흰 칠이 글자를 덮지 않도록) */
+  .warn *,.decide *,.result *,.rec *,.calc *,.contact *,.key *,.resp *,
+  .sum *,.panel *,.band *,.record *,.total *{background:transparent!important;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+</style>
+</head>
+<body>
+  <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">CONTENTS</div>
+  <div class="title">목차</div>
+  <div class="grid">
+    <div class="part"><div class="pn">PART 0 · 도입</div><div class="pt">제안 개요</div>
+      <ul><li><b>S1</b>표지 · <b>S2</b>제안 요약 · <b>S3</b>목차</li></ul></div>
+    <div class="part"><div class="pn">PART 1 · 단지 진단</div><div class="pt">현황과 담보책임기간</div>
+      <ul><li><b>S4</b>단지 현황 · <b>S5</b>담보책임기간 잔여</li>
+      <li><b>S6</b>하자 접수 집계 · <b>S7</b>미이행 이력</li><li><b>S8</b>광고 사양 대비 실제 시공</li></ul></div>
+    <div class="part"><div class="pn">PART 2 · 법적 구조</div><div class="pt">근거 법령과 청구 구조</div>
+      <ul><li><b>S9</b>이원 구조 · <b>S10</b>담보책임 존속기간</li>
+      <li><b>S11</b>채권양도 구조 · <b>S12</b>청구 대상 3축</li></ul></div>
+    <div class="part"><div class="pn">PART 3 · 하자 발굴</div><div class="pt">JL이 찾아내는 하자</div>
+      <ul><li><b>S13</b>하자조사 절차 90일 · <b>S14</b>월패드</li>
+      <li><b>S15</b>타일 뒤채움 · <b>S16</b>방수 부족시공 · <b>S17</b>방화문</li></ul></div>
+    <div class="part"><div class="pn">PART 4 · 수행 계획</div><div class="pt">소송 절차와 지원 체계</div>
+      <ul><li><b>S18</b>소송 절차 11단계 · <b>S19</b>동의서 징구</li>
+      <li><b>S20</b>감정 대응 · <b>S21</b>보고 체계 · <b>S22</b>전체 일정표</li></ul></div>
+    <div class="part"><div class="pn">PART 5 · 비용</div><div class="pt">수임 조건</div>
+      <ul><li><b>S23</b>보수 조건 · <b>S24</b>비용 부담 구조 · <b>S25</b>유의사항</li></ul></div>
+    <div class="part"><div class="pn">PART 6 · 법인</div><div class="pt">법무법인 제이엘</div>
+      <ul><li><b>S26</b>법인 개요 · <b>S27</b>담당 변호사</li>
+      <li><b>S28</b>하자소송 수행 실적 · <b>S29</b>자격·보험</li></ul></div>
+    <div class="part"><div class="pn">PART 7 · 마무리</div><div class="pt">다음 단계</div>
+      <ul><li><b>S30</b>예상 질의응답 · <b>S31</b>다음 단계 및 연락처</li></ul></div>
+  </div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>
