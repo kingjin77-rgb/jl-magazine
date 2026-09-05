@@ -112,6 +112,10 @@
   /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
      keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
   *{word-break:keep-all;overflow-wrap:break-word;}
+
+  /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
+  .dg{background-size:contain!important;background-color:#FFFFFF!important;
+    background-position:center!important;}
 </style>
 </head>
 <body>
@@ -138,7 +142,7 @@
       <div class="d">수도권·대구·경북·충남·전남 등 전국 단지를 수행했습니다.</div></div>
   </div>
 
-  <div class="pslot" style="top:456px;height:232px"><div class="pbox" style="width:289px;height:217px;background-image:url(p-firm.jpg)"><div class="hint"><b>사진</b>p-firm.jpg<br>가로 4:3 권장</div></div><div class="ptx"><div class="ph">법인 전경</div><div class="pd"><b>사무실 외관 또는 응접·회의 공간</b>이면 충분합니다. 법인의 규모와 분위기를 한 장으로 보여 주는 자리입니다.</div></div></div>
+  <div class="pslot" style="top:456px;height:232px"><div class="pbox dg" style="width:289px;height:217px;background-image:url(p-firm.jpg)"></div><div class="ptx"><div class="ph">사무소 두 곳</div><div class="pd">서초 본사와 동탄 분사무소에서 <b>관할을 나누어</b> 수도권·충청 단지를 맡습니다.</div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

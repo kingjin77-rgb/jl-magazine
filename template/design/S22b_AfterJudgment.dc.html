@@ -111,7 +111,7 @@
   /* ── 사진 두 장 ── 설명을 사진 아래에 두어 가로 폭을 끝까지 쓴다. */
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;
     border-top:1.4px solid var(--line);padding-top:16px;}
-  .duo .im{height:200px;border:1px solid var(--line);position:relative;
+  .duo .im{height:216px;border:1px solid var(--line);position:relative;
     background:var(--card) center/cover no-repeat;}
   .duo .im .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
     text-align:center;font-size:12.5px;line-height:1.75;color:#7F8CA6;}
@@ -122,13 +122,17 @@
   .duo .lb::before{content:"";width:4px;height:15px;background:var(--gold);}
   .duo .cp{margin-top:8px;font-size:14.5px;line-height:1.65;color:var(--ink);}
   .duo .cp b{color:var(--navy);font-weight:800;}
+
+  /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
+  .dg{background-size:contain!important;background-color:#FFFFFF!important;
+    background-position:center!important;}
 </style>
 </head>
 <body>
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">판결 이후 [고정]</div>
   <div class="title">판결은 끝이 아닙니다. 받고, 고치는 일이 남습니다</div>
-  <div class="body" style="bottom:56px"><div class="sec">선고 이후의 갈래</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);margin-bottom:15px"><div class="c"><div class="cn">01</div><div class="ck">임의 이행</div><div class="cv">피고가 판결금을 지급하면 그대로 종결됩니다.</div></div><div class="c"><div class="cn">02</div><div class="ck">강제집행</div><div class="cv">지급하지 않으면 <b>채권압류·추심</b> 등 집행 절차로 회수합니다.</div></div><div class="c"><div class="cn">03</div><div class="ck">항소</div><div class="cv">어느 쪽이든 항소할 수 있습니다. 인용 금액과 책임제한 비율을 보고 <b>실익을 검토</b>해 의견을 드립니다.</div></div></div><div class="duo"><div><div class="im" style="background-image:url(p-judgment.jpg)"><div class="hint"><b>사진</b>p-judgment.jpg<br>가로 4:3 권장</div></div><div class="lb">판결문</div><div class="cp"><b>판결 주문 페이지</b>면 좋습니다. 사건번호·당사자명은 반드시 가려야 합니다.</div></div><div><div class="im" style="background-image:url(p-execution.jpg)"><div class="hint"><b>사진</b>p-execution.jpg<br>가로 4:3 권장</div></div><div class="lb">집행 · 회수 서류</div><div class="cp"><b>채권압류·추심 신청 서면</b>입니다. 사건번호·당사자명은 가립니다.</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">선고 이후의 갈래</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);margin-bottom:15px"><div class="c"><div class="cn">01</div><div class="ck">임의 이행</div><div class="cv">피고가 판결금을 지급하면 그대로 종결됩니다.</div></div><div class="c"><div class="cn">02</div><div class="ck">강제집행</div><div class="cv">지급하지 않으면 <b>채권압류·추심</b> 등 집행 절차로 회수합니다.</div></div><div class="c"><div class="cn">03</div><div class="ck">항소</div><div class="cv">어느 쪽이든 항소할 수 있습니다. 인용 금액과 책임제한 비율을 보고 <b>실익을 검토</b>해 의견을 드립니다.</div></div></div><div class="duo"><div><div class="im dg" style="background-image:url(p-judgment.jpg)"></div><div class="lb">선고 이후의 갈래</div><div class="cp">피고가 지급하면 종결되고, 지급하지 않으면 <b>강제집행</b>으로 회수합니다. 어느 쪽이든 항소할 수 있습니다.</div></div><div><div class="im dg" style="background-image:url(p-execution.jpg)"></div><div class="lb">회수까지가 수행입니다</div><div class="cp"><b>채권압류 · 추심</b> 등 집행 절차를 법인이 이어서 진행합니다. 판결로 끝나지 않습니다.</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

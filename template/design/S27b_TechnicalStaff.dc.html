@@ -111,7 +111,7 @@
   /* ── 사진 두 장 ── 설명을 사진 아래에 두어 가로 폭을 끝까지 쓴다. */
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;
     border-top:1.4px solid var(--line);padding-top:16px;}
-  .duo .im{height:200px;border:1px solid var(--line);position:relative;
+  .duo .im{height:270px;border:1px solid var(--line);position:relative;
     background:var(--card) center/cover no-repeat;}
   .duo .im .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
     text-align:center;font-size:12.5px;line-height:1.75;color:#7F8CA6;}
@@ -122,13 +122,17 @@
   .duo .lb::before{content:"";width:4px;height:15px;background:var(--gold);}
   .duo .cp{margin-top:8px;font-size:14.5px;line-height:1.65;color:var(--ink);}
   .duo .cp b{color:var(--navy);font-weight:800;}
+
+  /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
+  .dg{background-size:contain!important;background-color:#FFFFFF!important;
+    background-position:center!important;}
 </style>
 </head>
 <body>
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">하자 전문 사무장 · 기술 인력 [고정]</div>
   <div class="title">도면을 읽는 사람이 법인 안에 있습니다</div>
-  <div class="body" style="bottom:56px"><div class="sec">자격 보유 현황</div><div class="cards blk" style="grid-template-columns:repeat(2,1fr);margin-bottom:16px"><div class="c"><div class="cn">사무장</div><div class="ck">박성제 · 건축시공기술사</div><div class="cv">국가기술자격 <b>건축시공기술사</b> · 한국기술사회 정회원</div></div><div class="c"><div class="cn">기술 인력</div><div class="ck">최경석 · 건축 특급기술자</div><div class="cv">건축기사 · 「건설기술 진흥법」상 건설기술경력 <b>건축 특급</b></div></div></div><div class="duo"><div><div class="im" style="background-image:url(p-tech-review.jpg)"><div class="hint"><b>사진</b>p-tech-review.jpg<br>가로 4:3 권장</div></div><div class="lb">법인 기술진의 도면 검토</div><div class="cp">건축시공기술사가 <b>준공도면을 펼쳐 놓고 검토하는 장면</b>입니다. 법인 회의실에서 촬영한 것이면 됩니다.</div></div><div><div class="im" style="background-image:url(p-tech-field.jpg)"><div class="hint"><b>사진</b>p-tech-field.jpg<br>가로 4:3 권장</div></div><div class="lb">현장조사 입회</div><div class="cp">기술사가 <b>현장에서 계측하는 장면</b>입니다. 도면 검토와 짝을 이루는 사진입니다.</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">자격 보유 현황</div><div class="cards blk" style="grid-template-columns:repeat(2,1fr);margin-bottom:16px"><div class="c"><div class="cn">사무장</div><div class="ck">박성제 · 건축시공기술사</div><div class="cv">국가기술자격 <b>건축시공기술사</b> · 한국기술사회 정회원</div></div><div class="c"><div class="cn">기술 인력</div><div class="ck">최경석 · 건축 특급기술자</div><div class="cv">건축기사 · 「건설기술 진흥법」상 건설기술경력 <b>건축 특급</b></div></div></div><div class="duo"><div><div class="im dg" style="background-image:url(p-tech-review.jpg)"></div><div class="lb">법인 안에서 도면을 읽습니다</div><div class="cp">건축시공기술사가 <b>준공도면과 시방서를 직접</b> 검토합니다. 외주 진단업체에 맡기지 않습니다.</div></div><div><div class="im" style="background-image:url(p-tech-field.jpg)"></div><div class="lb">현장에서 대조합니다</div><div class="cp">도면에 적힌 <b>배관 간격과 경로</b>를 현장에서 그대로 확인합니다. 실제 조사 사례입니다.</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

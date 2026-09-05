@@ -79,3 +79,35 @@ make('P20.jpg', 'gal-stain.jpg')
 make('P10.jpg', 'gal-opening.jpg')
 # 천장 폼 충전은 작업자가 함께 찍혔다. 인물이 들어간 왼쪽을 잘라낸다.
 make('P21.jpg', 'gal-foam-work.jpg', hpos=1.0, pre=(0.0, 0.06))
+
+
+# ── 사진 자리 채우기 ──
+# 확보한 실물로 채울 수 있는 자리는 전부 채운다.
+# 사무소·법원·서류 등 법인만 가진 자료가 필요한 자리는 도해로 대체한다.
+make('P00_parking.jpg', 'p-site-parking.jpg')
+make('P00_parking.jpg', 'p-part3.jpg', wide=1332)          # PART 3 간지 배경
+make('P03.jpg',         'p-part4.jpg', wide=1332)          # PART 4 간지 배경
+make('D02_dwg.jpg',     'p-drawings.jpg',  crop=False)
+make('D02_dwg.jpg',     'p-doc-order.jpg', crop=False)
+make('D02_dwg.jpg',     'p-part2.jpg', crop=False, wide=1332)
+make('P19.jpg',         'p-four-types.jpg')
+make('P07.jpg',         'p-tech-field.jpg')
+make('P06.jpg',         'p-appraisal.jpg')
+
+# 대표변호사 사진은 법인 자료에 이미 있다 (세로 3:4)
+import shutil
+shutil.copy('assets/lawyers/_normalized/박종일.jpg', os.path.join(DST, 'p-partner.jpg'))
+print('%-24s 법인 보유 초상 사용' % 'p-partner.jpg')
+
+# 바닥 파취 실측 사진도 법인 자료에 있다
+_m = Image.open('assets/defect-photos/실측_바닥두께_파취조사.jpg').convert('RGB')
+for name, wide in (('p-appraisal-measure.jpg', 760), ('p-part5.jpg', 1332), ('p-cover.jpg', 1332)):
+    im = crop43(_m, 0.5)
+    im = ImageEnhance.Contrast(level(im)).enhance(1.04)
+    im = im.filter(ImageFilter.UnsharpMask(radius=1.4, percent=85, threshold=3))
+    if im.size[0] > wide:
+        im = im.resize((wide, int(round(im.size[1] * wide / im.size[0]))), Image.LANCZOS)
+    im.save(os.path.join(DST, name), quality=82, subsampling='4:2:0',
+            optimize=True, progressive=True)
+    print('%-24s %dx%d %4dKB' % (name, im.size[0], im.size[1],
+          os.path.getsize(os.path.join(DST, name)) // 1024))

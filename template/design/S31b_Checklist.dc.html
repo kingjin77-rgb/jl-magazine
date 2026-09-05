@@ -117,7 +117,7 @@
   /* ── 사진 두 장 ── 설명을 사진 아래에 두어 가로 폭을 끝까지 쓴다. */
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;
     border-top:1.4px solid var(--line);padding-top:16px;}
-  .duo .im{height:200px;border:1px solid var(--line);position:relative;
+  .duo .im{height:270px;border:1px solid var(--line);position:relative;
     background:var(--card) center/cover no-repeat;}
   .duo .im .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
     text-align:center;font-size:12.5px;line-height:1.75;color:#7F8CA6;}
@@ -128,13 +128,17 @@
   .duo .lb::before{content:"";width:4px;height:15px;background:var(--gold);}
   .duo .cp{margin-top:8px;font-size:14.5px;line-height:1.65;color:var(--ink);}
   .duo .cp b{color:var(--navy);font-weight:800;}
+
+  /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
+  .dg{background-size:contain!important;background-color:#FFFFFF!important;
+    background-position:center!important;}
 </style>
 </head>
 <body>
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">착수 전 준비 사항 [고정]</div>
   <div class="title">선임이 정해지면 단지에서 준비해 주실 것은 다음과 같습니다</div>
-  <div class="body" style="bottom:56px"><div class="sec">① 서류 · 관리사무소 보유분</div><div class="kv blk"><div class="r"><span>필수</span><em>하자 접수대장 · 하자보수 요구 공문과 회신 · 관리규약 · 입주자대표회의 구성 및 의결 자료</em></div><div class="r"><span>있으면 좋음</span><em>기존 하자조사 보고서 · 자체 보수 지출 내역 · 사용검사(사용승인) 관련 서류</em></div><div class="r"><span>저희가 확보</span><em>준공도면 · 공사시방서 · 형별성능관계내역 · 감리보고서 · <b>정보공개청구로 확보</b>합니다</em></div></div><div class="duo"><div><div class="im" style="background-image:url(p-documents.jpg)"><div class="hint"><b>사진</b>p-documents.jpg<br>가로 4:3 권장</div></div><div class="lb">준비 서류 실물</div><div class="cp">관리사무소가 보유한 <b>하자 접수대장·보수 요구 공문철·관리규약</b>이 쌓여 있는 모습이면 충분합니다. 표지에 단지명이 보이면 가려 주십시오.</div></div><div><div class="im" style="background-image:url(p-consent-blank.jpg)"><div class="hint"><b>사진</b>p-consent-blank.jpg<br>가로 4:3 권장</div></div><div class="lb">채권양도 동의서 서식</div><div class="cp">기재 전 <b>백지 서식</b>이면 됩니다. 세대에 무엇을 받는지 미리 보여 드릴 때 씁니다.</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">① 서류 · 관리사무소 보유분</div><div class="kv blk"><div class="r"><span>필수</span><em>하자 접수대장 · 하자보수 요구 공문과 회신 · 관리규약 · 입주자대표회의 구성 및 의결 자료</em></div><div class="r"><span>있으면 좋음</span><em>기존 하자조사 보고서 · 자체 보수 지출 내역 · 사용검사(사용승인) 관련 서류</em></div><div class="r"><span>저희가 확보</span><em>준공도면 · 공사시방서 · 형별성능관계내역 · 감리보고서 · <b>정보공개청구로 확보</b>합니다</em></div></div><div class="duo"><div><div class="im dg" style="background-image:url(p-documents.jpg)"></div><div class="lb">관리사무소 보유 자료</div><div class="cp"><b>하자 접수대장 · 보수 요구 공문과 회신 · 관리규약</b>이 그대로 청구의 근거가 됩니다. 보존 연한이 지나면 폐기되므로 착수 시점에 먼저 사본을 확보합니다.</div></div><div><div class="im dg" style="background-image:url(p-consent-blank.jpg)"></div><div class="lb">세대에서 받는 서류</div><div class="cp">전유부분 손해배상은 <b>세대가 채권자</b>입니다. 동의서 없이는 그 세대 몫을 청구할 수 없습니다.</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

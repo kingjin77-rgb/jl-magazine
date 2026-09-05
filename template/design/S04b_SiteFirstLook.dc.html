@@ -105,14 +105,18 @@
   /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
      keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
   *{word-break:keep-all;overflow-wrap:break-word;}
+
+  /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
+  .dg{background-size:contain!important;background-color:#FFFFFF!important;
+    background-position:center!important;}
 </style>
 </head>
 <body>
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
-  <div class="eyebrow">단지 현장 [가변 · 사진 받는 대로]</div>
+  <div class="eyebrow">단지 현장 [가변]</div>
   <div class="title">{{단지명}} 현장에서 저희가 먼저 보는 곳은 세 군데입니다</div>
-  <div class="body"><div class="gal"><div><div class="im empty" style="background-image:url(p-site-exterior.jpg)"><div class="hint"><b>사진</b>p-site-exterior.jpg<br>가로 4:3 권장</div></div><div class="lb">외벽 · 외부 마감</div><div class="cp"><b>건물 외관과 외벽 마감</b>입니다. 균열·백화·타일 탈락이 먼저 드러나는 곳이고, 지상에서 촬영해도 상당 부분 확인됩니다.</div></div><div><div class="im empty" style="background-image:url(p-site-parking.jpg)"><div class="hint"><b>사진</b>p-site-parking.jpg<br>가로 4:3 권장</div></div><div class="lb">지하주차장</div><div class="cp"><b>천장·바닥·벽면</b>을 한 장씩이면 됩니다. 누수 자국, 균열, 방수 상태가 나타나는 곳이며 면적이 커서 금액도 큽니다.</div></div><div><div class="im empty" style="background-image:url(p-site-roof.jpg)"><div class="hint"><b>사진</b>p-site-roof.jpg<br>가로 4:3 권장</div></div><div class="lb">옥상 · 옥탑</div><div class="cp"><b>방수층 표면과 배수구 주변</b>입니다. 들뜸·갈라짐·고인 물이 보이면 그대로 조사 항목이 됩니다.</div></div></div></div>
-  <div class="note">아래 사진은 {{단지명}} 자료를 받는 대로 채웁니다. 촬영 시 단지명·동호수·업체명이 드러나지 않는 각도를 권해 드리며, 드러난 경우 저희가 가려서 싣습니다.</div>
+  <div class="body"><div class="gal"><div><div class="im empty dg" style="background-image:url(p-site-exterior.jpg)"></div><div class="lb">외벽 · 외부 마감</div><div class="cp"><b>균열 · 백화 · 타일 탈락</b>이 먼저 드러나는 곳입니다. 지상에서도 상당 부분 확인됩니다.</div></div><div><div class="im empty" style="background-image:url(p-site-parking.jpg)"></div><div class="lb">지하주차장</div><div class="cp">천장·바닥·벽면에 <b>누수 자국과 방수 상태</b>가 나타납니다. 면적이 커서 금액도 큽니다.</div></div><div><div class="im empty dg" style="background-image:url(p-site-roof.jpg)"></div><div class="lb">옥상 · 옥탑</div><div class="cp">방수층 표면과 배수구 주변의 <b>들뜸 · 갈라짐 · 고인 물</b>이 그대로 조사 항목이 됩니다.</div></div></div></div>
+  <div class="note">실물 사진은 <b>타 단지 조사 사례</b>이며 단지명·동호수·업체명이 드러나지 않도록 확인한 것만 실었습니다. 도해는 절차와 판단 기준을 나타낸 것으로 특정 단지의 상태를 나타내지 않습니다.</div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

@@ -89,7 +89,7 @@
   /* ── 두 사무소 2단 대비 ── 표 대신 사무소마다 한 칸을 주고 사진을 위에 얹는다. */
   .offs{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:12px;}
   .off{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
-  .off .pbox{height:196px;background:var(--card) center/cover no-repeat;position:relative;
+  .off .pbox{height:245px;background:var(--card) center/cover no-repeat;position:relative;
     border-bottom:1px solid var(--line);}
   .off .pbox::after{content:"사진";position:absolute;left:50%;top:50%;
     transform:translate(-50%,-50%);font-size:13px;font-weight:800;letter-spacing:.24em;color:#7F8CA6;}
@@ -101,19 +101,21 @@
   .off .ct{margin-top:12px;padding-top:11px;border-top:1px solid var(--line);
     font-size:13.5px;line-height:1.6;color:var(--ink);}
   .off .ct b{color:var(--navy);font-weight:800;}
-  .off .pf{margin-top:9px;font-size:12.5px;color:var(--ink);}
-  .off .pf b{color:var(--gold-ink);font-weight:800;}
 
   /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
      keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
   *{word-break:keep-all;overflow-wrap:break-word;}
+
+  /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
+  .dg{background-size:contain!important;background-color:#FFFFFF!important;
+    background-position:center!important;}
 </style>
 </head>
 <body>
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">사무소 안내 [고정]</div>
   <div class="title">본사와 동탄 분사무소 두 곳에서 관할을 나누어 맡습니다</div>
-  <div class="body"><div class="sec">사무소 두 곳 · 관할 법원에 맞춰 나누어 맡습니다</div><div class="offs"><div class="off"><div class="pbox" style="background-image:url(p-office-seoul.jpg)"></div><div class="in"><div class="tag">HEAD OFFICE</div><div class="nm">서울 서초 본사</div><div class="ad">서울 서초구 서초대로53길 15<br>정원빌딩 4층</div><div class="tel">02-537-0123</div><div class="ct"><b>서울중앙지방법원·서울고등법원</b>에 인접해 있어 변론기일과 기록 열람에 바로 대응합니다.</div><div class="pf">사진을 <b>photos/p-office-seoul.jpg</b> 로 두시면 그대로 들어갑니다</div></div></div><div class="off"><div class="pbox" style="background-image:url(p-office-dongtan.jpg)"></div><div class="in"><div class="tag">BRANCH OFFICE</div><div class="nm">경기 화성 동탄 분사무소</div><div class="ad">경기 화성시 동탄순환대로 127-5<br>우성센트럴타워 914호</div><div class="tel">1899-4252</div><div class="ct"><b>수원지방법원 관할 단지</b>를 맡습니다. 설명회·서류 징구를 위해 단지로 직접 방문합니다.</div><div class="pf">사진을 <b>photos/p-office-dongtan.jpg</b> 로 두시면 그대로 들어갑니다</div></div></div></div></div>
+  <div class="body"><div class="sec">사무소 두 곳 · 관할 법원에 맞춰 나누어 맡습니다</div><div class="offs"><div class="off"><div class="pbox dg" style="background-image:url(p-office-seoul.jpg)"></div><div class="in"><div class="tag">HEAD OFFICE</div><div class="nm">서울 서초 본사</div><div class="ad">서울 서초구 서초대로53길 15<br>정원빌딩 4층</div><div class="tel">02-537-0123</div><div class="ct"><b>서울중앙지방법원·서울고등법원</b>에 인접해 있어 변론기일과 기록 열람에 바로 대응합니다.</div></div></div><div class="off"><div class="pbox dg" style="background-image:url(p-office-dongtan.jpg)"></div><div class="in"><div class="tag">BRANCH OFFICE</div><div class="nm">경기 화성 동탄 분사무소</div><div class="ad">경기 화성시 동탄순환대로 127-5<br>우성센트럴타워 914호</div><div class="tel">1899-4252</div><div class="ct"><b>수원지방법원 관할 단지</b>를 맡습니다. 설명회·서류 징구를 위해 단지로 직접 방문합니다.</div></div></div></div></div>
   <div class="note">주소·연락처는 법인 등록 사항입니다. 홈페이지 www.jllawfirm.co.kr · 단지 방문 일정은 총회·설명회 일정에 맞춰 조정합니다.</div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>

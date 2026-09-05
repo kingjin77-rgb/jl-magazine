@@ -111,7 +111,7 @@
   /* ── 사진 두 장 ── 설명을 사진 아래에 두어 가로 폭을 끝까지 쓴다. */
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;
     border-top:1.4px solid var(--line);padding-top:16px;}
-  .duo .im{height:200px;border:1px solid var(--line);position:relative;
+  .duo .im{height:238px;border:1px solid var(--line);position:relative;
     background:var(--card) center/cover no-repeat;}
   .duo .im .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
     text-align:center;font-size:12.5px;line-height:1.75;color:#7F8CA6;}
@@ -122,13 +122,17 @@
   .duo .lb::before{content:"";width:4px;height:15px;background:var(--gold);}
   .duo .cp{margin-top:8px;font-size:14.5px;line-height:1.65;color:var(--ink);}
   .duo .cp b{color:var(--navy);font-weight:800;}
+
+  /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
+  .dg{background-size:contain!important;background-color:#FFFFFF!important;
+    background-position:center!important;}
 </style>
 </head>
 <body>
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">단지 보유 자료 활용 [고정]</div>
   <div class="title">관리사무소에 쌓인 하자 접수 기록이 그대로 청구 근거가 됩니다</div>
-  <div class="body" style="bottom:56px"><div class="sec">세 가지로 쓰입니다</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);margin-bottom:15px"><div class="c"><div class="cn">01</div><div class="ck">하자의 존재</div><div class="cv">같은 부위에 반복 접수된 기록은 <b>일시적 현상이 아니라는 근거</b>가 됩니다.</div></div><div class="c"><div class="cn">02</div><div class="ck">발생 시점</div><div class="cv">접수 일자가 곧 발생 시점의 증거입니다. <b>결로처럼 사용검사 후에 나타나는 하자</b>에서 결정적입니다.</div></div><div class="c"><div class="cn">03</div><div class="ck">미이행 사실</div><div class="cv">보수 요구 공문과 회신을 대조하면 <b>무엇이 이행되지 않았는지</b>가 드러납니다.</div></div></div><div class="duo"><div><div class="im" style="background-image:url(p-logbook.jpg)"><div class="hint"><b>사진</b>p-logbook.jpg<br>가로 4:3 권장</div></div><div class="lb">하자 접수대장</div><div class="cp">관리사무소의 <b>세대 하자 접수 기록</b>입니다. 화면 캡처도 좋고 장부 사진도 좋습니다. 동호수는 가립니다.</div></div><div><div class="im" style="background-image:url(p-logbook2.jpg)"><div class="hint"><b>사진</b>p-logbook2.jpg<br>가로 4:3 권장</div></div><div class="lb">보수 요구 공문철</div><div class="cp">관리사무소가 시공사에 보낸 <b>공문과 회신</b>입니다. 미이행 이력이 그대로 증거가 됩니다.</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">세 가지로 쓰입니다</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);margin-bottom:15px"><div class="c"><div class="cn">01</div><div class="ck">하자의 존재</div><div class="cv">같은 부위에 반복 접수된 기록은 <b>일시적 현상이 아니라는 근거</b>가 됩니다.</div></div><div class="c"><div class="cn">02</div><div class="ck">발생 시점</div><div class="cv">접수 일자가 곧 발생 시점의 증거입니다. <b>결로처럼 사용검사 후에 나타나는 하자</b>에서 결정적입니다.</div></div><div class="c"><div class="cn">03</div><div class="ck">미이행 사실</div><div class="cv">보수 요구 공문과 회신을 대조하면 <b>무엇이 이행되지 않았는지</b>가 드러납니다.</div></div></div><div class="duo"><div><div class="im dg" style="background-image:url(p-logbook.jpg)"></div><div class="lb">접수 기록이 곧 증거입니다</div><div class="cp">건수보다 <b>반복 접수와 최초 접수일</b>이 중요합니다. 최초 접수일이 하자 발생 시점을 특정합니다.</div></div><div><div class="im dg" style="background-image:url(p-logbook2.jpg)"></div><div class="lb">공문과 회신은 함께 봅니다</div><div class="cp">요구했는데 <b>이행되지 않은 이력</b>이 남아 있으면 그 자체가 청구의 근거가 됩니다.</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

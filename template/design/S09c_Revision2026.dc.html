@@ -111,7 +111,7 @@
   /* ── 사진 두 장 ── 설명을 사진 아래에 두어 가로 폭을 끝까지 쓴다. */
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;
     border-top:1.4px solid var(--line);padding-top:16px;}
-  .duo .im{height:200px;border:1px solid var(--line);position:relative;
+  .duo .im{height:215px;border:1px solid var(--line);position:relative;
     background:var(--card) center/cover no-repeat;}
   .duo .im .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
     text-align:center;font-size:12.5px;line-height:1.75;color:#7F8CA6;}
@@ -122,13 +122,17 @@
   .duo .lb::before{content:"";width:4px;height:15px;background:var(--gold);}
   .duo .cp{margin-top:8px;font-size:14.5px;line-height:1.65;color:var(--ink);}
   .duo .cp b{color:var(--navy);font-weight:800;}
+
+  /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
+  .dg{background-size:contain!important;background-color:#FFFFFF!important;
+    background-position:center!important;}
 </style>
 </head>
 <body>
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">판단 기준의 변화 [고정]</div>
   <div class="title">하자 판단의 기준이 되는 「건설감정실무」가 10년 만에 개정됐습니다</div>
-  <div class="body" style="bottom:56px"><div class="sec">개정 연혁</div><div class="flow blk" style="grid-template-columns:repeat(5,1fr);margin-bottom:16px"><div class="step"><div class="num">1</div><div class="t">2011. 9.</div><div class="b">서울중앙지방법원 건설소송실무연구회 최초 발간</div></div><div class="step"><div class="num">2</div><div class="t">2014. 2.</div><div class="b">법원행정처 건설감정 매뉴얼</div></div><div class="step"><div class="num">3</div><div class="t">2015년</div><div class="b">건설감정실무 추록(개정)</div></div><div class="step"><div class="num">4</div><div class="t">2016. 10.</div><div class="b">2016 개정판 · 이후 10년간 표준으로 기능</div></div><div class="step"><div class="num">5</div><div class="t">2026. 1.</div><div class="b"><b>2026 개정판 발간</b></div></div></div><div class="duo"><div><div class="im" style="background-image:url(p-book2026.jpg)"><div class="hint"><b>사진</b>p-book2026.jpg<br>가로 4:3 권장</div></div><div class="lb">「2026 건설감정실무」 실물</div><div class="cp">개정판 <b>표지와 해당 페이지</b>입니다. 법인이 보유한 책을 그대로 촬영하면 됩니다.</div></div><div><div class="im" style="background-image:url(p-book-page.jpg)"><div class="hint"><b>사진</b>p-book-page.jpg<br>가로 4:3 권장</div></div><div class="lb">개정 내용이 담긴 지면</div><div class="cp">개정으로 <b>새로 생긴 기준이 적힌 페이지</b>입니다. 인용할 조항이 보이면 좋습니다.</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">개정 연혁</div><div class="flow blk" style="grid-template-columns:repeat(5,1fr);margin-bottom:16px"><div class="step"><div class="num">1</div><div class="t">2011. 9.</div><div class="b">서울중앙지방법원 건설소송실무연구회 최초 발간</div></div><div class="step"><div class="num">2</div><div class="t">2014. 2.</div><div class="b">법원행정처 건설감정 매뉴얼</div></div><div class="step"><div class="num">3</div><div class="t">2015년</div><div class="b">건설감정실무 추록(개정)</div></div><div class="step"><div class="num">4</div><div class="t">2016. 10.</div><div class="b">2016 개정판 · 이후 10년간 표준으로 기능</div></div><div class="step"><div class="num">5</div><div class="t">2026. 1.</div><div class="b"><b>2026 개정판 발간</b></div></div></div><div class="duo"><div><div class="im dg" style="background-image:url(p-book2026.jpg)"></div><div class="lb">「2026 건설감정실무」</div><div class="cp">서울중앙지방법원 건설소송실무연구회가 발간한 <b>하자 판단의 사실상 표준</b>입니다. 2016년판 이후 10년 만의 개정입니다.</div></div><div><div class="im dg" style="background-image:url(p-book-page.jpg)"></div><div class="lb">개정으로 달라진 것</div><div class="cp">균열은 <b>충전식 보수를 원칙</b>으로, 타일은 <b>부착강도 0.39N/㎟</b> 기준이 새로 생겼습니다.</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

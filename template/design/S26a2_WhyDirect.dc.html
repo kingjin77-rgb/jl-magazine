@@ -112,6 +112,10 @@
   /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
      keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
   *{word-break:keep-all;overflow-wrap:break-word;}
+
+  /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
+  .dg{background-size:contain!important;background-color:#FFFFFF!important;
+    background-position:center!important;}
 </style>
 </head>
 
@@ -140,7 +144,7 @@
     <div><div class="vk">수치 강조</div><div class="vv">변호사 7인 · 사무직원 36명 구성이며, 사무장은 <b>건축시공기술사</b>입니다. 도면을 읽는 인력이 법인 안에 있습니다.</div></div>
     <div><div class="vk warnk">기한 경고</div><div class="vv">설명회·서류 징구는 단지 일정에 맞춰야 합니다. 총회 일정이 정해지면 미리 알려 주십시오.</div></div>
   </div>
-  <div class="pslot" style="top:275px;height:166px"><div class="pbox" style="width:201px;height:151px;background-image:url(p-inhouse.jpg)"><div class="hint"><b>사진</b>p-inhouse.jpg<br>가로 4:3 권장</div></div><div class="ptx"><div class="ph">변호사와 기술사가 같은 자리에서</div><div class="pd"><b>변호사와 건축시공기술사가 함께 도면을 검토하는 장면</b>입니다. 외주가 아니라 법인 안에서 한다는 이 장의 논지를 그대로 보여 주는 사진입니다.</div></div></div>
+  <div class="pslot" style="top:275px;height:166px"><div class="pbox dg" style="width:201px;height:151px;background-image:url(p-inhouse.jpg)"></div><div class="ptx"><div class="ph">같은 자리에서 봅니다</div><div class="pd">변호사와 건축시공기술사가 <b>한자리에서</b> 도면과 현장을 함께 검토합니다.</div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

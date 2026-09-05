@@ -111,7 +111,7 @@
   /* ── 사진 두 장 ── 설명을 사진 아래에 두어 가로 폭을 끝까지 쓴다. */
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;
     border-top:1.4px solid var(--line);padding-top:16px;}
-  .duo .im{height:200px;border:1px solid var(--line);position:relative;
+  .duo .im{height:239px;border:1px solid var(--line);position:relative;
     background:var(--card) center/cover no-repeat;}
   .duo .im .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
     text-align:center;font-size:12.5px;line-height:1.75;color:#7F8CA6;}
@@ -122,13 +122,17 @@
   .duo .lb::before{content:"";width:4px;height:15px;background:var(--gold);}
   .duo .cp{margin-top:8px;font-size:14.5px;line-height:1.65;color:var(--ink);}
   .duo .cp b{color:var(--navy);font-weight:800;}
+
+  /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
+  .dg{background-size:contain!important;background-color:#FFFFFF!important;
+    background-position:center!important;}
 </style>
 </head>
 <body>
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">채권양도 실무 [고정]</div>
   <div class="title">양도서를 몇 세대에서 받느냐가 청구 범위를 그대로 정합니다</div>
-  <div class="body" style="bottom:56px"><div class="sec">진행 순서</div><div class="flow blk" style="grid-template-columns:repeat(5,1fr);margin-bottom:15px"><div class="step"><div class="num">1</div><div class="t">설명회</div><div class="b">세대에 소송 취지와 절차를 설명</div></div><div class="step"><div class="num">2</div><div class="t">서식 배포</div><div class="b">동의서·채권양도서 세대별 배포</div></div><div class="step"><div class="num">3</div><div class="t">징구·검수</div><div class="b">회수분의 서명·인적사항 확인</div></div><div class="step"><div class="num">4</div><div class="t">양도 통지</div><div class="b">취합 명단으로 확정일자부 통지</div></div><div class="step"><div class="num">5</div><div class="t">차수 추가</div><div class="b">미회수 세대분을 뒤에 붙여 추가 통지</div></div></div><div class="duo"><div><div class="im" style="background-image:url(p-consent.jpg)"><div class="hint"><b>사진</b>p-consent.jpg<br>가로 4:3 권장</div></div><div class="lb">채권양도 동의서 징구</div><div class="cp"><b>동의서 서식과 징구 현장</b>입니다. 세대주 성명·연락처가 보이지 않는 각도로 촬영해 주십시오.</div></div><div><div class="im" style="background-image:url(p-consent-check.jpg)"><div class="hint"><b>사진</b>p-consent-check.jpg<br>가로 4:3 권장</div></div><div class="lb">동의서 검수</div><div class="cp">받은 동의서를 <b>세대 명단과 대조·검수</b>하는 장면입니다. 인적사항은 가립니다.</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">진행 순서</div><div class="flow blk" style="grid-template-columns:repeat(5,1fr);margin-bottom:15px"><div class="step"><div class="num">1</div><div class="t">설명회</div><div class="b">세대에 소송 취지와 절차를 설명</div></div><div class="step"><div class="num">2</div><div class="t">서식 배포</div><div class="b">동의서·채권양도서 세대별 배포</div></div><div class="step"><div class="num">3</div><div class="t">징구·검수</div><div class="b">회수분의 서명·인적사항 확인</div></div><div class="step"><div class="num">4</div><div class="t">양도 통지</div><div class="b">취합 명단으로 확정일자부 통지</div></div><div class="step"><div class="num">5</div><div class="t">차수 추가</div><div class="b">미회수 세대분을 뒤에 붙여 추가 통지</div></div></div><div class="duo"><div><div class="im dg" style="background-image:url(p-consent.jpg)"></div><div class="lb">채권양도 동의서</div><div class="cp">양도서를 <b>몇 세대에서 받느냐</b>가 청구 범위를 그대로 정합니다.</div></div><div><div class="im dg" style="background-image:url(p-consent-check.jpg)"></div><div class="lb">받은 뒤가 더 일입니다</div><div class="cp">서명 확인 · 인적사항 대조 · 미회수 관리가 <b>전부 수작업</b>입니다. 사무직원 36명 구성입니다.</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

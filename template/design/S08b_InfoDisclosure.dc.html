@@ -111,7 +111,7 @@
   /* ── 사진 두 장 ── 설명을 사진 아래에 두어 가로 폭을 끝까지 쓴다. */
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;
     border-top:1.4px solid var(--line);padding-top:16px;}
-  .duo .im{height:200px;border:1px solid var(--line);position:relative;
+  .duo .im{height:236px;border:1px solid var(--line);position:relative;
     background:var(--card) center/cover no-repeat;}
   .duo .im .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
     text-align:center;font-size:12.5px;line-height:1.75;color:#7F8CA6;}
@@ -122,13 +122,17 @@
   .duo .lb::before{content:"";width:4px;height:15px;background:var(--gold);}
   .duo .cp{margin-top:8px;font-size:14.5px;line-height:1.65;color:var(--ink);}
   .duo .cp b{color:var(--navy);font-weight:800;}
+
+  /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
+  .dg{background-size:contain!important;background-color:#FFFFFF!important;
+    background-position:center!important;}
 </style>
 </head>
 <body>
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">설계도서 확보 [고정]</div>
   <div class="title">설계도서가 없으면 대조할 기준이 없습니다 · 정보공개청구로 확보합니다</div>
-  <div class="body" style="bottom:56px"><div class="sec">왜 필요한가</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);margin-bottom:16px"><div class="c"><div class="ck">미시공은 도면으로</div><div class="cv">"있어야 할 것이 없다"를 보이려면 <b>있어야 한다는 근거</b>가 필요합니다. 그것이 준공도면입니다.</div></div><div class="c"><div class="ck">변경시공은 사양서로</div><div class="cv">THK 85가 60이 된 것을 보이려면 <b>형별성능관계내역</b>이 있어야 합니다.</div></div><div class="c"><div class="ck">부실시공은 시방서로</div><div class="cv">두께·배합 기준은 <b>공사시방서</b>에 적혀 있습니다.</div></div></div><div class="duo"><div><div class="im" style="background-image:url(p-drawings.jpg)"><div class="hint"><b>사진</b>p-drawings.jpg<br>가로 4:3 권장</div></div><div class="lb">확보한 설계도서 실물</div><div class="cp"><b>준공도면·공사시방서·형별성능관계내역</b>을 펼쳐 놓은 사진입니다. 표제부의 단지명·설계사무소명은 가립니다.</div></div><div><div class="im" style="background-image:url(p-disclosure-form.jpg)"><div class="hint"><b>사진</b>p-disclosure-form.jpg<br>가로 4:3 권장</div></div><div class="lb">정보공개청구 접수증</div><div class="cp"><b>청구서 또는 접수 확인</b> 화면입니다. 청구인·사건 정보는 가립니다.</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">왜 필요한가</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);margin-bottom:16px"><div class="c"><div class="ck">미시공은 도면으로</div><div class="cv">"있어야 할 것이 없다"를 보이려면 <b>있어야 한다는 근거</b>가 필요합니다. 그것이 준공도면입니다.</div></div><div class="c"><div class="ck">변경시공은 사양서로</div><div class="cv">THK 85가 60이 된 것을 보이려면 <b>형별성능관계내역</b>이 있어야 합니다.</div></div><div class="c"><div class="ck">부실시공은 시방서로</div><div class="cv">두께·배합 기준은 <b>공사시방서</b>에 적혀 있습니다.</div></div></div><div class="duo"><div><div class="im" style="background-image:url(p-drawings.jpg)"></div><div class="lb">확보하는 설계도서</div><div class="cp"><b>준공도면 · 공사시방서 · 형별성능관계내역</b>입니다. 없으면 대조할 기준이 없어 무엇이 하자인지 말할 수 없습니다.</div></div><div><div class="im dg" style="background-image:url(p-disclosure-form.jpg)"></div><div class="lb">정보공개청구 절차</div><div class="cp">접수일부터 <b>10일 이내 결정</b>이 원칙이고, 비공개 결정 시 이의신청·행정심판을 거칩니다. 착수 직후 바로 청구합니다.</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>
