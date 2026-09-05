@@ -168,8 +168,10 @@ def stage():
     return BUILD
 
 
-SKILL = ('/tmp/claude-0/bundled-skills/2.1.236/'
-         'f2e9088448f5b996ffd8d0644f6b57c0/design')
+SKILL = next(iter(sorted(glob.glob(
+    '/tmp/claude-0/bundled-skills/*/*/design/seed-canvas.mjs'),
+    key=os.path.getmtime, reverse=True)), '')
+SKILL = os.path.dirname(SKILL)
 
 
 def seed():
@@ -197,7 +199,64 @@ def seed():
     print('시드 완료 %.2f MB (페이지 상한 16MB)' % (os.path.getsize(out) / 1024 / 1024))
 
 
+def build_slim():
+    """캔버스 시드용. 서체를 장마다 그 장 글자만 서브셋해 넣는다.
+
+    기본 빌드는 FACES 7줄을 모두 넣어 같은 base64가 파일마다 5~7번 반복된다
+    (장당 768KB · 99장이면 76MB로 페이지 상한 16MB를 넘는다).
+    여기서는 장별 서브셋 + @font-face 2줄로 줄인다."""
+    stage()
+    os.makedirs(BUILD, exist_ok=True)
+    txt = os.path.join(BUILD, '_charset.txt')
+    tot = 0
+    for p in sorted(glob.glob(os.path.join(BUILD, '*.dc.html'))):
+        s = io.open(p, encoding='utf-8').read()
+        body = re.sub(r'<style[^>]*>.*?</style>', ' ', s, flags=re.S)
+        body = re.sub(r'<script[^>]*>.*?</script>', ' ', body, flags=re.S)
+        chars = set(re.sub(r'<[^>]*>', ' ', body))
+        chars |= set('0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+                     'abcdefghijklmnopqrstuvwxyz .,·()[]%~/:-')
+        io.open(txt, 'w', encoding='utf-8').write(
+            ''.join(sorted(c for c in chars if c.strip())))
+        css = []
+        for weight, fname in (('400', 'GmarketSansMedium.ttf'),
+                              ('700', 'GmarketSansBold.ttf')):
+            dst = os.path.join(BUILD, '_slim.woff2')
+            subprocess.run(['pyftsubset', os.path.join(FONTS, fname),
+                            '--text-file=' + txt, '--flavor=woff2',
+                            '--output-file=' + dst], check=True, capture_output=True)
+            b64 = base64.b64encode(open(dst, 'rb').read()).decode()
+            tot += os.path.getsize(dst)
+            os.remove(dst)
+            css.append("@font-face{font-family:'%s';font-style:normal;"
+                       "font-weight:%s;font-display:block;"
+                       "src:url(data:font/woff2;base64,%s) format('woff2');}"
+                       % (FAMILY, weight, b64))
+        css.append(".title,.n{font-family:'%s',sans-serif !important;}" % FAMILY)
+        s = s.replace('<style>', '<style>\n' + '\n'.join(css) + '\n', 1)
+        io.open(p, 'w', encoding='utf-8').write(s)
+    if os.path.exists(txt):
+        os.remove(txt)
+
+    # 캔버스에 실리는 사진은 base64로 문서에 통째로 들어간다.
+    # 저장할 때마다 문서 전체가 다시 올라가므로 캔버스 사본만 줄인다.
+    # (PDF·PPTX가 쓰는 template/design/photos 원본은 건드리지 않는다)
+    from PIL import Image
+    for q in sorted(glob.glob(os.path.join(BUILD, '*.jpg'))):
+        im = Image.open(q)
+        if im.size[0] > 640:
+            im = im.convert('RGB').resize(
+                (640, int(round(im.size[1] * 640 / im.size[0]))), Image.LANCZOS)
+        im.save(q, quality=76, subsampling='4:2:0', optimize=True, progressive=True)
+    big = max(glob.glob(os.path.join(BUILD, '*.dc.html')), key=os.path.getsize)
+    print('슬림 빌드 · 서체 합계 %.1f KB · 최대 아트보드 %s %.0f KB'
+          % (tot / 1024, os.path.basename(big), os.path.getsize(big) / 1024))
+    return BUILD
+
 if __name__ == '__main__':
-    build()
+    if '--slim' in sys.argv:
+        build_slim()
+    else:
+        build()
     if '--seed' in sys.argv:
         seed()
