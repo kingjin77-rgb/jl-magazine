@@ -18,11 +18,11 @@
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
-    font-size:14px;color:var(--muted);}
+    font-size:15px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
   /* ── 본문 프리미티브 ── */
-  .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:204px;}
   .sec{font-size:15.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
   .sec+.sec,.blk+.sec{margin-top:16px;}
@@ -31,21 +31,21 @@
   .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
   .c .ck{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
   .c .cv{margin-top:8px;font-size:15.5px;line-height:1.62;color:var(--ink);}
-  .c .cn{font-size:13.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
+  .c .cn{font-size:15px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
   .c b{color:var(--navy);font-weight:800;}
 
   .flow{display:grid;gap:0;}
   .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
   .step+.step{border-left:0;}
-  .step .num{font-size:13px;font-weight:800;color:#fff;background:var(--fill);
+  .step .num{font-size:15px;font-weight:800;color:#fff;background:var(--fill);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
   .step .t{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;}
-  .step .b{margin-top:7px;font-size:14.5px;line-height:1.55;color:var(--ink);}
+  .step .b{margin-top:7px;font-size:15px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
+  .tbl .th{display:flex;align-items:center;text-align:center;justify-content:center;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
-  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
+  .tbl .tr{display:flex;align-items:center;text-align:center;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
   .tbl .tr b{color:var(--navy);font-weight:800;}
 
@@ -58,7 +58,7 @@
   .split{display:flex;gap:26px;height:100%;}
   .split>div{flex:1;}
 
-  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:44px;height:146px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
@@ -66,12 +66,12 @@
   .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:15.5px;line-height:1.5;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:20px;font-size:14px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:20px;font-size:15px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
@@ -102,7 +102,7 @@
   .pslot .ph{font-size:17px;font-weight:800;color:var(--navy);
     display:flex;align-items:center;gap:8px;letter-spacing:-.01em;}
   .pslot .ph::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .pslot .pd{margin-top:7px;font-size:13.5px;line-height:1.5;color:var(--ink);max-width:600px;}
+  .pslot .pd{margin-top:7px;font-size:15px;line-height:1.5;color:var(--ink);max-width:600px;}
   .pslot .pd b{color:var(--navy);font-weight:800;}
 
   /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
@@ -110,9 +110,9 @@
   *{word-break:keep-all;overflow-wrap:break-word;}
   /* 안내는 상자 안에 둔다. 사진을 넣으면 그대로 가려진다. */
   .pslot .pbox .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
-    text-align:center;font-size:13px;line-height:1.75;color:#44526E;}
-  .pslot .pbox .hint b{display:block;font-size:13px;font-weight:800;letter-spacing:.24em;
-    margin-bottom:7px;color:#44526E;}
+    text-align:center;font-size:15px;line-height:1.75;color:#223D5B;}
+  .pslot .pbox .hint b{display:block;font-size:15px;font-weight:800;letter-spacing:.24em;
+    margin-bottom:7px;color:#223D5B;}
 
   /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
   .dg{background-size:contain!important;background-color:#FFFFFF!important;
@@ -126,7 +126,7 @@
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">청구 경로 간 관계 [고정]</div>
   <div class="title">네 갈래는 배타적이지 않지만, 조정만 고집하면 기간을 놓칠 수 있습니다</div>
-  <div class="body"><div class="sec">네 갈래는 배타적이지 않습니다</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);"><div class="c"><div class="ck">병행할 수 있습니다</div><div class="cv">보수청구와 손해배상청구는 목적이 다르므로 함께 진행할 수 있습니다. 다만 <b>같은 하자에 대해 이중으로 받지는 못합니다.</b></div></div><div class="c"><div class="ck">보증금은 한도가 있습니다</div><div class="cv">하자보수보증금은 보증서에 적힌 한도까지입니다. 실제 보수비가 그보다 크면 <b>차액은 손해배상으로 청구</b>해야 합니다.</div></div><div class="c"><div class="ck">조정은 강제력이 약합니다</div><div class="cv">조정안을 상대가 받아들이지 않으면 그대로 끝납니다. 기간만 흐를 수 있어 <b>존속기간이 임박한 단지에는 권하지 않습니다.</b></div></div></div><div class="pslot"><div class="pbox dg" style="width:142px;height:107px;background-image:url(p-filing.jpg)"></div><div class="ptx"><div class="ph">소 제기의 의미</div><div class="pd">조정만 고집하다 <b>담보책임기간을 놓치면</b> 되돌릴 수 없습니다.</div></div></div></div>
+  <div class="body"><div class="sec">네 갈래는 배타적이지 않습니다</div><div class="cards blk" style="grid-template-columns:repeat(3,1fr);"><div class="c"><div class="ck">병행할 수 있습니다</div><div class="cv">보수청구와 손해배상청구는 목적이 다르므로 함께 진행할 수 있습니다. 다만 <b>같은 하자에 대해 이중으로 받지는 못합니다.</b></div></div><div class="c"><div class="ck">보증금은 한도가 있습니다</div><div class="cv">하자보수보증금은 보증서에 적힌 한도까지입니다. 실제 보수비가 그보다 크면 <b>차액은 손해배상으로 청구</b>해야 합니다.</div></div><div class="c"><div class="ck">조정은 강제력이 약합니다</div><div class="cv">조정안을 상대가 받아들이지 않으면 그대로 끝납니다. 기간만 흐를 수 있어 <b>존속기간이 임박한 단지에는 권하지 않습니다.</b></div></div></div><div class="pslot"><div class="ptx"><div class="ph">소 제기의 의미</div><div class="pd">조정만 고집하다 <b>담보책임기간을 놓치면</b> 되돌릴 수 없습니다.</div></div></div></div>
   <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">입주자대표회의가 세대로부터 채권을 양도받아 자기 이름으로 손해배상을 청구하는 것이 가장 넓은 범위를 다룹니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">손해배상 범위는 보증금 한도에 묶이지 않고, 감정으로 산정된 보수비 전액을 청구 대상으로 삼습니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">조정을 먼저 시도하다 존속기간을 넘기는 사례가 있습니다. 남은 기간을 먼저 계산하고 경로를 정해야 합니다.</div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>

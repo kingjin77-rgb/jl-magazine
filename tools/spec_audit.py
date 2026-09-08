@@ -11,7 +11,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 D = os.path.join(ROOT, 'template', 'design')
 
 BODY_TOP = 186          # 본문 시작 통일값
-MIN_PX = 13             # 인쇄 하한
+MIN_PX = 15             # 인쇄 하한 (2026-09-08 사용자 지시)
 GREYS = ('#7F8CA6', '#8289A3', '#9AA3B8', '#A8B0C4', '#888', '#999', '#aaa', '#AAA')
 
 # 간지·표지는 전면 배경이라 본문 top 규칙에서 뺀다
@@ -75,6 +75,44 @@ def check_red_border(path, s):
     return len(hits) or None
 
 
+def check_bullets(path, s):
+    """단순 나열용 점 불릿 금지 — 박스·배지·화살표로."""
+    body = strip_style(s)
+    n = len(re.findall(r'>\s*[•▪]\s', body))  # 문장 안 구분점(·)은 제외
+    return n or None
+
+
+LAYOUT_KEYS = [('flow', 'flow'), ('tbl', 'table'), ('table', 'table'), ('cards', 'cards'),
+               ('kv', 'kv'), ('gal', 'gallery'), ('duo', 'gallery'), ('verify', 'verify')]
+
+
+def layout_kind(s):
+    body = strip_style(s)
+    counts = {}
+    for cls, kind in LAYOUT_KEYS:
+        c = len(re.findall(r'class="[^"]*\b%s\b' % cls, body))
+        if c:
+            counts[kind] = counts.get(kind, 0) + c
+    return max(counts, key=counts.get) if counts else None
+
+
+def check_rhythm(texts):
+    """덱 순서로 연속 두 장이 같은 지배 구조면 리듬 위반."""
+    import json
+    cj = os.path.join(D, 'canvas.json')
+    order = [a['file'] for a in json.load(open(cj, encoding='utf-8'))['artboards']] if os.path.exists(cj) else []
+    prev = None; hits = []
+    for f in order:
+        p = os.path.join(D, f)
+        if p not in texts or re.search(r'(Cover|Divider)', f):
+            prev = None; continue
+        k = layout_kind(texts[p])
+        if k and prev and k == prev[1] and k != 'verify':
+            hits.append((prev[0], f, k))
+        prev = (f, k)
+    return hits
+
+
 def dup_images():
     """파일명이 달라도 내용이 같으면 중복이다."""
     try:
@@ -118,6 +156,9 @@ def main():
         v = check_red_border(f, s)
         if v:
             issues.append(f"붉은 테두리 {v}곳")
+        v = check_bullets(f, s)
+        if v:
+            issues.append(f"점 불릿 {v}개")
         if issues:
             rows.append((b, issues))
 
@@ -130,6 +171,13 @@ def main():
     else:
         print("  위반 없음")
 
+    rh = check_rhythm(texts)
+    print(f"\n═══ 리듬 · 연속 동일 구조 ═══")
+    for a, b, k in rh:
+        print(f"  {a.replace('.dc.html','')} → {b.replace('.dc.html','')}  ({k})")
+    if not rh:
+        print("  없음")
+
     dups = dup_images()
     print(f"\n═══ 이미지 중복 (내용 기준) ═══")
     if dups:
@@ -139,7 +187,7 @@ def main():
     else:
         print("  중복 없음")
 
-    print(f"\n요약: 규격 위반 {len(rows)}장 / 이미지 중복 {len(dups)}건")
+    print(f"\n요약: 규격 위반 {len(rows)}장 / 리듬 {len(rh)}곳 / 이미지 중복 {len(dups)}건")
     return 1 if (rows or dups) else 0
 
 

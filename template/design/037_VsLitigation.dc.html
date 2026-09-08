@@ -18,11 +18,11 @@
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
-    font-size:14px;color:var(--muted);}
+    font-size:15px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
   /* ── 본문 프리미티브 ── */
-  .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:204px;}
   .sec{font-size:15.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
   .sec+.sec,.blk+.sec{margin-top:16px;}
@@ -31,21 +31,21 @@
   .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
   .c .ck{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
   .c .cv{margin-top:8px;font-size:15.5px;line-height:1.62;color:var(--ink);}
-  .c .cn{font-size:13.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
+  .c .cn{font-size:15px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
   .c b{color:var(--navy);font-weight:800;}
 
   .flow{display:grid;gap:0;}
   .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
   .step+.step{border-left:0;}
-  .step .num{font-size:13px;font-weight:800;color:#fff;background:var(--fill);
+  .step .num{font-size:15px;font-weight:800;color:#fff;background:var(--fill);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
   .step .t{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;}
-  .step .b{margin-top:7px;font-size:14.5px;line-height:1.55;color:var(--ink);}
+  .step .b{margin-top:7px;font-size:15px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
+  .tbl .th{display:flex;align-items:center;text-align:center;justify-content:center;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
-  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
+  .tbl .tr{display:flex;align-items:center;text-align:center;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
   .tbl .tr b{color:var(--navy);font-weight:800;}
 
@@ -58,7 +58,7 @@
   .split{display:flex;gap:26px;height:100%;}
   .split>div{flex:1;}
 
-  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:44px;height:146px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
@@ -66,12 +66,12 @@
   .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:15.5px;line-height:1.5;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:15px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
@@ -112,9 +112,9 @@
   *{word-break:keep-all;overflow-wrap:break-word;}
   /* 안내는 상자 안에 둔다. 사진을 넣으면 그대로 가려진다. */
   .pslot .pbox .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
-    text-align:center;font-size:13px;line-height:1.75;color:#44526E;}
-  .pslot .pbox .hint b{display:block;font-size:13px;font-weight:800;letter-spacing:.24em;
-    margin-bottom:7px;color:#44526E;}
+    text-align:center;font-size:15px;line-height:1.75;color:#223D5B;}
+  .pslot .pbox .hint b{display:block;font-size:15px;font-weight:800;letter-spacing:.24em;
+    margin-bottom:7px;color:#223D5B;}
 
   /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
   .dg{background-size:contain!important;background-color:#FFFFFF!important;
@@ -125,7 +125,7 @@
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">하심위와 소송의 차이 [고정]</div>
   <div class="title">하심위 조정과 소송은 절차·기간·강제력이 다릅니다</div>
-  <div class="body"><div class="sec">소송과 어떻게 다른가 · 헷갈리기 쉬운 부분입니다</div><div class="kv blk"><div class="r"><span>하심위 하자심사</span><em>하자인지 아닌지를 <b>판정</b>합니다. 보수 이행을 이끌어내는 절차이며 금전 배상을 정하지 않습니다</em></div><div class="r"><span>손해배상 소송</span><em><b>보수에 드는 비용을 금전으로</b> 청구합니다. 이 제안서가 수행하는 절차입니다</em></div><div class="r"><span>함께 쓰는 방법</span><em>하심위 판정 결과와 <b>보수 미이행 기록</b>은 소송에서 하자의 존재와 미이행을 뒷받침하는 자료가 됩니다</em></div></div><div class="pslot"><div class="pbox dg" style="width:166px;height:125px;background-image:url(p-courthouse.jpg)"></div><div class="ptx"><div class="ph">조정과 소송의 차이</div><div class="pd">조정은 빠르지만 <b>강제력이 없고</b>, 소송은 시간이 걸리지만 집행력이 있습니다.</div></div></div></div>
+  <div class="body"><div class="sec">소송과 어떻게 다른가 · 헷갈리기 쉬운 부분입니다</div><div class="kv blk"><div class="r"><span>하심위 하자심사</span><em>하자인지 아닌지를 <b>판정</b>합니다. 보수 이행을 이끌어내는 절차이며 금전 배상을 정하지 않습니다</em></div><div class="r"><span>손해배상 소송</span><em><b>보수에 드는 비용을 금전으로</b> 청구합니다. 이 제안서가 수행하는 절차입니다</em></div><div class="r"><span>함께 쓰는 방법</span><em>하심위 판정 결과와 <b>보수 미이행 기록</b>은 소송에서 하자의 존재와 미이행을 뒷받침하는 자료가 됩니다</em></div></div><div class="pslot"><div class="ptx"><div class="ph">조정과 소송의 차이</div><div class="pd">조정은 빠르지만 <b>강제력이 없고</b>, 소송은 시간이 걸리지만 집행력이 있습니다.</div></div></div></div>
   <div class="verify"><div><div class="vk">핵심 내용</div><div class="vv">하심위 통계는 <b>하자심사 신청분</b>의 통계이지 소송 통계가 아닙니다. 다만 공동주택 하자가 어떤 규모로 다투어지는지 보여주는 공식 자료입니다.</div></div><div><div class="vk">수치 강조</div><div class="vv">판정 후 <b>60일 이내 보수·등록 의무</b>가 있습니다. 이 기한을 넘긴 기록이 남아 있다면 소송에서 미이행을 증명하는 근거가 됩니다.</div></div><div><div class="vk warnk">기한 경고</div><div class="vv">하심위 절차는 판정까지 시간이 걸립니다. <b>담보책임 존속기간이 임박한 단지는 조정만 기다리면 안 됩니다.</b></div></div></div>
   <div class="note">출처: 국토교통부 보도자료 「‘26년 상반기 공동주택 하자 판정 상위 20개 건설사 명단 공개」(2026. 3. 29.) 및 같은 자료 참고1·참고2 <b>[1차 출처 · 공공저작물]</b></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>

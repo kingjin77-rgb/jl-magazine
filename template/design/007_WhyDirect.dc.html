@@ -14,17 +14,17 @@
   .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
-  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+  .badge{position:absolute;right:56px;top:70px;font-size:15px;color:#8F7033;background:#FBF7EE;
     border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
   .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
-  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+  .note{font-size:15px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
     border-radius:0;padding:12px 18px;line-height:1.6;}
-  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+  .note-gold{font-size:15px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
     border-radius:0;padding:12px 18px;line-height:1.7;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
-    font-size:14px;color:var(--muted);}
+    font-size:15px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
   .title{font-size:35px;line-height:1.34;}
@@ -33,17 +33,17 @@
   .band .s{flex:1;border-left:1px solid rgba(255,255,255,.18);padding-left:22px;}
   .band .s:first-child{border-left:none;padding-left:0;}
   .band .n{font-size:25px;font-weight:800;letter-spacing:-.01em;}
-  .band .l{margin-top:5px;font-size:14px;color:#E6ECF9;}
+  .band .l{margin-top:5px;font-size:15px;color:#E6ECF9;}
   .grid{position:absolute;left:56px;top:308px;right:56px;display:grid;
     grid-template-columns:repeat(4,1fr);gap:16px;}
   .g{border:1px solid var(--line);border-radius:0;padding:16px 18px;}
-  .g .k{font-size:14px;color:var(--gold-ink);font-weight:700;}
+  .g .k{font-size:15px;color:var(--gold-ink);font-weight:700;}
   .g .v{margin-top:7px;font-size:16px;font-weight:800;color:var(--navy);}
-  .g .d{margin-top:7px;font-size:14px;color:var(--muted);line-height:1.6;}
+  .g .d{margin-top:7px;font-size:15px;color:var(--muted);line-height:1.6;}
   .why{position:absolute;left:56px;top:424px;right:56px;display:flex;gap:20px;}
   .w{flex:1;border-left:3px solid var(--gold);padding-left:14px;}
   .w .t{font-size:15px;font-weight:800;color:var(--navy);}
-  .w .d{margin-top:5px;font-size:14px;color:var(--muted);line-height:1.7;}
+  .w .d{margin-top:5px;font-size:15px;color:var(--muted);line-height:1.7;}
   .addr{position:absolute;left:56px;bottom:242px;right:56px;background:#fff;flex-wrap:wrap;gap:6px 26px;
     border:1px solid var(--line);border-radius:0;padding:12px 20px;display:flex;
     justify-content:space-between;font-size:15px;color:var(--muted);}
@@ -78,7 +78,7 @@
   /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
 
   /* ── 심층 검증 3단 밴드 ── */
-  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:44px;height:146px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
@@ -86,7 +86,7 @@
   .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:15.5px;line-height:1.5;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent!important;}
@@ -99,9 +99,9 @@
     background:var(--card) center/cover no-repeat;position:relative;}
   /* 안내는 상자 안에 둔다. 사진을 넣으면 그대로 가려진다. */
   .pslot .pbox .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
-    text-align:center;font-size:13px;line-height:1.75;color:#44526E;}
-  .pslot .pbox .hint b{display:block;font-size:13px;font-weight:800;letter-spacing:.24em;
-    margin-bottom:7px;color:#44526E;}
+    text-align:center;font-size:15px;line-height:1.75;color:#223D5B;}
+  .pslot .pbox .hint b{display:block;font-size:15px;font-weight:800;letter-spacing:.24em;
+    margin-bottom:7px;color:#223D5B;}
   .pslot .ptx{flex:1;display:flex;flex-direction:column;justify-content:center;}
   .pslot .ph{font-size:17px;font-weight:800;color:var(--navy);
     display:flex;align-items:center;gap:8px;letter-spacing:-.01em;}
@@ -144,7 +144,7 @@
     <div><div class="vk">수치 강조</div><div class="vv">변호사 7인 · 사무직원 36명 구성이며, 사무장은 <b>건축시공기술사</b>입니다. 도면을 읽는 인력이 법인 안에 있습니다.</div></div>
     <div><div class="vk warnk">기한 경고</div><div class="vv">설명회·서류 징구는 단지 일정에 맞춰야 합니다. 총회 일정이 정해지면 미리 알려 주십시오.</div></div>
   </div>
-  <div class="pslot" style="top:275px;height:166px"><div class="pbox dg" style="width:201px;height:151px;background-image:url(p-inhouse.jpg)"></div><div class="ptx"><div class="ph">같은 자리에서 봅니다</div><div class="pd">변호사와 건축시공기술사가 <b>한자리에서</b> 도면과 현장을 함께 검토합니다.</div></div></div>
+  <div class="pslot" style="top:275px;height:166px"><div class="ptx"><div class="ph">같은 자리에서 봅니다</div><div class="pd">변호사와 건축시공기술사가 <b>한자리에서</b> 도면과 현장을 함께 검토합니다.</div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

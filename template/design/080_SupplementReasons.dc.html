@@ -14,17 +14,17 @@
   .eyebrow{position:absolute;left:56px;top:70px;font-size:17px;letter-spacing:.2em;color:var(--gold-ink);
     font-weight:700;display:flex;align-items:center;gap:10px;}
   .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
-  .badge{position:absolute;right:56px;top:70px;font-size:14px;color:#8F7033;background:#FBF7EE;
+  .badge{position:absolute;right:56px;top:70px;font-size:15px;color:#8F7033;background:#FBF7EE;
     border:1px solid #E7D9BC;border-radius:0;padding:4px 10px;}
   .title{position:absolute;left:56px;top:96px;right:56px;font-size:35px;font-weight:800;
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
-  .note{font-size:14px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
+  .note{font-size:15px;color:var(--muted);background:#fff;border:1px solid var(--line);border-top:3px solid var(--navy);
     border-radius:0;padding:12px 18px;line-height:1.6;}
-  .note-gold{font-size:14px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
+  .note-gold{font-size:15px;color:var(--muted);background:#FBF7EE;border:1px solid #E7D9BC;
     border-radius:0;padding:12px 18px;line-height:1.7;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
-    font-size:14px;color:var(--muted);}
+    font-size:15px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
   .title{font-size:35px;line-height:1.34;}
@@ -74,7 +74,7 @@
   /* 한글 자간 */ .eyebrow{letter-spacing:.02em!important;}
 
   /* ── 심층 검증 3단 밴드 ── */
-  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+  .verify{position:absolute;left:56px;right:56px;bottom:44px;height:146px;
     display:grid;grid-template-columns:1fr 1fr 1fr;
     border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
   .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
@@ -82,19 +82,19 @@
   .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
     display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
   .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
+  .verify .vv{font-size:15.5px;line-height:1.5;color:var(--ink);}
   .verify .warnk{color:#C0392B;}
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent!important;}
 
   /* ── 감정보완신청 사유 4종 (여백 채움) ── */
   .rsn{position:absolute;left:56px;top:186px;right:56px;}
-  .rsn .h{font-size:13px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+  .rsn .h{font-size:15px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
     padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
   .rsn .g{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
   .rsn .i{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:12px 15px 13px;}
-  .rsn .i .k{font-size:14.5px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
-  .rsn .i .v{margin-top:6px;font-size:13px;line-height:1.55;color:var(--ink);}
+  .rsn .i .k{font-size:15px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .rsn .i .v{margin-top:6px;font-size:15px;line-height:1.55;color:var(--ink);}
 
   /* ── 사진 자리 ── 이 슬라이드는 본문 컨테이너가 없어 좌표로 직접 앉힌다.
      파일이 없으면 연한 상자로 남고, 넣으면 그대로 채워진다. */
@@ -104,9 +104,9 @@
     background:var(--card) center/cover no-repeat;position:relative;}
   /* 안내는 상자 안에 둔다. 사진을 넣으면 그대로 가려진다. */
   .pslot .pbox .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
-    text-align:center;font-size:13px;line-height:1.75;color:#44526E;}
-  .pslot .pbox .hint b{display:block;font-size:13px;font-weight:800;letter-spacing:.24em;
-    margin-bottom:7px;color:#44526E;}
+    text-align:center;font-size:15px;line-height:1.75;color:#223D5B;}
+  .pslot .pbox .hint b{display:block;font-size:15px;font-weight:800;letter-spacing:.24em;
+    margin-bottom:7px;color:#223D5B;}
   .pslot .ptx{flex:1;display:flex;flex-direction:column;justify-content:center;}
   .pslot .ph{font-size:17px;font-weight:800;color:var(--navy);
     display:flex;align-items:center;gap:8px;letter-spacing:-.01em;}

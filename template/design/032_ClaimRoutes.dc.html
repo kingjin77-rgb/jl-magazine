@@ -18,7 +18,7 @@
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
-    font-size:14px;color:var(--muted);}
+    font-size:15px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
   /* ── 본문 프리미티브 ── */
@@ -31,21 +31,21 @@
   .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
   .c .ck{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
   .c .cv{margin-top:8px;font-size:15.5px;line-height:1.62;color:var(--ink);}
-  .c .cn{font-size:13.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
+  .c .cn{font-size:15px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
   .c b{color:var(--navy);font-weight:800;}
 
   .flow{display:grid;gap:0;}
   .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
   .step+.step{border-left:0;}
-  .step .num{font-size:13px;font-weight:800;color:#fff;background:var(--fill);
+  .step .num{font-size:15px;font-weight:800;color:#fff;background:var(--fill);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
   .step .t{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;}
-  .step .b{margin-top:7px;font-size:14.5px;line-height:1.55;color:var(--ink);}
+  .step .b{margin-top:7px;font-size:15px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
+  .tbl .th{display:flex;align-items:center;text-align:center;justify-content:center;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
-  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
+  .tbl .tr{display:flex;align-items:center;text-align:center;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
   .tbl .tr b{color:var(--navy);font-weight:800;}
 
@@ -71,7 +71,7 @@
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:20px;font-size:14px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:20px;font-size:15px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
@@ -110,9 +110,9 @@
   *{word-break:keep-all;overflow-wrap:break-word;}
   /* 안내는 상자 안에 둔다. 사진을 넣으면 그대로 가려진다. */
   .pslot .pbox .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
-    text-align:center;font-size:13px;line-height:1.75;color:#44526E;}
-  .pslot .pbox .hint b{display:block;font-size:13px;font-weight:800;letter-spacing:.24em;
-    margin-bottom:7px;color:#44526E;}
+    text-align:center;font-size:15px;line-height:1.75;color:#223D5B;}
+  .pslot .pbox .hint b{display:block;font-size:15px;font-weight:800;letter-spacing:.24em;
+    margin-bottom:7px;color:#223D5B;}
 
   /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
   .dg{background-size:contain!important;background-color:#FFFFFF!important;
@@ -123,7 +123,22 @@
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">청구 경로 [고정]</div>
   <div class="title">하자를 이유로 할 수 있는 청구는 네 갈래이고, 성격이 서로 다릅니다</div>
-  <div class="body" style="bottom:56px"><div class="tbl blk" style="margin-bottom:4px"><div class="th"><div style="width:210px">구분</div><div style="width:280px">근거 법령</div><div style="width:200px">상대방</div><div style="flex:1">받는 것</div></div><div class="tr"><div style="width:210px"><b>손해배상청구</b></div><div style="width:280px">집합건물법 제9조<br>(민법 제667조 이하 준용)</div><div style="width:200px">분양자·시공자</div><div style="flex:1"><b>금전</b> · 이 제안서가 수행하는 청구</div></div><div class="tr"><div style="width:210px">하자보수청구</div><div style="width:280px">공동주택관리법 제36·37조</div><div style="width:200px">사업주체</div><div style="flex:1">보수 이행</div></div><div class="tr"><div style="width:210px">하자보수보증금 청구</div><div style="width:280px">공동주택관리법 제38조</div><div style="width:200px">보증기관</div><div style="flex:1">보증금 한도 내 금전</div></div><div class="tr"><div style="width:210px">하자심사·분쟁조정</div><div style="width:280px">공동주택관리법 제39조</div><div style="width:200px">하자분쟁조정위원회</div><div style="flex:1">조정안</div></div></div><div class="pslot"><div class="pbox dg" style="width:354px;height:266px;background-image:url(p-court.jpg)"></div><div class="ptx"><div class="ph">청구는 법원에서 다툽니다</div><div class="pd">집합건물법 제9조 계열의 <b>손해배상청구권</b>이 이 제안서가 실제로 만드는 청구입니다.</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="tbl blk" style="margin-bottom:4px"><div class="th"><div style="width:210px">구분</div><div style="width:280px">근거 법령</div><div style="width:200px">상대방</div><div style="flex:1">받는 것</div></div><div class="tr"><div style="width:210px"><b>손해배상청구</b></div><div style="width:280px">집합건물법 제9조<br>(민법 제667조 이하 준용)</div><div style="width:200px">분양자·시공자</div><div style="flex:1"><b>금전</b> · 이 제안서가 수행하는 청구</div></div><div class="tr"><div style="width:210px">하자보수청구</div><div style="width:280px">공동주택관리법 제36·37조</div><div style="width:200px">사업주체</div><div style="flex:1">보수 이행</div></div><div class="tr"><div style="width:210px">하자보수보증금 청구</div><div style="width:280px">공동주택관리법 제38조</div><div style="width:200px">보증기관</div><div style="flex:1">보증금 한도 내 금전</div></div><div class="tr"><div style="width:210px">하자심사·분쟁조정</div><div style="width:280px">공동주택관리법 제39조</div><div style="width:200px">하자분쟁조정위원회</div><div style="flex:1">조정안</div></div></div><div class="sec" style="margin-top:18px;">네 갈래가 실제로 만들어 내는 것 — 회수로 이어지는 것은 하나입니다</div>
+<div class="cards" style="grid-template-columns:repeat(4,1fr);">
+  <div class="c" style="border-top-color:#223D5B;">
+    <div class="cn">01 · 이 제안서</div><div class="ck">손해배상청구</div>
+    <div class="cv"><b>금전</b>으로 받습니다. 판결로 확정되면 <b>강제집행</b>까지 갑니다.</div></div>
+  <div class="c">
+    <div class="cn">02</div><div class="ck">하자보수청구</div>
+    <div class="cv">사업주체의 <b>보수 이행</b>을 구합니다. 이행 여부는 상대에 달려 있습니다.</div></div>
+  <div class="c">
+    <div class="cn">03</div><div class="ck">보증금 청구</div>
+    <div class="cv">보증 <b>한도 내 금전</b>입니다. 하자보수 목적으로 쓰도록 제한됩니다.</div></div>
+  <div class="c">
+    <div class="cn">04</div><div class="ck">하자심사·분쟁조정</div>
+    <div class="cv"><b>조정안</b>이 나옵니다. 양쪽이 수락해야 효력이 생깁니다.</div></div>
+</div>
+<div class="pslot"><div class="ptx"><div class="ph">청구는 법원에서 다툽니다</div><div class="pd">집합건물법 제9조 계열의 <b>손해배상청구권</b>이 이 제안서가 실제로 만드는 청구입니다.</div></div></div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

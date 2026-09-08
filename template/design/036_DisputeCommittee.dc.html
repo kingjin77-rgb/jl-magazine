@@ -18,7 +18,7 @@
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
-    font-size:14px;color:var(--muted);}
+    font-size:15px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
   /* ── 본문 프리미티브 ── */
@@ -31,21 +31,21 @@
   .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
   .c .ck{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
   .c .cv{margin-top:8px;font-size:15.5px;line-height:1.62;color:var(--ink);}
-  .c .cn{font-size:13.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
+  .c .cn{font-size:15px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
   .c b{color:var(--navy);font-weight:800;}
 
   .flow{display:grid;gap:0;}
   .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
   .step+.step{border-left:0;}
-  .step .num{font-size:13px;font-weight:800;color:#fff;background:var(--fill);
+  .step .num{font-size:15px;font-weight:800;color:#fff;background:var(--fill);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
   .step .t{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;}
-  .step .b{margin-top:7px;font-size:14.5px;line-height:1.55;color:var(--ink);}
+  .step .b{margin-top:7px;font-size:15px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
+  .tbl .th{display:flex;align-items:center;text-align:center;justify-content:center;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
-  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
+  .tbl .tr{display:flex;align-items:center;text-align:center;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
   .tbl .tr b{color:var(--navy);font-weight:800;}
 
@@ -71,7 +71,7 @@
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:15px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
@@ -112,9 +112,9 @@
   *{word-break:keep-all;overflow-wrap:break-word;}
   /* 안내는 상자 안에 둔다. 사진을 넣으면 그대로 가려진다. */
   .pslot .pbox .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
-    text-align:center;font-size:13px;line-height:1.75;color:#44526E;}
-  .pslot .pbox .hint b{display:block;font-size:13px;font-weight:800;letter-spacing:.24em;
-    margin-bottom:7px;color:#44526E;}
+    text-align:center;font-size:15px;line-height:1.75;color:#223D5B;}
+  .pslot .pbox .hint b{display:block;font-size:15px;font-weight:800;letter-spacing:.24em;
+    margin-bottom:7px;color:#223D5B;}
 
   /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
   .dg{background-size:contain!important;background-color:#FFFFFF!important;
@@ -125,7 +125,42 @@
     <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">하자심사·분쟁조정위원회 [고정]</div>
   <div class="title">하심위 하자심사에서 판정서 10건 중 약 7건이 하자로 인정됩니다</div>
-  <div class="body" style="bottom:56px"><div class="sec">국토교통부가 공개한 처리 현황</div><div class="cards blk" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px"><div class="c"><div class="cn">처리량</div><div class="ck">연평균 4,600여건</div><div class="cv">'21~'25년 5년간 하자심사·분쟁조정·재정을 합해 연평균 약 4,600건을 처리했습니다. '25년은 4,761건입니다.</div></div><div class="c"><div class="cn">인정률</div><div class="ck">68.3%</div><div class="cv">판정서 교부 11,081건 중 <b>7,573건이 하자로 판정</b>됐습니다. 연도별로는 61.0~78.8% 사이에서 움직입니다.</div></div><div class="c"><div class="cn">보수 의무</div><div class="ck">60일 이내</div><div class="cv">하자로 판정되면 사업주체는 공동주택관리법령에 따라 <b>60일 이내 보수</b>하고 하자관리정보시스템에 결과를 등록해야 합니다.</div></div><div class="c"><div class="cn">명단 공개</div><div class="ck">반기마다</div><div class="cv">하자 판정 건수·비율 상위 건설사 명단이 반기마다 공개됩니다. '26년 하반기부터는 하심위 누리집에 게시됩니다.</div></div></div><div class="pslot"><div class="pbox dg" style="width:345px;height:259px;background-image:url(p-committee.jpg)"></div><div class="ptx"><div class="ph">하자심사·분쟁조정위원회</div><div class="pd">판정서 <b>10건 중 약 7건</b>이 하자로 인정됩니다. 조정과 소송은 병행할 수 있습니다.</div></div></div></div>
+  <div class="body" style="bottom:56px"><div class="sec">국토교통부가 공개한 처리 현황</div><div class="cards blk" style="grid-template-columns:repeat(4,1fr);margin-bottom:16px"><div class="c"><div class="cn">처리량</div><div class="ck">연평균 4,600여건</div><div class="cv">'21~'25년 5년간 하자심사·분쟁조정·재정을 합해 연평균 약 4,600건을 처리했습니다. '25년은 4,761건입니다.</div></div><div class="c"><div class="cn">인정률</div><div class="ck">68.3%</div><div class="cv">판정서 교부 11,081건 중 <b>7,573건이 하자로 판정</b>됐습니다. 연도별로는 61.0~78.8% 사이에서 움직입니다.</div></div><div class="c"><div class="cn">보수 의무</div><div class="ck">60일 이내</div><div class="cv">하자로 판정되면 사업주체는 공동주택관리법령에 따라 <b>60일 이내 보수</b>하고 하자관리정보시스템에 결과를 등록해야 합니다.</div></div><div class="c"><div class="cn">명단 공개</div><div class="ck">반기마다</div><div class="cv">하자 판정 건수·비율 상위 건설사 명단이 반기마다 공개됩니다. '26년 하반기부터는 하심위 누리집에 게시됩니다.</div></div></div><div class="sec" style="margin-top:16px;">신청부터 보수 확인까지 — 공동주택관리법 제39조</div>
+<svg viewBox="0 0 1220 96" width="100%" height="96" font-family="Pretendard,'Malgun Gothic',sans-serif">
+<defs><marker id="ar" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+<path d="M0,0 L7,3.5 L0,7 z" fill="#8FA0BE"/></marker></defs>
+<g font-size="14">
+ <rect x="0" y="10" width="212" height="52" fill="#223D5B"/>
+ <text x="14" y="31" font-size="12.5" font-weight="800" fill="#EBD9B4">01</text>
+ <text x="40" y="31" font-weight="700" fill="#fff">하자심사 신청</text>
+ <text x="14" y="51" font-size="13" fill="#D6DEEE">입대의 또는 구분소유자</text>
+ <line x1="220" y1="36" x2="242" y2="36" stroke="#8FA0BE" stroke-width="1.6" marker-end="url(#ar)"/>
+
+ <rect x="252" y="10" width="212" height="52" fill="#fff" stroke="#C6CFE0"/>
+ <text x="266" y="31" font-size="12.5" font-weight="800" fill="#8F7033">02</text>
+ <text x="292" y="31" font-weight="700" fill="#223D5B">현장 실사·심사</text>
+ <text x="266" y="51" font-size="13" fill="#223D5B">위원회 조사</text>
+ <line x1="472" y1="36" x2="494" y2="36" stroke="#8FA0BE" stroke-width="1.6" marker-end="url(#ar)"/>
+
+ <rect x="504" y="10" width="212" height="52" fill="#fff" stroke="#C6CFE0"/>
+ <text x="518" y="31" font-size="12.5" font-weight="800" fill="#8F7033">03</text>
+ <text x="544" y="31" font-weight="700" fill="#223D5B">판정서 교부</text>
+ <text x="518" y="51" font-size="13" fill="#223D5B">하자 여부 판정</text>
+ <line x1="724" y1="36" x2="746" y2="36" stroke="#8FA0BE" stroke-width="1.6" marker-end="url(#ar)"/>
+
+ <rect x="756" y="10" width="212" height="52" fill="#fff" stroke="#C6CFE0"/>
+ <text x="770" y="31" font-size="12.5" font-weight="800" fill="#8F7033">04</text>
+ <text x="796" y="31" font-weight="700" fill="#223D5B">60일 이내 보수</text>
+ <text x="770" y="51" font-size="13" fill="#223D5B">사업주체 이행</text>
+ <line x1="976" y1="36" x2="998" y2="36" stroke="#8FA0BE" stroke-width="1.6" marker-end="url(#ar)"/>
+
+ <rect x="1008" y="10" width="212" height="52" fill="#fff" stroke="#C6CFE0"/>
+ <text x="1022" y="31" font-size="12.5" font-weight="800" fill="#8F7033">05</text>
+ <text x="1048" y="31" font-weight="700" fill="#223D5B">결과 등록</text>
+ <text x="1022" y="51" font-size="13" fill="#223D5B">하자관리정보시스템</text>
+ <text x="0" y="88" font-size="13" fill="#223D5B">판정을 받아도 보수가 이행되지 않으면 남는 것은 손해배상청구입니다. 조정과 소송은 병행할 수 있습니다.</text>
+</g></svg>
+</div></div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>

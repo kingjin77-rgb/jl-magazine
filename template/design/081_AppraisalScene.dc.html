@@ -18,7 +18,7 @@
     color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
   .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
     justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
-    font-size:14px;color:var(--muted);}
+    font-size:15px;color:var(--muted);}
   .footer .firm{color:var(--navy);font-weight:700;}
 
   /* ── 본문 프리미티브 ── */
@@ -31,21 +31,21 @@
   .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
   .c .ck{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
   .c .cv{margin-top:8px;font-size:15.5px;line-height:1.62;color:var(--ink);}
-  .c .cn{font-size:13.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
+  .c .cn{font-size:15px;font-weight:800;color:var(--gold-ink);letter-spacing:.12em;margin-bottom:6px;}
   .c b{color:var(--navy);font-weight:800;}
 
   .flow{display:grid;gap:0;}
   .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
   .step+.step{border-left:0;}
-  .step .num{font-size:13px;font-weight:800;color:#fff;background:var(--fill);
+  .step .num{font-size:15px;font-weight:800;color:#fff;background:var(--fill);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
   .step .t{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;}
-  .step .b{margin-top:7px;font-size:14.5px;line-height:1.55;color:var(--ink);}
+  .step .b{margin-top:7px;font-size:15px;line-height:1.55;color:var(--ink);}
 
   .tbl{border:1px solid var(--line);}
-  .tbl .th{display:flex;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
+  .tbl .th{display:flex;align-items:center;text-align:center;justify-content:center;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
   .tbl .th div{padding:10px 15px;}
-  .tbl .tr{display:flex;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
+  .tbl .tr{display:flex;align-items:center;text-align:center;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
   .tbl .tr div{padding:9px 15px;}
   .tbl .tr b{color:var(--navy);font-weight:800;}
 
@@ -71,7 +71,7 @@
   .verify .warnk::before{background:#C0392B!important;}
   .verify *{background:transparent;}
 
-  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:15px;line-height:1.6;color:var(--ink);}
 
   /* ── 법무법인 제안서 헤더 밴드 ── */
   body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
@@ -91,15 +91,15 @@
   .gal .im{aspect-ratio:4/3;border:1px solid var(--line);position:relative;
     background:var(--card) center/cover no-repeat;}
   .gal .im .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
-    text-align:center;font-size:13px;line-height:1.75;color:#44526E;}
-  .gal .im .hint b{display:block;font-size:13px;font-weight:800;letter-spacing:.24em;
-    margin-bottom:7px;color:#44526E;}
+    text-align:center;font-size:15px;line-height:1.75;color:#223D5B;}
+  .gal .im .hint b{display:block;font-size:15px;font-weight:800;letter-spacing:.24em;
+    margin-bottom:7px;color:#223D5B;}
   .gal .lb{margin-top:12px;font-size:17px;font-weight:800;color:var(--navy);
     letter-spacing:-.01em;display:flex;align-items:center;gap:8px;}
   .gal .lb::before{content:"";width:4px;height:15px;background:var(--gold);}
-  .gal .cp{margin-top:8px;font-size:14.5px;line-height:1.6;color:var(--ink);}
+  .gal .cp{margin-top:8px;font-size:15px;line-height:1.6;color:var(--ink);}
   .gal .cp b{color:var(--navy);font-weight:800;}
-  .gal .fn{margin-top:9px;font-size:13px;color:var(--ink);}
+  .gal .fn{margin-top:9px;font-size:15px;color:var(--ink);}
   .gal .fn b{color:var(--gold-ink);font-weight:800;}
 
   /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
@@ -109,14 +109,18 @@
   /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
   .dg{background-size:contain!important;background-color:#FFFFFF!important;
     background-position:center!important;}
+  .duo2{display:grid;grid-template-columns:1.35fr 1fr;gap:22px;height:440px;margin-top:6px;}
+  .chain{height:440px;}
+  .ph{position:relative;background-size:cover;background-position:center;border:1px solid var(--line);}
+  .phcap{position:absolute;left:0;right:0;bottom:0;background:rgba(23,38,58,.88);color:#fff;font-size:15px;padding:10px 14px;text-align:center;}
 </style>
 </head>
 <body>
   <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
   <div class="eyebrow">감정 현장 [고정]</div>
   <div class="title">감정 현장은 이 세 단계로 진행됩니다</div>
-  <div class="body"><div class="gal"><div><div class="im empty dg" style="background-image:url(p-appraisal-joint.jpg)"></div><div class="lb">원·피고 공동조사</div><div class="cp">감정인·원고 대리인·피고 측이 <b>함께 현장에 섭니다.</b> 이 자리에 들어가느냐가 결과를 좌우합니다.</div></div><div><div class="im empty" style="background-image:url(p-appraisal-measure.jpg)"></div><div class="lb">파취 · 실측</div><div class="cp">바닥을 파취해 <b>방수층과 마감 두께를 계측</b>합니다. 실제 조사 사례입니다.</div></div><div><div class="im empty dg" style="background-image:url(p-appraisal-record.jpg)"></div><div class="lb">그 자리에서 기록합니다</div><div class="cp">측정값과 위치를 현장에서 남겨야 <b>감정보완신청의 근거</b>가 됩니다.</div></div></div></div>
-  <div class="note">실물 사진은 <b>타 단지 조사 사례</b>이며 단지명·동호수·업체명이 드러나지 않도록 확인한 것만 실었습니다. 도해는 절차와 판단 기준을 나타낸 것으로 특정 단지의 상태를 나타내지 않습니다.</div>
+  <div class="body"><div class="duo2"><div class="ph" style="background-image:url(p-appraisal-measure.jpg)"><div class="phcap">파취 · 실측 — 방수층 두께를 계측기 눈금이 보이도록 촬영 (타 단지 조사 사례)</div></div><div class="chain"><svg viewBox="0 0 470 440" width="100%" height="100%" font-family="Pretendard,'Malgun Gothic',sans-serif" style="display:block"><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#8FA0BE"/></marker></defs><rect x="0" y="6" width="470" height="112" fill="#223D5B" stroke="#223D5B" stroke-width="1.4"/><text x="18" y="36" font-size="15" font-weight="800" fill="#EBD9B4">01</text><text x="52" y="37" font-size="19" font-weight="800" fill="#fff">원·피고 공동조사</text><text x="18" y="66" font-size="15.5" fill="#D6DEEE">감정인·원고 대리인·피고 측이 함께 현장에 섭니다</text><line x1="235" y1="118" x2="235" y2="150" stroke="#8FA0BE" stroke-width="2" marker-end="url(#ar)"/><rect x="0" y="154" width="470" height="112" fill="#fff" stroke="#C6CFE0" stroke-width="1.4"/><text x="18" y="184" font-size="15" font-weight="800" fill="#8F7033">02</text><text x="52" y="185" font-size="19" font-weight="800" fill="#223D5B">파취 · 실측</text><text x="18" y="214" font-size="15.5" fill="#111418">바닥을 파취해 방수층·마감 두께를 계측합니다</text><line x1="235" y1="266" x2="235" y2="298" stroke="#8FA0BE" stroke-width="2" marker-end="url(#ar)"/><rect x="0" y="302" width="470" height="112" fill="#fff" stroke="#C6CFE0" stroke-width="1.4"/><text x="18" y="332" font-size="15" font-weight="800" fill="#8F7033">03</text><text x="52" y="333" font-size="19" font-weight="800" fill="#223D5B">현장 기록</text><text x="18" y="362" font-size="15.5" fill="#111418">측정값과 위치를 그 자리에서 남깁니다 → 감정보완의 근거</text></svg></div></div></div>
+  <div class="note">이 자리에 들어가느냐가 감정 결과를 좌우합니다. 사진은 타 단지 조사 사례이며 단지명·동호수를 가렸습니다.</div>
   <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
 </body>
 </html>
