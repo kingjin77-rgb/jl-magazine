@@ -97,6 +97,10 @@
   /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
      keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
   *{word-break:keep-all;overflow-wrap:break-word;}
+  .colL.pg{border:0;display:grid;grid-template-columns:1fr 1fr;gap:14px;overflow:visible;}
+  .pg figure{margin:0;border:1px solid var(--line);background:#fff;display:flex;flex-direction:column;}
+  .pg .pb{flex:1;background-size:cover;background-position:center;min-height:0;}
+  .pg figcaption{font-size:13px;line-height:1.45;color:var(--ink);padding:7px 10px;border-top:1px solid var(--line);text-align:center;}
 </style>
 </head>
 <body>
@@ -104,9 +108,9 @@
   <div class="eyebrow">욕실·발코니 타일 뒤채움·부착강도 부족 [고정]</div>
   <div class="title">타일 탈락면 사진만으로는 부족률이 보이지 않습니다</div>
   <div class="cols">
-    <div class="colL"><img src="dg_tile.png"></div>
+    <div class="colL pg"><figure><div class="pb" style="background-image:url(p-tile-fall.jpg)"></div><figcaption>타일 탈락면 · 뒤채움 부족 상태 (타 단지 조사 사진)</figcaption></figure><figure><div class="pb" style="background-image:url(p-tile-test.jpg)"></div><figcaption>인장 부착강도 시험 · 현장 실측 (단지 표기 마스킹)</figcaption></figure></div>
     <div class="colR">
-      <div class="desc">타일을 탈락시켜 뒤채움률을 실측하고 부착강도 시험을 병행합니다. 사진만으로는 부족률을 알 수 없어 단면 모식도와 뒤채움률(%)을 함께 제시합니다.</div>
+      <div class="desc">타일을 탈락시켜 뒤채움률을 실측하고 부착강도 시험을 병행합니다. 탈락면 사진에 뒤채움률(%)과 부착강도 실측값을 함께 제시합니다.</div>
       <div class="method">
         <div class="mh">판정 기준</div>
         <div class="mr"><span>뒤채움</span><b>타일 배면에 접착재가 채워진 면적 비율(뒤채움률)</b></div>

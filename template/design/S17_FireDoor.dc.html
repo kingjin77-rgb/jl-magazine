@@ -85,6 +85,11 @@
   /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
      keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
   *{word-break:keep-all;overflow-wrap:break-word;}
+  .colL.pg4{border:0;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;overflow:visible;}
+  .pg4 figure{margin:0;position:relative;border:1px solid var(--line);overflow:hidden;}
+  .pg4 .pb{position:absolute;inset:0;background-size:cover;background-position:center;}
+  .pg4 figcaption{position:absolute;left:0;right:0;bottom:0;font-size:12.5px;font-weight:700;color:#fff;padding:5px 9px;
+    background:linear-gradient(180deg,rgba(34,61,91,0) 0%,rgba(34,61,91,.85) 100%);}
 </style>
 </head>
 <body>
@@ -92,7 +97,7 @@
   <div class="eyebrow">방화문 성능 미달 [고정]</div>
   <div class="title">외관은 멀쩡해도 내화·차연 성능시험에서 미달이 드러납니다</div>
   <div class="cols">
-    <div class="colL"><img src="s17_firedoor_test.png"></div>
+    <div class="colL pg4"><figure><div class="pb" style="background-image:url(p-fire-1.jpg)"></div><figcaption>① 시험체 설치</figcaption></figure><figure><div class="pb" style="background-image:url(p-fire-2.jpg)"></div><figcaption>② 가열로 가동</figcaption></figure><figure><div class="pb" style="background-image:url(p-fire-3.jpg)"></div><figcaption>③ 가열면 · 차염 관찰</figcaption></figure><figure><div class="pb" style="background-image:url(p-fire-4.jpg)"></div><figcaption>④ 비가열면 · 화염 관통 확인</figcaption></figure></div>
     <div class="colR">
       <div class="std">
         <div class="row"><span>내화 시험</span><b class="kscode">KS F 2268-1</b></div>
