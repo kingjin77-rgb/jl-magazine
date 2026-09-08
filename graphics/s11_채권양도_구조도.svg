@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="'210 옴니고딕 030','OmniGothic030','Pretendard',sans-serif">
+  <defs>
+    <marker id="ar" markerWidth="7" markerHeight="7" refX="3.5" refY="3.5" orient="auto">
+      <path d="M0,0 L7,3.5 L0,7 Z" fill="#081541"/>
+    </marker>
+  </defs>
+
+  <rect width="1200" height="600" fill="#FFFFFF"/>
+
+  <!-- 제목 -->
+  <rect x="40" y="34" width="42" height="5" fill="#B08D4F"/>
+  <text x="96" y="46" font-size="27" font-weight="700" fill="#0D2162">채권양도 구조</text>
+  <text x="96" y="72" font-size="13" fill="#8F7033" letter-spacing="2.6">ASSIGNMENT OF CLAIM STRUCTURE</text>
+
+  <!-- ================= 카드 A: 구분소유자 다수 ================= -->
+  <g>
+    <rect x="60" y="125" width="340" height="260" rx="10" fill="#FFFFFF" stroke="#C7CBD3" stroke-width="1.5"/>
+    <text x="84" y="155" font-size="17" font-weight="700" fill="#081541">구분소유자 다수</text>
+    <text x="84" y="173" font-size="11.5" fill="#5A5F68">세대별로 손해배상채권을 개별 보유</text>
+
+    <!-- 세대 아이콘 그리드 5x4 -->
+    <g transform="translate(80,185)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(144,185)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(208,185)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(272,185)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(336,185)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(80,233)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(144,233)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(208,233)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(272,233)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(336,233)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(80,281)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(144,281)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(208,281)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(272,281)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(336,281)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(80,329)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(144,329)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(208,329)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(272,329)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+    <g transform="translate(336,329)">
+      <path d="M0,15 L17,0 L34,15" fill="none" stroke="#0D2162" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+      <rect x="4" y="15" width="26" height="21" rx="1.5" fill="#EFF2FB" stroke="#0D2162" stroke-width="1.6"/>
+      <rect x="14" y="25" width="6" height="11" fill="#0D2162"/>
+    </g>
+
+    <text x="84" y="378" font-size="11.5" fill="#5A5F68">각 세대 = 손해배상채권 1개(5x4 예시 20세대)</text>
+  </g>
+
+  <!-- ================= 화살표 1: 채권양도 ================= -->
+  <line x1="406" y1="255" x2="452" y2="255" stroke="#081541" stroke-width="2.2" marker-end="url(#ar)"/>
+  <text x="429" y="170" font-size="15" font-weight="700" fill="#081541" text-anchor="middle">손해배상채권 양도</text>
+  <text x="429" y="345" font-size="11.5" fill="#5A5F68" text-anchor="middle">(채권양도 동의서 징구)</text>
+
+  <!-- ================= 박스 B: 입주자대표회의 ================= -->
+  <g transform="translate(460,190)">
+    <rect x="0" y="0" width="240" height="130" rx="10" fill="#FFFFFF" stroke="#C7CBD3" stroke-width="1.5"/>
+    <rect x="0" y="0" width="5" height="130" rx="2" fill="#0D2162"/>
+    <text x="26" y="46" font-size="19" font-weight="700" fill="#081541">입주자대표회의</text>
+    <text x="26" y="70" font-size="13" font-weight="700" fill="#0D2162">채권양수인 · 원고</text>
+    <text x="26" y="94" font-size="12.5" fill="#5A5F68">양도받은 손해배상채권을 모아</text>
+    <text x="26" y="112" font-size="12.5" fill="#5A5F68">회의 명의로 소송을 수행</text>
+  </g>
+
+  <!-- ================= 화살표 2: 소 제기 ================= -->
+  <line x1="712" y1="255" x2="776" y2="255" stroke="#081541" stroke-width="2.2" marker-end="url(#ar)"/>
+  <text x="744" y="170" font-size="15" font-weight="700" fill="#081541" text-anchor="middle">소 제기</text>
+  <text x="744" y="345" font-size="11.5" fill="#5A5F68" text-anchor="middle">(소장 제출)</text>
+
+  <!-- ================= 박스 C: 법원 ================= -->
+  <g transform="translate(784,190)">
+    <rect x="0" y="0" width="240" height="130" rx="10" fill="#FFFFFF" stroke="#C7CBD3" stroke-width="1.5"/>
+    <rect x="0" y="0" width="5" height="130" rx="2" fill="#0D2162"/>
+    <text x="26" y="46" font-size="19" font-weight="700" fill="#081541">법원</text>
+    <text x="26" y="70" font-size="13" font-weight="700" fill="#0D2162">민사소송 · 손해배상 청구</text>
+    <text x="26" y="94" font-size="12.5" fill="#5A5F68">피고: 분양자 · 시공자 · 보증기관</text>
+    <text x="26" y="112" font-size="12.5" fill="#5A5F68">등 청구 상대방</text>
+  </g>
+
+  <!-- ================= 하단: 양도비율 게이지 (JL 실적 기준) ================= -->
+  <g transform="translate(60,410)">
+    <rect x="0" y="0" width="1080" height="118" rx="10" fill="#FFFFFF" stroke="#C7CBD3" stroke-width="1.5"/>
+
+    <text x="30" y="38" font-size="17" font-weight="700" fill="#081541">양도 전유면적 / 전체 전유면적 = 청구 규모</text>
+    <text x="30" y="60" font-size="12.5" fill="#5A5F68">공용부분 손해배상채권은 전유부분 면적 비율로 귀속되므로, 양도비율도 세대 수가 아니라 전유면적으로 산정합니다</text>
+
+    <text x="30" y="96" font-size="13" font-weight="700" fill="#081541">양도비율</text>
+
+    <!-- 트랙 -->
+    <rect x="120" y="78" width="810" height="26" rx="13" fill="#EFF2FB" stroke="#C7CBD3"/>
+    <!-- 채움: JL 15건 평균 93.28% -->
+    <rect x="120" y="78" width="755.6" height="26" rx="13" fill="#0D2162"/>
+    <!-- 최저치 75.01% 눈금 -->
+    <line x1="727.6" y1="72" x2="727.6" y2="110" stroke="#B08D4F" stroke-width="2"/>
+    <text x="727.6" y="68" font-size="10.5" fill="#8F7033" text-anchor="middle">최저 75.01%</text>
+
+    <text x="944" y="99" font-size="26" font-weight="700" fill="#0D2162">93.28%</text>
+
+    <text x="120" y="118" font-size="11" fill="#5A5F68">0%</text>
+    <text x="930" y="118" font-size="11" fill="#5A5F68" text-anchor="end">100%</text>
+  </g>
+
+  <text x="60" y="552" font-size="13" fill="#5A5F68">모식도 · 세대 아이콘 그리드는 5x4(20세대)로 단순화한 예시이며 실제 세대수를 나타내지 않음</text>
+  <text x="60" y="574" font-size="13" fill="#5A5F68">93.28% = 법무법인 제이엘 수행 사건 중 판결문에서 양도비율이 확인된 15건의 단순평균(범위 75.01~100.00%) · 개별 사건의 양도비율을 보장하지 않음</text>
+</svg>

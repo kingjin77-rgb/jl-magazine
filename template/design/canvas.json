@@ -1,0 +1,951 @@
+{
+  "artboards": [
+    {
+      "file": "001_Cover.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "01 표지",
+      "page": "page-1"
+    },
+    {
+      "file": "002_Summary.dc.html",
+      "x": 1472,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "02 제안 요약",
+      "page": "page-1"
+    },
+    {
+      "file": "003_Contents.dc.html",
+      "x": 2944,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "03 목차",
+      "page": "page-1"
+    },
+    {
+      "file": "004_ThreeReasons.dc.html",
+      "x": 4416,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "04 제안의 세 가지 축",
+      "page": "page-1"
+    },
+    {
+      "file": "005_Part1Divider.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "05 PART 1 간지",
+      "page": "page-2"
+    },
+    {
+      "file": "006_FirmOverview.dc.html",
+      "x": 1472,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "06 법인 개요",
+      "page": "page-2"
+    },
+    {
+      "file": "007_WhyDirect.dc.html",
+      "x": 2944,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "07 직접 수행 체계",
+      "page": "page-2"
+    },
+    {
+      "file": "008_ManagingPartner.dc.html",
+      "x": 4416,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "08 대표변호사 인사",
+      "page": "page-2"
+    },
+    {
+      "file": "009_PartnerCareer.dc.html",
+      "x": 5888,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "09 대표변호사 약력",
+      "page": "page-2"
+    },
+    {
+      "file": "010_Offices.dc.html",
+      "x": 7360,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "10 사무소 안내",
+      "page": "page-2"
+    },
+    {
+      "file": "011_TeamCapacity.dc.html",
+      "x": 0,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "11 사무소 인력 구성",
+      "page": "page-2"
+    },
+    {
+      "file": "012_Attorneys.dc.html",
+      "x": 1472,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "12 담당 변호사",
+      "page": "page-2"
+    },
+    {
+      "file": "013_LeeJihoon.dc.html",
+      "x": 2944,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "13 건설 전문변호사 이지훈",
+      "page": "page-2"
+    },
+    {
+      "file": "014_HaHyeyong.dc.html",
+      "x": 4416,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "14 하자소송 주무 변호사 하혜용",
+      "page": "page-2"
+    },
+    {
+      "file": "015_TechnicalStaff.dc.html",
+      "x": 5888,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "15 하자 전문 사무장",
+      "page": "page-2"
+    },
+    {
+      "file": "016_StaffRole.dc.html",
+      "x": 7360,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "16 사무장의 역할",
+      "page": "page-2"
+    },
+    {
+      "file": "017_PartnerFirm.dc.html",
+      "x": 0,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "17 협력 진단업체",
+      "page": "page-2"
+    },
+    {
+      "file": "018_TrackRecord.dc.html",
+      "x": 1472,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "18 수행 실적",
+      "page": "page-2"
+    },
+    {
+      "file": "019_Credentials.dc.html",
+      "x": 2944,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "19 자격·보험·조직",
+      "page": "page-2"
+    },
+    {
+      "file": "020_Part2Divider.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "20 PART 2 간지",
+      "page": "page-3"
+    },
+    {
+      "file": "021_WhatIsDefectSuit.dc.html",
+      "x": 1472,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "21 하자소송이란",
+      "page": "page-3"
+    },
+    {
+      "file": "022_LegalStructure.dc.html",
+      "x": 2944,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "22 이원 구조",
+      "page": "page-3"
+    },
+    {
+      "file": "023_DefectTypes.dc.html",
+      "x": 4416,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "23 하자의 법적 유형",
+      "page": "page-3"
+    },
+    {
+      "file": "024_TypeImportance.dc.html",
+      "x": 5888,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "24 유형 판단의 중요성",
+      "page": "page-3"
+    },
+    {
+      "file": "025_Revision2026.dc.html",
+      "x": 7360,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "25 개정",
+      "page": "page-3"
+    },
+    {
+      "file": "026_RevisionBackground.dc.html",
+      "x": 0,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "26 개정의 배경",
+      "page": "page-3"
+    },
+    {
+      "file": "027_JudgmentStandard.dc.html",
+      "x": 1472,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "27 하자 판단의 기준",
+      "page": "page-3"
+    },
+    {
+      "file": "028_DrawingFirst.dc.html",
+      "x": 2944,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "28 조사의 출발점",
+      "page": "page-3"
+    },
+    {
+      "file": "029_WarrantyPeriod.dc.html",
+      "x": 4416,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "29 담보책임 존속기간",
+      "page": "page-3"
+    },
+    {
+      "file": "030_AssignmentStructure.dc.html",
+      "x": 5888,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "30 채권양도 구조",
+      "page": "page-3"
+    },
+    {
+      "file": "031_ClaimTargets.dc.html",
+      "x": 7360,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "31 청구 대상 3축",
+      "page": "page-3"
+    },
+    {
+      "file": "032_ClaimRoutes.dc.html",
+      "x": 0,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "32 청구 경로",
+      "page": "page-3"
+    },
+    {
+      "file": "033_RouteRelations.dc.html",
+      "x": 1472,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "33 청구 경로 간 관계",
+      "page": "page-3"
+    },
+    {
+      "file": "034_AssociationPowers.dc.html",
+      "x": 2944,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "34 입대의 지위",
+      "page": "page-3"
+    },
+    {
+      "file": "035_AssignmentStart.dc.html",
+      "x": 4416,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "35 채권양도의 필요성",
+      "page": "page-3"
+    },
+    {
+      "file": "036_DisputeCommittee.dc.html",
+      "x": 5888,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "36 하심위 통계",
+      "page": "page-3"
+    },
+    {
+      "file": "037_VsLitigation.dc.html",
+      "x": 7360,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "37 하심위와 소송의 차이",
+      "page": "page-3"
+    },
+    {
+      "file": "038_Part3Divider.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "38 PART 3 간지",
+      "page": "page-4"
+    },
+    {
+      "file": "039_ComplexOverview.dc.html",
+      "x": 1472,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "39 단지 현황",
+      "page": "page-4"
+    },
+    {
+      "file": "040_SiteFirstLook.dc.html",
+      "x": 2944,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "40 단지 현장 · 먼저 보는 곳",
+      "page": "page-4"
+    },
+    {
+      "file": "041_WarrantyTimeline.dc.html",
+      "x": 4416,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "41 담보책임기간 잔여",
+      "page": "page-4"
+    },
+    {
+      "file": "042_DefectStats.dc.html",
+      "x": 5888,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "42 하자 접수 집계",
+      "page": "page-4"
+    },
+    {
+      "file": "043_ResidentData.dc.html",
+      "x": 7360,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "43 단지 보유 자료 활용",
+      "page": "page-4"
+    },
+    {
+      "file": "044_DataOrganize.dc.html",
+      "x": 0,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "44 자료 정리 방식",
+      "page": "page-4"
+    },
+    {
+      "file": "045_UnresolvedHistory.dc.html",
+      "x": 1472,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "45 미이행 이력",
+      "page": "page-4"
+    },
+    {
+      "file": "046_AdVsActual.dc.html",
+      "x": 2944,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "46 광고 대비 시공",
+      "page": "page-4"
+    },
+    {
+      "file": "047_InfoDisclosure.dc.html",
+      "x": 4416,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "47 설계도서 확보",
+      "page": "page-4"
+    },
+    {
+      "file": "048_DisclosureScope.dc.html",
+      "x": 5888,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "48 확보 대상·경로",
+      "page": "page-4"
+    },
+    {
+      "file": "049_Part4Divider.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "49 PART 4 간지",
+      "page": "page-5"
+    },
+    {
+      "file": "050_InspectionProcess.dc.html",
+      "x": 1472,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "50 하자조사 절차",
+      "page": "page-5"
+    },
+    {
+      "file": "051_DefectOverview.dc.html",
+      "x": 2944,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "51 주요 하자 유형",
+      "page": "page-5"
+    },
+    {
+      "file": "052_DefectMatrix.dc.html",
+      "x": 4416,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "52 하자 유형 분포 매트릭스",
+      "page": "page-5"
+    },
+    {
+      "file": "053_DefectStatistics.dc.html",
+      "x": 5888,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "53 하자 유형별 분포",
+      "page": "page-5"
+    },
+    {
+      "file": "054_DesignMismatch.dc.html",
+      "x": 7360,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "54 설계도서 상이시공의 비중",
+      "page": "page-5"
+    },
+    {
+      "file": "055_BeforeFinish.dc.html",
+      "x": 0,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "55 실사 조사 사례 · 마감 전",
+      "page": "page-5"
+    },
+    {
+      "file": "056_Wallpad.dc.html",
+      "x": 1472,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "56 월패드",
+      "page": "page-5"
+    },
+    {
+      "file": "057_GatewaySteps.dc.html",
+      "x": 2944,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "57 홈게이트웨이 판단 단계",
+      "page": "page-5"
+    },
+    {
+      "file": "058_TileBacking.dc.html",
+      "x": 4416,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "58 타일 뒤채움",
+      "page": "page-5"
+    },
+    {
+      "file": "059_Waterproofing.dc.html",
+      "x": 5888,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "59 방수",
+      "page": "page-5"
+    },
+    {
+      "file": "060_StandardChange.dc.html",
+      "x": 7360,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "60 방수 두께 기준의 현실",
+      "page": "page-5"
+    },
+    {
+      "file": "061_FireDoor.dc.html",
+      "x": 0,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "61 방화문",
+      "page": "page-5"
+    },
+    {
+      "file": "062_ConcreteCrack.dc.html",
+      "x": 1472,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "62 콘크리트 균열 ",
+      "page": "page-5"
+    },
+    {
+      "file": "063_CrackRemedy.dc.html",
+      "x": 2944,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "63 원인별 보수공법",
+      "page": "page-5"
+    },
+    {
+      "file": "064_MortarThickness.dc.html",
+      "x": 4416,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "64 미장 두께 부족",
+      "page": "page-5"
+    },
+    {
+      "file": "065_Insulation.dc.html",
+      "x": 5888,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "65 단열재·결로  ",
+      "page": "page-5"
+    },
+    {
+      "file": "066_CondensationCheck.dc.html",
+      "x": 7360,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "66 결로 조사 방법",
+      "page": "page-5"
+    },
+    {
+      "file": "067_CommonAreas.dc.html",
+      "x": 0,
+      "y": 3030,
+      "w": 1332,
+      "h": 750,
+      "title": "67 공용부 조사 대상",
+      "page": "page-5"
+    },
+    {
+      "file": "068_RevisedItems.dc.html",
+      "x": 1472,
+      "y": 3030,
+      "w": 1332,
+      "h": 750,
+      "title": "68 개정으로 달라진 항목",
+      "page": "page-5"
+    },
+    {
+      "file": "069_RevisedItems2.dc.html",
+      "x": 2944,
+      "y": 3030,
+      "w": 1332,
+      "h": 750,
+      "title": "69 개정 항목 · 방수·도장·방화문",
+      "page": "page-5"
+    },
+    {
+      "file": "070_FieldUnit.dc.html",
+      "x": 4416,
+      "y": 3030,
+      "w": 1332,
+      "h": 750,
+      "title": "70 실사 조사 사례 · 세대 내부",
+      "page": "page-5"
+    },
+    {
+      "file": "071_FieldCommon.dc.html",
+      "x": 5888,
+      "y": 3030,
+      "w": 1332,
+      "h": 750,
+      "title": "71 실사 조사 사례 · 공용부·지하",
+      "page": "page-5"
+    },
+    {
+      "file": "072_Penetration.dc.html",
+      "x": 7360,
+      "y": 3030,
+      "w": 1332,
+      "h": 750,
+      "title": "72 실사 조사 사례 · 관통부",
+      "page": "page-5"
+    },
+    {
+      "file": "073_Part5Divider.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "73 PART 5 간지",
+      "page": "page-6"
+    },
+    {
+      "file": "074_LitigationProcess.dc.html",
+      "x": 1472,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "74 소송 절차",
+      "page": "page-6"
+    },
+    {
+      "file": "075_ProcessTimeline.dc.html",
+      "x": 2944,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "75 소송 절차 11단계",
+      "page": "page-6"
+    },
+    {
+      "file": "076_ConsentCollection.dc.html",
+      "x": 4416,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "76 동의서 징구",
+      "page": "page-6"
+    },
+    {
+      "file": "077_AssignmentPractice.dc.html",
+      "x": 5888,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "77 채권양도 실무",
+      "page": "page-6"
+    },
+    {
+      "file": "078_PracticeIssues.dc.html",
+      "x": 7360,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "78 채권양도 실무의 난점",
+      "page": "page-6"
+    },
+    {
+      "file": "079_AppraisalResponse.dc.html",
+      "x": 0,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "79 감정 대응",
+      "page": "page-6"
+    },
+    {
+      "file": "080_SupplementReasons.dc.html",
+      "x": 1472,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "80 감정보완신청 사유",
+      "page": "page-6"
+    },
+    {
+      "file": "081_AppraisalScene.dc.html",
+      "x": 2944,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "81 감정 현장 3단계",
+      "page": "page-6"
+    },
+    {
+      "file": "082_ReportingSystem.dc.html",
+      "x": 4416,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "82 보고 체계",
+      "page": "page-6"
+    },
+    {
+      "file": "083_ReportContents.dc.html",
+      "x": 5888,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "83 보고서 수록 항목",
+      "page": "page-6"
+    },
+    {
+      "file": "084_AdhocReport.dc.html",
+      "x": 7360,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "84 수시 보고 시점",
+      "page": "page-6"
+    },
+    {
+      "file": "085_Timeline.dc.html",
+      "x": 0,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "85 전체 일정표",
+      "page": "page-6"
+    },
+    {
+      "file": "086_AfterJudgment.dc.html",
+      "x": 1472,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "86 판결 이후",
+      "page": "page-6"
+    },
+    {
+      "file": "087_PostRepair.dc.html",
+      "x": 2944,
+      "y": 2020,
+      "w": 1332,
+      "h": 750,
+      "title": "87 회수 이후의 보수공사",
+      "page": "page-6"
+    },
+    {
+      "file": "088_Part6Divider.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "88 PART 6 간지",
+      "page": "page-7"
+    },
+    {
+      "file": "089_FeeTerms.dc.html",
+      "x": 1472,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "89 보수 조건",
+      "page": "page-7"
+    },
+    {
+      "file": "090_CostStructure.dc.html",
+      "x": 2944,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "90 비용 부담 구조",
+      "page": "page-7"
+    },
+    {
+      "file": "091_CostTiming.dc.html",
+      "x": 4416,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "91 비용 발생 시점",
+      "page": "page-7"
+    },
+    {
+      "file": "092_CostBurden.dc.html",
+      "x": 5888,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "92 비용 부담 방식",
+      "page": "page-7"
+    },
+    {
+      "file": "093_Disclaimer.dc.html",
+      "x": 7360,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "93 유의사항",
+      "page": "page-7"
+    },
+    {
+      "file": "094_Part7Divider.dc.html",
+      "x": 0,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "94 PART 7 간지",
+      "page": "page-8"
+    },
+    {
+      "file": "095_FAQ.dc.html",
+      "x": 1472,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "95 예상 질의응답",
+      "page": "page-8"
+    },
+    {
+      "file": "096_FAQ2.dc.html",
+      "x": 2944,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "96 자주 묻는 질문",
+      "page": "page-8"
+    },
+    {
+      "file": "097_FAQ3.dc.html",
+      "x": 4416,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "97 자주 묻는 질문 · 계속",
+      "page": "page-8"
+    },
+    {
+      "file": "098_NextSteps.dc.html",
+      "x": 5888,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "98 다음 단계·연락처",
+      "page": "page-8"
+    },
+    {
+      "file": "099_Checklist.dc.html",
+      "x": 7360,
+      "y": 0,
+      "w": 1332,
+      "h": 750,
+      "title": "99 착수 전 준비",
+      "page": "page-8"
+    },
+    {
+      "file": "100_ListSchedule.dc.html",
+      "x": 0,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "100 명단·일정 준비",
+      "page": "page-8"
+    },
+    {
+      "file": "101_Closing.dc.html",
+      "x": 1472,
+      "y": 1010,
+      "w": 1332,
+      "h": 750,
+      "title": "101 끝인사",
+      "page": "page-8"
+    }
+  ],
+  "launch": {
+    "view": "canvas",
+    "page": "page-1"
+  },
+  "pages": [
+    {
+      "id": "page-1",
+      "name": "표지 · 개요"
+    },
+    {
+      "id": "page-2",
+      "name": "PART 1 · 법무법인 제이엘"
+    },
+    {
+      "id": "page-3",
+      "name": "PART 2 · 하자소송의 구조"
+    },
+    {
+      "id": "page-4",
+      "name": "PART 3 · 단지 진단"
+    },
+    {
+      "id": "page-5",
+      "name": "PART 4 · 하자 발굴"
+    },
+    {
+      "id": "page-6",
+      "name": "PART 5 · 수행 계획"
+    },
+    {
+      "id": "page-7",
+      "name": "PART 6 · 비용과 조건"
+    },
+    {
+      "id": "page-8",
+      "name": "PART 7 · 마무리"
+    }
+  ]
+}

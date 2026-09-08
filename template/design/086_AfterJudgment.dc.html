@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{--navy:#223D5B;--fill:#385783;--navy-deep:#2A3B4F;--gold:#B08D4F;--gold-ink:#8F7033;
+    --ink:#111418;--muted:#111418;--card:#E9EDF8;--line:#C6CFE0;--bg:#fff;--alert:#C0392B;--warn:#E67E22;}
+  html,body{width:1332px;height:750px;overflow:hidden;background:var(--bg);
+    font-family:"Pretendard","Malgun Gothic",sans-serif;color:var(--ink);position:relative;}
+  .runner{position:absolute;top:28px;left:56px;right:56px;display:flex;justify-content:space-between;
+    font-size:15px;color:var(--muted);}
+  .eyebrow{position:absolute;left:56px;top:70px;font-size:16px;letter-spacing:.02em;color:var(--gold-ink);
+    font-weight:700;display:flex;align-items:center;gap:10px;}
+  .eyebrow::before{content:"";width:32px;height:1px;background:var(--gold-ink);}
+  .title{position:absolute;left:56px;top:96px;right:56px;font-size:32px;font-weight:800;
+    color:var(--navy);letter-spacing:-.02em;line-height:1.4;}
+  .footer{position:absolute;bottom:0;left:0;right:0;height:36px;display:flex;align-items:center;
+    justify-content:space-between;padding:0 56px;border-top:1.4px solid var(--line);
+    font-size:15px;color:var(--muted);}
+  .footer .firm{color:var(--navy);font-weight:700;}
+
+  /* ── 본문 프리미티브 ── */
+  .body{position:absolute;left:56px;right:56px;top:186px;bottom:246px;}
+  .sec{font-size:15.5px;font-weight:800;color:var(--gold-ink);letter-spacing:.02em;
+    padding-bottom:6px;border-bottom:1.6px solid var(--navy);margin-bottom:11px;}
+  .sec+.sec,.blk+.sec{margin-top:16px;}
+
+  .cards{display:grid;gap:14px;}
+  .c{border:1px solid var(--line);border-top:3px solid var(--navy);background:#fff;padding:14px 17px;}
+  .c .ck{font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.01em;}
+  .c .cv{margin-top:8px;font-size:15.5px;line-height:1.62;color:var(--ink);}
+  .c .cn{font-size:15px;font-weight:800;color:var(--gold-ink);letter-spacing:.13em;margin-bottom:6px;}
+  .c b{color:var(--navy);font-weight:800;}
+
+  .flow{display:grid;gap:0;}
+  .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
+  .step+.step{border-left:0;}
+  .step .num{font-size:15px;font-weight:800;color:#fff;background:var(--fill);
+    width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
+  .step .t{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;}
+  .step .b{margin-top:7px;font-size:15px;line-height:1.55;color:var(--ink);}
+
+  .tbl{border:1px solid var(--line);}
+  .tbl .th{display:flex;align-items:center;text-align:center;justify-content:center;background:var(--fill);color:#fff;font-size:16px;font-weight:700;}
+  .tbl .th div{padding:10px 15px;}
+  .tbl .tr{display:flex;align-items:center;text-align:center;border-top:1px solid var(--line);font-size:15.5px;line-height:1.5;}
+  .tbl .tr div{padding:9px 15px;}
+  .tbl .tr b{color:var(--navy);font-weight:800;}
+
+  .kv .r{display:flex;gap:10px;font-size:15.5px;line-height:1.55;padding:7px 0;
+    border-bottom:1px solid var(--line);}
+  .kv .r:last-child{border-bottom:0;}
+  .kv .r span{flex:0 0 118px;color:var(--navy);font-weight:700;}
+  .kv .r em{flex:1;font-style:normal;}
+
+  .split{display:flex;gap:26px;height:100%;}
+  .split>div{flex:1;}
+
+  .verify{position:absolute;left:56px;right:56px;bottom:96px;height:152px;
+    display:grid;grid-template-columns:1fr 1fr 1fr;
+    border:1.4px solid var(--line);border-top:3px solid var(--navy);background:#fff;}
+  .verify>div{padding:13px 18px 12px;border-left:1px solid var(--line);}
+  .verify>div:first-child{border-left:0;}
+  .verify .vk{font-size:17px;font-weight:800;color:var(--navy);margin-bottom:7px;
+    display:flex;align-items:center;gap:7px;letter-spacing:-.01em;}
+  .verify .vk::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .verify .vv{font-size:15.5px;line-height:1.6;color:var(--ink);}
+  .verify .warnk{color:#C0392B;}
+  .verify .warnk::before{background:#C0392B!important;}
+  .verify *{background:transparent;}
+
+  .note{position:absolute;left:56px;right:56px;bottom:44px;font-size:15px;line-height:1.6;color:var(--ink);}
+
+  /* ── 법무법인 제안서 헤더 밴드 ── */
+  body::before{content:"";position:absolute;left:0;top:0;right:0;height:160px;
+    background:linear-gradient(152deg,#385783 0%,#2A3B4F 100%);z-index:0;}
+  body::after{content:"";position:absolute;left:0;top:160px;right:0;height:4px;
+    background:var(--gold);z-index:1;}
+  .runner{z-index:2;color:#FFFFFF!important;}
+  .eyebrow{z-index:2;color:#EBD9B4!important;}
+  .eyebrow::before{background:#EBD9B4!important;}
+  .title{z-index:2;color:#FFFFFF!important;}
+  html,body{background:#FFFFFF!important;}
+  body>*:not(.runner):not(.eyebrow):not(.title):not(.footer){z-index:1;}
+  .footer{background:#fff;border-top:2px solid var(--navy)!important;z-index:2;}
+
+  /* ── 사진 자리 ── 파일이 없으면 연한 상자로 남고, 넣으면 그대로 채워진다.
+     아래 배경 파일명 그대로 template/design/photos/ 에 두면 된다. */
+  .pslot{display:flex;gap:22px;align-items:stretch;margin-top:18px;
+    border-top:1.4px solid var(--line);padding-top:16px;}
+  .pslot .pbox{flex:0 0 auto;border:1px solid var(--line);
+    background:var(--card) center/cover no-repeat;position:relative;}
+  .pslot .ptx{flex:1;display:flex;flex-direction:column;justify-content:center;}
+  .pslot .ph{font-size:17px;font-weight:800;color:var(--navy);
+    display:flex;align-items:center;gap:8px;letter-spacing:-.01em;}
+  .pslot .ph::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .pslot .pd{margin-top:10px;font-size:15.5px;line-height:1.7;color:var(--ink);max-width:600px;}
+  .pslot .pd b{color:var(--navy);font-weight:800;}
+
+  /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.
+     keep-all로 띄어쓰기 단위로만 넘기고, 끊을 곳이 없는 긴 문자열만 예외로 둔다. */
+  *{word-break:keep-all;overflow-wrap:break-word;}
+  /* 안내는 상자 안에 둔다. 사진을 넣으면 그대로 가려진다. */
+  .pslot .pbox .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
+    text-align:center;font-size:15px;line-height:1.75;color:#223D5B;}
+  .pslot .pbox .hint b{display:block;font-size:15px;font-weight:800;letter-spacing:.24em;
+    margin-bottom:7px;color:#223D5B;}
+
+  /* ── 사진 두 장 ── 설명을 사진 아래에 두어 가로 폭을 끝까지 쓴다. */
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;
+    border-top:1.4px solid var(--line);padding-top:16px;}
+  .duo .im{height:216px;border:1px solid var(--line);position:relative;
+    background:var(--card) center/cover no-repeat;}
+  .duo .im .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
+    text-align:center;font-size:15px;line-height:1.75;color:#223D5B;}
+  .duo .im .hint b{display:block;font-size:15px;font-weight:800;letter-spacing:.24em;
+    margin-bottom:7px;color:#223D5B;}
+  .duo .lb{margin-top:12px;font-size:17px;font-weight:800;color:var(--navy);
+    letter-spacing:-.01em;display:flex;align-items:center;gap:8px;}
+  .duo .lb::before{content:"";width:4px;height:15px;background:var(--gold);}
+  .duo .cp{margin-top:8px;font-size:15px;line-height:1.65;color:var(--ink);}
+  .duo .cp b{color:var(--navy);font-weight:800;}
+
+  /* 도해는 구도가 짜인 그림이라 잘리면 안 된다. 사진과 달리 통째로 넣는다. */
+  .dg{background-size:contain!important;background-color:#FFFFFF!important;
+    background-position:center!important;}
+</style>
+</head>
+<body>
+    <div class="runner"><span>법무법인 제이엘 하자소송 수행 제안서</span></div>
+  <div class="eyebrow">판결 이후 [고정]</div>
+  <div class="title">판결은 끝이 아닙니다. 받고, 고치는 일이 남습니다</div>
+  <div class="body" style="bottom:56px"><div class="sec">선고 이후의 갈래 — 받고, 고치는 일까지 법인이 맡습니다</div><svg viewBox="0 0 1220 430" width="100%" height="430" font-family="Pretendard,'Malgun Gothic',sans-serif" style="display:block"><defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#8FA0BE"/></marker></defs><rect x="0" y="160" width="200" height="88" fill="#223D5B" stroke="#223D5B" stroke-width="1.4"/><text x="100.0" y="194" font-size="19" font-weight="800" fill="#fff" text-anchor="middle">1심 판결 선고</text><text x="100.0" y="222" font-size="15.5" fill="#D6DEEE" text-anchor="middle">인용 금액 · 책임제한 확정</text><line x1="200" y1="204" x2="256" y2="204" stroke="#8FA0BE" stroke-width="2" marker-end="url(#ar)"/><circle cx="290" cy="204" r="30" fill="#fff" stroke="#223D5B" stroke-width="1.6"/><text x="290" y="199" font-size="14" font-weight="800" fill="#223D5B" text-anchor="middle">피고</text><text x="290" y="216" font-size="14" font-weight="800" fill="#223D5B" text-anchor="middle">지급?</text><path d="M320,190 C360,190 360,96 400,96" fill="none" stroke="#8FA0BE" stroke-width="2" marker-end="url(#ar)"/><text x="352" y="128" font-size="14" font-weight="700" fill="#223D5B">예</text><path d="M320,218 C360,218 360,312 400,312" fill="none" stroke="#8FA0BE" stroke-width="2" marker-end="url(#ar)"/><text x="343" y="285" font-size="14" font-weight="700" fill="#C0392B">아니오</text><rect x="400" y="52" width="230" height="88" fill="#fff" stroke="#C6CFE0" stroke-width="1.4"/><text x="515.0" y="86" font-size="19" font-weight="800" fill="#223D5B" text-anchor="middle">임의 이행</text><text x="515.0" y="114" font-size="15.5" fill="#111418" text-anchor="middle">판결금 입금 → 종결</text><rect x="400" y="268" width="230" height="88" fill="#fff" stroke="#C6CFE0" stroke-width="1.4"/><text x="515.0" y="302" font-size="19" font-weight="800" fill="#223D5B" text-anchor="middle">강제집행</text><text x="515.0" y="330" font-size="15.5" fill="#111418" text-anchor="middle">채권압류 · 추심을 법인이 이어서 진행</text><path d="M630,96 C690,96 690,204 730,204" fill="none" stroke="#8FA0BE" stroke-width="2" marker-end="url(#ar)"/><path d="M630,312 C690,312 690,204 730,204" fill="none" stroke="#8FA0BE" stroke-width="2" marker-end="url(#ar)"/><rect x="732" y="160" width="220" height="88" fill="#223D5B" stroke="#223D5B" stroke-width="1.4"/><text x="842.0" y="194" font-size="19" font-weight="800" fill="#fff" text-anchor="middle">회수</text><text x="842.0" y="222" font-size="15.5" fill="#D6DEEE" text-anchor="middle">판결금 수령</text><line x1="952" y1="204" x2="998" y2="204" stroke="#8FA0BE" stroke-width="2" marker-end="url(#ar)"/><rect x="1000" y="160" width="220" height="88" fill="#FBF7EE" stroke="#E7D9BC" stroke-width="1.4"/><text x="1110.0" y="194" font-size="19" font-weight="800" fill="#223D5B" text-anchor="middle">보수공사</text><text x="1110.0" y="222" font-size="15.5" fill="#111418" text-anchor="middle">입대의 의결로 집행</text><rect x="732" y="330" width="488" height="92" fill="#fff" stroke="#C6CFE0"/><text x="750" y="360" font-size="17" font-weight="800" fill="#223D5B">항소는 별도 갈래입니다</text><text x="750" y="384" font-size="15" fill="#111418">어느 쪽이든 항소할 수 있습니다.</text><text x="750" y="405" font-size="15" fill="#111418">인용 금액과 책임제한 비율을 보고 실익을 검토해 의견을 드립니다.</text><text x="0" y="60" font-size="46" font-weight="900" fill="#223D5B">회수까지</text><text x="0" y="92" font-size="16" fill="#223D5B">판결이 아니라 입금이 끝입니다</text></svg></div>
+  <div class="footer"><span class="firm">법무법인 제이엘</span><span>JL LAWFIRM</span></div>
+</body>
+</html>

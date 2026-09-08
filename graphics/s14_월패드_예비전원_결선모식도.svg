@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" width="1200" height="600" font-family="'210 옴니고딕 030','OmniGothic030','Pretendard',sans-serif">
+  <rect width="1200" height="600" fill="#FFFFFF"/>
+
+  <rect x="40" y="34" width="42" height="5" fill="#B08D4F"/>
+  <text x="96" y="46" font-size="27" font-weight="700" fill="#0D2162">세대 월패드 예비전원장치·홈게이트웨이 미시공</text>
+  <text x="96" y="72" font-size="13" fill="#8F7033" letter-spacing="2.6">WALL PAD BACKUP POWER UNIT · WIRING</text>
+
+  <!-- 좌: 설계도면 기준 -->
+  <g transform="translate(70,116)">
+    <rect x="0" y="0" width="430" height="34" rx="6" fill="#EFF2FB"/>
+    <text x="20" y="23" font-size="16" font-weight="700" fill="#081541">설계도면 기준</text>
+    <text x="300" y="23" font-size="13" fill="#5A5F68">준공도면 표기</text>
+
+    <text x="0" y="62" font-size="13" fill="#42506A">세대 통신단자함</text>
+    <rect x="0" y="72" width="430" height="196" rx="8" fill="#FBFCFE" stroke="#C7CBD3"/>
+
+    <rect x="24" y="96" width="382" height="46" rx="6" fill="#0D2162"/>
+    <text x="44" y="125" font-size="16" font-weight="700" fill="#FFFFFF">홈게이트웨이</text>
+    <text x="330" y="125" font-size="13" fill="#DDE6F5">설치</text>
+
+    <rect x="24" y="152" width="382" height="46" rx="6" fill="#0D2162"/>
+    <text x="44" y="181" font-size="16" font-weight="700" fill="#FFFFFF">예비전원장치 (APU)</text>
+    <text x="330" y="181" font-size="13" fill="#DDE6F5">설치</text>
+
+    <rect x="24" y="208" width="382" height="42" rx="6" fill="#EFF2FB" stroke="#C7CBD3"/>
+    <text x="44" y="235" font-size="15" fill="#081541">통신 단자대</text>
+
+    <line x1="215" y1="286" x2="215" y2="312" stroke="#0D2162" stroke-width="2"/>
+    <rect x="90" y="312" width="250" height="44" rx="6" fill="#EFF2FB"/>
+    <text x="128" y="340" font-size="16" font-weight="700" fill="#081541">거실 월패드 정상 동작</text>
+  </g>
+
+  <line x1="586" y1="126" x2="586" y2="480" stroke="#C7CBD3" stroke-width="1.5" stroke-dasharray="5 5"/>
+
+  <!-- 우: 현장 -->
+  <g transform="translate(630,116)">
+    <rect x="0" y="0" width="430" height="34" rx="6" fill="#F9E9E7"/>
+    <text x="20" y="23" font-size="16" font-weight="700" fill="#C0392B">현장 확인</text>
+    <text x="272" y="23" font-size="13" fill="#8A473F">단자함 개방 조사</text>
+
+    <text x="0" y="62" font-size="13" fill="#42506A">세대 통신단자함</text>
+    <rect x="0" y="72" width="430" height="196" rx="8" fill="#FBFCFE" stroke="#C7CBD3"/>
+
+    <rect x="24" y="96" width="382" height="46" rx="6" fill="#FFFFFF" stroke="#C0392B" stroke-width="1.6" stroke-dasharray="6 4"/>
+    <text x="44" y="125" font-size="16" font-weight="700" fill="#C0392B">홈게이트웨이</text>
+    <text x="308" y="125" font-size="14" font-weight="700" fill="#C0392B">미시공</text>
+
+    <rect x="24" y="152" width="382" height="46" rx="6" fill="#FFFFFF" stroke="#C0392B" stroke-width="1.6" stroke-dasharray="6 4"/>
+    <text x="44" y="181" font-size="16" font-weight="700" fill="#C0392B">예비전원장치 (APU)</text>
+    <text x="308" y="181" font-size="14" font-weight="700" fill="#C0392B">미시공</text>
+
+    <rect x="24" y="208" width="382" height="42" rx="6" fill="#EFF2FB" stroke="#C7CBD3"/>
+    <text x="44" y="235" font-size="15" fill="#081541">통신 단자대</text>
+    <text x="330" y="235" font-size="13" fill="#42506A">설치</text>
+
+    <line x1="215" y1="286" x2="215" y2="312" stroke="#C0392B" stroke-width="2"/>
+    <rect x="60" y="312" width="310" height="44" rx="6" fill="#F9E9E7"/>
+    <text x="86" y="340" font-size="15" font-weight="700" fill="#C0392B">정전 시 기능 정지 · 보안 취약</text>
+  </g>
+
+  <!-- 결론 -->
+  <g transform="translate(70,500)">
+    <rect x="0" y="0" width="990" height="60" rx="8" fill="#FFFFFF" stroke="#C7CBD3"/>
+    <rect x="0" y="0" width="5" height="60" rx="2" fill="#C0392B"/>
+    <text x="28" y="26" font-size="14" fill="#42506A">판정 방법</text>
+    <text x="28" y="48" font-size="15" fill="#081541">단자함 개방 후 장치 유무 확인 · 준공도면 대조</text>
+    <line x1="470" y1="12" x2="470" y2="48" stroke="#C7CBD3"/>
+    <text x="498" y="26" font-size="14" fill="#42506A">타 단지 인정 사례 (세대당)</text>
+    <text x="498" y="48" font-size="19" font-weight="700" fill="#C0392B">10.6만 ~ 50만원</text>
+    <text x="742" y="48" font-size="14" fill="#42506A">단지 총액 7천만 ~ 4.5억원</text>
+  </g>
+
+  <text x="70" y="582" font-size="13" fill="#5A5F68">모식도 · 인정 사례: 백석더샵(세대당 10.6만원, 총 약 7천만원) · 죽림부영1차(세대당 30~50만원, 총 약 4.5억원)</text>
+</svg>
