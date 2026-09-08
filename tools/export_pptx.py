@@ -11,7 +11,7 @@ PPTX는 배경 PNG 위에 덤프대로 텍스트 상자를 얹는다. PPT에서 
 
   python3 tools/export_pptx.py
   python3 tools/export_pptx.py --check              # 검증 오버레이까지
-  python3 tools/export_pptx.py --only S32_Closing   # 한 장만
+  python3 tools/export_pptx.py --only 101_Closing   # 한 장만
 """
 import io, json, os, sys
 from playwright.sync_api import sync_playwright

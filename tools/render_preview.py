@@ -27,7 +27,7 @@ def capture():
                 files.append(f)
     if not files:
         files = sorted(glob.glob(os.path.join(BUILD, '*.dc.html')),
-                       key=lambda p: (os.path.basename(p) != 'Main.dc.html',
+                       key=lambda p: (os.path.basename(p) != '001_Cover.dc.html',
                                       os.path.basename(p)))
     for i, f in enumerate(files):
         name = os.path.basename(f).replace('.dc.html', '')

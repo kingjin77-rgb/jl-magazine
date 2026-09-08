@@ -15,7 +15,7 @@ MIN_PX = 13             # 인쇄 하한
 GREYS = ('#7F8CA6', '#8289A3', '#9AA3B8', '#A8B0C4', '#888', '#999', '#aaa', '#AAA')
 
 # 간지·표지는 전면 배경이라 본문 top 규칙에서 뺀다
-EXEMPT_TOP = re.compile(r'(Main|D\d_Divider)\.dc\.html$')
+EXEMPT_TOP = re.compile(r'(_Cover|Part\dDivider)\.dc\.html$')
 
 
 def slides():
@@ -41,12 +41,26 @@ def check_grey(path, s):
 
 
 def check_body_top(path, s):
+    """헤더 금선 아래로 내려오지 않은 본문 블록을 찾는다.
+
+    body::before(밴드)와 body::after(금선)는 골격이므로 제외한다.
+    이 둘을 세면 금선의 top:160이 본문 위반으로 잡히는 오탐이 난다.
+    """
     if EXEMPT_TOP.search(path):
         return None
-    # 본문 컨테이너로 쓰이는 절대배치 top 값 중 헤더 바로 아래대(140~210)를 본다
-    tops = [int(v) for v in re.findall(r'top:\s*(1[4-9]\d|20\d)px', s)]
-    off = sorted({t for t in tops if t != BODY_TOP})
-    return off or None
+    m = re.search(r'body::before\{[^}]*height:(\d+)px', s)
+    if not m:
+        return None
+    gold_end = int(m.group(1)) + 4
+    bad = []
+    for r in re.finditer(r'([.#][\w.\- >]+)\{([^}]*)\}', s):
+        sel, decl = r.group(1).strip(), r.group(2)
+        if 'position:absolute' not in decl:
+            continue
+        t = re.search(r'(?<![\w-])top:\s*(\d+)px', decl)
+        if t and 100 <= int(t.group(1)) < gold_end:
+            bad.append(f"{sel}@{t.group(1)}")
+    return bad or None
 
 
 def check_check_marks(path, s):
