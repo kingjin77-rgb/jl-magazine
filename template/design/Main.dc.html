@@ -10,17 +10,17 @@
     font-family:"Pretendard","Malgun Gothic",sans-serif;color:#FFFFFF;background:#2A3B4F;}
 
   /* ── 표지 배경 ── 단지 전경 실사 사진 한 장.
-     template/design/photos/p-cover.jpg 로 두면 그대로 들어가고,
+     template/design/photos/p-part6.jpg 로 두면 그대로 들어가고,
      없으면 아래 브랜드 그러데이션만 보인다. */
   .bg{position:absolute;inset:0;
-    background:url(p-cover.jpg) center/cover no-repeat,
+    background:url(p-part6.jpg) center/cover no-repeat,
                linear-gradient(148deg,#385783 0%,#2A3B4F 62%,#223D5B 100%);}
   /* 아래에서 위로 어둡게 눌러 어떤 사진이 와도 글자가 읽히게 한다 */
   .scrim{position:absolute;inset:0;
     background:linear-gradient(0deg,rgba(20,33,52,.96) 0%,rgba(20,33,52,.88) 32%,
                rgba(20,33,52,.46) 58%,rgba(20,33,52,.30) 100%);}
   .edge{position:absolute;left:0;right:0;bottom:0;height:7px;background:var(--gold);}
-  .hint{position:absolute;left:76px;top:34px;font-size:12px;letter-spacing:.14em;
+  .hint{position:absolute;left:76px;top:34px;font-size:13px;letter-spacing:.14em;
     color:rgba(255,255,255,.62);}
 
   /* 로고 원본이 짙은 남색이라 사진 위에서 묻힌다. 단색 로고이므로 흰색으로 바꿔 얹는다. */
@@ -41,7 +41,7 @@
   .stat .n{font-size:30px;font-weight:800;letter-spacing:-.03em;line-height:1;}
   .stat .l{margin-top:9px;font-size:13.5px;color:#FFFFFF;}
   .recipient{margin-left:auto;text-align:right;}
-  .recipient .k{font-size:12.5px;letter-spacing:.22em;color:var(--gold-light);font-weight:700;}
+  .recipient .k{font-size:13px;letter-spacing:.22em;color:var(--gold-light);font-weight:700;}
   .recipient .v{margin-top:9px;font-size:17px;font-weight:800;letter-spacing:-.02em;}
 
   /* ── 한글 줄바꿈 ── 기본값은 한글을 어절 중간에서 끊는다.

@@ -37,7 +37,7 @@
   .flow{display:grid;gap:0;}
   .step{position:relative;border:1px solid var(--line);background:#fff;padding:13px 15px 14px;}
   .step+.step{border-left:0;}
-  .step .num{font-size:12px;font-weight:800;color:#fff;background:var(--fill);
+  .step .num{font-size:13px;font-weight:800;color:#fff;background:var(--fill);
     width:22px;height:22px;display:flex;align-items:center;justify-content:center;margin-bottom:8px;}
   .step .t{font-size:17px;font-weight:800;color:var(--ink);line-height:1.35;}
   .step .b{margin-top:7px;font-size:14.5px;line-height:1.55;color:var(--ink);}
@@ -112,9 +112,9 @@
   *{word-break:keep-all;overflow-wrap:break-word;}
   /* 안내는 상자 안에 둔다. 사진을 넣으면 그대로 가려진다. */
   .pslot .pbox .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
-    text-align:center;font-size:12.5px;line-height:1.75;color:#7F8CA6;}
+    text-align:center;font-size:13px;line-height:1.75;color:#44526E;}
   .pslot .pbox .hint b{display:block;font-size:13px;font-weight:800;letter-spacing:.24em;
-    margin-bottom:7px;color:#7F8CA6;}
+    margin-bottom:7px;color:#44526E;}
 
   /* ── 사진 두 장 ── 설명을 사진 아래에 두어 가로 폭을 끝까지 쓴다. */
   .duo{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:16px;
@@ -122,9 +122,9 @@
   .duo .im{height:221px;border:1px solid var(--line);position:relative;
     background:var(--card) center/cover no-repeat;}
   .duo .im .hint{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);
-    text-align:center;font-size:12.5px;line-height:1.75;color:#7F8CA6;}
+    text-align:center;font-size:13px;line-height:1.75;color:#44526E;}
   .duo .im .hint b{display:block;font-size:13px;font-weight:800;letter-spacing:.24em;
-    margin-bottom:7px;color:#7F8CA6;}
+    margin-bottom:7px;color:#44526E;}
   .duo .lb{margin-top:12px;font-size:17px;font-weight:800;color:var(--navy);
     letter-spacing:-.01em;display:flex;align-items:center;gap:8px;}
   .duo .lb::before{content:"";width:4px;height:15px;background:var(--gold);}
